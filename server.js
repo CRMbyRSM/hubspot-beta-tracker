@@ -11,6 +11,7 @@ const API_KEY = process.env.API_KEY || '';
 
 const app = express();
 app.use(express.json());
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // ─── API Routes ─────────────────────────────────────────────────────────────
 
@@ -39,19 +40,56 @@ app.get('/api/scan', async (req, res) => {
   }
 });
 
-app.post('/api/subscribe', (req, res) => {
+app.post('/api/subscribe', async (req, res) => {
   const { email } = req.body;
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Valid email required' });
   }
+
+  // Save locally as backup
   let subscribers = [];
   try { subscribers = JSON.parse(fs.readFileSync(SUBSCRIBERS_FILE, 'utf8')); } catch {}
-  if (subscribers.some(s => s.email === email)) {
-    return res.json({ ok: true, message: 'Already subscribed' });
+  const alreadyLocal = subscribers.some(s => s.email === email);
+  if (!alreadyLocal) {
+    subscribers.push({ email, subscribedAt: new Date().toISOString() });
+    fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2));
   }
-  subscribers.push({ email, subscribedAt: new Date().toISOString() });
-  fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2));
-  res.json({ ok: true, message: 'Subscribed!' });
+
+  // Push to HubSpot CRM
+  const hsToken = process.env.HUBSPOT_ACCESS_TOKEN;
+  if (hsToken) {
+    try {
+      const searchRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts/search', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${hsToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email }] }] })
+      });
+      const searchData = await searchRes.json();
+
+      if (searchData.total > 0) {
+        // Contact exists — update with beta tracker source
+        const contactId = searchData.results[0].id;
+        await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${contactId}`, {
+          method: 'PATCH',
+          headers: { 'Authorization': `Bearer ${hsToken}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ properties: { beta_tracker_subscriber: 'true', beta_tracker_subscribed_at: new Date().toISOString() } })
+        });
+      } else {
+        // Create new contact
+        await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${hsToken}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ properties: { email, lifecyclestage: 'lead', hs_lead_status: 'NEW', beta_tracker_subscriber: 'true', beta_tracker_subscribed_at: new Date().toISOString() } })
+        });
+      }
+      console.log(`✅ HubSpot contact synced: ${email}`);
+    } catch (err) {
+      console.error(`⚠️ HubSpot sync failed for ${email}:`, err.message);
+      // Don't fail the request — local backup saved
+    }
+  }
+
+  res.json({ ok: true, message: alreadyLocal ? 'Already subscribed' : 'Subscribed!' });
 });
 
 // ─── Frontend ───────────────────────────────────────────────────────────────
@@ -76,6 +114,7 @@ const HTML = `<!DOCTYPE html>
 <title>HubSpot Product Updates Tracker</title>
 <meta name="description" content="Track every HubSpot product update, beta, sunset, and breaking change — updated daily.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/png" href="/static/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -94,6 +133,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 /* Header */
 .header{padding:48px 0 32px;border-bottom:1px solid #1a1a1a}
+.header-top{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+.header-logo{height:48px;width:auto}
 .header h1{font-size:2.2rem;font-weight:700;text-wrap:balance;letter-spacing:-.02em}
 .header h1 span{color:var(--teal)}
 .header .subtitle{color:var(--text-muted);font-size:1.05rem;margin-top:8px;text-wrap:balance}
@@ -231,9 +272,12 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 <div class="container">
   <header class="header">
-    <h1>🔬 HubSpot <span>Product Updates Tracker</span></h1>
+    <div class="header-top">
+      <a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/rsm-logo.png" alt="RSM Consulting" class="header-logo"></a>
+    </div>
+    <h1>HubSpot <span>Product Updates Tracker</span></h1>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
-    <p class="by">Community-driven HubSpot changelog tracker</p>
+    <p class="by">Built by <a href="https://crmbyrsm.com" target="_blank" rel="noopener">RSM Consulting</a> — 22+ years of CRM expertise</p>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -266,7 +310,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 <footer class="footer container">
   Data sourced from HubSpot Developer Changelog, Community Board &amp; Releasebot &nbsp;·&nbsp;
-  Updated daily
+  Updated daily &nbsp;·&nbsp;
+  <a href="https://crmbyrsm.com" target="_blank" rel="noopener">RSM Consulting</a>
 </footer>
 
 <script>

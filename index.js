@@ -313,83 +313,101 @@ async function parseProductUpdates() {
   return results;
 }
 
-// Fetch known monthly community update posts directly
-async function parseMonthlyUpdate() {
-  console.log('📡 Fetching monthly product update posts...');
+// Releasebot.io aggregator — scrapes individual product updates from their pages
+// We scrape two feeds: product updates + developer-specific updates
+async function parseReleasebot() {
+  console.log('📡 Fetching Releasebot product & developer updates...');
   
-  const months = ['january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december'];
-  const now = new Date();
-  const year = now.getFullYear();
+  const pages = [
+    { url: 'https://releasebot.io/updates/hubspot', sourceLabel: 'releasebot-product' },
+    { url: 'https://releasebot.io/updates/hubspot/hubspot-developers', sourceLabel: 'releasebot-dev' },
+  ];
+  
   const results = [];
   
-  // Try current and previous month community posts (known URL patterns)
-  const monthsToTry = [
-    months[now.getMonth()],
-    months[(now.getMonth() + 11) % 12],
-  ];
-  
-  const urlPatterns = [
-    // Common naming patterns on the community board
-    (m, y) => `https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-${capitalize(m)}-${y}/ba-p`,
-    (m, y) => `https://community.hubspot.com/t5/Releases-and-Updates/${capitalize(m)}-${y}-Product-Updates/ba-p`,
-    (m, y) => `https://community.hubspot.com/t5/Releases-and-Updates/${capitalize(m)}-${y}-Release-Notes/ba-p`,
-  ];
-  
-  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-  
-  // Also use releasebot.io which aggregates everything nicely
-  const releasebotHtml = await fetchURL('https://releasebot.io/updates/hubspot');
-  if (releasebotHtml) {
-    const root = parseHTML(releasebotHtml);
-    // Parse all headings and content looking for beta mentions
-    const allText = root.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li');
+  for (const page of pages) {
+    const html = await fetchURL(page.url);
+    if (!html) continue;
+    
+    const root = parseHTML(html);
+    
+    // Strategy: Releasebot pages have a bullet-list TOC at the top with the real
+    // feature titles, then each feature appears as a heading with paragraphs below.
+    // We use the TOC to identify which headings are REAL features (vs sub-headings
+    // like "What's changed?", "How does it work?", etc.)
+    
+    // Step 1: Extract TOC titles from the bullet list
+    const tocItems = new Set();
+    const listItems = root.querySelectorAll('li');
+    for (const li of listItems) {
+      const text = li.text?.trim();
+      if (text && text.length >= 15 && text.length <= 200) {
+        tocItems.add(text);
+      }
+    }
+    
+    // Step 2: Walk headings + paragraphs, only treating TOC-matched headings as features
+    const allElements = root.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
     
     let currentTitle = '';
     let currentDesc = '';
+    let isTocFeature = false;
     
-    for (const el of allText) {
+    function flushFeature() {
+      if (!currentTitle || !isTocFeature) return;
+      // Strip numbered prefixes like "1. " or "8. "
+      const cleanTitle = currentTitle.replace(/^\d+\.\s*/, '').trim();
+      if (!isValidTitle(cleanTitle)) return;
+      
+      const combined = `${cleanTitle} ${currentDesc}`;
+      results.push({
+        id: slugify(cleanTitle),
+        title: cleanTitle,
+        description: currentDesc.substring(0, 500).trim(),
+        status: detectStatus(combined),
+        hubs: detectHubs(combined),
+        source: page.sourceLabel,
+        sourceUrl: page.url,
+        pubDate: null,
+      });
+    }
+    
+    for (const el of allElements) {
       const text = el.text?.trim() || '';
       if (!text || text.length < 5) continue;
       
       if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(el.tagName)) {
-        // Save previous if valid
-        if (currentTitle && isValidTitle(currentTitle)) {
-          const combined = `${currentTitle} ${currentDesc}`;
-          results.push({
-            id: slugify(currentTitle),
-            title: currentTitle,
-            description: currentDesc.substring(0, 500),
-            status: detectStatus(combined),
-            hubs: detectHubs(combined),
-            source: 'releasebot',
-            sourceUrl: 'https://releasebot.io/updates/hubspot',
-            pubDate: null,
+        // Check if this heading matches a TOC item (fuzzy — strip numbers, check inclusion)
+        const cleanHeading = text.replace(/^\d+\.\s*/, '').trim();
+        const matchesToc = tocItems.has(text) || tocItems.has(cleanHeading) ||
+          [...tocItems].some(toc => {
+            const cleanToc = toc.replace(/^\d+\.\s*/, '').trim();
+            return cleanToc === cleanHeading || 
+                   cleanHeading.includes(cleanToc) || 
+                   cleanToc.includes(cleanHeading);
           });
+        
+        if (matchesToc) {
+          flushFeature();
+          currentTitle = text;
+          currentDesc = '';
+          isTocFeature = true;
         }
-        currentTitle = text;
-        currentDesc = '';
+        // If it doesn't match TOC, it's a sub-heading — append to current description
+        // (but don't start a new feature)
       } else {
-        currentDesc += ' ' + text;
+        // Paragraph — append to current feature's description
+        if (isTocFeature) {
+          currentDesc += (currentDesc ? ' ' : '') + text;
+        }
       }
     }
-    // Don't forget last item
-    if (currentTitle && isValidTitle(currentTitle)) {
-      const combined = `${currentTitle} ${currentDesc}`;
-      results.push({
-        id: slugify(currentTitle),
-        title: currentTitle,
-        description: currentDesc.substring(0, 500).trim(),
-        status: detectStatus(combined),
-        hubs: detectHubs(combined),
-        source: 'releasebot',
-        sourceUrl: 'https://releasebot.io/updates/hubspot',
-        pubDate: null,
-      });
-    }
+    flushFeature(); // Don't forget last item
+    
+    console.log(`  ✓ ${page.sourceLabel}: ${results.length} items so far`);
   }
   
-  console.log(`  ✓ Found ${results.length} items from monthly updates & releasebot`);
+  console.log(`  ✓ Found ${results.length} items total from Releasebot`);
   return results;
 }
 
@@ -589,14 +607,14 @@ async function main() {
   console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
   
   // Fetch all sources in parallel
-  const [devItems, communityItems, productItems, monthlyItems] = await Promise.all([
+  const [devItems, communityItems, productItems, releasebotItems] = await Promise.all([
     parseDevChangelog(),
     parseCommunityUpdates(),
     parseProductUpdates(),
-    parseMonthlyUpdate(),
+    parseReleasebot(),
   ]);
   
-  const allItems = [...devItems, ...communityItems, ...productItems, ...monthlyItems];
+  const allItems = [...devItems, ...communityItems, ...productItems, ...releasebotItems];
   
   // Deduplicate by ID (prefer items with more info)
   const deduped = new Map();
