@@ -1,0 +1,14 @@
+{
+  "name": "hubspot-beta-tracker",
+  "version": "1.0.0",
+  "description": "Tracks HubSpot betas, status changes, and new product updates daily",
+  "type": "module",
+  "scripts": {
+    "scan": "node index.js",
+    "report": "node index.js --report-only"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0",
+    "node-html-parser": "^7.0.1"
+  }
+}

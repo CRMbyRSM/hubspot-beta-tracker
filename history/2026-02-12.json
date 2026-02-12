@@ -1,0 +1,134 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "service-keys-enter-public-beta-for-system-to-system-integrations",
+          "title": "Service Keys enter public beta for system-to-system integrations",
+          "description": "Service Keys are now available in public beta as a new authentication option for account-level, system-to-system integrations. This feature is intended to replace legacy private apps and is built on HubSpot’s modern Developer Platform infrastructure.",
+          "status": "public beta",
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/service-keys",
+          "pubDate": "Tue, 10 Feb 2026 15:22:39 GMT",
+          "author": "dedson@hubspot.com (Dennis Edson)"
+        },
+        {
+          "id": "automatic-migration-from-cookie-consent-banner-v1-to-v2",
+          "title": "Automatic migration from Cookie Consent Banner v1 to v2",
+          "description": "Starting May 11, 2026, HubSpot will resume the automatic migration of accounts from the legacy Cookie Consent Banner (v1) to the current version (v2). This process was previously announced and later paused to allow more time for manual adoption. This update ensures all accounts use a banner that meets modern accessibility standards and supports the latest privacy features. While the migration happens automatically on this date, you can manually opt-in ahead of time to test the new version within",
+          "status": "mentioned",
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/automatic-migration-from-cookie-consent-banner-v1-to-v2",
+          "pubDate": "Mon, 09 Feb 2026 21:26:43 GMT",
+          "author": "jmclaren@hubspot.com (Jon McLaren)"
+        },
+        {
+          "id": "developer-updates-for-january-2026",
+          "title": "Developer updates for January 2026",
+          "description": " HubSpot’s January dev updates roll out major app improvements across UI Extensions, GPT‑5 Breeze Studio, SSO propagation to sandboxes, HTML editing for quotes, a redesigned Sandbox listing, omnichannel Customer Agent support, expanded Campaign asset types via API, lifecycle metrics, marketplace analytics, and new public betas like Forecast Read API and secure preference URL. January’s developer updates focus on making HubSpot apps more flexible, scalable, and integration-friendly. Highlights in",
+          "status": "public beta",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "introducing-hubspot-cli-v8-0-0",
+          "title": "Introducing HubSpot CLI v8.0.0",
+          "description": " HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
+          "status": "sunset",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
+          "title": "Public Beta: Self-Service MCP Auth Apps for the HubSpot Remote MCP Server",
+          "description": " HubSpot unveils a self‑service MCP Auth Apps UI that lets partners and customers build, manage, and authorize AI connectors to the HubSpot Remote MCP Server. The beta enables full connector lifecycle control and OAuth 2.1 credentials with automatic end‑user permissions. Ecosystem partners and customers can now build and manage their own AI connectors to the (Beta) HubSpot Remote MCP (Model Context Protocol) Server through a streamlined self-service interface. This public beta builds on the init",
+          "status": "public beta",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "december-2025-developer-rollup",
+          "title": "December 2025 Developer Rollup",
+          "description": "This month’s updates focus on enhancing developer workflows and platform security, featuring a new IP Ranges API for firewall management and the general availability of the App Uninstallation API. We’ve also introduced several quality-of-life improvements, including a Legacy CRM Card Converter to assist in your migration to modern App Cards, setting a custom template for CPQ quotes, actionable migration insights directly within your HubSpot Account, and expanded Breeze Assistant capabilities for",
+          "status": "now live",
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/december-2025-developer-rollup",
+          "pubDate": "Tue, 06 Jan 2026 19:28:40 GMT",
+          "author": "dadams@hubspot.com (David Adams)"
+        },
+        {
+          "id": "legacy-standard-sandboxes-sunset-what-s-changing-how-to-prepare-faq",
+          "title": "Legacy Standard Sandboxes Sunset: What’s Changing & How to Prepare (FAQ)",
+          "description": "We recently introduced an improved Standard Sandbox, including the new Deploy to Production feature for the most requested supported asset types . These enhancements empower RevOps and Marketing Ops teams to safely test business logic, data flows, and nurture workflows in a dedicated environment without risking disruption in their production accounts.",
+          "status": "sunset",
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/legacy-standard-sandboxes-sunset-whats-changing-how-to-prepare-faq",
+          "pubDate": "Fri, 19 Dec 2025 16:12:41 GMT",
+          "author": "dedson@hubspot.com (Dennis Edson)"
+        },
+        {
+          "id": "november-2025-developer-rollup",
+          "title": "November 2025 Developer Rollup",
+          "description": "November brings a rollup with several updates across the platform. We've expanded record limits for Orders and Carts objects, increased association limits fivefold to 250,000 per object type, and launched the new Projects API for programmatic project management. We're also introducing property validation rules via the public CRM API, releasing HubSpot CLI 7.10.0 with dependency updates and enhanced MCP tooling, and rolling out flexible header and footer switching in the CMS. On the governance fr",
+          "status": "sunset",
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/november-2025-developer-rollup",
+          "pubDate": "Tue, 02 Dec 2025 22:21:13 GMT",
+          "author": "alaporte@hubspot.com (AJ LaPorte)"
+        },
+        {
+          "id": "new-oauth-v3-api-endpoints-and-standardized-error-responses",
+          "title": "New OAuth v3 API Endpoints and Standardized Error Responses",
+          "description": " HubSpot boosts security with OAuth v3 endpoints and RFC 6749 compliant error responses. New /v3/token and /v3/introspect for token handling plus standardized error fields, while v1 is deprecated with a sunset timeline in 2026. Migrate now to the new endpoints and standard errors.",
+          "status": "sunset",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "what-s-changing",
+          "title": "What’s Changing?",
+          "description": " A new MCP Auth Apps UI has been added to the HubSpot Developer Platform to allow ecosystem partners and customers to build and manage their own AI connectors to the HubSpot Remote MCP Server through a streamlined and fully self-service experience. An earlier public beta, released on September 1, 2025, introduced the HubSpot Remote MCP Server available across all hubs and tiers. However, connector creation and management still relied on other platform developer tools intended for apps providing ",
+          "status": "public beta",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "new-resource-legacy-crm-card-converter",
+          "title": "New Resource: Legacy CRM Card Converter",
+          "description": " To support developers migrating from Classic CRM Cards to the new App Cards, we’ve released the Legacy CRM Card Converter, a lightweight tool and example designed to simplify the transition process. The resource provides: Sample mappings that demonstrate how Classic CRM Card patterns translate to modern App Cards. Reference implementation to help you quickly understand equivalent React-based structures. Guidance and best practices for updating legacy cards to transition to new UI Extension capa",
+          "status": "sunset",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "standard-sandbox-updates-new-limits-new-capabilities-and-legacy-sunset",
+          "title": "Standard Sandbox Updates: New Limits, New Capabilities, and Legacy Sunset",
+          "description": " HubSpot is rolling out a more powerful Standard Sandbox experience, alongside clearer data limits and a planned sunset of Legacy Standard Sandboxes. All sandboxes will now enforce a consistent limit of 200,000 records per major CRM object type (including contacts, companies, deals, tickets, custom objects, and more), ensuring predictable performance and stable testing environments. In parallel, a new Standard Sandbox version introduces an enhanced copy of supported production metadata and a Dep",
+          "status": "sunset",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "public-api-for-uninstalling-an-app-released-to-ga",
+          "title": "Public API for Uninstalling an app released to GA",
+          "description": " The previously announced API for uninstalling an app from a HubSpot Account has been released from beta into general availability. This endpoint allows app builders to remove their app from a HubSpot Account, which removes any app features set up for the app, including removing any configured app cards, as well as unsubscribing any configured webhooks for that account. See the documentation for more details.",
+          "status": "now live",
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 13,
+    "timestamp": "2026-02-12T16:50:34.789Z"
+  }
+]
