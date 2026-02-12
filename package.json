@@ -4,10 +4,12 @@
   "description": "Tracks HubSpot betas, status changes, and new product updates daily",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "scan": "node index.js",
     "report": "node index.js --report-only"
   },
   "dependencies": {
+    "express": "^4.21.0",
     "fast-xml-parser": "^4.5.0",
     "node-html-parser": "^7.0.1"
   }
