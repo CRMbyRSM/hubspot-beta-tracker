@@ -624,5 +624,330 @@
     },
     "itemsFound": 49,
     "timestamp": "2026-02-12T17:51:06.938Z"
+  },
+  {
+    "changes": {
+      "new": [],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 10,
+    "timestamp": "2026-02-12T18:08:15.848Z"
+  },
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "form-submissions-now-show-up-on-company-records",
+          "title": "Form Submissions Now Show Up on Company Records",
+          "description": "Finally! You can now see form submissions from all associated contacts directly on the company timeline. No more clicking into individual contact records to piece together what's happening at an account level. This is huge for account-based teams. When you're evaluating whether a company is engaged, you need the full picture in one place. Now you've got it. Just head to the company record, click the Activity tab, and filter by Form Submissions under Contact Activity. Availability:\nNow live for a",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "rule-based-automated-tracking-for-intent-signals",
+          "title": "Rule-Based Automated Tracking for Intent Signals",
+          "description": "If you're using buyer intent signals, you know the pain of manually managing which companies to track. This update adds simple toggle-based rules so you can automatically start or stop tracking companies based on target account status, lifecycle stage, or segment membership. The real win here is database hygiene. You can set it to automatically stop tracking when a company becomes a customer (so you're not burning credits on closed accounts) and start tracking when they hit a key lifecycle stage",
+          "status": "now live",
+          "hubs": [
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "help-desk-recent-searches",
+          "title": "Help Desk Recent Searches",
+          "description": "A small quality-of-life improvement for service teams: the help desk now shows your three most recent searches directly in the search popover. Click any of them to re-run the search with the same filters. If you're constantly searching for the same ticket types or using specific filter combinations, this saves a surprising amount of time over the course of a day. Learn more about how to search in the help desk. Availability:\nNow live for Service Hub Professional and Enterprise.",
+          "status": "now live",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "filters-in-agent-inbox",
+          "title": "Filters in Agent Inbox",
+          "description": "The Breeze agent inbox got a major upgrade with comprehensive filtering. You can now filter by execution status (e.g. Success, Error, Needs Approval, Running), request source (e.g. Breeze Studio, Automation, MCP Connector, API, CRM Card), specific agents, and owners. Before this, busy inboxes were basically a chronological list you had to scroll through. Now you can quickly surface what actually needs your attention, like items requiring approval or executions that errored out. Super admins also",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "report-viewer-gets-full-screen-mode-and-customizable-display",
+          "title": "Report Viewer Gets Full-Screen Mode and Customizable Display",
+          "description": "The report viewer now lets you show or hide settings panels, navigate between reports more easily, and enter full-screen mode. Your display preferences are remembered as you move between reports. It sounds minor, but if you're presenting data to stakeholders or just want to focus on the visualization without all the chrome around it, full-screen mode is genuinely useful. Availability:\nNow live for all HubSpot products and tiers.",
+          "status": "now live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "custom-views-on-reports-and-dashboards-lists",
+          "title": "Custom Views on Reports and Dashboards Lists",
+          "description": "As your report library grows, finding the right report becomes a scavenger hunt. Custom views let you create personalized, filtered views of your reports and dashboards using criteria like owner, shared status, date created, last viewed, and tags. You can pin views as tabs, share them with your team or keep them private, and stop wasting time scrolling through hundreds of reports to find the five you actually use. Availability:\nNow live for all Professional and Enterprise subscriptions.",
+          "status": "now live",
+          "hubs": [
+            "Marketing Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "drag-and-drop-and-marquee-select-in-file-manager",
+          "title": "Drag-and-Drop and Marquee Select in File Manager",
+          "description": "You can now bulk select files in the File Manager by dragging your cursor across them (marquee select in grid view) and then drag the whole group into a folder in one motion. In list view, you still need to use checkboxes, but you can drag selected files into folders. For content teams managing lots of assets, this eliminates a ton of tedious clicking. It's the kind of update that makes you wonder why it wasn't always this way. Note:\nMarquee select only works in grid view. Availability:\nNow live",
+          "status": "now live",
+          "hubs": [
+            "CMS Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "import-auto-detects-date-formatting",
+          "title": "Import Auto-Detects Date Formatting",
+          "description": "\"Could not parse date\" is one of the most common import errors. Now, when you import data with date properties, HubSpot automatically detects the format based on your file instead of defaulting to portal settings and making you fix it manually. It supports day/month/year, month/day/year, and year/month/day formats. If your file has inconsistent formatting, you can use find-and-replace to clean it up before importing. Availability:\nNow live for all hubs and tiers.",
+          "status": "now live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "streamlined-association-management-in-data-model",
+          "title": "Streamlined Association Management in Data Model",
+          "description": "Managing object associations just got easier. You can now activate existing associations and create new ones (including with custom objects for Enterprise) directly from the data model view. Deactivated associations are hidden from view, keeping things cleaner. Navigate to Data Management > Data Model, click Edit Data Model, and use the plus button on any object to add associations or the ellipsis to deactivate them. Learn more by watching this short video walkthrough. Availability:\nNow live for",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "export-workflow-enrollments-and-action-logs-to-csv",
+          "title": "Export Workflow Enrollments and Action Logs to CSV",
+          "description": "You could always export workflow history to a segment, but customers have been asking for CSV exports for ages. Now you can export detailed enrollment and action-level data into a CSV file for analysis in Excel, Google Sheets, or your reporting tools. This is a big deal for debugging, auditing, and understanding exactly what your automations are doing at scale. From the workflow history view, just click Export and choose enrollments or action logs. Availability:\nNow live for Marketing Hub, Sales",
+          "status": "now live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "business-days-support-for-workflow-delays",
+          "title": "Business Days Support for Workflow Delays",
+          "description": "Workflow delays can now exclude weekends. Enable the new Business Days option, and a 1-day delay on Friday will push the next action to Monday instead of Saturday. This sounds simple, but it solves a real problem. No more emails landing on weekends when your team isn't around to respond, and no more awkward timing logic to work around calendar days. Note:\nThis excludes weekends only. It doesn't account for holidays or business hours. Availability:\nNow live for Marketing Hub, Sales Hub, Service H",
+          "status": "now live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "lifecycle-stage-conditional-property-logic",
+          "title": "Lifecycle Stage Conditional Property Logic",
+          "description": "You can now use lifecycle stage as a controlling property for conditional logic. When a contact or company hits a specific stage, you can automatically surface relevant fields and make them required before the record saves. For example, when a rep moves a contact from Lead to MQL, you can require them to fill in qualification notes or budget range. This enforces data quality at the exact moments it matters, without manual reminders or cleanup later. Learn more by watching a quick walkthrough vid",
+          "status": "now live",
+          "hubs": [
+            "Service Hub",
+            "Operations Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "enhancements-to-property-creation",
+          "title": "Enhancements to Property Creation",
+          "description": "Creating properties outside of Property Settings just got more powerful. You can now create calculation, rollup, and property sync types from places like the index page or during imports. Plus, you can switch between manual and Breeze-assisted creation depending on what you need. The bigger picture: you can stay in the zone and create complex properties without navigating away to Settings. Availability:\nNow live for all hubs and tiers.",
+          "status": "now live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "view-related-records-and-clean-up-associations-in-bulk",
+          "title": "View Related Records and Clean Up Associations in Bulk",
+          "description": "CRM associations get stale. Contacts change companies, deals shift ownership, imports create bad relationships. Cleaning this up used to require manual updates one by one or developer help. Now you can select up to 100 records from any index page, click Review Associations, and see all their relationships in a single structured view. From there, you can select and remove incorrect associations in bulk. Filter by association type or label to zero in on what needs fixing. Availability:\nPublic beta",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "set-default-property-values",
+          "title": "Set Default Property Values",
+          "description": "Admins can now define default values for properties that automatically apply when new records are created. This works across manual entry, workflows, and APIs. If your team constantly enters the same values when creating records, this eliminates that repetitive work and keeps data consistent from the start. It also means you can retire those workflows you built just to initialize property values. Note:\nNot currently supported for calculations, rollups, syncs, or file properties. Availability:\nPu",
+          "status": "public beta",
+          "hubs": [
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "custom-actions-support-for-enrolled-non-enrolled-records",
+          "title": "Custom Actions Support for Enrolled & Non-Enrolled Records",
+          "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow’s enrolled object. The change rolls out on November 24, 2025.",
+          "status": "update",
+          "hubs": [
+            "Operations Hub"
+          ],
+          "source": "releasebot-dev",
+          "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+          "pubDate": null
+        },
+        {
+          "id": "take-action-with-claude-update-crm-records-and-access-engagement-history",
+          "title": "Take Action With Claude: Update CRM Records and Access Engagement History",
+          "description": "Claude’s HubSpot connector now lets you create and update CRM records, log activities, and act on full engagement history—directly from chat. With public beta for updates and GA for engagement access, this rollout enables faster, context-aware workflows and bulk actions.",
+          "status": "public beta",
+          "hubs": [
+            "Operations Hub"
+          ],
+          "source": "releasebot-dev",
+          "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+          "pubDate": null
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 28,
+    "timestamp": "2026-02-12T18:11:14.656Z"
+  },
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "developer-updates-for-january-2026",
+          "title": "Developer updates for January 2026",
+          "description": "HubSpot’s January dev updates roll out major app improvements across UI Extensions, GPT‑5 Breeze Studio, SSO propagation to sandboxes, HTML editing for quotes, a redesigned Sandbox listing, omnichannel Customer Agent support, expanded Campaign asset types via API, lifecycle metrics, marketplace analytics, and new public betas like Forecast Read API and secure preference URL.",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "new-oauth-v3-api-endpoints-and-standardized-error-responses",
+          "title": "New OAuth v3 API Endpoints and Standardized Error Responses",
+          "description": "HubSpot boosts security with OAuth v3 endpoints and RFC 6749 compliant error responses. New /v3/token and /v3/introspect for token handling plus standardized error fields, while v1 is deprecated with a sunset timeline in 2026. Migrate now to the new endpoints and standard errors.",
+          "status": "sunset",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "introducing-hubspot-cli-v8-0-0",
+          "title": "Introducing HubSpot CLI v8.0.0",
+          "description": "HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
+          "status": "sunset",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
+          "title": "Public Beta: Self-Service MCP Auth Apps for the HubSpot Remote MCP Server",
+          "description": "Ecosystem partners and customers can now build and manage their own AI connectors to the (Beta) HubSpot Remote MCP (Model Context Protocol) Server through a streamlined self-service interface. This public beta builds on the initial release of the HubSpot Remote MCP Server and simplifies the experience&nbsp; of creating and managing AI connectors directly.",
+          "status": "public beta",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
+          "pubDate": "Tue, 20 Jan 2026 14:28:38 GMT",
+          "author": "dedson@hubspot.com (Dennis Edson)"
+        },
+        {
+          "id": "new-hubspot-app-updates-ai-automation-crm-sync-q4-2025",
+          "title": "New HubSpot App Updates: AI, Automation & CRM Sync (Q4 2025)",
+          "description": "HubSpot Marketplace closes Q4 with 76+ new apps and a wave of updates that slash silos and boost productivity. New AI tools and CRM integrations with Claude and ChatGPT unlock faster prospecting, dynamic docs, and richer dashboards for smarter, faster selling.",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 28,
+    "timestamp": "2026-02-12T18:11:39.935Z"
   }
 ]

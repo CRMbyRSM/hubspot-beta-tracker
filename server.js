@@ -120,9 +120,8 @@ const HTML = `<!DOCTYPE html>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--surface3:#222;
-  --text:#e8e8e8;--text-muted:#888;--text-dim:#555;
+  --text:#e8e8e8;--text-muted:#999;--text-dim:#666;
   --teal:#17a192;--orange:#f7931a;
-  --purple:#9b59b6;--green:#2ecc71;--red:#e74c3c;--gray:#666;
   --radius:8px;
 }
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -132,87 +131,85 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .container{max-width:1400px;margin:0 auto;padding:0 24px}
 
 /* Header */
-.header{padding:48px 0 32px;border-bottom:1px solid #1a1a1a}
-.header-top{display:flex;align-items:center;gap:20px;margin-bottom:16px}
-.header-logo{height:48px;width:auto}
-.header h1{font-size:2.2rem;font-weight:700;text-wrap:balance;letter-spacing:-.02em}
+.header{padding:48px 0 32px;border-bottom:1px solid #1e1e1e}
+.header-top{display:flex;align-items:center;gap:20px;margin-bottom:20px}
+.header-logo{height:44px;width:auto}
+.header h1{font-size:2rem;font-weight:700;text-wrap:balance;letter-spacing:-.02em;color:#fff}
 .header h1 span{color:var(--teal)}
-.header .subtitle{color:var(--text-muted);font-size:1.05rem;margin-top:8px;text-wrap:balance}
-.header .by{color:var(--text-dim);font-size:.85rem;margin-top:12px}
+.header .subtitle{color:var(--text-muted);font-size:1rem;margin-top:8px;text-wrap:balance}
+.header .meta-row{display:flex;gap:20px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.header .by{color:var(--text-dim);font-size:.85rem}
 .header .by a{color:var(--orange)}
-
-/* Stats bar */
-.stats{display:flex;gap:24px;flex-wrap:wrap;padding:24px 0;border-bottom:1px solid #1a1a1a}
-.stat{display:flex;flex-direction:column}
-.stat-value{font-size:1.5rem;font-weight:700;color:var(--teal)}
-.stat-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted)}
-.stats-section{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.stats-divider{width:1px;height:40px;background:#333;margin:0 8px}
+.header .last-scan{color:var(--text-dim);font-size:.85rem}
+.header .total-badge{
+  background:var(--surface2);border:1px solid #333;color:var(--text-muted);
+  padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:500;
+}
+.header .total-badge strong{color:var(--teal)}
 
 /* Filters */
-.filter-section{padding:16px 0;border-bottom:1px solid #1a1a1a}
-.filter-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin-bottom:8px;font-weight:600}
-.filter-row{display:flex;gap:8px;flex-wrap:wrap}
-.filter-btn{
-  background:var(--surface);border:1px solid #222;color:var(--text-muted);
-  padding:8px 16px;border-radius:20px;font-size:.8rem;font-weight:500;
-  cursor:pointer;transition:all .2s;font-family:inherit;
-}
-.filter-btn:hover{border-color:#444;color:var(--text)}
-.filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
-.filter-count{font-size:.7rem;opacity:.7;margin-left:4px}
+.filters-bar{padding:24px 0;border-bottom:1px solid #1e1e1e}
+.filter-group{margin-bottom:16px}
+.filter-group:last-child{margin-bottom:0}
+.filter-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:10px;font-weight:600}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap}
 
-/* Hub filter pills */
-.hub-filter-btn{
-  background:var(--surface);border:1px solid #333;color:var(--text-muted);
-  padding:6px 14px;border-radius:16px;font-size:.75rem;font-weight:500;
-  cursor:pointer;transition:all .2s;font-family:inherit;
+.filter-btn{
+  background:var(--surface);border:1px solid #2a2a2a;color:var(--text-muted);
+  padding:10px 20px;border-radius:8px;font-size:.85rem;font-weight:500;
+  cursor:pointer;transition:all .15s ease;font-family:inherit;
+  display:flex;align-items:center;gap:8px;
 }
-.hub-filter-btn:hover{border-color:#555;color:var(--text)}
-.hub-filter-btn.active{color:#fff;border-color:transparent}
+.filter-btn:hover{border-color:#444;color:var(--text);background:var(--surface2)}
+.filter-btn.active{background:rgba(23,161,146,.12);border-color:var(--teal);color:var(--teal)}
+.filter-count{
+  font-size:.7rem;font-weight:600;opacity:.6;
+  background:rgba(255,255,255,.06);padding:2px 7px;border-radius:10px;
+}
+.filter-btn.active .filter-count{opacity:1;background:rgba(23,161,146,.2)}
 
 /* Cards */
-.grid{display:grid;gap:16px;padding:8px 0 48px}
+.grid{display:grid;gap:12px;padding:24px 0 80px}
 .card{
   background:var(--surface);border-radius:var(--radius);
-  padding:20px 24px;border-left:3px solid var(--text-dim);
-  transition:background .2s,border-color .2s;
+  padding:20px 24px;border-left:3px solid #333;
+  transition:background .15s,border-color .15s;
 }
 .card:hover{background:var(--surface2)}
 .card[data-status="public beta"]{border-left-color:var(--teal)}
-.card[data-status="private beta"]{border-left-color:var(--purple)}
-.card[data-status="developer preview"]{border-left-color:#9b59b6}
-.card[data-status="early access"]{border-left-color:#f39c12}
-.card[data-status="now live"]{border-left-color:var(--green)}
-.card[data-status="live"]{border-left-color:#3498db}
+.card[data-status="private beta"]{border-left-color:var(--teal);border-left-style:dashed}
+.card[data-status="developer preview"]{border-left-color:var(--teal);opacity:.9}
+.card[data-status="early access"]{border-left-color:var(--orange)}
+.card[data-status="now live"]{border-left-color:#4ade80}
+.card[data-status="live"]{border-left-color:#4ade80}
 .card[data-status="sunset"]{border-left-color:var(--orange)}
-.card[data-status="breaking change"]{border-left-color:var(--red)}
-.card[data-status="update"]{border-left-color:var(--gray)}
+.card[data-status="breaking change"]{border-left-color:#ef4444}
+.card[data-status="update"]{border-left-color:#555}
 
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}
-.card-title{font-size:1rem;font-weight:600;line-height:1.4}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.card-title{font-size:.95rem;font-weight:600;line-height:1.4;color:#fff}
 .badge{
   font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
-  padding:4px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0;
+  padding:4px 10px;border-radius:6px;white-space:nowrap;flex-shrink:0;
 }
 .badge[data-status="public beta"]{background:rgba(23,161,146,.15);color:var(--teal)}
-.badge[data-status="private beta"]{background:rgba(155,89,182,.15);color:var(--purple)}
-.badge[data-status="developer preview"]{background:rgba(155,89,182,.15);color:#b97ed3}
-.badge[data-status="early access"]{background:rgba(243,156,18,.15);color:#f39c12}
-.badge[data-status="now live"]{background:rgba(46,204,113,.15);color:var(--green)}
-.badge[data-status="live"]{background:rgba(52,152,219,.15);color:#3498db}
-.badge[data-status="sunset"]{background:rgba(247,147,26,.15);color:var(--orange)}
-.badge[data-status="breaking change"]{background:rgba(231,76,60,.15);color:var(--red)}
-.badge[data-status="update"]{background:rgba(102,102,102,.15);color:var(--gray)}
+.badge[data-status="private beta"]{background:rgba(23,161,146,.1);color:rgba(23,161,146,.7)}
+.badge[data-status="developer preview"]{background:rgba(23,161,146,.1);color:rgba(23,161,146,.7)}
+.badge[data-status="early access"]{background:rgba(247,147,26,.12);color:var(--orange)}
+.badge[data-status="now live"]{background:rgba(74,222,128,.12);color:#4ade80}
+.badge[data-status="live"]{background:rgba(74,222,128,.12);color:#4ade80}
+.badge[data-status="sunset"]{background:rgba(247,147,26,.12);color:var(--orange)}
+.badge[data-status="breaking change"]{background:rgba(239,68,68,.12);color:#ef4444}
+.badge[data-status="update"]{background:rgba(255,255,255,.05);color:#888}
 
-/* Hub badges */
-.hub-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.hub-pill{
-  font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
-  padding:3px 8px;border-radius:10px;white-space:nowrap;color:#fff;
+/* Hub tags on cards */
+.hub-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.hub-tag,.hub-pill{
+  font-size:.65rem;font-weight:600;
+  padding:3px 10px;border-radius:4px;white-space:nowrap;
 }
 
-.card-desc{color:var(--text-muted);font-size:.85rem;line-height:1.5;margin-bottom:12px;
+.card-desc{color:#ccc;font-size:.85rem;line-height:1.5;margin-bottom:12px;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.75rem;color:var(--text-dim)}
 .card-meta a{color:var(--teal);font-size:.75rem}
@@ -249,19 +246,17 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 }
 
 /* Footer */
-.footer{border-top:1px solid #1a1a1a;padding:32px 0;text-align:center;color:var(--text-dim);font-size:.8rem}
+.footer{border-top:1px solid #1e1e1e;padding:32px 0;text-align:center;color:var(--text-dim);font-size:.8rem}
 .footer a{color:var(--orange)}
 
 /* Responsive */
 @media(max-width:640px){
-  .header h1{font-size:1.6rem}
-  .stats{gap:16px}
-  .stat-value{font-size:1.2rem}
+  .header h1{font-size:1.5rem}
+  .filter-btn{padding:8px 14px;font-size:.8rem}
   .card{padding:16px}
   .lead-inner{flex-direction:column;text-align:center}
   .lead-form{flex-direction:column;width:100%}
   .lead-form input{width:100%}
-  .stats-divider{display:none}
 }
 
 .loading{text-align:center;padding:80px 0;color:var(--text-muted)}
@@ -277,17 +272,22 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
     </div>
     <h1>HubSpot <span>Product Updates Tracker</span></h1>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
-    <p class="by">Built by <a href="https://crmbyrsm.com" target="_blank" rel="noopener">RSM Consulting</a> — 22+ years of CRM expertise</p>
+    <div class="meta-row">
+      <span class="by">Built by <a href="https://crmbyrsm.com" target="_blank" rel="noopener">RSM Consulting</a></span>
+      <span class="last-scan" id="lastScan"></span>
+      <span class="total-badge" id="totalBadge"></span>
+    </div>
   </header>
 
-  <div class="stats" id="stats"></div>
-  <div class="filter-section" id="statusFilterSection">
-    <div class="filter-label">Filter by Status</div>
-    <div class="filter-row" id="filters"></div>
-  </div>
-  <div class="filter-section" id="hubFilterSection">
-    <div class="filter-label">Filter by Hub</div>
-    <div class="filter-row" id="hubFilters"></div>
+  <div class="filters-bar">
+    <div class="filter-group">
+      <div class="filter-label">Status</div>
+      <div class="filter-row" id="statusFilters"></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Hub</div>
+      <div class="filter-row" id="hubFilters"></div>
+    </div>
   </div>
   <div class="grid" id="grid">
     <div class="loading">Loading updates…</div>
@@ -316,24 +316,13 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 <script>
 const STATUS_ORDER = ['public beta','private beta','developer preview','early access','now live','live','sunset','breaking change','update'];
-
-const HUB_COLORS = {
-  'Marketing Hub':'#ff7a59',
-  'Sales Hub':'#00bda5',
-  'Service Hub':'#f5c26b',
-  'CMS Hub':'#7c98b6',
-  'Operations Hub':'#cbd6e2',
-  'Commerce Hub':'#f7931a',
-  'Developer Platform':'#17a192',
-  'Breeze AI':'#a855f7',
-  'Platform':'#666'
-};
-
 const HUB_FILTER_ORDER = ['Marketing Hub','Sales Hub','Service Hub','CMS Hub','Operations Hub','Commerce Hub','Developer Platform','Breeze AI'];
 
 let allBetas = [];
-let activeStatusFilter = 'all';
-let activeHubFilter = 'all';
+let activeStatuses = new Set();  // empty = show all
+let activeHubs = new Set();      // empty = show all
+
+function titleCase(s) { return s.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' '); }
 
 async function init() {
   try {
@@ -341,8 +330,8 @@ async function init() {
     const data = await res.json();
     allBetas = Object.values(data.betas || {})
       .sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
-    renderStats(data);
-    renderFilters();
+    renderMeta(data);
+    renderStatusFilters();
     renderHubFilters();
     renderGrid();
   } catch (e) {
@@ -350,102 +339,80 @@ async function init() {
   }
 }
 
-function renderStats(data) {
-  const betas = Object.values(data.betas || {});
-  const statusCounts = {};
-  const hubCounts = {};
-  betas.forEach(b => {
-    statusCounts[b.status] = (statusCounts[b.status] || 0) + 1;
-    (b.hubs || ['Platform']).forEach(h => { hubCounts[h] = (hubCounts[h] || 0) + 1; });
-  });
-
-  let html = '<div class="stats-section">';
-  html += '<div class="stat"><span class="stat-value">' + betas.length + '</span><span class="stat-label">Total Tracked</span></div>';
-  STATUS_ORDER.forEach(s => {
-    if (statusCounts[s]) {
-      html += '<div class="stat"><span class="stat-value">' + statusCounts[s] + '</span><span class="stat-label">' + s + '</span></div>';
-    }
-  });
-  const lastScan = data.lastScan ? new Date(data.lastScan).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : 'Never';
-  html += '<div class="stat"><span class="stat-value" style="font-size:1rem">' + lastScan + '</span><span class="stat-label">Last Scan</span></div>';
-  html += '</div>';
-
-  html += '<div class="stats-divider"></div>';
-
-  html += '<div class="stats-section">';
-  HUB_FILTER_ORDER.forEach(h => {
-    if (hubCounts[h]) {
-      html += '<div class="stat"><span class="stat-value" style="color:' + HUB_COLORS[h] + '">' + hubCounts[h] + '</span><span class="stat-label">' + h.replace(' Hub','') + '</span></div>';
-    }
-  });
-  html += '</div>';
-
-  document.getElementById('stats').innerHTML = html;
+function renderMeta(data) {
+  const total = Object.keys(data.betas || {}).length;
+  const lastScan = data.lastScan
+    ? new Date(data.lastScan).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })
+    : 'Never';
+  document.getElementById('lastScan').textContent = 'Last scan: ' + lastScan;
+  document.getElementById('totalBadge').innerHTML = '<strong>' + total + '</strong> items tracked';
 }
 
-function renderFilters() {
-  const counts = { all: allBetas.length };
+function renderStatusFilters() {
+  const counts = {};
   allBetas.forEach(b => { counts[b.status] = (counts[b.status] || 0) + 1; });
 
-  let html = '<button class="filter-btn active" data-filter="all">All<span class="filter-count">' + counts.all + '</span></button>';
+  let html = '';
   STATUS_ORDER.forEach(s => {
     if (counts[s]) {
-      html += '<button class="filter-btn" data-filter="' + s + '">' +
-        s.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ') +
-        '<span class="filter-count"> ' + counts[s] + '</span></button>';
+      html += '<button class="filter-btn" data-status="' + s + '">' +
+        titleCase(s) + '<span class="filter-count">' + counts[s] + '</span></button>';
     }
   });
-  const el = document.getElementById('filters');
+  const el = document.getElementById('statusFilters');
   el.innerHTML = html;
   el.addEventListener('click', e => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
-    el.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeStatusFilter = btn.dataset.filter;
+    const status = btn.dataset.status;
+    if (activeStatuses.has(status)) {
+      activeStatuses.delete(status);
+      btn.classList.remove('active');
+    } else {
+      activeStatuses.add(status);
+      btn.classList.add('active');
+    }
     renderGrid();
   });
 }
 
 function renderHubFilters() {
-  const hubCounts = { all: allBetas.length };
+  const hubCounts = {};
   allBetas.forEach(b => {
     (b.hubs || ['Platform']).forEach(h => { hubCounts[h] = (hubCounts[h] || 0) + 1; });
   });
 
-  let html = '<button class="hub-filter-btn active" data-hub="all" style="background:var(--teal)">All Hubs<span class="filter-count"> ' + hubCounts.all + '</span></button>';
+  let html = '';
   HUB_FILTER_ORDER.forEach(h => {
     if (hubCounts[h]) {
-      const label = h.replace(' Hub','');
-      html += '<button class="hub-filter-btn" data-hub="' + h + '" data-color="' + HUB_COLORS[h] + '">' +
-        label + '<span class="filter-count"> ' + hubCounts[h] + '</span></button>';
+      html += '<button class="filter-btn" data-hub="' + h + '">' +
+        h.replace(' Hub','') + '<span class="filter-count">' + hubCounts[h] + '</span></button>';
     }
   });
   const el = document.getElementById('hubFilters');
   el.innerHTML = html;
   el.addEventListener('click', e => {
-    const btn = e.target.closest('.hub-filter-btn');
+    const btn = e.target.closest('.filter-btn');
     if (!btn) return;
-    el.querySelectorAll('.hub-filter-btn').forEach(b => {
-      b.classList.remove('active');
-      b.style.background = 'var(--surface)';
-      b.style.color = 'var(--text-muted)';
-    });
-    btn.classList.add('active');
-    btn.style.background = btn.dataset.hub === 'all' ? 'var(--teal)' : btn.dataset.color;
-    btn.style.color = '#fff';
-    activeHubFilter = btn.dataset.hub;
+    const hub = btn.dataset.hub;
+    if (activeHubs.has(hub)) {
+      activeHubs.delete(hub);
+      btn.classList.remove('active');
+    } else {
+      activeHubs.add(hub);
+      btn.classList.add('active');
+    }
     renderGrid();
   });
 }
 
 function renderGrid() {
   let filtered = allBetas;
-  if (activeStatusFilter !== 'all') {
-    filtered = filtered.filter(b => b.status === activeStatusFilter);
+  if (activeStatuses.size > 0) {
+    filtered = filtered.filter(b => activeStatuses.has(b.status));
   }
-  if (activeHubFilter !== 'all') {
-    filtered = filtered.filter(b => (b.hubs || ['Platform']).includes(activeHubFilter));
+  if (activeHubs.size > 0) {
+    filtered = filtered.filter(b => (b.hubs || ['Platform']).some(h => activeHubs.has(h)));
   }
   if (!filtered.length) {
     document.getElementById('grid').innerHTML = '<div class="empty">No items match these filters.</div>';
@@ -458,23 +425,19 @@ function renderGrid() {
     const desc = (b.description || '').replace(/</g, '&lt;');
     const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'product-updates':'Product Updates' }[b.source] || b.source;
     const hubs = b.hubs || ['Platform'];
-    const hubPills = hubs.map(h => {
-      const color = HUB_COLORS[h] || '#666';
-      const textColor = (h === 'Operations Hub' || h === 'Service Hub') ? '#111' : '#fff';
-      return '<span class="hub-pill" style="background:' + color + ';color:' + textColor + '">' + h + '</span>';
-    }).join('');
+    const hubTags = hubs.map(h => '<span class="hub-tag">' + h + '</span>').join('');
     return '<div class="card" data-status="' + b.status + '">' +
       '<div class="card-top">' +
         '<span class="card-title">' + b.title + '</span>' +
         '<span class="badge" data-status="' + b.status + '">' + b.status + '</span>' +
       '</div>' +
-      '<div class="hub-badges">' + hubPills + '</div>' +
+      '<div class="hub-tags">' + hubTags + '</div>' +
       (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
       '<div class="card-meta">' +
-        '<span>📅 ' + firstSeen + '</span>' +
-        '<span>⏱ ' + days + 'd tracked</span>' +
-        '<span>📡 ' + sourceLabel + '</span>' +
-        (b.sourceUrl ? '<a href="' + b.sourceUrl + '" target="_blank" rel="noopener">View source ↗</a>' : '') +
+        '<span>' + firstSeen + '</span>' +
+        '<span>' + days + 'd tracked</span>' +
+        '<span>' + sourceLabel + '</span>' +
+        (b.sourceUrl ? '<a href="' + b.sourceUrl + '" target="_blank" rel="noopener">Source ↗</a>' : '') +
       '</div></div>';
   }).join('');
 }

@@ -313,8 +313,10 @@ async function parseProductUpdates() {
   return results;
 }
 
-// Releasebot.io aggregator — scrapes individual product updates from their pages
-// We scrape two feeds: product updates + developer-specific updates
+// Releasebot.io aggregator — scrapes individual product updates from their pages.
+// Structure: <ul.border-y> contains <li> posts, each with an H2 title and an
+// expandable div. Rollup posts have numbered H4 features inside; standalone posts
+// are a single feature at the H2 level.
 async function parseReleasebot() {
   console.log('📡 Fetching Releasebot product & developer updates...');
   
@@ -330,81 +332,92 @@ async function parseReleasebot() {
     if (!html) continue;
     
     const root = parseHTML(html);
+    const mainUl = root.querySelector('ul.border-y');
+    if (!mainUl) { console.log(`  ✗ No main UL found on ${page.url}`); continue; }
     
-    // Strategy: Releasebot pages have a bullet-list TOC at the top with the real
-    // feature titles, then each feature appears as a heading with paragraphs below.
-    // We use the TOC to identify which headings are REAL features (vs sub-headings
-    // like "What's changed?", "How does it work?", etc.)
+    const postItems = mainUl.querySelectorAll(':scope > li');
+    let pageCount = 0;
     
-    // Step 1: Extract TOC titles from the bullet list
-    const tocItems = new Set();
-    const listItems = root.querySelectorAll('li');
-    for (const li of listItems) {
-      const text = li.text?.trim();
-      if (text && text.length >= 15 && text.length <= 200) {
-        tocItems.add(text);
+    for (const li of postItems) {
+      const h2 = li.querySelector('h2');
+      const postTitle = h2?.text?.trim() || '';
+      if (!postTitle || postTitle.length < 10) continue;
+      
+      // Skip noise posts
+      if (isNoise(postTitle)) continue;
+      
+      // Get the summary paragraph (skip metadata lines)
+      const ps = li.querySelectorAll('p');
+      let postSummary = '';
+      for (const p of ps) {
+        const t = p.text?.trim();
+        if (t && t.length > 50 && !t.includes('Date parsed') && !t.includes('First seen') && !t.includes('by\n')) {
+          postSummary = t;
+          break;
+        }
       }
-    }
-    
-    // Step 2: Walk headings + paragraphs, only treating TOC-matched headings as features
-    const allElements = root.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
-    
-    let currentTitle = '';
-    let currentDesc = '';
-    let isTocFeature = false;
-    
-    function flushFeature() {
-      if (!currentTitle || !isTocFeature) return;
-      // Strip numbered prefixes like "1. " or "8. "
-      const cleanTitle = currentTitle.replace(/^\d+\.\s*/, '').trim();
-      if (!isValidTitle(cleanTitle)) return;
       
-      const combined = `${cleanTitle} ${currentDesc}`;
-      results.push({
-        id: slugify(cleanTitle),
-        title: cleanTitle,
-        description: currentDesc.substring(0, 500).trim(),
-        status: detectStatus(combined),
-        hubs: detectHubs(combined),
-        source: page.sourceLabel,
-        sourceUrl: page.url,
-        pubDate: null,
-      });
-    }
-    
-    for (const el of allElements) {
-      const text = el.text?.trim() || '';
-      if (!text || text.length < 5) continue;
+      // Check expandable content for numbered H4 features
+      const expandable = li.querySelector('div.relative');
+      let extractedFeatures = false;
       
-      if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(el.tagName)) {
-        // Check if this heading matches a TOC item (fuzzy — strip numbers, check inclusion)
-        const cleanHeading = text.replace(/^\d+\.\s*/, '').trim();
-        const matchesToc = tocItems.has(text) || tocItems.has(cleanHeading) ||
-          [...tocItems].some(toc => {
-            const cleanToc = toc.replace(/^\d+\.\s*/, '').trim();
-            return cleanToc === cleanHeading || 
-                   cleanHeading.includes(cleanToc) || 
-                   cleanToc.includes(cleanHeading);
-          });
+      if (expandable) {
+        const h4s = expandable.querySelectorAll('h4');
+        const numberedH4s = [...h4s].filter(h => /^\d+\.\s/.test(h.text?.trim() || ''));
         
-        if (matchesToc) {
-          flushFeature();
-          currentTitle = text;
-          currentDesc = '';
-          isTocFeature = true;
-        }
-        // If it doesn't match TOC, it's a sub-heading — append to current description
-        // (but don't start a new feature)
-      } else {
-        // Paragraph — append to current feature's description
-        if (isTocFeature) {
-          currentDesc += (currentDesc ? ' ' : '') + text;
+        if (numberedH4s.length > 0) {
+          // This is a rollup post — extract each numbered feature
+          for (const h4 of numberedH4s) {
+            const rawTitle = h4.text?.trim() || '';
+            const cleanTitle = rawTitle.replace(/^\d+\.\s*/, '').trim();
+            if (!cleanTitle || cleanTitle.length < 10) continue;
+            
+            // Collect description paragraphs until next H4 or end
+            let desc = '';
+            let sibling = h4.nextElementSibling;
+            while (sibling && sibling.tagName !== 'H4' && sibling.tagName !== 'H3' && sibling.tagName !== 'H2') {
+              if (sibling.tagName === 'P') {
+                const t = sibling.text?.trim();
+                if (t) desc += (desc ? ' ' : '') + t;
+              }
+              sibling = sibling.nextElementSibling;
+            }
+            
+            const combined = `${cleanTitle} ${desc}`;
+            results.push({
+              id: slugify(cleanTitle),
+              title: cleanTitle,
+              description: desc.substring(0, 500),
+              status: detectStatus(combined),
+              hubs: detectHubs(combined),
+              source: page.sourceLabel,
+              sourceUrl: page.url,
+              pubDate: null,
+            });
+            pageCount++;
+          }
+          extractedFeatures = true;
         }
       }
+      
+      // If no numbered features found, treat the post itself as a single entry
+      if (!extractedFeatures && isValidTitle(postTitle)) {
+        const combined = `${postTitle} ${postSummary}`;
+        results.push({
+          id: slugify(postTitle),
+          title: postTitle,
+          description: postSummary.substring(0, 500),
+          status: detectStatus(combined),
+          hubs: detectHubs(combined),
+          source: page.sourceLabel,
+          sourceUrl: page.url,
+          pubDate: null,
+        });
+        pageCount++;
+      }
     }
-    flushFeature(); // Don't forget last item
     
-    console.log(`  ✓ ${page.sourceLabel}: ${results.length} items so far`);
+    console.log(`  ✓ ${page.sourceLabel}: ${pageCount} items`);
   }
   
   console.log(`  ✓ Found ${results.length} items total from Releasebot`);

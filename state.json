@@ -10,7 +10,7 @@
       "pubDate": "Tue, 10 Feb 2026 15:22:39 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -31,13 +31,13 @@
       "id": "automatic-migration-from-cookie-consent-banner-v1-to-v2",
       "title": "Automatic migration from Cookie Consent Banner v1 to v2",
       "description": "Starting May 11, 2026, HubSpot will resume the automatic migration of accounts from the legacy Cookie Consent Banner (v1) to the current version (v2). This process was previously announced and later paused to allow more time for manual adoption. This update ensures all accounts use a banner that meets modern accessibility standards and supports the latest privacy features. While the migration happens automatically on this date, you can manually opt-in ahead of time to test the new version within",
-      "status": "mentioned",
+      "status": "update",
       "source": "dev-changelog",
       "sourceUrl": "https://developers.hubspot.com/changelog/automatic-migration-from-cookie-consent-banner-v1-to-v2",
       "pubDate": "Mon, 09 Feb 2026 21:26:43 GMT",
       "author": "jmclaren@hubspot.com (Jon McLaren)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "mentioned",
@@ -52,87 +52,6 @@
         "dev-changelog"
       ]
     },
-    "developer-updates-for-january-2026": {
-      "id": "developer-updates-for-january-2026",
-      "title": "Developer updates for January 2026",
-      "description": " HubSpot’s January dev updates roll out major app improvements across UI Extensions, GPT‑5 Breeze Studio, SSO propagation to sandboxes, HTML editing for quotes, a redesigned Sandbox listing, omnichannel Customer Agent support, expanded Campaign asset types via API, lifecycle metrics, marketplace analytics, and new public betas like Forecast Read API and secure preference URL. January’s developer updates focus on making HubSpot apps more flexible, scalable, and integration-friendly. Highlights in",
-      "status": "public beta",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "public beta",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Marketing Hub",
-        "Sales Hub",
-        "Service Hub",
-        "CMS Hub",
-        "Operations Hub",
-        "Commerce Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "introducing-hubspot-cli-v8-0-0": {
-      "id": "introducing-hubspot-cli-v8-0-0",
-      "title": "Introducing HubSpot CLI v8.0.0",
-      "description": " HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
-      "status": "sunset",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "sunset",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Developer Platform"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server": {
-      "id": "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
-      "title": "Public Beta: Self-Service MCP Auth Apps for the HubSpot Remote MCP Server",
-      "description": " HubSpot unveils a self‑service MCP Auth Apps UI that lets partners and customers build, manage, and authorize AI connectors to the HubSpot Remote MCP Server. The beta enables full connector lifecycle control and OAuth 2.1 credentials with automatic end‑user permissions. Ecosystem partners and customers can now build and manage their own AI connectors to the (Beta) HubSpot Remote MCP (Model Context Protocol) Server through a streamlined self-service interface. This public beta builds on the init",
-      "status": "public beta",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "public beta",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Service Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
     "december-2025-developer-rollup": {
       "id": "december-2025-developer-rollup",
       "title": "December 2025 Developer Rollup",
@@ -143,7 +62,7 @@
       "pubDate": "Tue, 06 Jan 2026 19:28:40 GMT",
       "author": "dadams@hubspot.com (David Adams)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -173,7 +92,7 @@
       "pubDate": "Fri, 19 Dec 2025 16:12:41 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "sunset",
@@ -200,7 +119,7 @@
       "pubDate": "Tue, 02 Dec 2025 22:21:13 GMT",
       "author": "alaporte@hubspot.com (AJ LaPorte)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "sunset",
@@ -225,136 +144,6 @@
         "dev-changelog"
       ]
     },
-    "new-oauth-v3-api-endpoints-and-standardized-error-responses": {
-      "id": "new-oauth-v3-api-endpoints-and-standardized-error-responses",
-      "title": "New OAuth v3 API Endpoints and Standardized Error Responses",
-      "description": " HubSpot boosts security with OAuth v3 endpoints and RFC 6749 compliant error responses. New /v3/token and /v3/introspect for token handling plus standardized error fields, while v1 is deprecated with a sunset timeline in 2026. Migrate now to the new endpoints and standard errors.",
-      "status": "sunset",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "sunset",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Developer Platform"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "what-s-changing": {
-      "id": "what-s-changing",
-      "title": "What’s Changing?",
-      "description": " A new MCP Auth Apps UI has been added to the HubSpot Developer Platform to allow ecosystem partners and customers to build and manage their own AI connectors to the HubSpot Remote MCP Server through a streamlined and fully self-service experience. An earlier public beta, released on September 1, 2025, introduced the HubSpot Remote MCP Server available across all hubs and tiers. However, connector creation and management still relied on other platform developer tools intended for apps providing ",
-      "status": "public beta",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "public beta",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Service Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "new-resource-legacy-crm-card-converter": {
-      "id": "new-resource-legacy-crm-card-converter",
-      "title": "New Resource: Legacy CRM Card Converter",
-      "description": " To support developers migrating from Classic CRM Cards to the new App Cards, we’ve released the Legacy CRM Card Converter, a lightweight tool and example designed to simplify the transition process. The resource provides: Sample mappings that demonstrate how Classic CRM Card patterns translate to modern App Cards. Reference implementation to help you quickly understand equivalent React-based structures. Guidance and best practices for updating legacy cards to transition to new UI Extension capa",
-      "status": "sunset",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "sunset",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Service Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "standard-sandbox-updates-new-limits-new-capabilities-and-legacy-sunset": {
-      "id": "standard-sandbox-updates-new-limits-new-capabilities-and-legacy-sunset",
-      "title": "Standard Sandbox Updates: New Limits, New Capabilities, and Legacy Sunset",
-      "description": " HubSpot is rolling out a more powerful Standard Sandbox experience, alongside clearer data limits and a planned sunset of Legacy Standard Sandboxes. All sandboxes will now enforce a consistent limit of 200,000 records per major CRM object type (including contacts, companies, deals, tickets, custom objects, and more), ensuring predictable performance and stable testing environments. In parallel, a new Standard Sandbox version introduces an enhanced copy of supported production metadata and a Dep",
-      "status": "sunset",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "sunset",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Marketing Hub",
-        "Sales Hub",
-        "Service Hub",
-        "Operations Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
-    "public-api-for-uninstalling-an-app-released-to-ga": {
-      "id": "public-api-for-uninstalling-an-app-released-to-ga",
-      "title": "Public API for Uninstalling an app released to GA",
-      "description": " The previously announced API for uninstalling an app from a HubSpot Account has been released from beta into general availability. This endpoint allows app builders to remove their app from a HubSpot Account, which removes any app features set up for the app, including removing any configured app cards, as well as unsubscribing any configured webhooks for that account. See the documentation for more details.",
-      "status": "now live",
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "now live",
-          "date": "2026-02-12T16:50:34.789Z",
-          "source": "releasebot"
-        }
-      ],
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "sources": [
-        "releasebot"
-      ]
-    },
     "legacy-developer-accounts-migrating-to-the-unified-developer-platform": {
       "id": "legacy-developer-accounts-migrating-to-the-unified-developer-platform",
       "title": "Legacy Developer Accounts Migrating to the Unified Developer Platform",
@@ -368,189 +157,543 @@
       "pubDate": "Wed, 04 Feb 2026 14:00:02 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "update",
           "date": "2026-02-12T17:51:06.936Z",
           "source": "dev-changelog"
         }
-      ]
-    },
-    "hubspot-release-notes": {
-      "id": "hubspot-release-notes",
-      "title": "Hubspot Release Notes",
-      "description": " Last updated: Feb 10, 2026",
-      "status": "update",
-      "hubs": [
-        "Platform"
       ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
+      "sources": [
+        "dev-changelog"
       ]
     },
-    "hubspot-products": {
-      "id": "hubspot-products",
-      "title": "Hubspot Products",
-      "description": " Hubspot Developers 24 release notes",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "new-oauth-v3-token-endpoints": {
-      "id": "new-oauth-v3-token-endpoints",
-      "title": "New Oauth v3 Token Endpoints",
-      "description": " To align with OAuth 2.0 security best practices, we have introduced two new v3 OAuth API endpoints designed to keep sensitive credentials out of server logs and browser histories. POST /v3/token: Handles authorization code and refresh token requests. POST /v3/introspect: Performs token introspection, replacing the separate v1 path-based token metadata for access tokens and refresh tokens.",
-      "status": "update",
-      "hubs": [
-        "Marketing Hub",
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "standardized-oauth-error-responses": {
-      "id": "standardized-oauth-error-responses",
-      "title": "Standardized OAuth Error Responses",
-      "description": " We are updating our OAuth error responses to comply with RFC 6749. This ensures better compatibility with third-party OAuth libraries and simplifies troubleshooting.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "what-s-changed": {
-      "id": "what-s-changed",
-      "title": "What’s changed?",
-      "description": " Previously, responses included HubSpot-specific fields (status and message). Responses now include the standard error and error_description fields.",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "example-response": {
-      "id": "example-response",
-      "title": "Example Response:",
-      "description": " Existing fields (status, message) remain for backward compatibility, so existing error handling will continue to function as is. Important Note: These responses will be reflected in both the v1 and v3 OAuth API endpoints.",
-      "status": "update",
+    "form-submissions-now-show-up-on-company-records": {
+      "id": "form-submissions-now-show-up-on-company-records",
+      "title": "Form Submissions Now Show Up on Company Records",
+      "description": "Finally! You can now see form submissions from all associated contacts directly on the company timeline. No more clicking into individual contact records to piece together what's happening at an account level. This is huge for account-based teams. When you're evaluating whether a company is engaged, you need the full picture in one place. Now you've got it. Just head to the company record, click the Activity tab, and filter by Form Submissions under Contact Activity. Availability:\nNow live for a",
+      "status": "now live",
       "hubs": [
         "Developer Platform",
         "Breeze AI"
       ],
-      "source": "releasebot",
+      "source": "releasebot-product",
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "rule-based-automated-tracking-for-intent-signals": {
+      "id": "rule-based-automated-tracking-for-intent-signals",
+      "title": "Rule-Based Automated Tracking for Intent Signals",
+      "description": "If you're using buyer intent signals, you know the pain of manually managing which companies to track. This update adds simple toggle-based rules so you can automatically start or stop tracking companies based on target account status, lifecycle stage, or segment membership. The real win here is database hygiene. You can set it to automatically stop tracking when a company becomes a customer (so you're not burning credits on closed accounts) and start tracking when they hit a key lifecycle stage",
+      "status": "now live",
+      "hubs": [
+        "Service Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "help-desk-recent-searches": {
+      "id": "help-desk-recent-searches",
+      "title": "Help Desk Recent Searches",
+      "description": "A small quality-of-life improvement for service teams: the help desk now shows your three most recent searches directly in the search popover. Click any of them to re-run the search with the same filters. If you're constantly searching for the same ticket types or using specific filter combinations, this saves a surprising amount of time over the course of a day. Learn more about how to search in the help desk. Availability:\nNow live for Service Hub Professional and Enterprise.",
+      "status": "now live",
+      "hubs": [
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "filters-in-agent-inbox": {
+      "id": "filters-in-agent-inbox",
+      "title": "Filters in Agent Inbox",
+      "description": "The Breeze agent inbox got a major upgrade with comprehensive filtering. You can now filter by execution status (e.g. Success, Error, Needs Approval, Running), request source (e.g. Breeze Studio, Automation, MCP Connector, API, CRM Card), specific agents, and owners. Before this, busy inboxes were basically a chronological list you had to scroll through. Now you can quickly surface what actually needs your attention, like items requiring approval or executions that errored out. Super admins also",
+      "status": "now live",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "report-viewer-gets-full-screen-mode-and-customizable-display": {
+      "id": "report-viewer-gets-full-screen-mode-and-customizable-display",
+      "title": "Report Viewer Gets Full-Screen Mode and Customizable Display",
+      "description": "The report viewer now lets you show or hide settings panels, navigate between reports more easily, and enter full-screen mode. Your display preferences are remembered as you move between reports. It sounds minor, but if you're presenting data to stakeholders or just want to focus on the visualization without all the chrome around it, full-screen mode is genuinely useful. Availability:\nNow live for all HubSpot products and tiers.",
+      "status": "now live",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "custom-views-on-reports-and-dashboards-lists": {
+      "id": "custom-views-on-reports-and-dashboards-lists",
+      "title": "Custom Views on Reports and Dashboards Lists",
+      "description": "As your report library grows, finding the right report becomes a scavenger hunt. Custom views let you create personalized, filtered views of your reports and dashboards using criteria like owner, shared status, date created, last viewed, and tags. You can pin views as tabs, share them with your team or keep them private, and stop wasting time scrolling through hundreds of reports to find the five you actually use. Availability:\nNow live for all Professional and Enterprise subscriptions.",
+      "status": "now live",
+      "hubs": [
+        "Marketing Hub",
+        "Commerce Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "drag-and-drop-and-marquee-select-in-file-manager": {
+      "id": "drag-and-drop-and-marquee-select-in-file-manager",
+      "title": "Drag-and-Drop and Marquee Select in File Manager",
+      "description": "You can now bulk select files in the File Manager by dragging your cursor across them (marquee select in grid view) and then drag the whole group into a folder in one motion. In list view, you still need to use checkboxes, but you can drag selected files into folders. For content teams managing lots of assets, this eliminates a ton of tedious clicking. It's the kind of update that makes you wonder why it wasn't always this way. Note:\nMarquee select only works in grid view. Availability:\nNow live",
+      "status": "now live",
+      "hubs": [
+        "CMS Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "import-auto-detects-date-formatting": {
+      "id": "import-auto-detects-date-formatting",
+      "title": "Import Auto-Detects Date Formatting",
+      "description": "\"Could not parse date\" is one of the most common import errors. Now, when you import data with date properties, HubSpot automatically detects the format based on your file instead of defaulting to portal settings and making you fix it manually. It supports day/month/year, month/day/year, and year/month/day formats. If your file has inconsistent formatting, you can use find-and-replace to clean it up before importing. Availability:\nNow live for all hubs and tiers.",
+      "status": "now live",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "streamlined-association-management-in-data-model": {
+      "id": "streamlined-association-management-in-data-model",
+      "title": "Streamlined Association Management in Data Model",
+      "description": "Managing object associations just got easier. You can now activate existing associations and create new ones (including with custom objects for Enterprise) directly from the data model view. Deactivated associations are hidden from view, keeping things cleaner. Navigate to Data Management > Data Model, click Edit Data Model, and use the plus button on any object to add associations or the ellipsis to deactivate them. Learn more by watching this short video walkthrough. Availability:\nNow live for",
+      "status": "now live",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "export-workflow-enrollments-and-action-logs-to-csv": {
+      "id": "export-workflow-enrollments-and-action-logs-to-csv",
+      "title": "Export Workflow Enrollments and Action Logs to CSV",
+      "description": "You could always export workflow history to a segment, but customers have been asking for CSV exports for ages. Now you can export detailed enrollment and action-level data into a CSV file for analysis in Excel, Google Sheets, or your reporting tools. This is a big deal for debugging, auditing, and understanding exactly what your automations are doing at scale. From the workflow history view, just click Export and choose enrollments or action logs. Availability:\nNow live for Marketing Hub, Sales",
+      "status": "now live",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "business-days-support-for-workflow-delays": {
+      "id": "business-days-support-for-workflow-delays",
+      "title": "Business Days Support for Workflow Delays",
+      "description": "Workflow delays can now exclude weekends. Enable the new Business Days option, and a 1-day delay on Friday will push the next action to Monday instead of Saturday. This sounds simple, but it solves a real problem. No more emails landing on weekends when your team isn't around to respond, and no more awkward timing logic to work around calendar days. Note:\nThis excludes weekends only. It doesn't account for holidays or business hours. Availability:\nNow live for Marketing Hub, Sales Hub, Service H",
+      "status": "now live",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "lifecycle-stage-conditional-property-logic": {
+      "id": "lifecycle-stage-conditional-property-logic",
+      "title": "Lifecycle Stage Conditional Property Logic",
+      "description": "You can now use lifecycle stage as a controlling property for conditional logic. When a contact or company hits a specific stage, you can automatically surface relevant fields and make them required before the record saves. For example, when a rep moves a contact from Lead to MQL, you can require them to fill in qualification notes or budget range. This enforces data quality at the exact moments it matters, without manual reminders or cleanup later. Learn more by watching a quick walkthrough vid",
+      "status": "now live",
+      "hubs": [
+        "Service Hub",
+        "Operations Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "enhancements-to-property-creation": {
+      "id": "enhancements-to-property-creation",
+      "title": "Enhancements to Property Creation",
+      "description": "Creating properties outside of Property Settings just got more powerful. You can now create calculation, rollup, and property sync types from places like the index page or during imports. Plus, you can switch between manual and Breeze-assisted creation depending on what you need. The bigger picture: you can stay in the zone and create complex properties without navigating away to Settings. Availability:\nNow live for all hubs and tiers.",
+      "status": "now live",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "view-related-records-and-clean-up-associations-in-bulk": {
+      "id": "view-related-records-and-clean-up-associations-in-bulk",
+      "title": "View Related Records and Clean Up Associations in Bulk",
+      "description": "CRM associations get stale. Contacts change companies, deals shift ownership, imports create bad relationships. Cleaning this up used to require manual updates one by one or developer help. Now you can select up to 100 records from any index page, click Review Associations, and see all their relationships in a single structured view. From there, you can select and remove incorrect associations in bulk. Filter by association type or label to zero in on what needs fixing. Availability:\nPublic beta",
+      "status": "public beta",
+      "hubs": [
+        "Sales Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "set-default-property-values": {
+      "id": "set-default-property-values",
+      "title": "Set Default Property Values",
+      "description": "Admins can now define default values for properties that automatically apply when new records are created. This works across manual entry, workflows, and APIs. If your team constantly enters the same values when creating records, this eliminates that repetitive work and keeps data consistent from the start. It also means you can retire those workflows you built just to initialize property values. Note:\nNot currently supported for calculations, rollups, syncs, or file properties. Availability:\nPu",
+      "status": "public beta",
+      "hubs": [
+        "Operations Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-product"
+        }
+      ],
+      "sources": [
+        "releasebot-product"
+      ]
+    },
+    "custom-actions-support-for-enrolled-non-enrolled-records": {
+      "id": "custom-actions-support-for-enrolled-non-enrolled-records",
+      "title": "Custom Actions Support for Enrolled & Non-Enrolled Records",
+      "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow’s enrolled object. The change rolls out on November 24, 2025.",
+      "status": "update",
+      "hubs": [
+        "Operations Hub"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-dev"
+        }
+      ],
+      "sources": [
+        "releasebot-dev"
+      ]
+    },
+    "take-action-with-claude-update-crm-records-and-access-engagement-history": {
+      "id": "take-action-with-claude-update-crm-records-and-access-engagement-history",
+      "title": "Take Action With Claude: Update CRM Records and Access Engagement History",
+      "description": "Claude’s HubSpot connector now lets you create and update CRM records, log activities, and act on full engagement history—directly from chat. With public beta for updates and GA for engagement access, this rollout enables faster, context-aware workflows and bulk actions.",
+      "status": "public beta",
+      "hubs": [
+        "Operations Hub"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:14.655Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-02-12T18:11:14.655Z",
+          "source": "releasebot-dev"
+        }
+      ],
+      "sources": [
+        "releasebot-dev"
+      ]
+    },
+    "developer-updates-for-january-2026": {
+      "id": "developer-updates-for-january-2026",
+      "title": "Developer updates for January 2026",
+      "description": "HubSpot’s January dev updates roll out major app improvements across UI Extensions, GPT‑5 Breeze Studio, SSO propagation to sandboxes, HTML editing for quotes, a redesigned Sandbox listing, omnichannel Customer Agent support, expanded Campaign asset types via API, lifecycle metrics, marketplace analytics, and new public betas like Forecast Read API and secure preference URL.",
+      "status": "public beta",
+      "hubs": [
+        "Sales Hub",
+        "Commerce Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-02-12T18:11:39.934Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-02-12T18:11:39.934Z",
+          "source": "releasebot-product"
         }
       ]
     },
-    "what-does-this-mean-for-developers": {
-      "id": "what-does-this-mean-for-developers",
-      "title": "What does this mean for developers?",
-      "description": " Adopt v3: Start targeting /v3/token and /v3/introspect for all new developments. Update Request Logic: Ensure your application sends credentials in the request body, never in the URL. Error Handling: You can now update your client-side error handling to parse standard OAuth error fields. Important note: There are no changes to the scope, app settings, or the OAuth install process.",
-      "status": "update",
+    "new-oauth-v3-api-endpoints-and-standardized-error-responses": {
+      "id": "new-oauth-v3-api-endpoints-and-standardized-error-responses",
+      "title": "New OAuth v3 API Endpoints and Standardized Error Responses",
+      "description": "HubSpot boosts security with OAuth v3 endpoints and RFC 6749 compliant error responses. New /v3/token and /v3/introspect for token handling plus standardized error fields, while v1 is deprecated with a sunset timeline in 2026. Migrate now to the new endpoints and standard errors.",
+      "status": "sunset",
       "hubs": [
         "Developer Platform"
       ],
-      "source": "releasebot",
+      "source": "releasebot-product",
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "firstSeen": "2026-02-12T18:11:39.934Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
+          "status": "sunset",
+          "date": "2026-02-12T18:11:39.934Z",
+          "source": "releasebot-product"
         }
       ]
     },
-    "custom-object-schema-command-changes": {
-      "id": "custom-object-schema-command-changes",
-      "title": "Custom object schema command changes",
-      "description": " The following legacy commands have been removed in favor of updated equivalents:",
-      "status": "update",
+    "introducing-hubspot-cli-v8-0-0": {
+      "id": "introducing-hubspot-cli-v8-0-0",
+      "title": "Introducing HubSpot CLI v8.0.0",
+      "description": "HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
+      "status": "sunset",
       "hubs": [
-        "Platform"
+        "Developer Platform"
       ],
-      "source": "releasebot",
+      "source": "releasebot-product",
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "firstSeen": "2026-02-12T18:11:39.934Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
+          "status": "sunset",
+          "date": "2026-02-12T18:11:39.934Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server": {
+      "id": "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
+      "title": "Public Beta: Self-Service MCP Auth Apps for the HubSpot Remote MCP Server",
+      "description": "Ecosystem partners and customers can now build and manage their own AI connectors to the (Beta) HubSpot Remote MCP (Model Context Protocol) Server through a streamlined self-service interface. This public beta builds on the initial release of the HubSpot Remote MCP Server and simplifies the experience&nbsp; of creating and managing AI connectors directly.",
+      "status": "public beta",
+      "hubs": [
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "dev-changelog",
+      "sourceUrl": "https://developers.hubspot.com/changelog/public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server",
+      "pubDate": "Tue, 20 Jan 2026 14:28:38 GMT",
+      "author": "dedson@hubspot.com (Dennis Edson)",
+      "firstSeen": "2026-02-12T18:11:39.934Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-02-12T18:11:39.934Z",
+          "source": "dev-changelog"
         }
       ]
     },
     "new-hubspot-app-updates-ai-automation-crm-sync-q4-2025": {
       "id": "new-hubspot-app-updates-ai-automation-crm-sync-q4-2025",
       "title": "New HubSpot App Updates: AI, Automation & CRM Sync (Q4 2025)",
-      "description": " HubSpot Marketplace closes Q4 with 76+ new apps and a wave of updates that slash silos and boost productivity. New AI tools and CRM integrations with Claude and ChatGPT unlock faster prospecting, dynamic docs, and richer dashboards for smarter, faster selling.",
+      "description": "HubSpot Marketplace closes Q4 with 76+ new apps and a wave of updates that slash silos and boost productivity. New AI tools and CRM integrations with Claude and ChatGPT unlock faster prospecting, dynamic docs, and richer dashboards for smarter, faster selling.",
       "status": "update",
       "hubs": [
         "Sales Hub",
@@ -558,593 +701,20 @@
         "Developer Platform",
         "Breeze AI"
       ],
-      "source": "releasebot",
+      "source": "releasebot-product",
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
+      "firstSeen": "2026-02-12T18:11:39.934Z",
+      "lastSeen": "2026-02-12T18:11:39.934Z",
       "statusHistory": [
         {
           "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "the-takeaway-from-hustle-to-velocity": {
-      "id": "the-takeaway-from-hustle-to-velocity",
-      "title": "The Takeaway: From Hustle to Velocity",
-      "description": " The updates shipped last quarter collectively invite us to pursue more meaningful execution. Install new apps that integrate seamlessly with HubSpot to handle the how, so you can refocus on the why. Make this the year you expand your capacity, elevate your impact, and lead with clarity in every action.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "developer-tasks-and-app-migration-paths": {
-      "id": "developer-tasks-and-app-migration-paths",
-      "title": "Developer Tasks and App Migration Paths",
-      "description": " Now the Developer Platform surfaces actionable insights directly on the Developer Overview for all HubSpot Accounts. Developers can view task cards highlighting whether any of their apps are eligible for migration to the new Developer Platform, with clear guidance on which apps can and cannot be migrated. Task Cards: A task card lists action items for developers, focusing on highlighting eligible apps for migration. A task card can be found on the Developer Overview page within the HubSpot Acco",
-      "status": "update",
-      "hubs": [
-        "Marketing Hub",
-        "Sales Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "hubspot-ip-ranges-api": {
-      "id": "hubspot-ip-ranges-api",
-      "title": "HubSpot IP Ranges API",
-      "description": " You can now dynamically access HubSpot's public IP ranges for your projects and firewalls. With this API, you can automatically update your firewall rules and enhance your security monitoring. You can retrieve the set of IP ranges using this endpoint:\nhttps://api.hubapi.com/meta/network-origins/2025-09/ip-ranges\nThis API does not require authorization. The response will include a list of IP ranges and the HubSpot services using those IPs. See the documentation for full details.",
-      "status": "update",
-      "hubs": [
-        "Service Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "new-filter-by-object-type-id-for-v3-lists-api": {
-      "id": "new-filter-by-object-type-id-for-v3-lists-api",
-      "title": "New Filter by Object Type ID for v3 Lists API",
-      "description": " The /crm/v3/lists/search endpoint in the v3 Lists API now supports filtering lists by object type using the objectTypeId parameter in the POST request body. See additional details on what specifically changed, below: New Filter Option: Developers can now include the objectTypeId property in the POST request body when querying the /crm/v3/lists/search API endpoint. Supported Values: Common values include object type IDs, such as \"0-1\", or a string, such as \"CONTACT\". Request Body Example: This n",
-      "status": "update",
-      "hubs": [
-        "Marketing Hub",
-        "Operations Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "template-selection-for-cpq-quotes-via-api": {
-      "id": "template-selection-for-cpq-quotes-via-api",
-      "title": "Template Selection for CPQ Quotes via API",
-      "description": " You can now specify a custom template when creating CPQ quotes through the Quotes API, rather than relying on the default content template. This unlocks full control over quote design and structure for any workflow that programmatically generates quotes. During creation, the API will associate the quote to the selected template and pull in any additional template data, while still prioritizing values explicitly set on the quote. Note that templates can only be chosen at creation time and cannot",
-      "status": "update",
-      "hubs": [
-        "Sales Hub",
-        "CMS Hub",
-        "Commerce Hub",
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "updates-to-associations-to-the-cart-object": {
-      "id": "updates-to-associations-to-the-cart-object",
-      "title": "Updates to associations to the Cart object",
-      "description": " You can now create associations between carts and custom objects, and configure custom association labels and limits for the cart object. This improvement allows you to tailor the cart object to your specific business needs and workflows. This update allows integrations to update associations using the Associations API, as well as allowing super admin users to update associations by editing the data model in their account. Additionally, users can associate carts to deals directly from record pa",
-      "status": "update",
-      "hubs": [
-        "Sales Hub",
-        "CMS Hub",
-        "Operations Hub",
-        "Commerce Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "breeze-assistant-can-now-query-your-custom-event-and-app-event-data": {
-      "id": "breeze-assistant-can-now-query-your-custom-event-and-app-event-data",
-      "title": "Breeze Assistant can now query your Custom event and App event data",
-      "description": " Breeze Assistant can now query the custom website events and app events you've configured in your HubSpot Account. You can now get answers about these events directly from Breeze Assistant, helping you: Gain deeper insights into user behavior on your website and through your apps. Make data-driven decisions based on specific actions your customers are taking. Streamline your ability to answer important questions about your business using these additional data sources.\nThis enhancement brings yo",
-      "status": "update",
-      "hubs": [
-        "CMS Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "top-product-updates-for-january-2026": {
-      "id": "top-product-updates-for-january-2026",
-      "title": "Top Product Updates for January 2026",
-      "description": " HubSpot kicks off 2026 with a broad admin and ops focused update. Highlights include form submissions on company records, rule-based intent tracking, enhanced filtering, full screen report viewing, custom report views, bulk file actions, and stronger data management across hubs.",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "top-product-updates-of-january-2026": {
-      "id": "top-product-updates-of-january-2026",
-      "title": "Top Product Updates of January 2026",
-      "description": "",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "what-this-means-for-you": {
-      "id": "what-this-means-for-you",
-      "title": "What This Means for You",
-      "description": " To support this change, your sandbox limit will be temporarily increased so you can create and configure a new standard sandbox while still accessing your legacy sandbox. Most customers will experience minimal impact. Teams with connected apps that orchestrates data flow across systems may need to review and reconnect certain elements in the new sandbox. The new standard sandbox includes: A more accurate representation of the most requested supported asset types A new Deploy to Production featu",
-      "status": "update",
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "faq-what-you-need-to-do-before-march-16-2026": {
-      "id": "faq-what-you-need-to-do-before-march-16-2026",
-      "title": "FAQ — What You Need to Do Before March 16, 2026",
-      "description": "",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "who-can-make-these-changes": {
-      "id": "who-can-make-these-changes",
-      "title": "Who can make these changes",
-      "description": " Any Super Admin can create a new standard sandbox and delete the legacy one. We recommend coordinating with the Super Admins who actively use sandboxes and maintain integrations to assess the requirements.\nIf you have questions not answered in this FAQ please reach out to your Customer Success Manager or visit the HubSpot Help Center.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "how-to-assess-your-migration-needs": {
-      "id": "how-to-assess-your-migration-needs",
-      "title": "How to assess your migration needs",
-      "description": " Create your new Standard Sandbox\nYour temporary sandbox limit allows you to create it without deleting your legacy sandbox. Create your new Standard Sandbox\nYour temporary sandbox limit allows you to create it without deleting your legacy sandbox. Review whats in your Legacy Sandbox\nIdentify any integrations, apps, or automations your tech stack depends on, for example: Review whats in your Legacy Sandbox\nIdentify any integrations, apps, or automations your tech stack depends on, for example: C",
-      "status": "update",
-      "hubs": [
-        "Operations Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "what-happens-to-legacy-sandboxes-on-march-16-2026": {
-      "id": "what-happens-to-legacy-sandboxes-on-march-16-2026",
-      "title": "What happens to legacy sandboxes on March 16, 2026",
-      "description": " If you don’t migrate before March 16, you will lose access to your legacy sandboxes. After that date, only the new Standard Sandbox will be supported.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "who-is-impacted": {
-      "id": "who-is-impacted",
-      "title": "Who Is Impacted",
-      "description": "",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "most-customers-simple-testing-use-cases": {
-      "id": "most-customers-simple-testing-use-cases",
-      "title": "Most Customers (Simple Testing Use Cases)",
-      "description": " Most teams will experience minimal impact and can simply: Create a new standard sandbox Confirm no migration needs exist Delete their legacy sandbox",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "customers-using-private-public-apps": {
-      "id": "customers-using-private-public-apps",
-      "title": "Customers Using Private/Public Apps",
-      "description": " If your sandbox connects to external systems, expect a deeper review. You may need to: Assess and reconnect private or public apps Refresh authentication tokens, secrets, scopes Update references to your new sandbox’s account ID Review workflows that contain webhooks or custom-coded actions Once validated, you can delete your legacy sandbox",
-      "status": "update",
-      "hubs": [
-        "Operations Hub",
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "why-we-re-making-this-change": {
-      "id": "why-we-re-making-this-change",
-      "title": "Why We’re Making This Change",
-      "description": " Legacy sandboxes were foundational, but they had key limitations, especially around tracking changes critical for supporting safe, predictable deployments to production.\nThe new Standard Sandbox addresses these challenges with:",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "a-production-like-environment-for-supported-assets": {
-      "id": "a-production-like-environment-for-supported-assets",
-      "title": "A production-like environment for supported assets",
-      "description": " A more accurate representation of supported assets, allowing you to test confidently without disrupting live systems or your end users in production.",
-      "status": "live",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "live",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "a-native-deploy-to-production-experience-for-supported-assets": {
-      "id": "a-native-deploy-to-production-experience-for-supported-assets",
-      "title": "A native Deploy to Production experience for supported assets",
-      "description": " You no longer need to rebuild supported assets manually once testing is complete. The new deployment technology provides:\nPredictable, safer deployments\nVisibility into eligible assets and required connected assets\nConflict warnings\nDeployment logs for transparency and troubleshooting Predictable, safer deployments Visibility into eligible assets and required connected assets Conflict warnings Deployment logs for transparency and troubleshooting",
-      "status": "update",
-      "hubs": [
-        "Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "why-the-legacy-resync-feature-is-removed": {
-      "id": "why-the-legacy-resync-feature-is-removed",
-      "title": "Why the legacy resync feature is removed",
-      "description": " Although the resync feature felt useful, it introduced major instability in sandbox development. It could overwrite in-progress work, break change tracking, disrupt reliable development practices, and increase the risk of errors when deploying changes to production. Removing resync eliminates these risks and ensures sandboxes remain clean, consistent environments you can trust.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "how-to-get-a-fresh-copy-of-production": {
-      "id": "how-to-get-a-fresh-copy-of-production",
-      "title": "How to get a fresh copy of production",
-      "description": " To maintain a reliable development environment, your sandbox should be recreated, not resynced, whenever you need a fresh copy of production. Recreating your sandbox eliminates drift, restores a clean baseline, and ensures that what you test behaves the same way in production.\nThis change makes deployments more predictable and aligns our process with industry standards for managing development environments and deploying tested changes to production safely.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "how-to-manage-your-sandboxes-going-forward": {
-      "id": "how-to-manage-your-sandboxes-going-forward",
-      "title": "How to Manage Your Sandboxes Going Forward",
-      "description": " To get you started adopting this new way of working with the delete and create model consider implementing lightweight governance practices such as: Defining when a sandbox should be recreated Assigning clear ownership and access Keeping sandboxes purpose-driven and uncluttered Deploying changes intentionally, not reactively Together, these practices support safer deployments, reduce operational risk, and clarify how sandboxes should be managed across your organization. Here’s a framework to he",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "checklist-for-customers-with-connected-apps": {
-      "id": "checklist-for-customers-with-connected-apps",
-      "title": "Checklist for Customers with Connected Apps",
-      "description": " If your legacy sandbox has connected apps, review the following when assessing configuration requirements in your new standard sandbox: Each sandbox has a unique ID. Update any systems that reference your legacy sandbox’s ID. Generate new credentials in your new sandbox and update external systems if needed. Private apps: reconnect and generate new tokens (Developer docs here) Public apps: reauthorize following developer documentation here Review and update webhook and custom-coded actions\nUpda",
-      "status": "update",
-      "hubs": [
-        "Developer Platform",
-        "Breeze AI"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "questions-or-concerns": {
-      "id": "questions-or-concerns",
-      "title": "Questions or concerns?",
-      "description": " Join us in the Developer Community Forum for a peer-to-peer discussion.",
-      "status": "update",
-      "hubs": [
-        "Developer Platform"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
-        }
-      ]
-    },
-    "related-vendors": {
-      "id": "related-vendors",
-      "title": "Related vendors",
-      "description": "Notion Slack Canva Customer.io Supabase Calendly",
-      "status": "update",
-      "hubs": [
-        "Service Hub"
-      ],
-      "source": "releasebot",
-      "sourceUrl": "https://releasebot.io/updates/hubspot",
-      "pubDate": null,
-      "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-12T17:51:06.936Z",
-      "statusHistory": [
-        {
-          "status": "update",
-          "date": "2026-02-12T17:51:06.936Z",
-          "source": "releasebot"
+          "date": "2026-02-12T18:11:39.934Z",
+          "source": "releasebot-product"
         }
       ]
     }
   },
-  "lastScan": "2026-02-12T17:51:06.937Z",
-  "scanCount": 2
+  "lastScan": "2026-02-12T18:11:39.934Z",
+  "scanCount": 5
 }
