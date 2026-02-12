@@ -317,6 +317,11 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 <script>
 const STATUS_ORDER = ['public beta','private beta','developer preview','early access','now live','live','sunset','breaking change','update'];
 const HUB_FILTER_ORDER = ['Marketing Hub','Sales Hub','Service Hub','CMS Hub','Operations Hub','Commerce Hub','Developer Platform','Breeze AI'];
+const HUB_COLORS = {
+  'Marketing Hub':'#ff7a59','Sales Hub':'#00bda5','Service Hub':'#f5c26b',
+  'CMS Hub':'#7c98b6','Operations Hub':'#cbd6e2','Commerce Hub':'#f7931a',
+  'Developer Platform':'#17a192','Breeze AI':'#a855f7','Platform':'#666'
+};
 
 let allBetas = [];
 let activeStatuses = new Set();  // empty = show all
@@ -423,9 +428,13 @@ function renderGrid() {
     const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
     const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
     const desc = (b.description || '').replace(/</g, '&lt;');
-    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'product-updates':'Product Updates' }[b.source] || b.source;
+    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[b.source] || b.source;
     const hubs = b.hubs || ['Platform'];
-    const hubTags = hubs.map(h => '<span class="hub-tag">' + h + '</span>').join('');
+    const hubTags = hubs.map(h => {
+      const color = HUB_COLORS[h] || '#666';
+      const textColor = (h === 'Operations Hub' || h === 'Service Hub') ? '#111' : '#fff';
+      return '<span class="hub-tag" style="background:' + color + ';color:' + textColor + '">' + h + '</span>';
+    }).join('');
     return '<div class="card" data-status="' + b.status + '">' +
       '<div class="card-top">' +
         '<span class="card-title">' + b.title + '</span>' +
