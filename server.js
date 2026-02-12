@@ -132,8 +132,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 /* Header */
 .header{padding:48px 0 32px;border-bottom:1px solid #1e1e1e}
-.header-top{display:flex;align-items:center;gap:20px;margin-bottom:20px}
-.header-logo{height:44px;width:auto}
+.header-title-row{display:flex;align-items:center;gap:18px}
+.header-logo{height:52px;width:auto}
 .header h1{font-size:2rem;font-weight:700;text-wrap:balance;letter-spacing:-.02em;color:#fff}
 .header h1 span{color:var(--teal)}
 .header .subtitle{color:var(--text-muted);font-size:1rem;margin-top:8px;text-wrap:balance}
@@ -147,8 +147,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 }
 .header .total-badge strong{color:var(--teal)}
 
-/* Filters */
-.filters-bar{padding:24px 0;border-bottom:1px solid #1e1e1e}
+/* Filters — sticky */
+.filters-bar{padding:20px 24px;border-bottom:1px solid #1e1e1e;position:sticky;top:0;z-index:50;background:var(--bg);max-width:1400px;margin:0 auto}
 .filter-group{margin-bottom:16px}
 .filter-group:last-child{margin-bottom:0}
 .filter-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:10px;font-weight:600}
@@ -209,9 +209,9 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
   padding:3px 10px;border-radius:4px;white-space:nowrap;
 }
 
-.card-desc{color:#ccc;font-size:.85rem;line-height:1.5;margin-bottom:12px;
+.card-desc{color:#e0e0e0;font-size:.85rem;line-height:1.5;margin-bottom:12px;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.75rem;color:var(--text-dim)}
+.card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.75rem;color:#999}
 .card-meta a{color:var(--teal);font-size:.75rem}
 
 /* Lead capture banner */
@@ -267,10 +267,10 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 
 <div class="container">
   <header class="header">
-    <div class="header-top">
-      <a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/rsm-logo.png" alt="RSM Consulting" class="header-logo"></a>
+    <div class="header-title-row">
+      <a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/favicon.png" alt="RSM Consulting" class="header-logo"></a>
+      <h1>HubSpot <span>Product Updates Tracker</span></h1>
     </div>
-    <h1>HubSpot <span>Product Updates Tracker</span></h1>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
     <div class="meta-row">
       <span class="by">Built by <a href="https://crmbyrsm.com" target="_blank" rel="noopener">RSM Consulting</a></span>
