@@ -46,22 +46,28 @@ const SOURCES = {
   },
 };
 
-// Beta-related keywords for filtering
-const BETA_KEYWORDS = [
-  'beta', 'preview', 'early access', 'developer preview',
-  'public beta', 'private beta', 'opt-in', 'opt in',
-  'now live', 'general availability', 'ga release',
-  'sunset', 'deprecat', 'breaking change',
-];
-
 const STATUS_KEYWORDS = {
   'public beta': ['public beta'],
   'private beta': ['private beta'],
   'developer preview': ['developer preview'],
   'early access': ['early access'],
-  'now live': ['now live', 'general availability', 'ga release', 'now available'],
+  'now live': ['now live', 'general availability', 'ga release', 'now available', 'is live', 'goes live', 'gone live', 'launched'],
+  'live': ['live', 'available now', 'rolling out', 'released'],
   'sunset': ['sunset', 'deprecat', 'end of life', 'eol'],
   'breaking change': ['breaking change'],
+  'update': ['update', 'improvement', 'enhanced', 'new feature', 'added', 'improved', 'redesigned', 'upgraded'],
+};
+
+// Hub/Integration detection keywords
+const HUB_KEYWORDS = {
+  'Marketing Hub': ['marketing', 'email', 'forms', 'landing pages', 'campaigns', 'seo', 'social', 'ads', 'blog', 'ctas', 'lead scoring', 'lists', 'nurture', 'a/b test'],
+  'Sales Hub': ['deals', 'pipeline', 'sequences', 'quotes', 'forecasting', 'playbooks', 'sales', 'prospecting', 'meetings', 'calling', 'tasks'],
+  'Service Hub': ['tickets', 'conversations', 'knowledge base', 'customer portal', 'feedback', 'service', 'help desk', 'sla'],
+  'CMS Hub': ['cms', 'pages', 'themes', 'templates', 'drag-and-drop', 'hubdb', 'modules', 'website', 'blog'],
+  'Operations Hub': ['workflows', 'data sync', 'data quality', 'datasets', 'custom code', 'operations', 'programmable automation'],
+  'Commerce Hub': ['payments', 'quotes', 'invoices', 'subscriptions', 'commerce', 'orders', 'carts', 'checkout'],
+  'Developer Platform': ['api', 'sdk', 'cli', 'oauth', 'apps', 'extensions', 'sandbox', 'marketplace', 'developer', 'webhook', 'serverless', 'hubl'],
+  'Breeze AI': ['breeze', 'ai', 'copilot', 'assistant', 'agent', 'intelligence'],
 };
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -90,15 +96,24 @@ async function fetchURL(url, maxRetries = 2) {
 
 function detectStatus(text) {
   const lower = text.toLowerCase();
-  for (const [status, keywords] of Object.entries(STATUS_KEYWORDS)) {
-    if (keywords.some(kw => lower.includes(kw))) return status;
+  // Check specific statuses first (order matters — more specific before general)
+  const priorityOrder = ['public beta', 'private beta', 'developer preview', 'early access', 'now live', 'sunset', 'breaking change', 'live', 'update'];
+  for (const status of priorityOrder) {
+    const keywords = STATUS_KEYWORDS[status];
+    if (keywords && keywords.some(kw => lower.includes(kw))) return status;
   }
-  return 'mentioned';
+  return 'update';
 }
 
-function isBetaRelated(text) {
+function detectHubs(text) {
   const lower = text.toLowerCase();
-  return BETA_KEYWORDS.some(kw => lower.includes(kw));
+  const hubs = [];
+  for (const [hub, keywords] of Object.entries(HUB_KEYWORDS)) {
+    if (keywords.some(kw => lower.includes(kw))) {
+      hubs.push(hub);
+    }
+  }
+  return hubs.length > 0 ? hubs : ['Platform'];
 }
 
 function slugify(title) {
@@ -195,7 +210,6 @@ async function parseDevChangelog() {
     const desc = stripHTML(item.description || item['content:encoded'] || '');
     const combined = `${title} ${desc}`;
     
-    if (!isBetaRelated(combined)) continue;
     if (!isValidTitle(title)) continue;
     
     results.push({
@@ -203,6 +217,7 @@ async function parseDevChangelog() {
       title: title.trim(),
       description: desc.substring(0, 500),
       status: detectStatus(combined),
+      hubs: detectHubs(combined),
       source: 'dev-changelog',
       sourceUrl: item.link || SOURCES.devChangelog.url,
       pubDate: item.pubDate || null,
@@ -210,7 +225,7 @@ async function parseDevChangelog() {
     });
   }
   
-  console.log(`  ✓ Found ${results.length} beta-related items`);
+  console.log(`  ✓ Found ${results.length} items`);
   return results;
 }
 
@@ -233,7 +248,6 @@ async function parseCommunityUpdates() {
     const href = link.getAttribute('href') || '';
     
     if (!isValidTitle(title)) continue;
-    if (!isBetaRelated(title)) continue;
     
     const fullUrl = href.startsWith('http') ? href : `https://community.hubspot.com${href}`;
     
@@ -242,13 +256,14 @@ async function parseCommunityUpdates() {
       title,
       description: '',
       status: detectStatus(title),
+      hubs: detectHubs(title),
       source: 'community',
       sourceUrl: fullUrl,
       pubDate: null,
     });
   }
   
-  console.log(`  ✓ Found ${results.length} beta-related items`);
+  console.log(`  ✓ Found ${results.length} items`);
   return results;
 }
 
@@ -269,7 +284,6 @@ async function parseProductUpdates() {
   for (const h of headings) {
     const title = h.text?.trim() || '';
     if (!isValidTitle(title)) continue;
-    if (!isBetaRelated(title)) continue;
     
     const link = h.querySelector('a');
     const href = link?.getAttribute('href') || '';
@@ -282,18 +296,20 @@ async function parseProductUpdates() {
       desc = stripHTML(next.text || '').substring(0, 500);
     }
     
+    const combined = `${title} ${desc}`;
     results.push({
       id: slugify(title),
       title,
       description: desc,
-      status: detectStatus(`${title} ${desc}`),
+      status: detectStatus(combined),
+      hubs: detectHubs(combined),
       source: 'product-updates',
       sourceUrl: fullUrl,
       pubDate: null,
     });
   }
   
-  console.log(`  ✓ Found ${results.length} beta-related items`);
+  console.log(`  ✓ Found ${results.length} items`);
   return results;
 }
 
@@ -337,13 +353,15 @@ async function parseMonthlyUpdate() {
       if (!text || text.length < 5) continue;
       
       if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(el.tagName)) {
-        // Save previous if beta-related and valid
-        if (currentTitle && isValidTitle(currentTitle) && isBetaRelated(`${currentTitle} ${currentDesc}`)) {
+        // Save previous if valid
+        if (currentTitle && isValidTitle(currentTitle)) {
+          const combined = `${currentTitle} ${currentDesc}`;
           results.push({
             id: slugify(currentTitle),
             title: currentTitle,
             description: currentDesc.substring(0, 500),
-            status: detectStatus(`${currentTitle} ${currentDesc}`),
+            status: detectStatus(combined),
+            hubs: detectHubs(combined),
             source: 'releasebot',
             sourceUrl: 'https://releasebot.io/updates/hubspot',
             pubDate: null,
@@ -356,12 +374,14 @@ async function parseMonthlyUpdate() {
       }
     }
     // Don't forget last item
-    if (currentTitle && isValidTitle(currentTitle) && isBetaRelated(`${currentTitle} ${currentDesc}`)) {
+    if (currentTitle && isValidTitle(currentTitle)) {
+      const combined = `${currentTitle} ${currentDesc}`;
       results.push({
         id: slugify(currentTitle),
         title: currentTitle,
         description: currentDesc.substring(0, 500).trim(),
-        status: detectStatus(`${currentTitle} ${currentDesc}`),
+        status: detectStatus(combined),
+        hubs: detectHubs(combined),
         source: 'releasebot',
         sourceUrl: 'https://releasebot.io/updates/hubspot',
         pubDate: null,
@@ -369,7 +389,7 @@ async function parseMonthlyUpdate() {
     }
   }
   
-  console.log(`  ✓ Found ${results.length} beta-related items from monthly updates & releasebot`);
+  console.log(`  ✓ Found ${results.length} items from monthly updates & releasebot`);
   return results;
 }
 
@@ -388,9 +408,10 @@ function mergeResults(state, newItems) {
     const existing = state.betas[item.id];
     
     if (!existing) {
-      // Brand new beta
+      // Brand new item
       state.betas[item.id] = {
         ...item,
+        hubs: item.hubs || ['Platform'],
         firstSeen: now,
         lastSeen: now,
         statusHistory: [{ status: item.status, date: now, source: item.source }],
@@ -400,8 +421,24 @@ function mergeResults(state, newItems) {
       // Update last seen
       existing.lastSeen = now;
       
+      // Ensure hubs field exists on legacy items
+      if (!existing.hubs) {
+        existing.hubs = item.hubs || ['Platform'];
+      } else if (item.hubs) {
+        // Merge any new hubs detected
+        for (const hub of item.hubs) {
+          if (!existing.hubs.includes(hub)) {
+            existing.hubs.push(hub);
+          }
+        }
+        // Remove "Platform" if real hubs were detected
+        if (existing.hubs.length > 1 && existing.hubs.includes('Platform')) {
+          existing.hubs = existing.hubs.filter(h => h !== 'Platform');
+        }
+      }
+      
       // Check for status change
-      if (existing.status !== item.status && item.status !== 'mentioned') {
+      if (existing.status !== item.status && item.status !== 'update') {
         const oldStatus = existing.status;
         existing.status = item.status;
         existing.statusHistory.push({ 
@@ -479,16 +516,17 @@ function generateReport(state, changes) {
     byStatus[beta.status].push(beta);
   }
   
-  const statusOrder = ['public beta', 'private beta', 'developer preview', 'early access', 'now live', 'sunset', 'breaking change', 'mentioned'];
+  const statusOrder = ['public beta', 'private beta', 'developer preview', 'early access', 'now live', 'live', 'sunset', 'breaking change', 'update'];
   const statusEmoji = {
     'public beta': '🟢',
     'private beta': '🔒',
     'developer preview': '🔧',
     'early access': '⚡',
     'now live': '✅',
+    'live': '🔵',
     'sunset': '🌅',
     'breaking change': '⚠️',
-    'mentioned': '📝',
+    'update': '📝',
   };
   
   lines.push(`## 📊 All Tracked Betas by Status`);
@@ -569,7 +607,7 @@ async function main() {
     }
   }
   
-  console.log(`\n📊 Total unique beta-related items found: ${deduped.size}`);
+  console.log(`\n📊 Total unique items found: ${deduped.size}`);
   
   // Merge with existing state
   const changes = mergeResults(state, [...deduped.values()]);

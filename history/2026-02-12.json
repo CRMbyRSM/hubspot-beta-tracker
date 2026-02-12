@@ -130,5 +130,499 @@
     },
     "itemsFound": 13,
     "timestamp": "2026-02-12T16:50:34.789Z"
+  },
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "legacy-developer-accounts-migrating-to-the-unified-developer-platform",
+          "title": "Legacy Developer Accounts Migrating to the Unified Developer Platform",
+          "description": "All legacy developer accounts are being upgraded to HubSpot’s new unified Developer Platform experience. This migration brings developer tools and resources together into a single HubSpot account, replacing older, separate tools with one consistent experience when building on HubSpot.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/legacy-developer-accounts-migration",
+          "pubDate": "Wed, 04 Feb 2026 14:00:02 GMT",
+          "author": "dedson@hubspot.com (Dennis Edson)"
+        },
+        {
+          "id": "hubspot-release-notes",
+          "title": "Hubspot Release Notes",
+          "description": " Last updated: Feb 10, 2026",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "hubspot-products",
+          "title": "Hubspot Products",
+          "description": " Hubspot Developers 24 release notes",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "new-oauth-v3-token-endpoints",
+          "title": "New Oauth v3 Token Endpoints",
+          "description": " To align with OAuth 2.0 security best practices, we have introduced two new v3 OAuth API endpoints designed to keep sensitive credentials out of server logs and browser histories. POST /v3/token: Handles authorization code and refresh token requests. POST /v3/introspect: Performs token introspection, replacing the separate v1 path-based token metadata for access tokens and refresh tokens.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "standardized-oauth-error-responses",
+          "title": "Standardized OAuth Error Responses",
+          "description": " We are updating our OAuth error responses to comply with RFC 6749. This ensures better compatibility with third-party OAuth libraries and simplifies troubleshooting.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "what-s-changed",
+          "title": "What’s changed?",
+          "description": " Previously, responses included HubSpot-specific fields (status and message). Responses now include the standard error and error_description fields.",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "example-response",
+          "title": "Example Response:",
+          "description": " Existing fields (status, message) remain for backward compatibility, so existing error handling will continue to function as is. Important Note: These responses will be reflected in both the v1 and v3 OAuth API endpoints.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "what-does-this-mean-for-developers",
+          "title": "What does this mean for developers?",
+          "description": " Adopt v3: Start targeting /v3/token and /v3/introspect for all new developments. Update Request Logic: Ensure your application sends credentials in the request body, never in the URL. Error Handling: You can now update your client-side error handling to parse standard OAuth error fields. Important note: There are no changes to the scope, app settings, or the OAuth install process.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "custom-object-schema-command-changes",
+          "title": "Custom object schema command changes",
+          "description": " The following legacy commands have been removed in favor of updated equivalents:",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "new-hubspot-app-updates-ai-automation-crm-sync-q4-2025",
+          "title": "New HubSpot App Updates: AI, Automation & CRM Sync (Q4 2025)",
+          "description": " HubSpot Marketplace closes Q4 with 76+ new apps and a wave of updates that slash silos and boost productivity. New AI tools and CRM integrations with Claude and ChatGPT unlock faster prospecting, dynamic docs, and richer dashboards for smarter, faster selling.",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "the-takeaway-from-hustle-to-velocity",
+          "title": "The Takeaway: From Hustle to Velocity",
+          "description": " The updates shipped last quarter collectively invite us to pursue more meaningful execution. Install new apps that integrate seamlessly with HubSpot to handle the how, so you can refocus on the why. Make this the year you expand your capacity, elevate your impact, and lead with clarity in every action.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "developer-tasks-and-app-migration-paths",
+          "title": "Developer Tasks and App Migration Paths",
+          "description": " Now the Developer Platform surfaces actionable insights directly on the Developer Overview for all HubSpot Accounts. Developers can view task cards highlighting whether any of their apps are eligible for migration to the new Developer Platform, with clear guidance on which apps can and cannot be migrated. Task Cards: A task card lists action items for developers, focusing on highlighting eligible apps for migration. A task card can be found on the Developer Overview page within the HubSpot Acco",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "hubspot-ip-ranges-api",
+          "title": "HubSpot IP Ranges API",
+          "description": " You can now dynamically access HubSpot's public IP ranges for your projects and firewalls. With this API, you can automatically update your firewall rules and enhance your security monitoring. You can retrieve the set of IP ranges using this endpoint:\nhttps://api.hubapi.com/meta/network-origins/2025-09/ip-ranges\nThis API does not require authorization. The response will include a list of IP ranges and the HubSpot services using those IPs. See the documentation for full details.",
+          "status": "update",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "new-filter-by-object-type-id-for-v3-lists-api",
+          "title": "New Filter by Object Type ID for v3 Lists API",
+          "description": " The /crm/v3/lists/search endpoint in the v3 Lists API now supports filtering lists by object type using the objectTypeId parameter in the POST request body. See additional details on what specifically changed, below: New Filter Option: Developers can now include the objectTypeId property in the POST request body when querying the /crm/v3/lists/search API endpoint. Supported Values: Common values include object type IDs, such as \"0-1\", or a string, such as \"CONTACT\". Request Body Example: This n",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "template-selection-for-cpq-quotes-via-api",
+          "title": "Template Selection for CPQ Quotes via API",
+          "description": " You can now specify a custom template when creating CPQ quotes through the Quotes API, rather than relying on the default content template. This unlocks full control over quote design and structure for any workflow that programmatically generates quotes. During creation, the API will associate the quote to the selected template and pull in any additional template data, while still prioritizing values explicitly set on the quote. Note that templates can only be chosen at creation time and cannot",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "CMS Hub",
+            "Commerce Hub",
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "updates-to-associations-to-the-cart-object",
+          "title": "Updates to associations to the Cart object",
+          "description": " You can now create associations between carts and custom objects, and configure custom association labels and limits for the cart object. This improvement allows you to tailor the cart object to your specific business needs and workflows. This update allows integrations to update associations using the Associations API, as well as allowing super admin users to update associations by editing the data model in their account. Additionally, users can associate carts to deals directly from record pa",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "CMS Hub",
+            "Operations Hub",
+            "Commerce Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "breeze-assistant-can-now-query-your-custom-event-and-app-event-data",
+          "title": "Breeze Assistant can now query your Custom event and App event data",
+          "description": " Breeze Assistant can now query the custom website events and app events you've configured in your HubSpot Account. You can now get answers about these events directly from Breeze Assistant, helping you: Gain deeper insights into user behavior on your website and through your apps. Make data-driven decisions based on specific actions your customers are taking. Streamline your ability to answer important questions about your business using these additional data sources.\nThis enhancement brings yo",
+          "status": "update",
+          "hubs": [
+            "CMS Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "top-product-updates-for-january-2026",
+          "title": "Top Product Updates for January 2026",
+          "description": " HubSpot kicks off 2026 with a broad admin and ops focused update. Highlights include form submissions on company records, rule-based intent tracking, enhanced filtering, full screen report viewing, custom report views, bulk file actions, and stronger data management across hubs.",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "top-product-updates-of-january-2026",
+          "title": "Top Product Updates of January 2026",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "what-this-means-for-you",
+          "title": "What This Means for You",
+          "description": " To support this change, your sandbox limit will be temporarily increased so you can create and configure a new standard sandbox while still accessing your legacy sandbox. Most customers will experience minimal impact. Teams with connected apps that orchestrates data flow across systems may need to review and reconnect certain elements in the new sandbox. The new standard sandbox includes: A more accurate representation of the most requested supported asset types A new Deploy to Production featu",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "faq-what-you-need-to-do-before-march-16-2026",
+          "title": "FAQ — What You Need to Do Before March 16, 2026",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "who-can-make-these-changes",
+          "title": "Who can make these changes",
+          "description": " Any Super Admin can create a new standard sandbox and delete the legacy one. We recommend coordinating with the Super Admins who actively use sandboxes and maintain integrations to assess the requirements.\nIf you have questions not answered in this FAQ please reach out to your Customer Success Manager or visit the HubSpot Help Center.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "how-to-assess-your-migration-needs",
+          "title": "How to assess your migration needs",
+          "description": " Create your new Standard Sandbox\nYour temporary sandbox limit allows you to create it without deleting your legacy sandbox. Create your new Standard Sandbox\nYour temporary sandbox limit allows you to create it without deleting your legacy sandbox. Review whats in your Legacy Sandbox\nIdentify any integrations, apps, or automations your tech stack depends on, for example: Review whats in your Legacy Sandbox\nIdentify any integrations, apps, or automations your tech stack depends on, for example: C",
+          "status": "update",
+          "hubs": [
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "what-happens-to-legacy-sandboxes-on-march-16-2026",
+          "title": "What happens to legacy sandboxes on March 16, 2026",
+          "description": " If you don’t migrate before March 16, you will lose access to your legacy sandboxes. After that date, only the new Standard Sandbox will be supported.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "who-is-impacted",
+          "title": "Who Is Impacted",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "most-customers-simple-testing-use-cases",
+          "title": "Most Customers (Simple Testing Use Cases)",
+          "description": " Most teams will experience minimal impact and can simply: Create a new standard sandbox Confirm no migration needs exist Delete their legacy sandbox",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "customers-using-private-public-apps",
+          "title": "Customers Using Private/Public Apps",
+          "description": " If your sandbox connects to external systems, expect a deeper review. You may need to: Assess and reconnect private or public apps Refresh authentication tokens, secrets, scopes Update references to your new sandbox’s account ID Review workflows that contain webhooks or custom-coded actions Once validated, you can delete your legacy sandbox",
+          "status": "update",
+          "hubs": [
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "why-we-re-making-this-change",
+          "title": "Why We’re Making This Change",
+          "description": " Legacy sandboxes were foundational, but they had key limitations, especially around tracking changes critical for supporting safe, predictable deployments to production.\nThe new Standard Sandbox addresses these challenges with:",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "a-production-like-environment-for-supported-assets",
+          "title": "A production-like environment for supported assets",
+          "description": " A more accurate representation of supported assets, allowing you to test confidently without disrupting live systems or your end users in production.",
+          "status": "live",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "a-native-deploy-to-production-experience-for-supported-assets",
+          "title": "A native Deploy to Production experience for supported assets",
+          "description": " You no longer need to rebuild supported assets manually once testing is complete. The new deployment technology provides:\nPredictable, safer deployments\nVisibility into eligible assets and required connected assets\nConflict warnings\nDeployment logs for transparency and troubleshooting Predictable, safer deployments Visibility into eligible assets and required connected assets Conflict warnings Deployment logs for transparency and troubleshooting",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "why-the-legacy-resync-feature-is-removed",
+          "title": "Why the legacy resync feature is removed",
+          "description": " Although the resync feature felt useful, it introduced major instability in sandbox development. It could overwrite in-progress work, break change tracking, disrupt reliable development practices, and increase the risk of errors when deploying changes to production. Removing resync eliminates these risks and ensures sandboxes remain clean, consistent environments you can trust.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "how-to-get-a-fresh-copy-of-production",
+          "title": "How to get a fresh copy of production",
+          "description": " To maintain a reliable development environment, your sandbox should be recreated, not resynced, whenever you need a fresh copy of production. Recreating your sandbox eliminates drift, restores a clean baseline, and ensures that what you test behaves the same way in production.\nThis change makes deployments more predictable and aligns our process with industry standards for managing development environments and deploying tested changes to production safely.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "how-to-manage-your-sandboxes-going-forward",
+          "title": "How to Manage Your Sandboxes Going Forward",
+          "description": " To get you started adopting this new way of working with the delete and create model consider implementing lightweight governance practices such as: Defining when a sandbox should be recreated Assigning clear ownership and access Keeping sandboxes purpose-driven and uncluttered Deploying changes intentionally, not reactively Together, these practices support safer deployments, reduce operational risk, and clarify how sandboxes should be managed across your organization. Here’s a framework to he",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "checklist-for-customers-with-connected-apps",
+          "title": "Checklist for Customers with Connected Apps",
+          "description": " If your legacy sandbox has connected apps, review the following when assessing configuration requirements in your new standard sandbox: Each sandbox has a unique ID. Update any systems that reference your legacy sandbox’s ID. Generate new credentials in your new sandbox and update external systems if needed. Private apps: reconnect and generate new tokens (Developer docs here) Public apps: reauthorize following developer documentation here Review and update webhook and custom-coded actions\nUpda",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "questions-or-concerns",
+          "title": "Questions or concerns?",
+          "description": " Join us in the Developer Community Forum for a peer-to-peer discussion.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "related-vendors",
+          "title": "Related vendors",
+          "description": "Notion Slack Canva Customer.io Supabase Calendly",
+          "status": "update",
+          "hubs": [
+            "Service Hub"
+          ],
+          "source": "releasebot",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        }
+      ],
+      "statusChanged": [
+        {
+          "id": "november-2025-developer-rollup",
+          "title": "November 2025 Developer Rollup",
+          "description": "November brings a rollup with several updates across the platform. We've expanded record limits for Orders and Carts objects, increased association limits fivefold to 250,000 per object type, and launched the new Projects API for programmatic project management. We're also introducing property validation rules via the public CRM API, releasing HubSpot CLI 7.10.0 with dependency updates and enhanced MCP tooling, and rolling out flexible header and footer switching in the CMS. On the governance fr",
+          "status": "now live",
+          "hubs": [
+            "Marketing Hub",
+            "CMS Hub",
+            "Commerce Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/november-2025-developer-rollup",
+          "pubDate": "Tue, 02 Dec 2025 22:21:13 GMT",
+          "author": "alaporte@hubspot.com (AJ LaPorte)",
+          "previousStatus": "sunset"
+        }
+      ],
+      "updated": []
+    },
+    "itemsFound": 49,
+    "timestamp": "2026-02-12T17:51:06.938Z"
   }
 ]
