@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.21.0",
     "fast-xml-parser": "^4.5.0",
-    "node-html-parser": "^7.0.1"
+    "node-html-parser": "^7.0.1",
+    "playwright": "^1.58.2"
   }
 }

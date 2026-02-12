@@ -229,88 +229,198 @@ async function parseDevChangelog() {
   return results;
 }
 
+/**
+ * Community Updates — Uses Playwright to render the JS-heavy HubSpot Community.
+ * 
+ * Strategy:
+ * 1. Load the Releases & Updates board listing to discover all posts
+ * 2. Identify "Top Product Updates for <Month>" posts (richest source — 10-15 features each)
+ * 3. Drill into each monthly post and extract individual H4 features with descriptions
+ * 4. Also capture standalone posts (announcements, sunsets, etc.) as single items
+ */
 async function parseCommunityUpdates() {
-  console.log('📡 Fetching Community Releases & Updates...');
-  const html = await fetchURL(SOURCES.communityUpdates.url);
-  if (!html) return [];
-
-  const root = parseHTML(html);
-  const results = [];
+  console.log('📡 Fetching Community Releases & Updates (Playwright)...');
   
-  // Parse thread listings from the community board
-  const threads = root.querySelectorAll('.lia-message-subject, .message-subject, a[href*="/Releases-and-Updates/"]');
-  
-  for (const el of threads) {
-    const link = el.tagName === 'A' ? el : el.querySelector('a');
-    if (!link) continue;
-    
-    const title = link.text?.trim() || '';
-    const href = link.getAttribute('href') || '';
-    
-    if (!isValidTitle(title)) continue;
-    
-    const fullUrl = href.startsWith('http') ? href : `https://community.hubspot.com${href}`;
-    
-    results.push({
-      id: slugify(title),
-      title,
-      description: '',
-      status: detectStatus(title),
-      hubs: detectHubs(title),
-      source: 'community',
-      sourceUrl: fullUrl,
-      pubDate: null,
-    });
+  let chromium;
+  try {
+    ({ chromium } = await import('playwright'));
+  } catch {
+    console.log('  ✗ Playwright not available — skipping community scrape');
+    return [];
   }
   
-  console.log(`  ✓ Found ${results.length} items`);
-  return results;
-}
-
-async function parseProductUpdates() {
-  console.log('📡 Fetching Product Updates page...');
-  const html = await fetchURL(SOURCES.productUpdates.url);
-  if (!html) return [];
-
-  const root = parseHTML(html);
-  const results = [];
-  
-  // The product updates page has cards/articles with titles and descriptions
-  const cards = root.querySelectorAll('article, .update-card, [class*="update"], [class*="card"]');
-  
-  // Also try extracting from general content
-  const headings = root.querySelectorAll('h2, h3, h4');
-  
-  for (const h of headings) {
-    const title = h.text?.trim() || '';
-    if (!isValidTitle(title)) continue;
+  let browser;
+  try {
+    browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
     
-    const link = h.querySelector('a');
-    const href = link?.getAttribute('href') || '';
-    const fullUrl = href.startsWith('http') ? href : (href ? `https://www.hubspot.com${href}` : SOURCES.productUpdates.url);
+    // Step 1: Load the board listing
+    await page.goto(SOURCES.communityUpdates.url, { waitUntil: 'networkidle', timeout: 30000 });
     
-    // Try to get sibling description
-    let desc = '';
-    const next = h.nextElementSibling;
-    if (next && (next.tagName === 'P' || next.tagName === 'DIV')) {
-      desc = stripHTML(next.text || '').substring(0, 500);
+    const threads = await page.evaluate(() => {
+      const links = document.querySelectorAll('a[href*="/Releases-and-Updates/"]');
+      const seen = new Set();
+      return [...links]
+        .map(a => ({ text: a.textContent.trim(), href: a.getAttribute('href') }))
+        .filter(t => {
+          if (!t.text || t.text.length < 10 || seen.has(t.href)) return false;
+          if (t.text.includes('Releases and Updates') && !t.text.includes('Product')) return false;
+          seen.add(t.href);
+          return true;
+        });
+    });
+    
+    console.log(`  ✓ Found ${threads.length} threads on board`);
+    
+    // Separate monthly roundup posts (richest) from standalone posts
+    const monthlyPosts = threads.filter(t => 
+      /top product updates for|product update[s]? for|^\w+ \d{4} product update/i.test(t.text)
+    );
+    const standalonePosts = threads.filter(t => 
+      !monthlyPosts.includes(t) && !/(release notes|industry edit|collection|app update|marketplace)/i.test(t.text)
+    );
+    
+    const results = [];
+    
+    // Step 2: Drill into monthly posts to extract individual features
+    // Use a fresh page for each post to avoid SPA navigation / caching issues
+    for (const post of monthlyPosts) {
+      const postUrl = post.href.startsWith('http') ? post.href : `https://community.hubspot.com${post.href}`;
+      console.log(`  📄 Drilling into: ${post.text.substring(0, 60)}...`);
+      
+      const postPage = await browser.newPage();
+      try {
+        await postPage.goto(postUrl, { waitUntil: 'networkidle', timeout: 30000 });
+        // Wait for the actual message body to render
+        await postPage.waitForSelector('.lia-message-body-content', { timeout: 10000 }).catch(() => {});
+        
+        const features = await postPage.evaluate(() => {
+          const body = document.querySelector('.lia-message-body-content');
+          if (!body) return [];
+          
+          const h4s = body.querySelectorAll('h4');
+          
+          // Strategy 1: Posts with H4 headings (Jan 2026+, Nov 2025)
+          if (h4s.length > 0) {
+            return [...h4s].map(h4 => {
+              const title = h4.textContent.trim();
+              let desc = '';
+              let avail = '';
+              let el = h4.nextElementSibling;
+              while (el && el.tagName !== 'H4' && el.tagName !== 'H3') {
+                const text = el.textContent.trim();
+                if (/^availability/i.test(text)) {
+                  avail = text.replace(/^availability:\s*/i, '');
+                } else if (text.length > 20) {
+                  desc += (desc ? ' ' : '') + text;
+                }
+                el = el.nextElementSibling;
+              }
+              return { title, description: desc, availability: avail, hubSection: '' };
+            });
+          }
+          
+          // Strategy 2: Older posts use H2/H3 for hub sections and <strong> for feature names
+          // Walk through all elements and track which hub section we're in
+          const results = [];
+          let currentHub = '';
+          const walker = body.querySelectorAll('h2, h3, p, ul, ol');
+          
+          for (const el of walker) {
+            if (el.tagName === 'H2' || el.tagName === 'H3') {
+              currentHub = el.textContent.trim();
+              continue;
+            }
+            
+            // Look for bold feature titles in <p> tags
+            if (el.tagName === 'P') {
+              const strong = el.querySelector('strong, b');
+              if (strong) {
+                const title = strong.textContent.trim();
+                // Skip section headers, short text, and known noise
+                if (title.length < 15 || /^(now in|want to|learn more|note:|how to|send feedback)/i.test(title)) continue;
+                
+                // Collect description from subsequent paragraphs
+                let desc = '';
+                let sibling = el.nextElementSibling;
+                while (sibling && sibling.tagName === 'P') {
+                  const sibStrong = sibling.querySelector('strong, b');
+                  if (sibStrong && sibStrong.textContent.trim().length > 15) break; // next feature
+                  const text = sibling.textContent.trim();
+                  if (text.length > 20) desc += (desc ? ' ' : '') + text;
+                  sibling = sibling.nextElementSibling;
+                }
+                
+                results.push({ title, description: desc, availability: '', hubSection: currentHub });
+              }
+            }
+          }
+          
+          return results;
+        });
+        
+        for (const f of features) {
+          const cleanTitle = f.title.replace(/^\d+\.\s*/, '').trim();
+          if (!cleanTitle || cleanTitle.length < 10 || !isValidTitle(cleanTitle)) continue;
+          
+          // Include the hub section header (from older posts) in detection text
+          const combined = `${cleanTitle} ${f.description} ${f.availability} ${f.hubSection || ''}`;
+          results.push({
+            id: slugify(cleanTitle),
+            title: cleanTitle,
+            description: f.description.substring(0, 500),
+            status: detectStatus(combined),
+            hubs: detectHubs(combined),
+            source: 'community',
+            sourceUrl: postUrl,
+            pubDate: null,
+            availability: f.availability || null,
+          });
+        }
+        
+        console.log(`    → ${features.length} features extracted`);
+      } catch (err) {
+        console.log(`    ✗ Failed: ${err.message}`);
+      } finally {
+        await postPage.close();
+      }
     }
     
-    const combined = `${title} ${desc}`;
-    results.push({
-      id: slugify(title),
-      title,
-      description: desc,
-      status: detectStatus(combined),
-      hubs: detectHubs(combined),
-      source: 'product-updates',
-      sourceUrl: fullUrl,
-      pubDate: null,
-    });
+    // Step 3: Capture standalone posts as single items
+    for (const post of standalonePosts) {
+      const title = post.text.trim();
+      if (!isValidTitle(title)) continue;
+      
+      const fullUrl = post.href.startsWith('http') ? post.href : `https://community.hubspot.com${post.href}`;
+      const combined = title;
+      results.push({
+        id: slugify(title),
+        title,
+        description: '',
+        status: detectStatus(combined),
+        hubs: detectHubs(combined),
+        source: 'community',
+        sourceUrl: fullUrl,
+        pubDate: null,
+      });
+    }
+    
+    console.log(`  ✓ Community total: ${results.length} items`);
+    return results;
+  } catch (err) {
+    console.error(`  ✗ Community scrape failed: ${err.message}`);
+    return [];
+  } finally {
+    if (browser) await browser.close();
   }
-  
-  console.log(`  ✓ Found ${results.length} items`);
-  return results;
+}
+
+// parseProductUpdates — hubspot.com/product-updates is fully JS-rendered and
+// returns empty HTML. All its content is already captured via the community
+// monthly posts and releasebot. Kept as a no-op for source parity.
+async function parseProductUpdates() {
+  console.log('📡 Product Updates page — skipped (JS-rendered, covered by community + releasebot)');
+  return [];
 }
 
 // Releasebot.io aggregator — scrapes individual product updates from their pages.
@@ -619,13 +729,15 @@ async function main() {
   
   console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
   
-  // Fetch all sources in parallel
-  const [devItems, communityItems, productItems, releasebotItems] = await Promise.all([
+  // Fetch lightweight sources in parallel, then Playwright-based community scrape sequentially
+  const [devItems, productItems, releasebotItems] = await Promise.all([
     parseDevChangelog(),
-    parseCommunityUpdates(),
     parseProductUpdates(),
     parseReleasebot(),
   ]);
+  
+  // Community uses Playwright (heavy) — run after other fetches complete
+  const communityItems = await parseCommunityUpdates();
   
   const allItems = [...devItems, ...communityItems, ...productItems, ...releasebotItems];
   
