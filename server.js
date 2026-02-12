@@ -73,8 +73,8 @@ const HTML = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HubSpot Product Updates Tracker — RSM Consulting</title>
-<meta name="description" content="Track every HubSpot product update, beta, sunset, and breaking change — updated daily by RSM Consulting.">
+<title>HubSpot Product Updates Tracker</title>
+<meta name="description" content="Track every HubSpot product update, beta, sunset, and breaking change — updated daily.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -233,7 +233,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
   <header class="header">
     <h1>🔬 HubSpot <span>Product Updates Tracker</span></h1>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
-    <p class="by">by <a href="https://crmbyrsm.com" target="_blank">RSM Consulting</a></p>
+    <p class="by">Community-driven HubSpot changelog tracker</p>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -254,7 +254,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
   <div class="lead-inner">
     <div class="lead-text">
       <strong>Get weekly update digests + actionable insights</strong>
-      <p>For your HubSpot portal — delivered by a 22-year CRM veteran.</p>
+      <p>Know what's changing in HubSpot before it hits your portal.</p>
     </div>
     <form class="lead-form" id="leadForm">
       <input type="email" placeholder="you@company.com" required id="leadEmail">
@@ -265,8 +265,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 
 <footer class="footer container">
-  Powered by <a href="https://crmbyrsm.com" target="_blank">RSM Consulting</a> &nbsp;·&nbsp;
-  Free CRM Audit: <a href="https://audit.crmbyrsm.com" target="_blank">audit.crmbyrsm.com</a>
+  Data sourced from HubSpot Developer Changelog, Community Board &amp; Releasebot &nbsp;·&nbsp;
+  Updated daily
 </footer>
 
 <script>
