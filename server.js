@@ -209,7 +209,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
   padding:3px 10px;border-radius:4px;white-space:nowrap;
 }
 
-.card-desc{color:#e0e0e0;font-size:.85rem;line-height:1.5;margin-bottom:12px;
+.card-desc{color:#fff;font-size:.85rem;line-height:1.5;margin-bottom:12px;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.75rem;color:#999}
 .card-meta a{color:var(--teal);font-size:.75rem}
@@ -268,7 +268,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 <div class="container">
   <header class="header">
     <div class="header-title-row">
-      <a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/favicon.png" alt="RSM Consulting" class="header-logo"></a>
+      <a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/rsm-logo.png" alt="RSM Consulting" class="header-logo"></a>
       <h1>HubSpot <span>Product Updates Tracker</span></h1>
     </div>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
