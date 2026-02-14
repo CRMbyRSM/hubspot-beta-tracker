@@ -149,6 +149,37 @@ const NOISE_PATTERNS = [
   /^the \w+ \d{4} industry edit/i, // "The January 2026 Industry Edit"
 ];
 
+// Rollup / summary post patterns — these aggregate multiple features into one post.
+// They should be expanded into individual items or filtered out entirely if the
+// individual items are already covered by other sources (community scraper, etc.).
+const ROLLUP_PATTERNS = [
+  /developer\s+(?:updates|rollup)\s+for\s+\w+\s+\d{4}/i,     // "Developer updates for January 2026"
+  /\w+\s+\d{4}\s+developer\s+rollup/i,                         // "December 2025 Developer Rollup"
+  /^top product updates?\s+for/i,                               // "Top Product Updates for December 2025"
+  /^product update[s]?\s+for\s+\w+\s+\d{4}/i,                  // "Product Updates for October 2025"
+  /^\w+\s+product\s+updates?$/i,                                // "September Product Updates"
+  /^\w+\s+\d{4}\s+product\s+updates?$/i,                       // "October 2025 Product Updates"
+];
+
+// Informational / meta posts — not actual feature updates, just announcements,
+// milestones, marketplace roundups, or editorial content.
+const INFORMATIONAL_PATTERNS = [
+  /^top delivered ideas/i,                                       // "Top Delivered Ideas in Q3 '25"
+  /^new hubspot app updates/i,                                   // marketplace roundups
+  /^\d[\d,]+\+?\s+apps/i,                                       // "2,000+ Apps. 2.5M+ Active Installs"
+  /^revealed:?\s+emerging app themes/i,                          // "Revealed: Emerging app themes from Q2 2025"
+  /industry edit/i,                                              // "The January 2026 Industry Edit"
+  /^app marketplace/i,                                           // marketplace meta posts
+];
+
+function isRollupPost(title) {
+  return ROLLUP_PATTERNS.some(pat => pat.test(title.trim()));
+}
+
+function isInformationalPost(title) {
+  return INFORMATIONAL_PATTERNS.some(pat => pat.test(title.trim()));
+}
+
 function isNoise(title) {
   return NOISE_PATTERNS.some(pat => pat.test(title.trim()));
 }
@@ -205,12 +236,26 @@ async function parseDevChangelog() {
   const arr = Array.isArray(items) ? items : [items];
   
   const results = [];
+  let skippedRollups = 0;
+  let skippedInfo = 0;
   for (const item of arr) {
     const title = item.title || '';
     const desc = stripHTML(item.description || item['content:encoded'] || '');
     const combined = `${title} ${desc}`;
     
     if (!isValidTitle(title)) continue;
+    
+    // Skip rollup/summary posts — their individual items come from community scraper
+    if (isRollupPost(title)) {
+      skippedRollups++;
+      continue;
+    }
+    
+    // Skip informational/meta posts
+    if (isInformationalPost(title)) {
+      skippedInfo++;
+      continue;
+    }
     
     results.push({
       id: slugify(title),
@@ -225,7 +270,7 @@ async function parseDevChangelog() {
     });
   }
   
-  console.log(`  ✓ Found ${results.length} items`);
+  console.log(`  ✓ Found ${results.length} items (skipped ${skippedRollups} rollups, ${skippedInfo} informational)`);
   return results;
 }
 
@@ -386,10 +431,11 @@ async function parseCommunityUpdates() {
       }
     }
     
-    // Step 3: Capture standalone posts as single items
+    // Step 3: Capture standalone posts as single items (skip rollups & informational)
     for (const post of standalonePosts) {
       const title = post.text.trim();
       if (!isValidTitle(title)) continue;
+      if (isRollupPost(title) || isInformationalPost(title)) continue;
       
       const fullUrl = post.href.startsWith('http') ? post.href : `https://community.hubspot.com${post.href}`;
       const combined = title;
@@ -511,19 +557,27 @@ async function parseReleasebot() {
       }
       
       // If no numbered features found, treat the post itself as a single entry
+      // BUT skip rollup posts that we couldn't expand — their items are covered
+      // by the community scraper and dev-changelog individual entries.
       if (!extractedFeatures && isValidTitle(postTitle)) {
-        const combined = `${postTitle} ${postSummary}`;
-        results.push({
-          id: slugify(postTitle),
-          title: postTitle,
-          description: postSummary.substring(0, 500),
-          status: detectStatus(combined),
-          hubs: detectHubs(combined),
-          source: page.sourceLabel,
-          sourceUrl: page.url,
-          pubDate: null,
-        });
-        pageCount++;
+        if (isRollupPost(postTitle)) {
+          console.log(`    ⏭ Skipping unexpanded rollup: "${postTitle.substring(0, 60)}..."`);
+        } else if (isInformationalPost(postTitle)) {
+          console.log(`    ⏭ Skipping informational: "${postTitle.substring(0, 60)}..."`);
+        } else {
+          const combined = `${postTitle} ${postSummary}`;
+          results.push({
+            id: slugify(postTitle),
+            title: postTitle,
+            description: postSummary.substring(0, 500),
+            status: detectStatus(combined),
+            hubs: detectHubs(combined),
+            source: page.sourceLabel,
+            sourceUrl: page.url,
+            pubDate: null,
+          });
+          pageCount++;
+        }
       }
     }
     
