@@ -268,7 +268,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 <div class="container">
   <header class="header">
     <div class="header-title-row">
-      <h1><a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/rsm-icon.png" alt="RSM Consulting" class="header-logo"></a>HubSpot <span>Product Updates Tracker</span></h1>
+      <h1><a href="https://crmbyrsm.com" target="_blank" rel="noopener"><img src="/static/favicon.png" alt="RSM Consulting" class="header-logo"></a>HubSpot <span>Product Updates Tracker</span></h1>
     </div>
     <p class="subtitle">Track every product update, beta, sunset, and breaking change — updated daily</p>
     <div class="meta-row">
