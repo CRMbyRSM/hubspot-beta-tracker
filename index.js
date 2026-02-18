@@ -469,10 +469,39 @@ async function parseProductUpdates() {
   return [];
 }
 
+// H4 titles that are section headers within a post, NOT feature names.
+// Used to distinguish real feature H4s from structural H4s in expandable content.
+const H4_NOISE_PATTERNS = [
+  /^what'?s chang/i,
+  /^when is it happening/i,
+  /^questions or comments/i,
+  /^key considerations/i,
+  /^how (to|does)/i,
+  /^who can /i,
+  /^why the /i,
+  /^checklist for /i,
+  /^most customers/i,
+  /^customers using/i,
+  /^a (production|native)/i,  // FAQ answer headings
+  /^for (agencies|ecommerce|any|b2b|saas)/i,
+  /^starting \w+ \d/i,
+  /^note:/i,
+];
+
+function isNoiseH4(title) {
+  return H4_NOISE_PATTERNS.some(pat => pat.test(title.trim()));
+}
+
 // Releasebot.io aggregator — scrapes individual product updates from their pages.
 // Structure: <ul.border-y> contains <li> posts, each with an H2 title and an
-// expandable div. Rollup posts have numbered H4 features inside; standalone posts
-// are a single feature at the H2 level.
+// expandable <div.relative>.
+//
+// Post types:
+//   A) Numbered rollups (e.g. "Top Product Updates for January 2026") — H4s like "1. Feature Name"
+//   B) Unnumbered rollups (e.g. "December 2025 Developer Rollup") — H4s without numbers
+//   C) TOC-style rollups (e.g. "Developer updates for January 2026") — <ul><li> feature list
+//   D) Single-feature posts — H2 is the feature, expandable has details
+//   E) CTA/ads — no H2, skip entirely
 async function parseReleasebot() {
   console.log('📡 Fetching Releasebot product & developer updates...');
   
@@ -497,10 +526,16 @@ async function parseReleasebot() {
     for (const li of postItems) {
       const h2 = li.querySelector('h2');
       const postTitle = h2?.text?.trim() || '';
+      
+      // Skip posts with no H2 (CTA/ad blocks)
       if (!postTitle || postTitle.length < 10) continue;
       
-      // Skip noise posts
+      // Skip noise and informational posts
       if (isNoise(postTitle)) continue;
+      if (isInformationalPost(postTitle)) {
+        console.log(`    ⏭ Skipping informational: "${postTitle.substring(0, 60)}"`);
+        continue;
+      }
       
       // Get the summary paragraph (skip metadata lines)
       const ps = li.querySelectorAll('p');
@@ -513,28 +548,34 @@ async function parseReleasebot() {
         }
       }
       
-      // Check expandable content for numbered H4 features
       const expandable = li.querySelector('div.relative');
       let extractedFeatures = false;
       
       if (expandable) {
+        // Strategy 1: Extract H4 features (numbered or unnumbered)
         const h4s = expandable.querySelectorAll('h4');
-        const numberedH4s = [...h4s].filter(h => /^\d+\.\s/.test(h.text?.trim() || ''));
+        const featureH4s = [...h4s].filter(h => {
+          const t = h.text?.trim() || '';
+          if (t.length < 10) return false;
+          if (isNoiseH4(t)) return false;
+          if (isNoise(t)) return false;
+          return true;
+        });
         
-        if (numberedH4s.length > 0) {
-          // This is a rollup post — extract each numbered feature
-          for (const h4 of numberedH4s) {
+        if (featureH4s.length >= 2) {
+          // Multiple valid H4s = rollup post with sub-features
+          for (const h4 of featureH4s) {
             const rawTitle = h4.text?.trim() || '';
             const cleanTitle = rawTitle.replace(/^\d+\.\s*/, '').trim();
             if (!cleanTitle || cleanTitle.length < 10) continue;
             
-            // Collect description paragraphs until next H4 or end
+            // Collect description paragraphs until next H4/H3/H2 or end
             let desc = '';
             let sibling = h4.nextElementSibling;
             while (sibling && sibling.tagName !== 'H4' && sibling.tagName !== 'H3' && sibling.tagName !== 'H2') {
               if (sibling.tagName === 'P') {
                 const t = sibling.text?.trim();
-                if (t) desc += (desc ? ' ' : '') + t;
+                if (t && t.length > 20) desc += (desc ? ' ' : '') + t;
               }
               sibling = sibling.nextElementSibling;
             }
@@ -553,31 +594,81 @@ async function parseReleasebot() {
             pageCount++;
           }
           extractedFeatures = true;
+          console.log(`    📦 Rollup (H4): "${postTitle.substring(0, 50)}" → ${featureH4s.length} features`);
+        }
+        
+        // Strategy 2: TOC-style rollup — features listed as <li> items in a <ul>
+        // These posts have a summary paragraph followed by a bullet list of feature names,
+        // then detailed descriptions as paragraphs with the feature name as bold lead text.
+        if (!extractedFeatures && isRollupPost(postTitle)) {
+          const innerUl = expandable.querySelector('ul');
+          if (innerUl) {
+            const featureLis = innerUl.querySelectorAll(':scope > li');
+            const featureNames = [...featureLis]
+              .map(li => li.text?.trim())
+              .filter(t => t && t.length >= 10 && !isNoise(t) && !isNoiseH4(t));
+            
+            if (featureNames.length >= 3) {
+              // Extract each feature — try to find its description in following paragraphs
+              // Releasebot renders these as: FeatureNameDescription paragraph(s)...
+              // The feature name appears as bold text at the start of a paragraph block.
+              const allText = expandable.text || '';
+              
+              for (const name of featureNames) {
+                let desc = '';
+                // Find the feature name in the full text and grab the next ~500 chars
+                const nameIdx = allText.indexOf(name);
+                if (nameIdx >= 0) {
+                  const afterName = allText.substring(nameIdx + name.length, nameIdx + name.length + 600).trim();
+                  // Take until we hit another feature name or end
+                  const nextFeatureIdx = featureNames.reduce((min, fn) => {
+                    if (fn === name) return min;
+                    const idx = afterName.indexOf(fn);
+                    return idx >= 0 && idx < min ? idx : min;
+                  }, afterName.length);
+                  desc = afterName.substring(0, nextFeatureIdx).trim();
+                }
+                
+                const combined = `${name} ${desc}`;
+                results.push({
+                  id: slugify(name),
+                  title: name,
+                  description: desc.substring(0, 500),
+                  status: detectStatus(combined),
+                  hubs: detectHubs(combined),
+                  source: page.sourceLabel,
+                  sourceUrl: page.url,
+                  pubDate: null,
+                });
+                pageCount++;
+              }
+              extractedFeatures = true;
+              console.log(`    📦 Rollup (TOC): "${postTitle.substring(0, 50)}" → ${featureNames.length} features`);
+            }
+          }
         }
       }
       
-      // If no numbered features found, treat the post itself as a single entry
-      // BUT skip rollup posts that we couldn't expand — their items are covered
-      // by the community scraper and dev-changelog individual entries.
+      // If still not extracted and it's a rollup, skip it (covered by other sources)
+      if (!extractedFeatures && isRollupPost(postTitle)) {
+        console.log(`    ⏭ Skipping unexpanded rollup: "${postTitle.substring(0, 60)}"`);
+        continue;
+      }
+      
+      // Single-feature post — H2 title IS the feature
       if (!extractedFeatures && isValidTitle(postTitle)) {
-        if (isRollupPost(postTitle)) {
-          console.log(`    ⏭ Skipping unexpanded rollup: "${postTitle.substring(0, 60)}..."`);
-        } else if (isInformationalPost(postTitle)) {
-          console.log(`    ⏭ Skipping informational: "${postTitle.substring(0, 60)}..."`);
-        } else {
-          const combined = `${postTitle} ${postSummary}`;
-          results.push({
-            id: slugify(postTitle),
-            title: postTitle,
-            description: postSummary.substring(0, 500),
-            status: detectStatus(combined),
-            hubs: detectHubs(combined),
-            source: page.sourceLabel,
-            sourceUrl: page.url,
-            pubDate: null,
-          });
-          pageCount++;
-        }
+        const combined = `${postTitle} ${postSummary}`;
+        results.push({
+          id: slugify(postTitle),
+          title: postTitle,
+          description: postSummary.substring(0, 500),
+          status: detectStatus(combined),
+          hubs: detectHubs(combined),
+          source: page.sourceLabel,
+          sourceUrl: page.url,
+          pubDate: null,
+        });
+        pageCount++;
       }
     }
     
