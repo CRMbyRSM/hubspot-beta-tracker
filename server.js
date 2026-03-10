@@ -419,20 +419,60 @@ function buildWho(item) {
   return 'Portal admins and teams responsible for HubSpot setup, reporting, and process design.';
 }
 
+function getDaysOld(item) {
+  return Math.max(0, Math.floor((Date.now() - new Date(item.firstSeen).getTime()) / 86400000));
+}
+
+function scoreUrgency(item) {
+  const status = item.status || 'update';
+  const text = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
+  const daysOld = getDaysOld(item);
+  let score = 0;
+
+  // hard recency decay — important right now should move
+  if (daysOld <= 3) score += 40;
+  else if (daysOld <= 7) score += 26;
+  else if (daysOld <= 14) score += 14;
+  else if (daysOld <= 21) score += 6;
+  else score -= Math.min(18, Math.floor((daysOld - 21) / 3));
+
+  if (status === 'breaking change') score += 45;
+  if (status === 'sunset') score += 42;
+  if (status === 'public beta') score += 20;
+  if (status === 'private beta' || status === 'developer preview' || status === 'early access') score += 14;
+  if (status === 'now live' || status === 'live') score += 10;
+
+  if (/deadline|by \w+ \d{1,2}|before \w+ \d{1,2}|starting \w+ \d{1,2}|ending \w+ \d{1,2}/.test(text)) score += 18;
+  if (/required|must|action required|migrate|migration|turn off|remove|replace|discontinue|deprecated|sunset timeline/.test(text)) score += 16;
+  if (/sandbox|oauth|api|workflow|crm|reporting|association|property/.test(text)) score += 8;
+  if (/beta|rollout|rolling out|gradual rollout|available now|now live/.test(text)) score += 6;
+
+  if ((item.hubs || []).includes('Developer Platform')) score += 4;
+  if ((item.hubs || []).includes('Operations Hub')) score += 4;
+
+  return score;
+}
+
+function scoreRisk(item) {
+  const text = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
+  let score = scoreUrgency(item);
+  if (isSunsetOrCritical(item)) score += 30;
+  if (/migrate|migration|required|must|deprecated|remove|sunset|breaking/.test(text)) score += 18;
+  return score;
+}
+
 function selectSunsetItems(items) {
-  return items.filter(isSunsetOrCritical).sort((a,b)=>new Date(b.firstSeen)-new Date(a.firstSeen)).slice(0,1);
+  return [...items]
+    .filter(i => scoreRisk(i) >= 35)
+    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.firstSeen) - new Date(a.firstSeen))
+    .slice(0, 1);
 }
 
 function selectImportantItems(items) {
-  const ranked = items
+  return [...items]
     .filter(i => !isSunsetOrCritical(i))
-    .sort((a, b) => {
-      const order = { beta: 0, dev: 1, update: 2 };
-      const imp = order[getImportance(a)] - order[getImportance(b)];
-      if (imp !== 0) return imp;
-      return new Date(b.firstSeen) - new Date(a.firstSeen);
-    });
-  return ranked.slice(0, 3);
+    .sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.firstSeen) - new Date(a.firstSeen))
+    .slice(0, 3);
 }
 
 const PAGE_SIZE = 30;
@@ -505,7 +545,7 @@ function renderImportant() {
       '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
       '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked update with platform impact.') + '</p>' +
       '<div class="important-meta">' +
-        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This could affect how teams test, configure, or roll out changes in HubSpot.') + '</div>' +
+        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml(scoreUrgency(item) >= 45 ? 'This is new enough and impactful enough to deserve attention right now.' : 'This is one of the most relevant recent updates across the tracker.') + '</div>' +
         '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
         '<div class="important-row"><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</div>' +
       '</div>' +
@@ -520,7 +560,7 @@ function renderImportant() {
       '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
       '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked time-sensitive change.') + '</p>' +
       '<div class="important-meta">' +
-        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This one is time-sensitive and can force changes in live portal setups.') + '</div>' +
+        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This is the highest-risk time-sensitive item in the current feed and may require action soon.') + '</div>' +
         '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
         '<div class="important-row"><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</div>' +
       '</div>' +
