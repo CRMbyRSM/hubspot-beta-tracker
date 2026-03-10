@@ -154,20 +154,12 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .section-note{font-size:.9rem;color:var(--text-muted);max-width:760px}
 .link-inline{font-size:.88rem;color:var(--orange);font-weight:600}
 
-.sunset-strip{margin-bottom:18px;display:grid;gap:12px}
-.sunset-card{background:rgba(247,147,26,.06);border-left:4px solid var(--orange);border-radius:var(--radius);padding:18px 20px}
-.sunset-card .sunset-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:8px}
-.sunset-card .sunset-title{font-family:'Poppins',system-ui,sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px}
-.sunset-card .sunset-desc{font-size:.88rem;color:var(--text);margin-bottom:10px}
-.sunset-card .sunset-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--text-muted)}
-.sunset-card .sunset-meta strong{color:var(--white)}
-.sunset-card .sunset-source{margin-top:10px;font-size:.8rem;color:var(--text-muted)}
-.sunset-card .sunset-source a{color:var(--teal)}
-.important-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.important-card{background:var(--surface);border-left:4px solid var(--teal);border-radius:var(--radius);padding:18px 18px 16px}
+.important-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.important-card{background:var(--surface);border-left:4px solid var(--teal);border-radius:var(--radius);padding:18px 18px 16px;min-height:100%}
 .important-card.beta{border-left-color:var(--teal)}
 .important-card.dev{border-left-color:rgba(23,161,146,.6)}
 .important-card.update{border-left-color:#444}
+.important-card.sunset{border-left-color:var(--orange);background:rgba(247,147,26,.05)}
 .important-type{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
 .important-title{font-family:'Poppins',system-ui,sans-serif;font-size:1rem;font-weight:600;line-height:1.35;color:var(--white);margin-bottom:10px}
 .important-copy{font-size:.9rem;color:var(--text);margin-bottom:10px}
@@ -239,8 +231,12 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .loading{text-align:center;padding:60px 0;color:var(--text-muted)}
 .empty{background:var(--surface);border-radius:var(--radius);padding:24px;text-align:center;color:var(--text-muted)}
 
-@media(max-width:980px){
-  .important-grid,.method-grid{grid-template-columns:1fr}
+@media(max-width:1180px){
+  .important-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .method-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .important-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   .topbar-inner{align-items:flex-start}
@@ -284,7 +280,6 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
       </div>
       <a class="link-inline" href="#updates">Jump to full updates</a>
     </div>
-    <div class="sunset-strip" id="sunsetStrip"></div>
     <div class="important-grid" id="importantGrid">
       <div class="loading">Loading important updates…</div>
     </div>
@@ -405,7 +400,7 @@ function buildWho(item) {
 }
 
 function selectSunsetItems(items) {
-  return items.filter(isSunsetOrCritical).sort((a,b)=>new Date(b.firstSeen)-new Date(a.firstSeen)).slice(0,4);
+  return items.filter(isSunsetOrCritical).sort((a,b)=>new Date(b.firstSeen)-new Date(a.firstSeen)).slice(0,1);
 }
 
 function selectImportantItems(items) {
@@ -431,7 +426,6 @@ async function init() {
     const data = await res.json();
     allBetas = Object.values(data.betas || {}).sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
     renderMeta(data);
-    renderSunsets();
     renderImportant();
     renderStatusFilters();
     renderHubFilters();
@@ -441,25 +435,6 @@ async function init() {
     document.getElementById('importantGrid').innerHTML = '<div class="empty">Failed to load important updates.</div>';
     document.getElementById('grid').innerHTML = '<div class="empty">Failed to load data.</div>';
   }
-}
-
-function renderSunsets() {
-  const items = selectSunsetItems(allBetas);
-  const strip = document.getElementById('sunsetStrip');
-  if (!items.length) { strip.style.display = 'none'; return; }
-  strip.innerHTML = items.map(item => {
-    const label = item.status === 'breaking change' ? 'Breaking Change' : 'Sunsetting';
-    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)' }[item.source] || item.source;
-    return '<div class="sunset-card">' +
-      '<div class="sunset-label">' + label + '</div>' +
-      '<div class="sunset-title">' + escapeHtml(item.title || '') + '</div>' +
-      '<div class="sunset-desc">' + escapeHtml((item.description || '').slice(0, 220)) + '</div>' +
-      '<div class="sunset-meta">' +
-        '<span><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</span>' +
-      '</div>' +
-      '<div class="sunset-source">' + escapeHtml(sourceLabel) + (item.sourceUrl ? ' · <a href="' + item.sourceUrl + '" target="_blank" rel="noopener">Source</a>' : '') + '</div>' +
-    '</div>';
-  }).join('');
 }
 
 function initSubscribeForm() {
@@ -495,26 +470,44 @@ function renderMeta(data) {
 
 function renderImportant() {
   const items = selectImportantItems(allBetas);
-  if (!items.length) {
+  const sunset = selectSunsetItems(allBetas);
+  if (!items.length && !sunset.length) {
     document.getElementById('importantGrid').innerHTML = '<div class="empty">No important items are available yet.</div>';
     return;
   }
-  document.getElementById('importantGrid').innerHTML = items.map(item => {
+  const sourceMap = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' };
+  const normalCards = items.map(item => {
     const typeLabel = getTypeLabel(item);
     const importance = getImportance(item);
-    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[item.source] || item.source;
+    const sourceLabel = sourceMap[item.source] || item.source;
     return '<article class="important-card ' + importance + '">' +
       '<div class="important-type">' + escapeHtml(typeLabel) + ' · ' + escapeHtml(titleCase(item.status || 'update')) + '</div>' +
       '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
       '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked update with platform impact.') + '</p>' +
       '<div class="important-meta">' +
-        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml((item.status === 'sunset' || item.status === 'breaking change') ? 'This can force cleanup or changes in live portal setups.' : 'This could affect how teams test, configure, or roll out changes in HubSpot.') + '</div>' +
+        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This could affect how teams test, configure, or roll out changes in HubSpot.') + '</div>' +
         '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
         '<div class="important-row"><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</div>' +
       '</div>' +
       '<div class="important-source">' + escapeHtml(sourceLabel) + (item.sourceUrl ? ' · <a href="' + item.sourceUrl + '" target="_blank" rel="noopener">Source</a>' : '') + '</div>' +
     '</article>';
   }).join('');
+  const sunsetCard = sunset.length ? sunset.map(item => {
+    const sourceLabel = sourceMap[item.source] || item.source;
+    const label = item.status === 'breaking change' ? 'Breaking Change' : 'Sunsetting';
+    return '<article class="important-card sunset">' +
+      '<div class="important-type" style="color:var(--orange)">' + escapeHtml(label) + '</div>' +
+      '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
+      '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked time-sensitive change.') + '</p>' +
+      '<div class="important-meta">' +
+        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This one is time-sensitive and can force changes in live portal setups.') + '</div>' +
+        '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
+        '<div class="important-row"><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</div>' +
+      '</div>' +
+      '<div class="important-source">' + escapeHtml(sourceLabel) + (item.sourceUrl ? ' · <a href="' + item.sourceUrl + '" target="_blank" rel="noopener">Source</a>' : '') + '</div>' +
+    '</article>';
+  }).join('') : '<article class="important-card sunset"><div class="important-type" style="color:var(--orange)">Sunsetting / time-sensitive</div><h3 class="important-title">No active sunset item pinned yet</h3><p class="important-copy">This slot is reserved for the time-sensitive change we want people to notice first when one is active.</p><div class="important-meta"><div class="important-row"><strong>Use:</strong> deprecations, forced migrations, sunsets, or urgent rollout changes.</div></div></article>';
+  document.getElementById('importantGrid').innerHTML = normalCards + sunsetCard;
 }
 
 function renderStatusFilters() {
