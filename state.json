@@ -3,7 +3,7 @@
     "service-keys-enter-public-beta-for-system-to-system-integrations": {
       "id": "service-keys-enter-public-beta-for-system-to-system-integrations",
       "title": "Service Keys enter public beta for system-to-system integrations",
-      "description": "Service Keys are now available in public beta as a new authentication option for account-level, system-to-system integrations. This feature is intended to replace legacy private apps and is built on HubSpot’s modern Developer Platform infrastructure.",
+      "description": "Service Keys are now available in public beta as a new authentication option for account-level, system-to-system integrations. This feature is intended to replace legacy private apps and is built on HubSpot\u2019s modern Developer Platform infrastructure.",
       "status": "public beta",
       "source": "dev-changelog",
       "sourceUrl": "https://developers.hubspot.com/changelog/service-keys",
@@ -54,7 +54,7 @@
     },
     "legacy-standard-sandboxes-sunset-what-s-changing-how-to-prepare-faq": {
       "id": "legacy-standard-sandboxes-sunset-what-s-changing-how-to-prepare-faq",
-      "title": "Legacy Standard Sandboxes Sunset: What’s Changing & How to Prepare (FAQ)",
+      "title": "Legacy Standard Sandboxes Sunset: What\u2019s Changing & How to Prepare (FAQ)",
       "description": "We recently introduced an improved Standard Sandbox, including the new Deploy to Production feature for the most requested supported asset types . These enhancements empower RevOps and Marketing Ops teams to safely test business logic, data flows, and nurture workflows in a dedicated environment without risking disruption in their production accounts.",
       "status": "sunset",
       "source": "dev-changelog",
@@ -82,7 +82,7 @@
     "legacy-developer-accounts-migrating-to-the-unified-developer-platform": {
       "id": "legacy-developer-accounts-migrating-to-the-unified-developer-platform",
       "title": "Legacy Developer Accounts Migrating to the Unified Developer Platform",
-      "description": "All legacy developer accounts are being upgraded to HubSpot’s new unified Developer Platform experience. This migration brings developer tools and resources together into a single HubSpot account, replacing older, separate tools with one consistent experience when building on HubSpot.",
+      "description": "All legacy developer accounts are being upgraded to HubSpot\u2019s new unified Developer Platform experience. This migration brings developer tools and resources together into a single HubSpot account, replacing older, separate tools with one consistent experience when building on HubSpot.",
       "status": "update",
       "hubs": [
         "Developer Platform"
@@ -494,7 +494,7 @@
     "custom-actions-support-for-enrolled-non-enrolled-records": {
       "id": "custom-actions-support-for-enrolled-non-enrolled-records",
       "title": "Custom Actions Support for Enrolled & Non-Enrolled Records",
-      "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow’s enrolled object. The change rolls out on November 24, 2025.",
+      "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow\u2019s enrolled object. The change rolls out on November 24, 2025.",
       "status": "update",
       "hubs": [
         "Operations Hub"
@@ -571,7 +571,7 @@
       "id": "introducing-hubspot-cli-v8-0-0",
       "title": "Introducing HubSpot CLI v8.0.0",
       "description": "HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
-      "status": "sunset",
+      "status": "update",
       "hubs": [
         "Developer Platform"
       ],
@@ -1032,7 +1032,7 @@
     },
     "hubspot-payments-is-now-available-in-canada-and-the-uk": {
       "id": "hubspot-payments-is-now-available-in-canada-and-the-uk",
-      "title": "HubSpot Payments is now available in Canada and the UK! 🚀",
+      "title": "HubSpot Payments is now available in Canada and the UK! \ud83d\ude80",
       "description": "",
       "status": "now live",
       "hubs": [
@@ -1165,7 +1165,7 @@
     "convert-crm-views-to-segments": {
       "id": "convert-crm-views-to-segments",
       "title": "Convert CRM Views to Segments",
-      "description": "Any saved CRM view can now become a segment with one click. The new \"Save as segment\" action in the Filters menu carries over your filter logic automatically, no rebuilding required. Previously, creating a segment meant recreating filters you'd already perfected in a view. This update bridges exploration and action, letting you move directly from identifying an audience to engaging it through campaigns, workflows, or reports. If a filter isn't supported for segments, you'll see a clear error mes",
+      "description": "Any saved CRM view can now become a segment with one click. The new \"Save as segment\" action in the Filters menu carries over your filter logic automatically, no rebuilding required. Previously, creating a segment meant recreating filters you'd already perfected in a view. This update bridges exploration and action, letting you move directly from identifying an audience to engaging it through campaigns, workflows, or reports.\u00a0If a filter isn't supported for segments, you'll see a clear error mes",
       "status": "now live",
       "hubs": [
         "Marketing Hub",
@@ -1219,7 +1219,7 @@
     "apple-pay-and-google-pay-with-stripe": {
       "id": "apple-pay-and-google-pay-with-stripe",
       "title": "Apple Pay and Google Pay with Stripe",
-      "description": "If you use Stripe payment processing, your buyers can now pay with Apple Pay and Google Pay, no setup required. If you accept credit or debit cards, digital wallets are automatically enabled. To track which transactions used digital wallets, add the \"Digital wallet type\" column to your Payments Index page.",
+      "description": "If you use Stripe payment processing, your buyers can now pay with Apple Pay and Google Pay, no setup required. If you accept credit or debit cards, digital wallets are automatically enabled.\u00a0To track which transactions used digital wallets, add the \"Digital wallet type\" column to your Payments Index page.",
       "status": "update",
       "hubs": [
         "Commerce Hub"
@@ -1244,7 +1244,7 @@
     "multi-account-workflows": {
       "id": "multi-account-workflows",
       "title": "Multi-Account Workflows",
-      "description": "You can now create workflows that update contact records across connected HubSpot accounts. Build automation in one account that creates or updates contacts in linked accounts within your organization. This solves real problems for multi-brand organizations: routing form submissions between regional accounts, running cross-sell campaigns after purchases, and keeping contact properties synchronized. Learn more How to access: Settings > Organization Management > Multi-Account > Asset Copying tab.",
+      "description": "You can now create workflows that update contact records across connected HubSpot accounts. Build automation in one account that creates or updates contacts in linked accounts within your organization. This solves real problems for multi-brand organizations: routing form submissions between regional accounts, running cross-sell campaigns after purchases, and keeping contact properties synchronized.\u00a0Learn more How to access: Settings > Organization Management > Multi-Account > Asset Copying tab.",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -1322,7 +1322,7 @@
     "hubspot-connector-for-gemini": {
       "id": "hubspot-connector-for-gemini",
       "title": "HubSpot Connector for Gemini",
-      "description": "Query contacts, companies, and deals directly in Google Gemini, then draft follow-up content to use back in HubSpot. Works in Gemini's main interface and the sidebar in Gmail, Docs, Sheets, and Chat. Currently read-only. Requires Google Workspace Business Standard, Business Plus, or Enterprise with Gemini Alpha enabled. Learn more",
+      "description": "Query contacts, companies, and deals directly in Google Gemini, then draft follow-up content to use back in HubSpot. Works in Gemini's main interface and the sidebar in Gmail, Docs, Sheets, and Chat. Currently read-only. Requires Google Workspace Business Standard, Business Plus, or Enterprise with Gemini Alpha enabled.\u00a0Learn more",
       "status": "public beta",
       "hubs": [
         "Sales Hub",
@@ -1906,7 +1906,7 @@
     "pathfinder-in-customer-journey-analytics": {
       "id": "pathfinder-in-customer-journey-analytics",
       "title": "Pathfinder in Customer Journey Analytics",
-      "description": "Uncover the most common paths leads and customers take with your brand—automatically. Customer Journey Paths reveal patterns in how prospects navigate your touchpoints. *available to all Sales and Service Hub Enterprise customers",
+      "description": "Uncover the most common paths leads and customers take with your brand\u2014automatically. Customer Journey Paths reveal patterns in how prospects navigate your touchpoints. *available to all Sales and Service Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -2742,7 +2742,7 @@
     },
     "speech-to-text-into-the-breeze-assistant-mobile-app-now-on-android-and-ios": {
       "id": "speech-to-text-into-the-breeze-assistant-mobile-app-now-on-android-and-ios",
-      "title": "Speech To Text into the Breeze Assistant mobile app — Now on Android and iOS",
+      "title": "Speech To Text into the Breeze Assistant mobile app \u2014 Now on Android and iOS",
       "description": "Interact with the Breeze Assistant using voice commands on both Android and iOS. Speak your questions naturally and get instant AI-powered responses, making mobile productivity faster and more convenient. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
@@ -3893,7 +3893,7 @@
     "mirroring-company-data-across-multi-management-accounts": {
       "id": "mirroring-company-data-across-multi-management-accounts",
       "title": "Mirroring Company Data Across Multi-Management Accounts",
-      "description": "The Multi-Account Management data mirroring feature now supports mirroring the company object in addition to the contact object, enabling better data consistency across your entire business ecosystem.  Learn More *available to all Hubspot Pro+ customers",
+      "description": "The Multi-Account Management data mirroring feature now supports mirroring the company object in addition to the contact object, enabling better data consistency across your entire business ecosystem.\u00a0 Learn More *available to all Hubspot Pro+ customers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -4812,7 +4812,7 @@
       "id": "campaigns-api-improvements-scope-enhancement-property-deprecation",
       "title": "Campaigns API Improvements: Scope Enhancement & Property Deprecation",
       "description": "The Campaigns API now features enhanced scopes and updated property structures. Your integrations can access campaign data more efficiently while maintaining compatibility with cleaner APIs. *available to all Marketing Hub Pro+ customers",
-      "status": "sunset",
+      "status": "update",
       "hubs": [
         "Marketing Hub",
         "Developer Platform",
@@ -5993,7 +5993,7 @@
     },
     "custom-times-and-prevent-skip-for-forms-ctas-now-in-professional": {
       "id": "custom-times-and-prevent-skip-for-forms-ctas-now-in-professional",
-      "title": "Custom Times and “Prevent Skip” for Forms/CTAs Now in Professional",
+      "title": "Custom Times and \u201cPrevent Skip\u201d for Forms/CTAs Now in Professional",
       "description": "Professional tier customers can now set custom timing and prevent skipping for forms and CTAs. You'll create more sophisticated engagement experiences with precise control over when and how visitors interact with your conversion tools. *available to all Marketing, Content, and Service Pro+ customers",
       "status": "update",
       "hubs": [
@@ -6933,7 +6933,7 @@
     "dynamic-dates-in-lists-and-workflows": {
       "id": "dynamic-dates-in-lists-and-workflows",
       "title": "Dynamic Dates in Lists and Workflows",
-      "description": "Dynamic date tokens were previously limited, but now they’re supported in more tools. You can build smarter automation and better-targeted lists without the hassle of constant updates. *available to all hubs and tiers",
+      "description": "Dynamic date tokens were previously limited, but now they\u2019re supported in more tools. You can build smarter automation and better-targeted lists without the hassle of constant updates. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -6960,7 +6960,7 @@
     "manage-view-and-edit-property-access-in-workflows": {
       "id": "manage-view-and-edit-property-access-in-workflows",
       "title": "Manage View and Edit Property Access in Workflows",
-      "description": "Previously, property access had to be managed outside of workflows, leading to administrative overhead. Now, integrated access controls make workflows more secure and easier to govern—all from a single place within HubSpot. *available to all Hubspot Enterprise customers",
+      "description": "Previously, property access had to be managed outside of workflows, leading to administrative overhead. Now, integrated access controls make workflows more secure and easier to govern\u2014all from a single place within HubSpot. *available to all Hubspot Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -6987,7 +6987,7 @@
     "additional-wait-until-activity-events-in-journey-automation": {
       "id": "additional-wait-until-activity-events-in-journey-automation",
       "title": "Additional Wait Until Activity events in Journey Automation",
-      "description": "Previously, Journey Automation had limited ‘Wait until’ conditions, restricting your ability to respond to user behaviors. With new supported events, you can wait for more meaningful interactions, making journeys smarter and improving customer satisfaction. *available to all Marketing Hub Enterprise customers",
+      "description": "Previously, Journey Automation had limited \u2018Wait until\u2019 conditions, restricting your ability to respond to user behaviors. With new supported events, you can wait for more meaningful interactions, making journeys smarter and improving customer satisfaction. *available to all Marketing Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -7065,7 +7065,7 @@
     "send-video-transcripts-to-linkedin": {
       "id": "send-video-transcripts-to-linkedin",
       "title": "Send Video Transcripts to LinkedIn",
-      "description": "Previously, video transcripts weren’t automatically included in LinkedIn posts via HubSpot. This change removes a manual step and ensures more complete, accessible social content, helping your videos perform better and reach wider audiences. *available to all Marketing Hub Pro+ customers",
+      "description": "Previously, video transcripts weren\u2019t automatically included in LinkedIn posts via HubSpot. This change removes a manual step and ensures more complete, accessible social content, helping your videos perform better and reach wider audiences. *available to all Marketing Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -7276,7 +7276,7 @@
     "automatic-ticket-topic-identification-powered-by-ai": {
       "id": "automatic-ticket-topic-identification-powered-by-ai",
       "title": "Automatic Ticket Topic Identification powered by AI",
-      "description": "This feature brings automated intelligence to your support workflows. By auto-populating the 'category' field, you’ll get cleaner data and faster insights without extra effort. *available to all Service Hub Enterprise customers",
+      "description": "This feature brings automated intelligence to your support workflows. By auto-populating the 'category' field, you\u2019ll get cleaner data and faster insights without extra effort. *available to all Service Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7302,8 +7302,8 @@
     },
     "today-s-insights-feed": {
       "id": "today-s-insights-feed",
-      "title": "Today’s Insights Feed",
-      "description": "​​The feed surfaces time-sensitive insights directly in your Help Desk, removing the need to search for them. This update turns passive metrics into proactive recommendations that drive better customer service outcomes day-to-day. *available to all Service Hub Pro+ customers",
+      "title": "Today\u2019s Insights Feed",
+      "description": "\u200b\u200bThe feed surfaces time-sensitive insights directly in your Help Desk, removing the need to search for them. This update turns passive metrics into proactive recommendations that drive better customer service outcomes day-to-day. *available to all Service Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7461,7 +7461,7 @@
     "audit-logs-for-customer-agent-actions": {
       "id": "audit-logs-for-customer-agent-actions",
       "title": "Audit Logs for Customer Agent Actions",
-      "description": "This adds a critical layer of visibility to AI activity within the CRM. Now you can audit Customer Agent’s behavior just like a human user, bringing trust and governance to AI automation. *available to all Service Hub Pro+ customers",
+      "description": "This adds a critical layer of visibility to AI activity within the CRM. Now you can audit Customer Agent\u2019s behavior just like a human user, bringing trust and governance to AI automation. *available to all Service Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7487,7 +7487,7 @@
     "hubspot-hosted-domains-now-available-for-customer-portal": {
       "id": "hubspot-hosted-domains-now-available-for-customer-portal",
       "title": "HubSpot Hosted Domains now available for Customer Portal",
-      "description": "This launch removes the prior dependency on external domain setup, streamlining onboarding. Teams now get started faster, test features earlier, and update their domain later—providing more flexibility and quicker time to value. *available to all Service Hub Pro+ customers",
+      "description": "This launch removes the prior dependency on external domain setup, streamlining onboarding. Teams now get started faster, test features earlier, and update their domain later\u2014providing more flexibility and quicker time to value. *available to all Service Hub Pro+ customers",
       "status": "now live",
       "hubs": [
         "Service Hub",
@@ -7781,7 +7781,7 @@
     "data-enrichment-update-to-settings": {
       "id": "data-enrichment-update-to-settings",
       "title": "Data Enrichment Update to Settings",
-      "description": "Settings now offer greater clarity and control over enrichment tools, improving governance and confidence in automated data population. It’s a usability win that empowers better decision-making for data stewardship and system configuration. *available to all hubs and tiers",
+      "description": "Settings now offer greater clarity and control over enrichment tools, improving governance and confidence in automated data population. It\u2019s a usability win that empowers better decision-making for data stewardship and system configuration. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7832,7 +7832,7 @@
     "default-account-selection": {
       "id": "default-account-selection",
       "title": "Default Account Selection",
-      "description": "You can now set a default HubSpot account that automatically opens at login. It’s a simple improvement that brings a smoother, more focused experience for multi-account users. *available to all hubs and tiers",
+      "description": "You can now set a default HubSpot account that automatically opens at login. It\u2019s a simple improvement that brings a smoother, more focused experience for multi-account users. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7882,7 +7882,7 @@
     "automatically-format-property-data-at-the-point-of-entry": {
       "id": "automatically-format-property-data-at-the-point-of-entry",
       "title": "Automatically Format Property Data at the Point of Entry",
-      "description": "This update introduces real-time formatting for custom and standard fields, ensuring data is correctly structured on entry. By improving data hygiene at the point of input, you’ll prevent downstream issues and maintain cleaner databases. *available to all hubs and tiers",
+      "description": "This update introduces real-time formatting for custom and standard fields, ensuring data is correctly structured on entry. By improving data hygiene at the point of input, you\u2019ll prevent downstream issues and maintain cleaner databases. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7907,7 +7907,7 @@
     "stage-calculated-properties": {
       "id": "stage-calculated-properties",
       "title": "Stage-Calculated Properties",
-      "description": "This update introduces out-of-the-box properties that calculate stage duration for deals and tickets. You’ll gain deeper insights faster and make better process improvements with less setup or reliance on custom fields. *available to all hubs and tiers",
+      "description": "This update introduces out-of-the-box properties that calculate stage duration for deals and tickets. You\u2019ll gain deeper insights faster and make better process improvements with less setup or reliance on custom fields. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Sales Hub",
@@ -8035,7 +8035,7 @@
     "property-fill-rate-now-included-in-export-all-properties": {
       "id": "property-fill-rate-now-included-in-export-all-properties",
       "title": "Property fill rate now included in 'Export all properties'",
-      "description": "By adding fill rate to property exports, HubSpot gives you immediate insights into data hygiene. It’s a small but powerful addition that helps keep your CRM lean, relevant, and easier to manage long-term. *available to all hubs and tiers",
+      "description": "By adding fill rate to property exports, HubSpot gives you immediate insights into data hygiene. It\u2019s a small but powerful addition that helps keep your CRM lean, relevant, and easier to manage long-term. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -8060,7 +8060,7 @@
     "ios-conditional-properties-on-deals-tickets-custom-objects": {
       "id": "ios-conditional-properties-on-deals-tickets-custom-objects",
       "title": "[iOS] Conditional properties on Deals, Tickets & Custom objects",
-      "description": "This update brings parity between desktop and mobile workflows by enabling conditional properties in the iOS app. Users can now experience more complete and logical record management on mobile, improving productivity and reducing data quality issues. *available to all HubSpot Pro+ customers This rollout introduces one of the most requested mobile capabilities—list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *avai",
+      "description": "This update brings parity between desktop and mobile workflows by enabling conditional properties in the iOS app. Users can now experience more complete and logical record management on mobile, improving productivity and reducing data quality issues. *available to all HubSpot Pro+ customers This rollout introduces one of the most requested mobile capabilities\u2014list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *avai",
       "status": "update",
       "hubs": [
         "Sales Hub",
@@ -8088,7 +8088,7 @@
     "lists-on-mobile": {
       "id": "lists-on-mobile",
       "title": "Lists on Mobile",
-      "description": "This rollout introduces one of the most requested mobile capabilities—list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *available to all hubs and tiers",
+      "description": "This rollout introduces one of the most requested mobile capabilities\u2014list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -8139,7 +8139,7 @@
     "ai-report-insights-on-mobile": {
       "id": "ai-report-insights-on-mobile",
       "title": "AI Report Insights on Mobile",
-      "description": "AI Report Insights, previously desktop-only, are now accessible on mobile. This brings smart analytics to more users in real-time, improving how your team understands and reacts to data—wherever they are. *available to all hubs and tiers",
+      "description": "AI Report Insights, previously desktop-only, are now accessible on mobile. This brings smart analytics to more users in real-time, improving how your team understands and reacts to data\u2014wherever they are. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -8164,7 +8164,7 @@
     "automation-overview": {
       "id": "automation-overview",
       "title": "Automation Overview",
-      "description": "Automation Overview solves the challenge of scattered insights by consolidating automation performance across tools. It’s a new control center that helps admins monitor engagement, reduce inefficiencies, and ensure strategic alignment from one simple interface. *available to all HubSpot Pro+ customers",
+      "description": "Automation Overview solves the challenge of scattered insights by consolidating automation performance across tools. It\u2019s a new control center that helps admins monitor engagement, reduce inefficiencies, and ensure strategic alignment from one simple interface. *available to all HubSpot Pro+ customers",
       "status": "update",
       "hubs": [
         "Breeze AI"

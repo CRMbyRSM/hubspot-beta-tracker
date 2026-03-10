@@ -53,7 +53,7 @@ const STATUS_KEYWORDS = {
   'early access': ['early access'],
   'now live': ['now live', 'general availability', 'ga release', 'now available', 'is live', 'goes live', 'gone live', 'launched'],
   'live': ['live', 'available now', 'rolling out', 'released'],
-  'sunset': ['sunset', 'deprecat', 'end of life', 'eol'],
+  'sunset': ['sunset', 'end of life', 'eol', 'deprecation notice', 'will be deprecated', 'is being deprecated', 'scheduled for deprecation', 'legacy.*sunset', 'sunsetting'],
   'breaking change': ['breaking change'],
   'update': ['update', 'improvement', 'enhanced', 'new feature', 'added', 'improved', 'redesigned', 'upgraded'],
 };
