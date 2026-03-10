@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
 const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
 const PORT = process.env.PORT || 3000;
-const { spawn } = require('child_process');
+import { spawn } from 'child_process';
 const SCAN_INTERVAL_MS = 24 * 60 * 60 * 1000; // once per day
 
 function runScan() {
