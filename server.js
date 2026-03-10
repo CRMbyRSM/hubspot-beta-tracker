@@ -137,7 +137,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .brand-copy{min-width:0}
 .brand-title{font-family:'Poppins',system-ui,sans-serif;font-size:1.1rem;font-weight:700;line-height:1.2;color:var(--white);text-wrap:balance}
 .brand-subtitle{font-size:.88rem;color:var(--text-muted);max-width:760px}
-.topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-left:auto}
+.topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;width:100%}
 .meta-chip{background:var(--surface2);border:1px solid #2b2b2b;color:var(--text-muted);padding:8px 12px;border-radius:8px;font-size:.8rem}
 .meta-chip strong{color:var(--teal)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:6px;font-size:.88rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s ease;text-decoration:none}
@@ -220,7 +220,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .method-card p,.method-card li{font-size:.88rem;color:var(--text-muted)}
 .method-card ul{padding-left:18px;display:grid;gap:6px}
 .section[id="updates"]{scroll-margin-top:90px}
-.topbar-subscribe{display:flex;align-items:center;gap:6px}
+.topbar-subscribe{display:flex;align-items:center;gap:6px;margin-left:auto}
 .topbar-subscribe input{background:var(--surface2);border:1px solid #333;color:var(--text);padding:9px 14px;border-radius:6px;font-size:.8rem;font-family:inherit;width:200px;outline:none}
 .topbar-subscribe input:focus{border-color:var(--teal)}
 .topbar-subscribe input::placeholder{color:var(--text-muted)}
@@ -240,7 +240,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 }
 @media(max-width:980px){
   .topbar-inner{align-items:flex-start}
-  .topbar-actions{width:100%;flex-wrap:wrap;margin-left:0}
+  .topbar-actions{width:100%;flex-wrap:wrap}
+  .topbar-subscribe{margin-left:0}
 }
 @media(max-width:720px){
   .btn{width:100%}
