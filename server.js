@@ -154,11 +154,20 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .section-note{font-size:.9rem;color:var(--text-muted);max-width:760px}
 .link-inline{font-size:.88rem;color:var(--orange);font-weight:600}
 
+.sunset-strip{margin-bottom:18px;display:grid;gap:12px}
+.sunset-card{background:rgba(247,147,26,.06);border-left:4px solid var(--orange);border-radius:var(--radius);padding:18px 20px}
+.sunset-card .sunset-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:8px}
+.sunset-card .sunset-title{font-family:'Poppins',system-ui,sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.sunset-card .sunset-desc{font-size:.88rem;color:var(--text);margin-bottom:10px}
+.sunset-card .sunset-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--text-muted)}
+.sunset-card .sunset-meta strong{color:var(--white)}
+.sunset-card .sunset-source{margin-top:10px;font-size:.8rem;color:var(--text-muted)}
+.sunset-card .sunset-source a{color:var(--teal)}
 .important-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.important-card{background:var(--surface);border-left:4px solid var(--orange);border-radius:var(--radius);padding:18px 18px 16px}
-.important-card.high{border-left-color:var(--red)}
-.important-card.medium{border-left-color:var(--orange)}
-.important-card.low{border-left-color:var(--teal)}
+.important-card{background:var(--surface);border-left:4px solid var(--teal);border-radius:var(--radius);padding:18px 18px 16px}
+.important-card.beta{border-left-color:var(--teal)}
+.important-card.dev{border-left-color:rgba(23,161,146,.6)}
+.important-card.update{border-left-color:#444}
 .important-type{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
 .important-title{font-family:'Poppins',system-ui,sans-serif;font-size:1rem;font-weight:600;line-height:1.35;color:var(--white);margin-bottom:10px}
 .important-copy{font-size:.9rem;color:var(--text);margin-bottom:10px}
@@ -218,6 +227,14 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .method-card h3{font-family:'Poppins',system-ui,sans-serif;font-size:1rem;color:var(--white);margin-bottom:8px}
 .method-card p,.method-card li{font-size:.88rem;color:var(--text-muted)}
 .method-card ul{padding-left:18px;display:grid;gap:6px}
+.section[id="updates"]{scroll-margin-top:90px}
+.topbar-subscribe{display:flex;align-items:center;gap:6px}
+.topbar-subscribe input{background:var(--surface2);border:1px solid #333;color:var(--text);padding:9px 14px;border-radius:6px;font-size:.8rem;font-family:inherit;width:200px;outline:none}
+.topbar-subscribe input:focus{border-color:var(--teal)}
+.topbar-subscribe input::placeholder{color:var(--text-muted)}
+.btn-subscribe{background:var(--surface2);color:var(--teal);border:1px solid var(--teal);padding:9px 14px;font-size:.8rem;font-weight:600;border-radius:6px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s}
+.btn-subscribe:hover{background:rgba(23,161,146,.12)}
+.load-more-sentinel{height:1px}
 .footer{border-top:1px solid #1d1d1d;padding:24px 0 40px;text-align:center;color:var(--text-muted);font-size:.82rem}
 .loading{text-align:center;padding:60px 0;color:var(--text-muted)}
 .empty{background:var(--surface);border-radius:var(--radius);padding:24px;text-align:center;color:var(--text-muted)}
@@ -248,7 +265,11 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
     <div class="topbar-actions">
       <span class="meta-chip" id="lastScan">Last scan: —</span>
       <span class="meta-chip" id="totalBadge"><strong>0</strong> tracked</span>
-      <a class="btn btn-primary" href="https://crmbyrsm.com" target="_blank" rel="noopener">Need help implementing or updating?</a>
+      <form class="topbar-subscribe" id="topbarSubscribeForm">
+        <input type="email" placeholder="Weekly digest" id="topbarEmail" required>
+        <button type="submit" class="btn-subscribe" id="topbarSubscribeBtn">Subscribe</button>
+      </form>
+      <a class="btn btn-primary" href="https://crmbyrsm.com" target="_blank" rel="noopener">Need help?</a>
     </div>
   </div>
 </header>
@@ -263,6 +284,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
       </div>
       <a class="link-inline" href="#updates">Jump to full updates</a>
     </div>
+    <div class="sunset-strip" id="sunsetStrip"></div>
     <div class="important-grid" id="importantGrid">
       <div class="loading">Loading important updates…</div>
     </div>
@@ -291,6 +313,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
     <div class="grid" id="grid">
       <div class="loading">Loading updates…</div>
     </div>
+    <div class="load-more-sentinel" id="loadMoreSentinel"></div>
   </section>
 
   <section class="section">
@@ -343,11 +366,13 @@ function escapeHtml(s='') { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').
 
 function getImportance(item) {
   const status = item.status || 'update';
-  const text = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
-  if (status === 'breaking change' || status === 'sunset') return 'high';
-  if (status === 'public beta' || status === 'private beta' || status === 'developer preview' || status === 'early access') return 'medium';
-  if (text.includes('sandbox') || text.includes('workflow') || text.includes('deprecat') || text.includes('sunset')) return 'high';
-  return 'low';
+  if (status.includes('beta') || status === 'developer preview' || status === 'early access') return 'beta';
+  if (item.source === 'dev-changelog' || (item.hubs || []).includes('Developer Platform')) return 'dev';
+  return 'update';
+}
+
+function isSunsetOrCritical(item) {
+  return item.status === 'sunset' || item.status === 'breaking change';
 }
 
 function getTypeLabel(item) {
@@ -379,15 +404,26 @@ function buildWho(item) {
   return 'Portal admins and teams responsible for HubSpot setup, reporting, and process design.';
 }
 
+function selectSunsetItems(items) {
+  return items.filter(isSunsetOrCritical).sort((a,b)=>new Date(b.firstSeen)-new Date(a.firstSeen)).slice(0,4);
+}
+
 function selectImportantItems(items) {
-  const ranked = [...items].sort((a, b) => {
-    const order = { high: 0, medium: 1, low: 2 };
-    const imp = order[getImportance(a)] - order[getImportance(b)];
-    if (imp !== 0) return imp;
-    return new Date(b.firstSeen) - new Date(a.firstSeen);
-  });
+  const ranked = items
+    .filter(i => !isSunsetOrCritical(i))
+    .sort((a, b) => {
+      const order = { beta: 0, dev: 1, update: 2 };
+      const imp = order[getImportance(a)] - order[getImportance(b)];
+      if (imp !== 0) return imp;
+      return new Date(b.firstSeen) - new Date(a.firstSeen);
+    });
   return ranked.slice(0, 3);
 }
+
+const PAGE_SIZE = 30;
+let filteredItems = [];
+let loadedCount = 0;
+let observer = null;
 
 async function init() {
   try {
@@ -395,14 +431,57 @@ async function init() {
     const data = await res.json();
     allBetas = Object.values(data.betas || {}).sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
     renderMeta(data);
+    renderSunsets();
     renderImportant();
     renderStatusFilters();
     renderHubFilters();
     renderGrid();
+    initSubscribeForm();
   } catch (e) {
     document.getElementById('importantGrid').innerHTML = '<div class="empty">Failed to load important updates.</div>';
     document.getElementById('grid').innerHTML = '<div class="empty">Failed to load data.</div>';
   }
+}
+
+function renderSunsets() {
+  const items = selectSunsetItems(allBetas);
+  const strip = document.getElementById('sunsetStrip');
+  if (!items.length) { strip.style.display = 'none'; return; }
+  strip.innerHTML = items.map(item => {
+    const label = item.status === 'breaking change' ? 'Breaking Change' : 'Sunsetting';
+    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)' }[item.source] || item.source;
+    return '<div class="sunset-card">' +
+      '<div class="sunset-label">' + label + '</div>' +
+      '<div class="sunset-title">' + escapeHtml(item.title || '') + '</div>' +
+      '<div class="sunset-desc">' + escapeHtml((item.description || '').slice(0, 220)) + '</div>' +
+      '<div class="sunset-meta">' +
+        '<span><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</span>' +
+      '</div>' +
+      '<div class="sunset-source">' + escapeHtml(sourceLabel) + (item.sourceUrl ? ' · <a href="' + item.sourceUrl + '" target="_blank" rel="noopener">Source</a>' : '') + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function initSubscribeForm() {
+  const form = document.getElementById('topbarSubscribeForm');
+  const btn = document.getElementById('topbarSubscribeBtn');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const email = document.getElementById('topbarEmail').value.trim();
+    if (!email) return;
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const r = await fetch('/api/subscribe', {
+        method: 'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ email })
+      });
+      const d = await r.json();
+      btn.textContent = d.ok ? 'Done!' : 'Error';
+      if (d.ok) document.getElementById('topbarEmail').value = '';
+    } catch { btn.textContent = 'Error'; }
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 3000);
+  });
 }
 
 function renderMeta(data) {
@@ -492,40 +571,68 @@ function renderHubFilters() {
   });
 }
 
+function renderCard(b) {
+  const now = Date.now();
+  const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
+  const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+  const desc = escapeHtml(b.description || '');
+  const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[b.source] || b.source;
+  const hubs = b.hubs || ['Platform'];
+  const hubTags = hubs.map(h => {
+    const color = HUB_COLORS[h] || '#666';
+    const textColor = (h === 'Operations Hub' || h === 'Service Hub') ? '#111' : '#fff';
+    return '<span class="hub-tag" style="background:' + color + ';color:' + textColor + '">' + escapeHtml(h) + '</span>';
+  }).join('');
+  return '<div class="card" data-status="' + b.status + '">' +
+    '<div class="card-top">' +
+      '<span class="card-title">' + escapeHtml(b.title) + '</span>' +
+      '<span class="badge" data-status="' + b.status + '">' + escapeHtml(b.status) + '</span>' +
+    '</div>' +
+    '<div class="hub-tags">' + hubTags + '</div>' +
+    (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
+    '<div class="card-meta">' +
+      '<span>' + firstSeen + '</span>' +
+      '<span>' + days + 'd tracked</span>' +
+      '<span>' + escapeHtml(sourceLabel) + '</span>' +
+      (b.sourceUrl ? '<a href="' + b.sourceUrl + '" target="_blank" rel="noopener">Source ↗</a>' : '') +
+    '</div></div>';
+}
+
+function appendCards() {
+  const slice = filteredItems.slice(loadedCount, loadedCount + PAGE_SIZE);
+  if (!slice.length) {
+    if (observer) { observer.disconnect(); observer = null; }
+    return;
+  }
+  const gridEl = document.getElementById('grid');
+  gridEl.insertAdjacentHTML('beforeend', slice.map(renderCard).join(''));
+  loadedCount += slice.length;
+  if (loadedCount < filteredItems.length) {
+    const sentinel = document.getElementById('loadMoreSentinel');
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) appendCards();
+    }, { rootMargin: '200px' });
+    observer.observe(sentinel);
+  } else {
+    if (observer) { observer.disconnect(); observer = null; }
+  }
+}
+
 function renderGrid() {
+  if (observer) { observer.disconnect(); observer = null; }
   let filtered = allBetas;
   if (activeStatuses.size > 0) filtered = filtered.filter(b => activeStatuses.has(b.status));
   if (activeHubs.size > 0) filtered = filtered.filter(b => (b.hubs || ['Platform']).some(h => activeHubs.has(h)));
-  if (!filtered.length) {
-    document.getElementById('grid').innerHTML = '<div class="empty">No items match these filters.</div>';
+  filteredItems = filtered;
+  loadedCount = 0;
+  const gridEl = document.getElementById('grid');
+  gridEl.innerHTML = '';
+  if (!filteredItems.length) {
+    gridEl.innerHTML = '<div class="empty">No items match these filters.</div>';
     return;
   }
-  const now = Date.now();
-  document.getElementById('grid').innerHTML = filtered.map(b => {
-    const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
-    const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-    const desc = escapeHtml(b.description || '');
-    const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[b.source] || b.source;
-    const hubs = b.hubs || ['Platform'];
-    const hubTags = hubs.map(h => {
-      const color = HUB_COLORS[h] || '#666';
-      const textColor = (h === 'Operations Hub' || h === 'Service Hub') ? '#111' : '#fff';
-      return '<span class="hub-tag" style="background:' + color + ';color:' + textColor + '">' + escapeHtml(h) + '</span>';
-    }).join('');
-    return '<div class="card" data-status="' + b.status + '">' +
-      '<div class="card-top">' +
-        '<span class="card-title">' + escapeHtml(b.title) + '</span>' +
-        '<span class="badge" data-status="' + b.status + '">' + escapeHtml(b.status) + '</span>' +
-      '</div>' +
-      '<div class="hub-tags">' + hubTags + '</div>' +
-      (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
-      '<div class="card-meta">' +
-        '<span>' + firstSeen + '</span>' +
-        '<span>' + days + 'd tracked</span>' +
-        '<span>' + escapeHtml(sourceLabel) + '</span>' +
-        (b.sourceUrl ? '<a href="' + b.sourceUrl + '" target="_blank" rel="noopener">Source ↗</a>' : '') +
-      '</div></div>';
-  }).join('');
+  appendCards();
 }
 
 init();
