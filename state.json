@@ -3,14 +3,14 @@
     "service-keys-enter-public-beta-for-system-to-system-integrations": {
       "id": "service-keys-enter-public-beta-for-system-to-system-integrations",
       "title": "Service Keys enter public beta for system-to-system integrations",
-      "description": "Service Keys are now available in public beta as a new authentication option for account-level, system-to-system integrations. This feature is intended to replace legacy private apps and is built on HubSpot\u2019s modern Developer Platform infrastructure.",
+      "description": "Service Keys are now available in public beta as a new authentication option for account-level, system-to-system integrations. This feature is intended to replace legacy private apps and is built on HubSpot’s modern Developer Platform infrastructure.",
       "status": "public beta",
       "source": "dev-changelog",
       "sourceUrl": "https://developers.hubspot.com/changelog/service-keys",
       "pubDate": "Tue, 10 Feb 2026 15:22:39 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -37,7 +37,7 @@
       "pubDate": "Mon, 09 Feb 2026 21:26:43 GMT",
       "author": "jmclaren@hubspot.com (Jon McLaren)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "mentioned",
@@ -54,7 +54,7 @@
     },
     "legacy-standard-sandboxes-sunset-what-s-changing-how-to-prepare-faq": {
       "id": "legacy-standard-sandboxes-sunset-what-s-changing-how-to-prepare-faq",
-      "title": "Legacy Standard Sandboxes Sunset: What\u2019s Changing & How to Prepare (FAQ)",
+      "title": "Legacy Standard Sandboxes Sunset: What’s Changing & How to Prepare (FAQ)",
       "description": "We recently introduced an improved Standard Sandbox, including the new Deploy to Production feature for the most requested supported asset types . These enhancements empower RevOps and Marketing Ops teams to safely test business logic, data flows, and nurture workflows in a dedicated environment without risking disruption in their production accounts.",
       "status": "sunset",
       "source": "dev-changelog",
@@ -62,7 +62,7 @@
       "pubDate": "Fri, 19 Dec 2025 16:12:41 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T16:50:34.789Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "sunset",
@@ -76,13 +76,14 @@
         "Developer Platform"
       ],
       "sources": [
-        "dev-changelog"
+        "dev-changelog",
+        "community"
       ]
     },
     "legacy-developer-accounts-migrating-to-the-unified-developer-platform": {
       "id": "legacy-developer-accounts-migrating-to-the-unified-developer-platform",
       "title": "Legacy Developer Accounts Migrating to the Unified Developer Platform",
-      "description": "All legacy developer accounts are being upgraded to HubSpot\u2019s new unified Developer Platform experience. This migration brings developer tools and resources together into a single HubSpot account, replacing older, separate tools with one consistent experience when building on HubSpot.",
+      "description": "Hubspot unveils a migration of legacy developer accounts to a unified Developer Platform, consolidating tools, apps and integrations into one Hubspot account. The upgrade brings newer features, requires post-upgrade access review, and offers an opt-in path or automatic conversion during a phased rollout from March 9 to 31, 2026.",
       "status": "update",
       "hubs": [
         "Developer Platform"
@@ -92,7 +93,7 @@
       "pubDate": "Wed, 04 Feb 2026 14:00:02 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T17:51:06.936Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -101,7 +102,8 @@
         }
       ],
       "sources": [
-        "dev-changelog"
+        "dev-changelog",
+        "releasebot-product"
       ]
     },
     "form-submissions-now-show-up-on-company-records": {
@@ -117,7 +119,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -126,7 +128,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "rule-based-automated-tracking-for-intent-signals": {
@@ -142,7 +145,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -169,7 +172,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -178,7 +181,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "filters-in-agent-inbox": {
@@ -194,7 +198,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -219,7 +223,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -228,7 +232,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "custom-views-on-reports-and-dashboards-lists": {
@@ -245,7 +250,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -254,7 +259,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "drag-and-drop-and-marquee-select-in-file-manager": {
@@ -271,7 +277,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -280,7 +286,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "import-auto-detects-date-formatting": {
@@ -295,7 +302,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -304,7 +311,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "streamlined-association-management-in-data-model": {
@@ -320,7 +328,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -329,7 +337,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "export-workflow-enrollments-and-action-logs-to-csv": {
@@ -348,7 +357,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -357,7 +366,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "business-days-support-for-workflow-delays": {
@@ -375,7 +385,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -384,7 +394,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "lifecycle-stage-conditional-property-logic": {
@@ -401,7 +412,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -426,7 +437,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -435,7 +446,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "view-related-records-and-clean-up-associations-in-bulk": {
@@ -452,7 +464,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -461,7 +473,8 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "community"
       ]
     },
     "set-default-property-values": {
@@ -478,7 +491,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -494,7 +507,7 @@
     "custom-actions-support-for-enrolled-non-enrolled-records": {
       "id": "custom-actions-support-for-enrolled-non-enrolled-records",
       "title": "Custom Actions Support for Enrolled & Non-Enrolled Records",
-      "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow\u2019s enrolled object. The change rolls out on November 24, 2025.",
+      "description": "HubSpot enhances workflows with event-based support, adding a requiresObject flag and per-action object targeting. Custom actions can run without an enrolled object and will show a target object selector, defaulting to the workflow’s enrolled object. The change rolls out on November 24, 2025.",
       "status": "update",
       "hubs": [
         "Operations Hub"
@@ -530,7 +543,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:14.655Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -555,7 +568,7 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:39.934Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "sunset",
@@ -564,14 +577,15 @@
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "releasebot-dev"
       ]
     },
     "introducing-hubspot-cli-v8-0-0": {
       "id": "introducing-hubspot-cli-v8-0-0",
       "title": "Introducing HubSpot CLI v8.0.0",
       "description": "HubSpot CLI v8.0.0 introduces breaking changes with a Node 20 minimum, removal of deprecated commands and legacy behaviors, and dropped support for older project versions. A major cleanup aligning with platform updates, effective February 9 2026.",
-      "status": "update",
+      "status": "breaking change",
       "hubs": [
         "Developer Platform"
       ],
@@ -579,16 +593,23 @@
       "sourceUrl": "https://releasebot.io/updates/hubspot",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:11:39.934Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "sunset",
           "date": "2026-02-12T18:11:39.934Z",
           "source": "releasebot-product"
+        },
+        {
+          "status": "breaking change",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev",
+          "previousStatus": "update"
         }
       ],
       "sources": [
-        "releasebot-product"
+        "releasebot-product",
+        "releasebot-dev"
       ]
     },
     "public-beta-self-service-mcp-auth-apps-for-the-hubspot-remote-mcp-server": {
@@ -606,7 +627,7 @@
       "pubDate": "Tue, 20 Jan 2026 14:28:38 GMT",
       "author": "dedson@hubspot.com (Dennis Edson)",
       "firstSeen": "2026-02-12T18:11:39.934Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -632,7 +653,7 @@
       "pubDate": null,
       "availability": "Service Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -661,7 +682,7 @@
       "pubDate": null,
       "availability": "Sales Hub Professional and Enterprise, Service Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -686,7 +707,7 @@
       "pubDate": null,
       "availability": "Now live for accounts with HubSpot Credits",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -711,7 +732,7 @@
       "pubDate": null,
       "availability": "Service Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -738,7 +759,7 @@
       "pubDate": null,
       "availability": "Rolling out gradually for all products and tiers; conditional logic requires Marketing Hub or Content Hub Professional or Enterprise",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "live",
@@ -765,7 +786,7 @@
       "pubDate": null,
       "availability": "Now live for all HubSpot products and tiers",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -792,7 +813,7 @@
       "pubDate": null,
       "availability": "Public beta for Enterprise customers with super admin permissions",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -818,7 +839,7 @@
       "pubDate": null,
       "availability": "Public beta for Professional and Enterprise tiers across all hubs",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -843,7 +864,7 @@
       "pubDate": null,
       "availability": "Public beta for seated Service Hub Professional and Enterprise users",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -872,7 +893,7 @@
       "pubDate": null,
       "availability": "Public beta for Commerce Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -896,7 +917,7 @@
       "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/AEO-Grader-Goes-Global-Now-Available-in-5-New-Languages/ba-p/1212843",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -920,7 +941,7 @@
       "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Introducing-HubSpot-for-Sheets-Your-CRM-Now-In-Google-Workspace/ba-p/1204428",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -944,7 +965,7 @@
       "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Introducing-the-New-AEO-Grader-Get-Advanced-Insights-for-AI/ba-p/1191730",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -968,7 +989,7 @@
       "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Introducing-the-HubSpot-connector-for-Claude/ba-p/1181179",
       "pubDate": null,
       "firstSeen": "2026-02-12T18:30:41.211Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1032,7 +1053,7 @@
     },
     "hubspot-payments-is-now-available-in-canada-and-the-uk": {
       "id": "hubspot-payments-is-now-available-in-canada-and-the-uk",
-      "title": "HubSpot Payments is now available in Canada and the UK! \ud83d\ude80",
+      "title": "HubSpot Payments is now available in Canada and the UK! 🚀",
       "description": "",
       "status": "now live",
       "hubs": [
@@ -1071,7 +1092,7 @@
       "pubDate": null,
       "availability": "All hubs and tiers",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1097,7 +1118,7 @@
       "pubDate": null,
       "availability": "Content Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1124,7 +1145,7 @@
       "pubDate": null,
       "availability": "Content Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1150,7 +1171,7 @@
       "pubDate": null,
       "availability": "Professional and Enterprise tiers",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "live",
@@ -1165,7 +1186,7 @@
     "convert-crm-views-to-segments": {
       "id": "convert-crm-views-to-segments",
       "title": "Convert CRM Views to Segments",
-      "description": "Any saved CRM view can now become a segment with one click. The new \"Save as segment\" action in the Filters menu carries over your filter logic automatically, no rebuilding required. Previously, creating a segment meant recreating filters you'd already perfected in a view. This update bridges exploration and action, letting you move directly from identifying an audience to engaging it through campaigns, workflows, or reports.\u00a0If a filter isn't supported for segments, you'll see a clear error mes",
+      "description": "Any saved CRM view can now become a segment with one click. The new \"Save as segment\" action in the Filters menu carries over your filter logic automatically, no rebuilding required. Previously, creating a segment meant recreating filters you'd already perfected in a view. This update bridges exploration and action, letting you move directly from identifying an audience to engaging it through campaigns, workflows, or reports. If a filter isn't supported for segments, you'll see a clear error mes",
       "status": "now live",
       "hubs": [
         "Marketing Hub",
@@ -1178,7 +1199,7 @@
       "pubDate": null,
       "availability": "Now live for all hubs and tiers.",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -1204,7 +1225,7 @@
       "pubDate": null,
       "availability": "All hubs and tiers",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1219,7 +1240,7 @@
     "apple-pay-and-google-pay-with-stripe": {
       "id": "apple-pay-and-google-pay-with-stripe",
       "title": "Apple Pay and Google Pay with Stripe",
-      "description": "If you use Stripe payment processing, your buyers can now pay with Apple Pay and Google Pay, no setup required. If you accept credit or debit cards, digital wallets are automatically enabled.\u00a0To track which transactions used digital wallets, add the \"Digital wallet type\" column to your Payments Index page.",
+      "description": "If you use Stripe payment processing, your buyers can now pay with Apple Pay and Google Pay, no setup required. If you accept credit or debit cards, digital wallets are automatically enabled. To track which transactions used digital wallets, add the \"Digital wallet type\" column to your Payments Index page.",
       "status": "update",
       "hubs": [
         "Commerce Hub"
@@ -1229,7 +1250,7 @@
       "pubDate": null,
       "availability": "All hubs and tiers",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1244,7 +1265,7 @@
     "multi-account-workflows": {
       "id": "multi-account-workflows",
       "title": "Multi-Account Workflows",
-      "description": "You can now create workflows that update contact records across connected HubSpot accounts. Build automation in one account that creates or updates contacts in linked accounts within your organization. This solves real problems for multi-brand organizations: routing form submissions between regional accounts, running cross-sell campaigns after purchases, and keeping contact properties synchronized.\u00a0Learn more How to access: Settings > Organization Management > Multi-Account > Asset Copying tab.",
+      "description": "You can now create workflows that update contact records across connected HubSpot accounts. Build automation in one account that creates or updates contacts in linked accounts within your organization. This solves real problems for multi-brand organizations: routing form submissions between regional accounts, running cross-sell campaigns after purchases, and keeping contact properties synchronized. Learn more How to access: Settings > Organization Management > Multi-Account > Asset Copying tab.",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -1256,7 +1277,7 @@
       "pubDate": null,
       "availability": "Requires at least two HubSpot accounts, with one having Marketing Hub Enterprise and the other having any Professional or Enterprise subscription",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1282,7 +1303,7 @@
       "pubDate": null,
       "availability": "Data model builder available for all hubs and tiers. Custom object functionality requires Enterprise. Association labels and limits require Professional or Enterprise.",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -1307,7 +1328,7 @@
       "pubDate": null,
       "availability": "Public Beta for Service Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -1322,7 +1343,7 @@
     "hubspot-connector-for-gemini": {
       "id": "hubspot-connector-for-gemini",
       "title": "HubSpot Connector for Gemini",
-      "description": "Query contacts, companies, and deals directly in Google Gemini, then draft follow-up content to use back in HubSpot. Works in Gemini's main interface and the sidebar in Gmail, Docs, Sheets, and Chat. Currently read-only. Requires Google Workspace Business Standard, Business Plus, or Enterprise with Gemini Alpha enabled.\u00a0Learn more",
+      "description": "Query contacts, companies, and deals directly in Google Gemini, then draft follow-up content to use back in HubSpot. Works in Gemini's main interface and the sidebar in Gmail, Docs, Sheets, and Chat. Currently read-only. Requires Google Workspace Business Standard, Business Plus, or Enterprise with Gemini Alpha enabled. Learn more",
       "status": "public beta",
       "hubs": [
         "Sales Hub",
@@ -1333,7 +1354,7 @@
       "pubDate": null,
       "availability": "Public Beta for all HubSpot customers with qualifying Google Workspace plans",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -1360,7 +1381,7 @@
       "pubDate": null,
       "availability": "Public Beta for Enterprise tiers",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -1390,7 +1411,7 @@
       "pubDate": null,
       "availability": "Public Beta for Sales Hub Professional and Enterprise",
       "firstSeen": "2026-02-12T18:33:27.000Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "public beta",
@@ -1416,7 +1437,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1442,7 +1463,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1468,7 +1489,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1493,7 +1514,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1519,7 +1540,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1545,7 +1566,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1572,7 +1593,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1600,7 +1621,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1626,7 +1647,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1654,7 +1675,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1681,7 +1702,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1707,7 +1728,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1733,7 +1754,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1760,7 +1781,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1786,7 +1807,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1812,7 +1833,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1838,7 +1859,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1865,7 +1886,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1891,7 +1912,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1906,7 +1927,7 @@
     "pathfinder-in-customer-journey-analytics": {
       "id": "pathfinder-in-customer-journey-analytics",
       "title": "Pathfinder in Customer Journey Analytics",
-      "description": "Uncover the most common paths leads and customers take with your brand\u2014automatically. Customer Journey Paths reveal patterns in how prospects navigate your touchpoints. *available to all Sales and Service Hub Enterprise customers",
+      "description": "Uncover the most common paths leads and customers take with your brand—automatically. Customer Journey Paths reveal patterns in how prospects navigate your touchpoints. *available to all Sales and Service Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -1919,7 +1940,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1947,7 +1968,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -1974,7 +1995,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2001,7 +2022,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2027,7 +2048,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2053,7 +2074,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2080,7 +2101,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2106,7 +2127,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2132,7 +2153,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2160,7 +2181,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2185,7 +2206,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2210,7 +2231,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2236,7 +2257,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2262,7 +2283,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2289,7 +2310,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2315,7 +2336,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2342,7 +2363,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2370,7 +2391,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2395,7 +2416,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2421,7 +2442,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2446,7 +2467,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2471,7 +2492,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2498,7 +2519,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2523,7 +2544,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2549,7 +2570,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2574,7 +2595,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2599,7 +2620,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2624,7 +2645,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2650,7 +2671,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2676,7 +2697,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2703,7 +2724,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2728,7 +2749,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2742,7 +2763,7 @@
     },
     "speech-to-text-into-the-breeze-assistant-mobile-app-now-on-android-and-ios": {
       "id": "speech-to-text-into-the-breeze-assistant-mobile-app-now-on-android-and-ios",
-      "title": "Speech To Text into the Breeze Assistant mobile app \u2014 Now on Android and iOS",
+      "title": "Speech To Text into the Breeze Assistant mobile app — Now on Android and iOS",
       "description": "Interact with the Breeze Assistant using voice commands on both Android and iOS. Speak your questions naturally and get instant AI-powered responses, making mobile productivity faster and more convenient. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
@@ -2753,7 +2774,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2779,7 +2800,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2805,7 +2826,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "live",
@@ -2831,7 +2852,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2858,7 +2879,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2884,7 +2905,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2910,7 +2931,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2937,7 +2958,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2962,7 +2983,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -2988,7 +3009,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3014,7 +3035,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3040,7 +3061,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3066,7 +3087,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3093,7 +3114,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3119,7 +3140,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3146,7 +3167,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -3172,7 +3193,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3199,7 +3220,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3225,7 +3246,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3252,7 +3273,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3280,7 +3301,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3307,7 +3328,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3334,7 +3355,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3361,7 +3382,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3386,7 +3407,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3412,7 +3433,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3438,7 +3459,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3467,7 +3488,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3493,7 +3514,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "live",
@@ -3520,7 +3541,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3547,7 +3568,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3572,7 +3593,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3598,7 +3619,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3624,7 +3645,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3649,7 +3670,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3674,7 +3695,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3699,7 +3720,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3724,7 +3745,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3749,7 +3770,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3775,7 +3796,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3801,7 +3822,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3827,7 +3848,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3853,7 +3874,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3878,7 +3899,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3893,7 +3914,7 @@
     "mirroring-company-data-across-multi-management-accounts": {
       "id": "mirroring-company-data-across-multi-management-accounts",
       "title": "Mirroring Company Data Across Multi-Management Accounts",
-      "description": "The Multi-Account Management data mirroring feature now supports mirroring the company object in addition to the contact object, enabling better data consistency across your entire business ecosystem.\u00a0 Learn More *available to all Hubspot Pro+ customers",
+      "description": "The Multi-Account Management data mirroring feature now supports mirroring the company object in addition to the contact object, enabling better data consistency across your entire business ecosystem.  Learn More *available to all Hubspot Pro+ customers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -3903,7 +3924,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3928,7 +3949,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "now live",
@@ -3953,7 +3974,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -3980,7 +4001,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4005,7 +4026,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4030,7 +4051,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4055,7 +4076,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4080,7 +4101,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4107,7 +4128,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4133,7 +4154,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4158,7 +4179,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4183,7 +4204,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -4208,7 +4229,7 @@
       "pubDate": null,
       "availability": null,
       "firstSeen": "2026-02-12T18:35:17.329Z",
-      "lastSeen": "2026-02-13T06:01:52.123Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
       "statusHistory": [
         {
           "status": "update",
@@ -5993,7 +6014,7 @@
     },
     "custom-times-and-prevent-skip-for-forms-ctas-now-in-professional": {
       "id": "custom-times-and-prevent-skip-for-forms-ctas-now-in-professional",
-      "title": "Custom Times and \u201cPrevent Skip\u201d for Forms/CTAs Now in Professional",
+      "title": "Custom Times and “Prevent Skip” for Forms/CTAs Now in Professional",
       "description": "Professional tier customers can now set custom timing and prevent skipping for forms and CTAs. You'll create more sophisticated engagement experiences with precise control over when and how visitors interact with your conversion tools. *available to all Marketing, Content, and Service Pro+ customers",
       "status": "update",
       "hubs": [
@@ -6933,7 +6954,7 @@
     "dynamic-dates-in-lists-and-workflows": {
       "id": "dynamic-dates-in-lists-and-workflows",
       "title": "Dynamic Dates in Lists and Workflows",
-      "description": "Dynamic date tokens were previously limited, but now they\u2019re supported in more tools. You can build smarter automation and better-targeted lists without the hassle of constant updates. *available to all hubs and tiers",
+      "description": "Dynamic date tokens were previously limited, but now they’re supported in more tools. You can build smarter automation and better-targeted lists without the hassle of constant updates. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -6960,7 +6981,7 @@
     "manage-view-and-edit-property-access-in-workflows": {
       "id": "manage-view-and-edit-property-access-in-workflows",
       "title": "Manage View and Edit Property Access in Workflows",
-      "description": "Previously, property access had to be managed outside of workflows, leading to administrative overhead. Now, integrated access controls make workflows more secure and easier to govern\u2014all from a single place within HubSpot. *available to all Hubspot Enterprise customers",
+      "description": "Previously, property access had to be managed outside of workflows, leading to administrative overhead. Now, integrated access controls make workflows more secure and easier to govern—all from a single place within HubSpot. *available to all Hubspot Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -6987,7 +7008,7 @@
     "additional-wait-until-activity-events-in-journey-automation": {
       "id": "additional-wait-until-activity-events-in-journey-automation",
       "title": "Additional Wait Until Activity events in Journey Automation",
-      "description": "Previously, Journey Automation had limited \u2018Wait until\u2019 conditions, restricting your ability to respond to user behaviors. With new supported events, you can wait for more meaningful interactions, making journeys smarter and improving customer satisfaction. *available to all Marketing Hub Enterprise customers",
+      "description": "Previously, Journey Automation had limited ‘Wait until’ conditions, restricting your ability to respond to user behaviors. With new supported events, you can wait for more meaningful interactions, making journeys smarter and improving customer satisfaction. *available to all Marketing Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -7065,7 +7086,7 @@
     "send-video-transcripts-to-linkedin": {
       "id": "send-video-transcripts-to-linkedin",
       "title": "Send Video Transcripts to LinkedIn",
-      "description": "Previously, video transcripts weren\u2019t automatically included in LinkedIn posts via HubSpot. This change removes a manual step and ensures more complete, accessible social content, helping your videos perform better and reach wider audiences. *available to all Marketing Hub Pro+ customers",
+      "description": "Previously, video transcripts weren’t automatically included in LinkedIn posts via HubSpot. This change removes a manual step and ensures more complete, accessible social content, helping your videos perform better and reach wider audiences. *available to all Marketing Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -7276,7 +7297,7 @@
     "automatic-ticket-topic-identification-powered-by-ai": {
       "id": "automatic-ticket-topic-identification-powered-by-ai",
       "title": "Automatic Ticket Topic Identification powered by AI",
-      "description": "This feature brings automated intelligence to your support workflows. By auto-populating the 'category' field, you\u2019ll get cleaner data and faster insights without extra effort. *available to all Service Hub Enterprise customers",
+      "description": "This feature brings automated intelligence to your support workflows. By auto-populating the 'category' field, you’ll get cleaner data and faster insights without extra effort. *available to all Service Hub Enterprise customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7302,8 +7323,8 @@
     },
     "today-s-insights-feed": {
       "id": "today-s-insights-feed",
-      "title": "Today\u2019s Insights Feed",
-      "description": "\u200b\u200bThe feed surfaces time-sensitive insights directly in your Help Desk, removing the need to search for them. This update turns passive metrics into proactive recommendations that drive better customer service outcomes day-to-day. *available to all Service Hub Pro+ customers",
+      "title": "Today’s Insights Feed",
+      "description": "​​The feed surfaces time-sensitive insights directly in your Help Desk, removing the need to search for them. This update turns passive metrics into proactive recommendations that drive better customer service outcomes day-to-day. *available to all Service Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7461,7 +7482,7 @@
     "audit-logs-for-customer-agent-actions": {
       "id": "audit-logs-for-customer-agent-actions",
       "title": "Audit Logs for Customer Agent Actions",
-      "description": "This adds a critical layer of visibility to AI activity within the CRM. Now you can audit Customer Agent\u2019s behavior just like a human user, bringing trust and governance to AI automation. *available to all Service Hub Pro+ customers",
+      "description": "This adds a critical layer of visibility to AI activity within the CRM. Now you can audit Customer Agent’s behavior just like a human user, bringing trust and governance to AI automation. *available to all Service Hub Pro+ customers",
       "status": "update",
       "hubs": [
         "Service Hub",
@@ -7487,7 +7508,7 @@
     "hubspot-hosted-domains-now-available-for-customer-portal": {
       "id": "hubspot-hosted-domains-now-available-for-customer-portal",
       "title": "HubSpot Hosted Domains now available for Customer Portal",
-      "description": "This launch removes the prior dependency on external domain setup, streamlining onboarding. Teams now get started faster, test features earlier, and update their domain later\u2014providing more flexibility and quicker time to value. *available to all Service Hub Pro+ customers",
+      "description": "This launch removes the prior dependency on external domain setup, streamlining onboarding. Teams now get started faster, test features earlier, and update their domain later—providing more flexibility and quicker time to value. *available to all Service Hub Pro+ customers",
       "status": "now live",
       "hubs": [
         "Service Hub",
@@ -7781,7 +7802,7 @@
     "data-enrichment-update-to-settings": {
       "id": "data-enrichment-update-to-settings",
       "title": "Data Enrichment Update to Settings",
-      "description": "Settings now offer greater clarity and control over enrichment tools, improving governance and confidence in automated data population. It\u2019s a usability win that empowers better decision-making for data stewardship and system configuration. *available to all hubs and tiers",
+      "description": "Settings now offer greater clarity and control over enrichment tools, improving governance and confidence in automated data population. It’s a usability win that empowers better decision-making for data stewardship and system configuration. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7832,7 +7853,7 @@
     "default-account-selection": {
       "id": "default-account-selection",
       "title": "Default Account Selection",
-      "description": "You can now set a default HubSpot account that automatically opens at login. It\u2019s a simple improvement that brings a smoother, more focused experience for multi-account users. *available to all hubs and tiers",
+      "description": "You can now set a default HubSpot account that automatically opens at login. It’s a simple improvement that brings a smoother, more focused experience for multi-account users. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7882,7 +7903,7 @@
     "automatically-format-property-data-at-the-point-of-entry": {
       "id": "automatically-format-property-data-at-the-point-of-entry",
       "title": "Automatically Format Property Data at the Point of Entry",
-      "description": "This update introduces real-time formatting for custom and standard fields, ensuring data is correctly structured on entry. By improving data hygiene at the point of input, you\u2019ll prevent downstream issues and maintain cleaner databases. *available to all hubs and tiers",
+      "description": "This update introduces real-time formatting for custom and standard fields, ensuring data is correctly structured on entry. By improving data hygiene at the point of input, you’ll prevent downstream issues and maintain cleaner databases. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -7907,7 +7928,7 @@
     "stage-calculated-properties": {
       "id": "stage-calculated-properties",
       "title": "Stage-Calculated Properties",
-      "description": "This update introduces out-of-the-box properties that calculate stage duration for deals and tickets. You\u2019ll gain deeper insights faster and make better process improvements with less setup or reliance on custom fields. *available to all hubs and tiers",
+      "description": "This update introduces out-of-the-box properties that calculate stage duration for deals and tickets. You’ll gain deeper insights faster and make better process improvements with less setup or reliance on custom fields. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Sales Hub",
@@ -8035,7 +8056,7 @@
     "property-fill-rate-now-included-in-export-all-properties": {
       "id": "property-fill-rate-now-included-in-export-all-properties",
       "title": "Property fill rate now included in 'Export all properties'",
-      "description": "By adding fill rate to property exports, HubSpot gives you immediate insights into data hygiene. It\u2019s a small but powerful addition that helps keep your CRM lean, relevant, and easier to manage long-term. *available to all hubs and tiers",
+      "description": "By adding fill rate to property exports, HubSpot gives you immediate insights into data hygiene. It’s a small but powerful addition that helps keep your CRM lean, relevant, and easier to manage long-term. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -8060,7 +8081,7 @@
     "ios-conditional-properties-on-deals-tickets-custom-objects": {
       "id": "ios-conditional-properties-on-deals-tickets-custom-objects",
       "title": "[iOS] Conditional properties on Deals, Tickets & Custom objects",
-      "description": "This update brings parity between desktop and mobile workflows by enabling conditional properties in the iOS app. Users can now experience more complete and logical record management on mobile, improving productivity and reducing data quality issues. *available to all HubSpot Pro+ customers This rollout introduces one of the most requested mobile capabilities\u2014list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *avai",
+      "description": "This update brings parity between desktop and mobile workflows by enabling conditional properties in the iOS app. Users can now experience more complete and logical record management on mobile, improving productivity and reducing data quality issues. *available to all HubSpot Pro+ customers This rollout introduces one of the most requested mobile capabilities—list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *avai",
       "status": "update",
       "hubs": [
         "Sales Hub",
@@ -8088,7 +8109,7 @@
     "lists-on-mobile": {
       "id": "lists-on-mobile",
       "title": "Lists on Mobile",
-      "description": "This rollout introduces one of the most requested mobile capabilities\u2014list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *available to all hubs and tiers",
+      "description": "This rollout introduces one of the most requested mobile capabilities—list access. You can now interact with list data from your phone just as you would on desktop, bridging productivity across devices. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Marketing Hub",
@@ -8139,7 +8160,7 @@
     "ai-report-insights-on-mobile": {
       "id": "ai-report-insights-on-mobile",
       "title": "AI Report Insights on Mobile",
-      "description": "AI Report Insights, previously desktop-only, are now accessible on mobile. This brings smart analytics to more users in real-time, improving how your team understands and reacts to data\u2014wherever they are. *available to all hubs and tiers",
+      "description": "AI Report Insights, previously desktop-only, are now accessible on mobile. This brings smart analytics to more users in real-time, improving how your team understands and reacts to data—wherever they are. *available to all hubs and tiers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -8164,7 +8185,7 @@
     "automation-overview": {
       "id": "automation-overview",
       "title": "Automation Overview",
-      "description": "Automation Overview solves the challenge of scattered insights by consolidating automation performance across tools. It\u2019s a new control center that helps admins monitor engagement, reduce inefficiencies, and ensure strategic alignment from one simple interface. *available to all HubSpot Pro+ customers",
+      "description": "Automation Overview solves the challenge of scattered insights by consolidating automation performance across tools. It’s a new control center that helps admins monitor engagement, reduce inefficiencies, and ensure strategic alignment from one simple interface. *available to all HubSpot Pro+ customers",
       "status": "update",
       "hubs": [
         "Breeze AI"
@@ -8210,8 +8231,1508 @@
       "sources": [
         "community"
       ]
+    },
+    "take-action-with-chatgpt-update-crm-records-access-more-objects-and-engagements": {
+      "id": "take-action-with-chatgpt-update-crm-records-access-more-objects-and-engagements",
+      "title": "Take Action with ChatGPT: Update CRM Records & Access more Objects and Engagements",
+      "description": "HubSpot connector for ChatGPT now writes to CRM from chat, letting you create/update records and log activities plus access orders, invoices, line items, segments and engagement history right in ChatGPT. Bulk creates up to 10 and audit/security notes included for safer, faster workflows.",
+      "status": "update",
+      "hubs": [
+        "Operations Hub",
+        "Commerce Hub"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "hubspot-developer-mcp-server-local-for-app-and-cms-development-now-in-ga": {
+      "id": "hubspot-developer-mcp-server-local-for-app-and-cms-development-now-in-ga",
+      "title": "HubSpot Developer MCP server (local) for App and CMS Development Now in GA",
+      "description": "HubSpot unveils GA of the Developer MCP Server, linking local agentic tools to HubSpot for code, CMS assets, and serverless tasks. Developers can build and iterate apps, manage CMS assets, run serverless functions, and debug with natural language prompts.",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "CMS Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "update-your-crm-directly-from-claude-and-chatgpt": {
+      "id": "update-your-crm-directly-from-claude-and-chatgpt",
+      "title": "Update Your CRM Directly from Claude and ChatGPT",
+      "description": "HubSpot's AI connectors got a major upgrade in February. Both the Claude and ChatGPT connectors can now create and update CRM records, log activities, and access engagement history — all without leaving your AI chat window. You can create contacts and deals, log notes and tasks, update deal stages, and tap into your full engagement history (emails, calls, meetings, and notes) to get context-aware insights and take action on them instantly. ChatGPT users also gained access to products, line items",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Commerce Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All HubSpot customers across all tiers with a paid Anthropic subscription (Pro, Max, Team, or Enterprise). ChatGPT connector available to all HubSpot customers with an OpenAI account.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "breeze-assistant-prompts-reimagined": {
+      "id": "breeze-assistant-prompts-reimagined",
+      "title": "Breeze Assistant Prompts Reimagined",
+      "description": "The Breeze Assistant prompt experience got a full refresh. You can now use @Mentions to pull in CRM records directly within your prompt, save and reuse prompts with placeholders and tags, and browse categorized suggestions (Summarize, Create, How do I, Prepare) to discover what Breeze can do. Saved prompts can be organized by team function — Customer Success, Marketing, Sales, Support — and assigned to specific assistants or made available across all of them. The \"Prepare\" category is particular",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All hubs and tiers.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "personalization-app-now-supports-website-pages": {
+      "id": "personalization-app-now-supports-website-pages",
+      "title": "Personalization App Now Supports Website Pages",
+      "description": "The Personalization app now covers website pages in addition to landing pages and CTAs. Using Variants, you can create audience-specific versions of your website pages in one place without duplicating pages or manually editing individual modules. You can set up variants manually for full control, or use AI-assisted setup for a faster start. Performance is tracked across all variants in the Analyze tab, so you can see what's resonating with each audience without hunting across different tools.",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "CMS Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Content Hub Professional and Enterprise, Marketing Hub Professional and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "granular-create-permissions-for-crm-objects": {
+      "id": "granular-create-permissions-for-crm-objects",
+      "title": "Granular Create Permissions for CRM Objects",
+      "description": "Admins can now control whether users can create new CRM records — separately from their ability to edit them. Previously, any user with edit access to Contacts, Companies, Deals, Tickets, or Custom Objects could also create new records. That forced a tradeoff between enabling your team to do their jobs and keeping your database clean. With this update, you can grant or restrict create access independently for each object type. Head to Users & Teams to update permissions. Note that this permissio",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "Operations Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All hubs and tiers.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "branded-email-templates": {
+      "id": "branded-email-templates",
+      "title": "Branded Email Templates",
+      "description": "You can now apply your Brand Kit directly to HubSpot's native email templates. When creating a new email, simply select your brand from the dropdown in the template library to have your logo and colors applied automatically. If you need to update your Brand Kit, you can do that from the same dropdown without leaving the email creation flow. This requires a Brand Kit to be set up in your portal first. Once it is, getting on-brand emails out the door takes minutes instead of hours. Learn more abou",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "CMS Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All hubs and tiers.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "build-custom-reports-on-form-submissions": {
+      "id": "build-custom-reports-on-form-submissions",
+      "title": "Build Custom Reports on Form Submissions",
+      "description": "The Custom Report Builder now supports form submission data as a source. You can combine Forms, Form Submissions, and Form Analytics data with other objects like Contacts and Companies to build detailed reports on form performance. Useful reports you can build include submissions over time, submissions by source or campaign, conversion rates, new vs. returning contact breakdowns, and submissions filtered by lifecycle stage or ICP tier. Reports can be added to any dashboard. Note: There may be a ",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Content Pro and Enterprise, Marketing Pro and Enterprise, Ops Pro and Enterprise, Sales Pro and Enterprise, Service Pro and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "additional-company-news-signals-in-buyer-intent": {
+      "id": "additional-company-news-signals-in-buyer-intent",
+      "title": "Additional Company News Signals in Buyer Intent",
+      "description": "Four new signals are now available within Buyer Intent under Company News: Industry Recognition, Office Closure, Physical Expansion, and Regulatory Approval. These signals surface directly on company timelines so your team gets relevant account news where they already work. Use these as triggers in workflows and lead scoring to prioritize accounts with momentum — or as context for timely, relevant outreach. All four signals are toggled on by default, so you'll start seeing them on company record",
+      "status": "now live",
+      "hubs": [
+        "Marketing Hub",
+        "Operations Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Requires HubSpot Credits.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "conditional-scoring-with-and-for-health-scores": {
+      "id": "conditional-scoring-with-and-for-health-scores",
+      "title": "Conditional Scoring with \"AND\" for Health Scores",
+      "description": "Health scores now support conditional scoring rules using \"and\" logic, meaning points are only awarded when multiple criteria are met simultaneously. There are two types: cross-property rules (Fit scoring), which combine multiple property criteria for a single object, and event-specific rules (Engagement scoring), which award points when a specific event happens under specific conditions (for example, a call that lasted at least 15 minutes). Previously, you had to work around this limitation usi",
+      "status": "update",
+      "hubs": [
+        "Service Hub"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Professional and Enterprise Customer Platform, Service Hub Professional and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "hubspot-link-previews-in-slack": {
+      "id": "hubspot-link-previews-in-slack",
+      "title": "HubSpot Link Previews in Slack",
+      "description": "When you paste a HubSpot record link into Slack, you'll now see a structured preview of that record's key details — no extra clicks required. Clicking the preview opens a side panel in Slack with the full record and related threads. Supported objects include Deals, Tickets, Companies, Contacts, Emails, Blog Posts, Reports, and Dashboards. Each preview surfaces the most relevant fields for that object type (for example, a Deal shows name, amount, stage, priority, and owner).",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "CMS Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All hubs and tiers.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "upgraded-social-analytics": {
+      "id": "upgraded-social-analytics",
+      "title": "Upgraded Social Analytics",
+      "description": "The Social Analyze tab has been redesigned with a new set of curated, ready-to-use reports organized into four categories: Grow your brand, Drive engagement, Track leads from social, and Optimize your content. You can filter by account, network, and time range, and the underlying data has been upgraded to ensure consistency with custom reports you build yourself. Note: Historical data in the new Analyze tab is only available from July 1, 2025 onward (or from the date your social account was conn",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Professional and Enterprise Customer Platform, Marketing Hub Professional and Enterprise, Marketing+ Pro and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "campaign-automation-in-workflows": {
+      "id": "campaign-automation-in-workflows",
+      "title": "Campaign Automation in Workflows",
+      "description": "Campaign properties and events are now available as triggers and criteria in workflows. You can automate based on campaign-level data like budget, spend, revenue, and owner — and trigger actions when a contact is influenced by a specific campaign. This opens up use cases like alerting your team when a campaign overspends, automatically following up with influenced contacts via tailored sequences, or routing tasks based on campaign owner. Check out our knowledge base article on how to use campaig",
+      "status": "now live",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Service Hub",
+        "Operations Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Marketing Hub Professional and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "sales-meeting-notetaker-updates": {
+      "id": "sales-meeting-notetaker-updates",
+      "title": "Sales Meeting Notetaker Updates",
+      "description": "The Sales Meeting Notetaker received several reliability and usability improvements based on beta feedback. The notetaker now joins at the meeting start time (rather than 2 minutes early) and will wait up to 5 minutes for the host to arrive. It also now correctly joins rescheduled meetings, and transcripts include speaker names for easier post-meeting review. Admins can enable the notetaker via Settings > Tools > Calling > Meetings > Meeting Notetaker. It works with Zoom, Google Meet, and Micros",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "Service Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "Sales Hub Professional and Enterprise.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "participant-state-management-for-marketing-events": {
+      "id": "participant-state-management-for-marketing-events",
+      "title": "Participant State Management for Marketing Events",
+      "description": "You can now update a contact's registration and participation status for marketing events directly from their contact record — no imports required. From the Marketing Events CRM card, simply click Edit next to the registration or participation status and select the updated value. Note: This card is only visible for contacts already registered to a marketing event. You cannot use it to associate a new contact with an event. Participation status cannot be updated once it is set to \"Attended,\" and ",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-February-2026/ba-p/1255291",
+      "pubDate": null,
+      "availability": "All HubSpot products and tiers.",
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "2-000-apps-and-2-5m-active-installs-new-and-recently-updated-apps": {
+      "id": "2-000-apps-and-2-5m-active-installs-new-and-recently-updated-apps",
+      "title": "2,000+ Apps and 2.5M+ Active Installs: New and Recently Updated Apps",
+      "description": "Explore an expanding ecosystem with over 2,000 apps and 2.5 million active installations. Browse newly added and recently updated integrations to extend HubSpot's capabilities. *available to all hubs and tiers",
+      "status": "update",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/October-2025-Product-Updates/ba-p/1219426",
+      "pubDate": null,
+      "availability": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "latest-updates-to-breeze-assistant": {
+      "id": "latest-updates-to-breeze-assistant",
+      "title": "Latest updates to Breeze Assistant",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Latest-updates-to-Breeze-Assistant/ba-p/1255987",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "latest-updates-to-data-enrichment-and-buyer-intent": {
+      "id": "latest-updates-to-data-enrichment-and-buyer-intent",
+      "title": "Latest updates to Data Enrichment and Buyer Intent",
+      "description": "HubSpot unveils richer data enrichment and buyer intent with expanded EU contact coverage, smarter enrichment from sparse data, and a 10% lift in intent signals. New transparency controls plus higher match rates ensure scalable, trustworthy enrichment across Smart CRM.",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "the-hubspot-technology-partner-program-clear-tiers-real-recognition": {
+      "id": "the-hubspot-technology-partner-program-clear-tiers-real-recognition",
+      "title": "The HubSpot Technology Partner Program: Clear Tiers & Real Recognition",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/The-HubSpot-Technology-Partner-Program-Clear-Tiers-amp-Real/ba-p/1250529",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "latest-updates-to-customer-agent": {
+      "id": "latest-updates-to-customer-agent",
+      "title": "Latest updates to Customer Agent",
+      "description": "Breeze Customer Agent unveils safer onboarding, flexible rollout controls, and stronger testing to boost confidence before going live. Highlights include four weeks free access, channel aware settings, email citations, automated detection, and workflow driven deployment for smarter, hands-off support.",
+      "status": "live",
+      "hubs": [
+        "Marketing Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "latest-updates-to-prospecting-agent": {
+      "id": "latest-updates-to-prospecting-agent",
+      "title": "Latest updates to Prospecting Agent",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "Breeze AI"
+      ],
+      "source": "community",
+      "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Latest-updates-to-Prospecting-Agent/ba-p/1250439",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "community"
+        }
+      ]
+    },
+    "code-sharing-for-ui-extensions": {
+      "id": "code-sharing-for-ui-extensions",
+      "title": "Code Sharing for UI Extensions",
+      "description": "You can now share code between UI extensions. Previously, if your App Cards, App Homes, and Settings pages required the same code types, utilities, and components, you had to copy the code for each instance. This meant that whenever you made updates, you had to revise every copy of that code separately. In the unified developer platform, your app cards, app homes, and setting pages are all part of the same app. With npm workspace support, your UI extensions can share the same codebase. Define yo",
+      "status": "update",
+      "hubs": [
+        "CMS Hub",
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "associate-payments-with-tickets": {
+      "id": "associate-payments-with-tickets",
+      "title": "Associate Payments with Tickets",
+      "description": "Payments can now be directly associated with tickets. In the UI, you can add a CRM card for Payments to the Tickets record page. Then, you can use this CRM card to directly connect the ticket you’re on to a Payment. If you’re using the Tickets API endpoint for associations, you can use the HubSpot-defined associationTypeId of 1355. To associate a payment with a ticket, use the associationTypeId of 1354.",
+      "status": "update",
+      "hubs": [
+        "Service Hub",
+        "Commerce Hub",
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "oauth-install-event-logs": {
+      "id": "oauth-install-event-logs",
+      "title": "OAuth Install Event Logs",
+      "description": "We’re adding OAuth install event logs to the Developer Platform, providing enhanced install visibility for all apps built on version 2025.2 or newer. What’s new or changing? This functionality is available for apps built on the Developer Platform v2025.2+. Please migrate your app if you wish to leverage install event logs. To access logs, go to Development > Monitoring > Logs in your HubSpot account. Set up observability integrations if you’d like logs exported automatically. This change helps d",
+      "status": "update",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "tech-partner-program-tiering": {
+      "id": "tech-partner-program-tiering",
+      "title": "Tech Partner Program Tiering",
+      "description": "Technology Partner tiers help customers identify app developers who consistently deliver high-quality experiences in the HubSpot ecosystem. Tiers: Partner, Rising, Leading, and Premier are assigned at the developer level (not per app) and appear on Marketplace listings and filters. Tier upgrades are evaluated quarterly based on performance over the previous 12 months, with downgrades beginning semiannually in 2027. Developers can track their current tier, progress toward the next level, customer",
+      "status": "live",
+      "hubs": [
+        "Sales Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "connected-apps-new-connections-home-connection-insights": {
+      "id": "connected-apps-new-connections-home-connection-insights",
+      "title": "Connected Apps: New Connections Home & Connection Insights",
+      "description": "Connections Home is a new centralized page for managing your integrations. It provides a comprehensive view of apps connected to your account, apps requiring immediate attention, and apps installed by other users across your organization. This update also includes a new Connection Insights section that provides a detailed overview of app activities, Academy content, new API call usage, and new Record Insights that track how your apps interact with HubSpot and CRM data. To view the new Connection",
+      "status": "update",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "custom-events-are-now-available-to-the-pro-platform": {
+      "id": "custom-events-are-now-available-to-the-pro-platform",
+      "title": "Custom Events Are Now Available to the Pro Platform",
+      "description": "Custom events are now available to all Pro customers. Previously an Enterprise-only feature, Custom events let you track any behavioral data that matters to your business, such as product usage, purchasing behavior, offline interactions, third-party platform activity, and changes to properties inside HubSpot. Note: Pro customers are limited to 10 million event occurrences per month. Enterprise customers are limited to 30 million event occurrences per month. Both Pro and Enterprise customers can ",
+      "status": "now live",
+      "hubs": [
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "public-beta-conversation-workflows-ownership-updates": {
+      "id": "public-beta-conversation-workflows-ownership-updates",
+      "title": "Public Beta: Conversation & Workflows Ownership Updates",
+      "description": "We’re introducing additional functionality to conversation-based workflows in Service Hub Professional and Enterprise subscription tiers in HubSpot Workflows & Inbox. These betas enhance ownership flexibility by adding a new “No Owner” option to the Assign Conversation Owner action and extending the Rotate record-to-owner action to work with conversations. Together, these updates give support teams more structured, automated control over conversation routing and handoffs, while respecting inbox ",
+      "status": "public beta",
+      "hubs": [
+        "Service Hub",
+        "Operations Hub",
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "a-tiered-framework-built-on-impact": {
+      "id": "a-tiered-framework-built-on-impact",
+      "title": "A tiered framework built on impact",
+      "description": "We're introducing four partnership tiers: Partner, Rising, Leading, and Premier. Each has transparent requirements and benefits that grow with your business. Your tier is determined by three factors: These metrics are designed to provide partners with transparency on how to deepen their partnership with HubSpot.",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "benefits-that-match-your-impact": {
+      "id": "benefits-that-match-your-impact",
+      "title": "Benefits that match your impact",
+      "description": "As you graduate into higher tiers, you unlock: Every tier builds on the one before it. The more customer value you create and the more revenue you influence, the more HubSpot invests back into your growth.",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "marketplace-visibility-for-top-partners": {
+      "id": "marketplace-visibility-for-top-partners",
+      "title": "Marketplace visibility for top partners",
+      "description": "Rising, Leading, and Premier partner tiers are now displayed in the HubSpot Marketplace. Customers can filter by tier to find integrations that meet higher standards of quality, support, and strategic alignment with HubSpot. The HubSpot Marketplace receives 1 million customer visits per month. Now your tier helps you stand out.",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "a-grace-period-to-adapt": {
+      "id": "a-grace-period-to-adapt",
+      "title": "A grace period to adapt",
+      "description": "We're giving everyone time to adjust to the new program. For the 2026 program launch, there will be no tier-downs. The first tier-down review happens in Q1 2027. You'll have until the end of the year to understand the new metrics, invest in the right areas, and grow into the tier that reflects your ambition. The marketplace review and premier certification tier requirements will also go into effect in Q1 2027.",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "if-you-re-already-an-app-partner": {
+      "id": "if-you-re-already-an-app-partner",
+      "title": "If you're already an app partner",
+      "description": "You're automatically part of the Technology Partner Program. Here's what happens next: Important: Tier evaluations happen quarterly (on the 15th of the first month each quarter). You'll receive direct communication from HubSpot with your tier status and next steps.",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "if-you-re-a-hubspot-customer": {
+      "id": "if-you-re-a-hubspot-customer",
+      "title": "If you're a HubSpot customer",
+      "description": "The Technology Partner Program makes it easier to: Look for tier badges when evaluating integrations. They're a signal of partnership depth and ongoing investment.",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "if-you-re-building-a-new-app": {
+      "id": "if-you-re-building-a-new-app",
+      "title": "If you're building a new app",
+      "description": "The Technology Partner Program gives you a clear on-ramp and growth path from day one. You'll know exactly what to focus on at each stage to unlock upleveled benefits as you grow. Want hands-on support? Consider attending our next Developer Platform Playground webinar on March 19.",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "catalyst-a-new-fast-track-for-high-potential-partners": {
+      "id": "catalyst-a-new-fast-track-for-high-potential-partners",
+      "title": "Catalyst: a new fast track for high-potential partners",
+      "description": "We're also introducing Catalyst, a 6-month accelerator for a select group of high-potential technology partners. Catalyst supports two types of partners: Catalyst partners receive a named partner manager, technical consulting with solutions architects, and focused support to demonstrate customer impact and move up tiers faster. Eligible partners will be invited directly; no application required. Learn more about Catalyst → Technology Partner Program overview – See the full guide on tier requirem",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Sales Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "ai-powered-prospect-research": {
+      "id": "ai-powered-prospect-research",
+      "title": "AI-Powered Prospect Research",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "agent-customization-flexibility": {
+      "id": "agent-customization-flexibility",
+      "title": "Agent Customization & Flexibility",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "selling-profiles": {
+      "id": "selling-profiles",
+      "title": "Selling Profiles",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "email-capabilities": {
+      "id": "email-capabilities",
+      "title": "Email Capabilities",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "personalized-email-drafting-follow-up": {
+      "id": "personalized-email-drafting-follow-up",
+      "title": "Personalized Email Drafting & Follow-Up",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "seamless-integration": {
+      "id": "seamless-integration",
+      "title": "Seamless Integration",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "workflow-crm-enrollment": {
+      "id": "workflow-crm-enrollment",
+      "title": "Workflow & CRM Enrollment",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-product",
+      "sourceUrl": "https://releasebot.io/updates/hubspot",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-product"
+        }
+      ]
+    },
+    "ui-extensions-p-wildcard-enables-cards-for-all-custom-objects": {
+      "id": "ui-extensions-p-wildcard-enables-cards-for-all-custom-objects",
+      "title": "UI Extensions: p_* wildcard enables cards for all custom objects",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "breeze-studio-agents-upgraded-to-gpt-5": {
+      "id": "breeze-studio-agents-upgraded-to-gpt-5",
+      "title": "Breeze Studio agents upgraded to GPT-5",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "sync-single-sign-on-sso-settings-to-sandbox-and-developer-accounts": {
+      "id": "sync-single-sign-on-sso-settings-to-sandbox-and-developer-accounts",
+      "title": "Sync Single Sign On (SSO) Settings to Sandbox and Developer Accounts",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "enhanced-quote-design-with-html-editing": {
+      "id": "enhanced-quote-design-with-html-editing",
+      "title": "Enhanced Quote Design with HTML Editing",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "custom-events-can-now-be-deleted": {
+      "id": "custom-events-can-now-be-deleted",
+      "title": "Custom events can now be deleted",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "new-sandbox-listing-page": {
+      "id": "new-sandbox-listing-page",
+      "title": "New Sandbox Listing Page",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "pre-rendering-warnings-now-appear-in-design-manager": {
+      "id": "pre-rendering-warnings-now-appear-in-design-manager",
+      "title": "Pre-rendering warnings now appear in Design Manager",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "breeze-customer-agent-now-supports-omnichannel-deployment-via-custom-channels-ap": {
+      "id": "breeze-customer-agent-now-supports-omnichannel-deployment-via-custom-channels-ap",
+      "title": "Breeze Customer Agent Now Supports Omnichannel Deployment via Custom Channels API",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "new-campaign-asset-type-associations-via-campaigns-public-api": {
+      "id": "new-campaign-asset-type-associations-via-campaigns-public-api",
+      "title": "New Campaign Asset Type Associations via Campaigns Public API",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "company-lifecycle-stage-properties": {
+      "id": "company-lifecycle-stage-properties",
+      "title": "Company Lifecycle Stage Properties",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "partner-search-analytics": {
+      "id": "partner-search-analytics",
+      "title": "Partner Search Analytics",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "marketplace-updates": {
+      "id": "marketplace-updates",
+      "title": "Marketplace Updates",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "custom-event-updates": {
+      "id": "custom-event-updates",
+      "title": "Custom event updates",
+      "description": "",
+      "status": "update",
+      "hubs": [
+        "Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "public-beta-forecast-read-api": {
+      "id": "public-beta-forecast-read-api",
+      "title": "Public Beta: Forecast Read API",
+      "description": "",
+      "status": "public beta",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "public-beta-securely-generate-a-preference-page-url": {
+      "id": "public-beta-securely-generate-a-preference-page-url",
+      "title": "Public Beta: Securely generate a preference page URL",
+      "description": "UI Extensions\nUI Extensions now supports a p_* wildcard in card configuration, letting you target all custom object types in a portal without listing individual schema names (like p_my_object) or portal-specific fully qualified names (like p123456_my_object). This removes a major blocker for public apps, since custom object names vary by customer portal—apps can now work across any customer’s custom objects without hardcoding object IDs. To use it, set the object target in your card config to p_",
+      "status": "public beta",
+      "hubs": [
+        "Service Hub",
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "public beta",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "new-resource-legacy-crm-card-converter": {
+      "id": "new-resource-legacy-crm-card-converter",
+      "title": "New Resource: Legacy CRM Card Converter",
+      "description": "To support developers migrating from Classic CRM Cards to the new App Cards, we’ve released the Legacy CRM Card Converter, a lightweight tool and example designed to simplify the transition process. The resource provides: The card converter is intended to accelerate planning and development as you prepare for the October 31st, 2026, sunset of Classic CRM Cards. Explore the tool here: https://github.com/HubSpot/ui-extensions-examples/tree/main/legacy-card-converter",
+      "status": "sunset",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "sunset",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "developer-tasks-and-app-migration-paths": {
+      "id": "developer-tasks-and-app-migration-paths",
+      "title": "Developer Tasks and App Migration Paths",
+      "description": "Now the Developer Platform surfaces actionable insights directly on the Developer Overview for all HubSpot Accounts. Developers can view task cards highlighting whether any of their apps are eligible for migration to the new Developer Platform, with clear guidance on which apps can and cannot be migrated. Previously, the Developer Overview lacked actionable next steps, leaving users uncertain how to maintain or upgrade their apps. These new insights enable clear, actionable guidance, reducing mi",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "hubspot-ip-ranges-api": {
+      "id": "hubspot-ip-ranges-api",
+      "title": "HubSpot IP Ranges API",
+      "description": "You can now dynamically access HubSpot's public IP ranges for your projects and firewalls. With this API, you can automatically update your firewall rules and enhance your security monitoring. You can retrieve the set of IP ranges using this endpoint:\nhttps://api.hubapi.com/meta/network-origins/2025-09/ip-ranges\nThis API does not require authorization. The response will include a list of IP ranges and the HubSpot services using those IPs. See the documentation for full details.",
+      "status": "update",
+      "hubs": [
+        "Service Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "new-filter-by-object-type-id-for-v3-lists-api": {
+      "id": "new-filter-by-object-type-id-for-v3-lists-api",
+      "title": "New Filter by Object Type ID for v3 Lists API",
+      "description": "The /crm/v3/lists/search endpoint in the v3 Lists API now supports filtering lists by object type using the objectTypeId parameter in the POST request body. See additional details on what specifically changed, below: This new feature enhances list segmentation by allowing filtering of lists by HubSpot CRM object type. Applicable to CRM segments (part of Lists), especially for Marketing Hub and Main Hub products. Additionally, this change enables tighter integration for custom reporting and workf",
+      "status": "update",
+      "hubs": [
+        "Marketing Hub",
+        "Operations Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "template-selection-for-cpq-quotes-via-api": {
+      "id": "template-selection-for-cpq-quotes-via-api",
+      "title": "Template Selection for CPQ Quotes via API",
+      "description": "You can now specify a custom template when creating CPQ quotes through the Quotes API, rather than relying on the default content template. This unlocks full control over quote design and structure for any workflow that programmatically generates quotes. During creation, the API will associate the quote to the selected template and pull in any additional template data, while still prioritizing values explicitly set on the quote. Note that templates can only be chosen at creation time and cannot ",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "CMS Hub",
+        "Commerce Hub",
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "standard-sandbox-updates-new-limits-new-capabilities-and-legacy-sunset": {
+      "id": "standard-sandbox-updates-new-limits-new-capabilities-and-legacy-sunset",
+      "title": "Standard Sandbox Updates: New Limits, New Capabilities, and Legacy Sunset",
+      "description": "HubSpot is rolling out a more powerful Standard Sandbox experience, alongside clearer data limits and a planned sunset of Legacy Standard Sandboxes.",
+      "status": "sunset",
+      "hubs": [
+        "Developer Platform"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "sunset",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "public-api-for-uninstalling-an-app-released-to-ga": {
+      "id": "public-api-for-uninstalling-an-app-released-to-ga",
+      "title": "Public API for Uninstalling an app released to GA",
+      "description": "The previously announced API for uninstalling an app from a HubSpot Account has been released from beta into general availability. This endpoint allows app builders to remove their app from a HubSpot Account, which removes any app features set up for the app, including removing any configured app cards, as well as unsubscribing any configured webhooks for that account. See the documentation for more details.",
+      "status": "now live",
+      "hubs": [
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "now live",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "updates-to-associations-to-the-cart-object": {
+      "id": "updates-to-associations-to-the-cart-object",
+      "title": "Updates to associations to the Cart object",
+      "description": "You can now create associations between carts and custom objects, and configure custom association labels and limits for the cart object. This improvement allows you to tailor the cart object to your specific business needs and workflows. This update allows integrations to update associations using the Associations API, as well as allowing super admin users to update associations by editing the data model in their account. Additionally, users can associate carts to deals directly from record pag",
+      "status": "update",
+      "hubs": [
+        "Sales Hub",
+        "CMS Hub",
+        "Operations Hub",
+        "Commerce Hub",
+        "Developer Platform",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
+    },
+    "breeze-assistant-can-now-query-your-custom-event-and-app-event-data": {
+      "id": "breeze-assistant-can-now-query-your-custom-event-and-app-event-data",
+      "title": "Breeze Assistant can now query your Custom event and App event data",
+      "description": "Breeze Assistant can now query the custom website events and app events you've configured in your HubSpot Account. You can now get answers about these events directly from Breeze Assistant, helping you:",
+      "status": "update",
+      "hubs": [
+        "CMS Hub",
+        "Breeze AI"
+      ],
+      "source": "releasebot-dev",
+      "sourceUrl": "https://releasebot.io/updates/hubspot/hubspot-developers",
+      "pubDate": null,
+      "firstSeen": "2026-03-10T13:02:12.991Z",
+      "lastSeen": "2026-03-10T13:02:12.991Z",
+      "statusHistory": [
+        {
+          "status": "update",
+          "date": "2026-03-10T13:02:12.991Z",
+          "source": "releasebot-dev"
+        }
+      ]
     }
   },
-  "lastScan": "2026-02-13T06:01:52.124Z",
-  "scanCount": 12
+  "lastScan": "2026-03-10T13:02:12.991Z",
+  "scanCount": 13
 }

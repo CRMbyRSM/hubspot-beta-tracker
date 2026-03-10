@@ -7,6 +7,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
 const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
 const PORT = process.env.PORT || 3000;
+const { spawn } = require('child_process');
+const SCAN_INTERVAL_MS = 8 * 60 * 60 * 1000; // 8 hours
+
+function runScan() {
+  console.log('[scanner] Starting scheduled scan...');
+  const child = spawn('node', ['index.js'], { cwd: __dirname, stdio: 'inherit' });
+  child.on('exit', code => console.log('[scanner] Scan finished, exit code:', code));
+  child.on('error', err => console.error('[scanner] Scan error:', err.message));
+}
+
+// Run once on startup (after 30s delay to let server stabilise)
+setTimeout(runScan, 30000);
+// Then every 8 hours
+setInterval(runScan, SCAN_INTERVAL_MS);
+
 const API_KEY = process.env.API_KEY || '';
 
 const app = express();
