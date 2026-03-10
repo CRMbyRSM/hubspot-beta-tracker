@@ -137,7 +137,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .brand-copy{min-width:0}
 .brand-title{font-family:'Poppins',system-ui,sans-serif;font-size:1.1rem;font-weight:700;line-height:1.2;color:var(--white);text-wrap:balance}
 .brand-subtitle{font-size:.88rem;color:var(--text-muted);max-width:760px}
-.topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-left:auto}
 .meta-chip{background:var(--surface2);border:1px solid #2b2b2b;color:var(--text-muted);padding:8px 12px;border-radius:8px;font-size:.8rem}
 .meta-chip strong{color:var(--teal)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:6px;font-size:.88rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s ease;text-decoration:none}
@@ -238,10 +238,14 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 @media(max-width:760px){
   .important-grid{grid-template-columns:1fr}
 }
-@media(max-width:720px){
+@media(max-width:980px){
   .topbar-inner{align-items:flex-start}
-  .topbar-actions{width:100%}
+  .topbar-actions{width:100%;flex-wrap:wrap;margin-left:0}
+}
+@media(max-width:720px){
   .btn{width:100%}
+  .topbar-subscribe{width:100%}
+  .topbar-subscribe input{width:100%}
   .card{padding:18px}
   .cta-panel{padding:18px}
 }
@@ -261,11 +265,11 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
     <div class="topbar-actions">
       <span class="meta-chip" id="lastScan">Last scan: —</span>
       <span class="meta-chip" id="totalBadge"><strong>0</strong> tracked</span>
+      <a class="btn btn-primary" href="https://crmbyrsm.com" target="_blank" rel="noopener">Need help?</a>
       <form class="topbar-subscribe" id="topbarSubscribeForm">
         <input type="email" placeholder="Weekly digest" id="topbarEmail" required>
         <button type="submit" class="btn-subscribe" id="topbarSubscribeBtn">Subscribe</button>
       </form>
-      <a class="btn btn-primary" href="https://crmbyrsm.com" target="_blank" rel="noopener">Need help?</a>
     </div>
   </div>
 </header>
