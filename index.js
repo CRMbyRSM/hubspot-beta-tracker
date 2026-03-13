@@ -44,6 +44,11 @@ const SOURCES = {
     url: 'https://www.hubspot.com/product-updates',
     type: 'html',
   },
+  portalUpdates: {
+    name: 'HubSpot Portal Product Updates',
+    url: 'https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/list?portalId=139633041&clienttimeout=14000&hs_static_app=productupdates-ui&hs_static_app_version=1.11553&startStageDate=1772755200000',
+    type: 'json',
+  },
 };
 
 const STATUS_KEYWORDS = {
@@ -103,6 +108,80 @@ function detectStatus(text) {
     if (keywords && keywords.some(kw => lower.includes(kw))) return status;
   }
   return 'update';
+}
+
+function loadPortalAuth() {
+  const cookie = process.env.HUBSPOT_PORTAL_COOKIE || '';
+  const csrf = process.env.HUBSPOT_PORTAL_CSRF || '';
+  return { cookie, csrf };
+}
+
+function mapPortalStatus(item) {
+  const state = (item.rolloutState || '').toUpperCase();
+  const approval = (item.approval || '').toUpperCase();
+  const cta = ((item.ctaText || '') + ' ' + (item.buttonLabel || '')).toLowerCase();
+  if (state.includes('BETA') || cta.includes('beta')) return 'private beta';
+  if (state === 'IN_DEVELOPMENT' || state === 'COMING_SOON') return 'private beta';
+  if (state === 'LIVE' || state === 'ROLLED_OUT') return 'live';
+  if (state.includes('SUNSET')) return 'sunset';
+  if (approval === 'APPROVED') return 'update';
+  return 'update';
+}
+
+function mapPortalHubs(item) {
+  const groups = Array.isArray(item.featureGroups) ? item.featureGroups : [];
+  const groupText = groups.join(' ').toLowerCase();
+  const titleDesc = `${item.title || ''} ${item.untranslatedTitle || ''} ${item.description || ''}`;
+  const mapped = new Set();
+  if (/help.?desk|service|ticket|inbox|routing/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('Service Hub');
+  if (/sales|deal|quote|invoice|prospecting|sequence/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('Sales Hub');
+  if (/marketing|email|tiktok|campaign|form|social/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('Marketing Hub');
+  if (/website|cms|content|membership/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('CMS Hub');
+  if (/data|automation|workflow|report|dashboard|association|view/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('Operations Hub');
+  if (/crm|api|developer|extension|object/.test(groupText + ' ' + titleDesc.toLowerCase())) mapped.add('Developer Platform');
+  if (mapped.size === 0) return detectHubs(titleDesc);
+  return [...mapped];
+}
+
+async function parsePortalUpdates() {
+  const { cookie, csrf } = loadPortalAuth();
+  if (!cookie || !csrf) {
+    console.log('📡 Portal updates auth not configured — skipping portal source');
+    return [];
+  }
+  console.log('📡 Fetching authenticated HubSpot portal product updates...');
+  try {
+    const res = await fetch(SOURCES.portalUpdates.url, {
+      headers: {
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
+        'x-hubspot-csrf-hubspotapi': csrf,
+        'cookie': cookie,
+        'user-agent': 'Mozilla/5.0'
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const items = Array.isArray(data.rolloutProductUpdates) ? data.rolloutProductUpdates : [];
+    const results = items.filter(i => i.external !== false).map(item => ({
+      id: `portal-${item.id || slugify(item.title || item.untranslatedTitle || 'update')}`,
+      title: (item.title || item.untranslatedTitle || 'Untitled portal update').trim(),
+      description: (item.description || item.subtitle || '').toString().substring(0, 500),
+      status: mapPortalStatus(item),
+      hubs: mapPortalHubs(item),
+      source: 'portal-updates',
+      sourceUrl: 'https://app-eu1.hubspot.com/product-updates/139633041/all',
+      pubDate: item.releaseDate ? new Date(item.releaseDate).toISOString() : (item.translationUpdatedAt ? new Date(item.translationUpdatedAt).toISOString() : null),
+      author: null,
+      rawPortalState: item.rolloutState || null,
+    }));
+    console.log(`  ✓ Found ${results.length} portal updates`);
+    return results;
+  } catch (err) {
+    console.log(`  ✗ Portal updates failed: ${err.message}`);
+    return [];
+  }
 }
 
 function detectHubs(text) {
@@ -875,16 +954,17 @@ async function main() {
   console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
   
   // Fetch lightweight sources in parallel, then Playwright-based community scrape sequentially
-  const [devItems, productItems, releasebotItems] = await Promise.all([
+  const [devItems, productItems, releasebotItems, portalItems] = await Promise.all([
     parseDevChangelog(),
     parseProductUpdates(),
     parseReleasebot(),
+    parsePortalUpdates(),
   ]);
   
   // Community uses Playwright (heavy) — run after other fetches complete
   const communityItems = await parseCommunityUpdates();
   
-  const allItems = [...devItems, ...communityItems, ...productItems, ...releasebotItems];
+  const allItems = [...devItems, ...communityItems, ...productItems, ...releasebotItems, ...portalItems];
   
   // Deduplicate by ID (prefer items with more info)
   const deduped = new Map();
