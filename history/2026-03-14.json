@@ -1,0 +1,85 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "portal-14055634",
+          "title": "Manually Retry Failed Card Payments",
+          "description": "",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-12T00:00:00.000Z",
+          "author": null,
+          "rawPortalState": "LIVE"
+        },
+        {
+          "id": "portal-14069430",
+          "title": "Starting April 14, every adaptive enrollment in Prospecting Agent will automatically complete after 30 days.",
+          "description": "",
+          "status": "live",
+          "hubs": [
+            "Sales Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-13T13:00:00.000Z",
+          "author": null,
+          "rawPortalState": "LIVE"
+        },
+        {
+          "id": "portal-14022328",
+          "title": "Sales Workspace Update: Smart CRM Integration Starting April 27",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Sales Hub",
+            "Developer Platform"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-13T14:38:43.981Z",
+          "author": null,
+          "rawPortalState": "IN_DEVELOPMENT"
+        },
+        {
+          "id": "portal-14069653",
+          "title": "Notifications That Take You to the Right Record — Across All CRM Objects",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Marketing Hub",
+            "Developer Platform"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-12T13:18:25.869Z",
+          "author": null,
+          "rawPortalState": "IN_DEVELOPMENT"
+        },
+        {
+          "id": "portal-14073485",
+          "title": "You can now exclude imported URLs from Customer Agent knowledge re-syncs",
+          "description": "",
+          "status": "live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-13T00:00:00.000Z",
+          "author": null,
+          "rawPortalState": "LIVE"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 282,
+    "timestamp": "2026-03-14T09:05:00.244Z"
+  }
+]

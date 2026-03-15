@@ -149,34 +149,80 @@ async function parsePortalUpdates() {
     console.log('📡 Portal updates auth not configured — skipping portal source');
     return [];
   }
-  console.log('📡 Fetching authenticated HubSpot portal product updates...');
+  console.log('📡 Fetching authenticated HubSpot portal product updates (paginated)...');
   try {
-    const res = await fetch(SOURCES.portalUpdates.url, {
-      headers: {
-        'accept': 'application/json, text/javascript, */*; q=0.01',
-        'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
-        'x-hubspot-csrf-hubspotapi': csrf,
-        'cookie': cookie,
-        'user-agent': 'Mozilla/5.0'
-      },
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    const items = Array.isArray(data.rolloutProductUpdates) ? data.rolloutProductUpdates : [];
-    const results = items.filter(i => i.external !== false).map(item => ({
-      id: `portal-${item.id || slugify(item.title || item.untranslatedTitle || 'update')}`,
-      title: (item.title || item.untranslatedTitle || 'Untitled portal update').trim(),
-      description: (item.description || item.subtitle || '').toString().substring(0, 500),
-      status: mapPortalStatus(item),
-      hubs: mapPortalHubs(item),
-      source: 'portal-updates',
-      sourceUrl: 'https://app-eu1.hubspot.com/product-updates/139633041/all',
-      pubDate: item.releaseDate ? new Date(item.releaseDate).toISOString() : (item.translationUpdatedAt ? new Date(item.translationUpdatedAt).toISOString() : null),
-      author: null,
-      rawPortalState: item.rolloutState || null,
-    }));
-    console.log(`  ✓ Found ${results.length} portal updates`);
+    const allItems = [];
+    let offset = 0;
+    const limit = 50;
+    let totalFetched = 0;
+
+    // Pagination loop
+    while (true) {
+      const paginatedUrl = `https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/list?portalId=139633041&limit=${limit}&offset=${offset}`;
+      const res = await fetch(paginatedUrl, {
+        headers: {
+          'accept': 'application/json, text/javascript, */*; q=0.01',
+          'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
+          'x-hubspot-csrf-hubspotapi': csrf,
+          'cookie': cookie,
+          'user-agent': 'Mozilla/5.0'
+        },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const items = Array.isArray(data.rolloutProductUpdates) ? data.rolloutProductUpdates : [];
+      
+      if (items.length === 0) break;
+      allItems.push(...items);
+      offset += limit;
+      totalFetched += items.length;
+      
+      // Safety limit to avoid infinite loops
+      if (totalFetched > 2000) break;
+    }
+
+    // Filter to last 18 months and map to tracker format
+    const cutoffMs = Date.now() - (18 * 30 * 86400 * 1000);
+    const results = allItems
+      .filter(item => {
+        // Only external items, and from last 18 months
+        if (item.external === false) return false;
+        const latestTs = Math.max(
+          item.updatedAt || 0,
+          item.translationUpdatedAt || 0,
+          item.stageDate || 0
+        );
+        return latestTs >= cutoffMs;
+      })
+      .map(item => {
+        // Determine update date (most recent of all timestamp fields)
+        const latestTs = Math.max(
+          item.updatedAt || 0,
+          item.translationUpdatedAt || 0,
+          item.stageDate || item.releaseDate || 0
+        );
+
+        return {
+          id: `portal-${item.id || slugify(item.title || item.untranslatedTitle || 'update')}`,
+          title: (item.title || item.untranslatedTitle || 'Untitled portal update').trim(),
+          description: (item.description || '').toString().substring(0, 500),
+          status: mapPortalStatus(item),
+          hubs: mapPortalHubs(item),
+          source: 'portal-updates',
+          sourceUrl: `https://app-eu1.hubspot.com/product-updates/${item.rolloutId}`,
+          pubDate: new Date(latestTs).toISOString(),
+          sortDate: latestTs, // For sorting newest first
+          author: null,
+          rawPortalState: item.rolloutState || null,
+          impact: item.rollout?.impactLevel || 5,
+          type: item.rollout?.type || 'ADDITIONAL_FUNCTIONALITY',
+        };
+      })
+      // Sort by update date, newest first
+      .sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0));
+
+    console.log(`  ✓ Found ${results.length} portal updates (from ${totalFetched} total)`);
     return results;
   } catch (err) {
     console.log(`  ✗ Portal updates failed: ${err.message}`);
@@ -285,7 +331,21 @@ function loadState() {
 }
 
 function saveState(state) {
-  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+  // Sort betas by pubDate (newest first) before saving
+  const sorted = {};
+  const entries = Object.entries(state.betas || {})
+    .sort((a, b) => {
+      const dateA = new Date(a[1].pubDate || 0).getTime();
+      const dateB = new Date(b[1].pubDate || 0).getTime();
+      return dateB - dateA; // Newest first
+    });
+  
+  for (const [id, beta] of entries) {
+    sorted[id] = beta;
+  }
+  
+  const sortedState = { ...state, betas: sorted };
+  fs.writeFileSync(STATE_FILE, JSON.stringify(sortedState, null, 2));
 }
 
 function saveHistory(report) {

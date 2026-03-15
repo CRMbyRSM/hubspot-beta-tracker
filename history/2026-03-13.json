@@ -1,0 +1,198 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "introducing-make-my-persona-ai-your-buyer-personas-now-built-in-seconds",
+          "title": "Introducing Make My Persona AI: Your Buyer Personas, Now Built in Seconds",
+          "description": "HubSpot unveils Make My Persona AI, a major free upgrade that auto generates buyer personas from a simple description. It speeds creation, outputs structured, shareable personas, and preserves zero-cost access. Legacy app remains for traditional users, keeping familiar templates while adding AI power.",
+          "status": "update",
+          "hubs": [
+            "CMS Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        },
+        {
+          "id": "deadline-extended-for-legacy-standard-sandboxes-sunset-what-s-changing-how-to-pr",
+          "title": "Deadline Extended for Legacy Standard Sandboxes Sunset: What’s Changing & How to Prepare (FAQ)",
+          "description": "",
+          "status": "sunset",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Deadline-Extended-for-Legacy-Standard-Sandboxes-Sunset-What-s/ba-p/1232485",
+          "pubDate": null
+        },
+        {
+          "id": "portal-14049430",
+          "title": "Data Agent: Activities and Transcripts Data Source",
+          "description": "",
+          "status": "live",
+          "hubs": [
+            "Operations Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-09T13:00:00.000Z",
+          "author": null,
+          "rawPortalState": "LIVE"
+        },
+        {
+          "id": "portal-14073350",
+          "title": "New Formula Options in CRB: Conditional Logic and Summary measure",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Marketing Hub",
+            "Operations Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-11T17:34:28.276Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14073275",
+          "title": "Meetings in Workflows",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Operations Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-10T19:35:12.007Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14073211",
+          "title": "Edit Non-Balance-Changing Properties on One-Time Invoices After Payment",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Sales Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-10T22:39:57.297Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14059099",
+          "title": "Meeting Notetaker with Smart Deal Progression",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Sales Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-11T14:31:14.023Z",
+          "author": null,
+          "rawPortalState": "PRIVATE_BETA"
+        },
+        {
+          "id": "portal-14069459",
+          "title": "Individual User Permissions for Views",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Marketing Hub",
+            "Operations Hub",
+            "Developer Platform"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-10T16:57:38.627Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14069264",
+          "title": "Hide Suggested Associations in the Sales Extension",
+          "description": "",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Developer Platform"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-11T13:00:00.000Z",
+          "author": null,
+          "rawPortalState": "LIVE"
+        },
+        {
+          "id": "portal-14059087",
+          "title": "Export Marketing Emails to PDF and HTML",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Marketing Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-04T22:41:13.914Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14073292",
+          "title": "TikTok in HubSpot",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Marketing Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-04-01T00:00:00.000Z",
+          "author": null,
+          "rawPortalState": "PUBLIC_BETA"
+        },
+        {
+          "id": "portal-14069449",
+          "title": "Create your own Ticket automation messages",
+          "description": "",
+          "status": "private beta",
+          "hubs": [
+            "Service Hub",
+            "Operations Hub"
+          ],
+          "source": "portal-updates",
+          "sourceUrl": "https://app-eu1.hubspot.com/product-updates/139633041/all",
+          "pubDate": "2026-03-10T13:13:23.545Z",
+          "author": null,
+          "rawPortalState": "PRIVATE_BETA"
+        }
+      ],
+      "statusChanged": [],
+      "updated": [
+        {
+          "id": "latest-updates-to-breeze-assistant",
+          "title": "Latest updates to Breeze Assistant",
+          "description": "Hubspot unveils Breeze Assistant upgrades that tailor expert answers to roles, boost accuracy and speed, and auto align with brand. Improved context, page awareness, and source-backed insights power role specific guidance, customizable prompts, Loop Marketing expertise, and direct CRM tasks.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": null
+        }
+      ]
+    },
+    "itemsFound": 282,
+    "timestamp": "2026-03-13T09:17:03.150Z"
+  }
+]
