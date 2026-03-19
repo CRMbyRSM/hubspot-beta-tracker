@@ -861,8 +861,11 @@ function mergeResults(state, newItems) {
       };
       changes.new.push(item);
     } else {
-      // Update last seen
+      // Update last seen and pubDate if we got a better one
       existing.lastSeen = now;
+      if (item.pubDate && (!existing.pubDate || new Date(item.pubDate) > new Date(existing.pubDate))) {
+        existing.pubDate = item.pubDate;
+      }
       
       // Ensure hubs field exists on legacy items
       if (!existing.hubs) {
