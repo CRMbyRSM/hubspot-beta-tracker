@@ -3,7 +3,7 @@
     "portal-14073292": {
       "id": "portal-14073292",
       "title": "TikTok in HubSpot",
-      "description": "",
+      "description": "HubSpot has joined other CRMs with the ability to post directly to TikTok from within HubSpot. Track TikTok engagement and users in your CRM using this private beta feature.",
       "status": "private beta",
       "hubs": [
         "Marketing Hub"
@@ -6475,7 +6475,7 @@
     "portal-14039297": {
       "id": "portal-14039297",
       "title": "Filters in Agent Inbox",
-      "description": "",
+      "description": "Agent Inbox now supports custom filters, allowing agents to prioritize and organize work based on their specific needs and preferences.",
       "status": "live",
       "hubs": [
         "Service Hub"
@@ -7109,7 +7109,7 @@
     "portal-14050079": {
       "id": "portal-14050079",
       "title": "Help Desk Recent Searches",
-      "description": "",
+      "description": "Help Desk agents can now save and recall recent searches, making it faster to find relevant tickets and support their workflow efficiency.",
       "status": "live",
       "hubs": [
         "Service Hub"
