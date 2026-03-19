@@ -1,6 +1,6 @@
 {
   "name": "hubspot-beta-tracker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tracks HubSpot betas, status changes, and new product updates daily",
   "type": "module",
   "scripts": {
