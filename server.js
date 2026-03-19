@@ -628,7 +628,23 @@ function renderCard(b) {
   const now = Date.now();
   const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
   const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-  const desc = escapeHtml(b.description || '');
+  // Generate description or fallback
+  let desc = b.description ? escapeHtml(b.description) : generateFallbackDesc(b);
+  
+  function generateFallbackDesc(item) {
+    // Fallback descriptions based on status
+    const statusHints = {
+      'live': 'Now available in HubSpot. ' + escapeHtml((item.hubs || ['Platform'])[0]) + ' feature update.',
+      'public beta': 'Public beta available for testing. Please share feedback with HubSpot.',
+      'private beta': 'Limited private beta. Request access if you need this feature.',
+      'sunset': 'This feature is being retired. Plan your migration accordingly.',
+      'breaking change': 'Breaking change coming. Review your integrations and workflows.',
+      'deprioritized': 'This feature has been deprioritized and may not be developed.',
+      'update': 'Important update to existing functionality. Review the details.',
+      'in development': 'Coming soon. This feature is currently in development.'
+    };
+    return statusHints[item.status] || 'Tracked HubSpot update. Review the source for full details.';
+  }
   const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[b.source] || b.source;
   const hubs = b.hubs || ['Platform'];
   const hubTags = hubs.map(h => {
@@ -642,7 +658,7 @@ function renderCard(b) {
       '<span class="badge" data-status="' + b.status + '">' + escapeHtml(b.status) + '</span>' +
     '</div>' +
     '<div class="hub-tags">' + hubTags + '</div>' +
-    (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
+    '<p class="card-desc">' + desc + '</p>' +
     '<div class="card-meta">' +
       '<span>' + firstSeen + '</span>' +
       '<span>' + days + 'd tracked</span>' +
