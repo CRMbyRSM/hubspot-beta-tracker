@@ -557,7 +557,7 @@ async function parseCommunityUpdates() {
             hubs: detectHubs(combined),
             source: 'community',
             sourceUrl: postUrl,
-            pubDate: null,
+            pubDate: pubDate,
             availability: f.availability || null,
           });
         }
@@ -586,7 +586,7 @@ async function parseCommunityUpdates() {
         hubs: detectHubs(combined),
         source: 'community',
         sourceUrl: fullUrl,
-        pubDate: null,
+        pubDate: pubDate,
       });
     }
     
@@ -651,6 +651,23 @@ async function parseReleasebot() {
   
   const results = [];
   
+  // Helper to extract date from Releasebot LI structure
+  function extractReleasebotDate(li) {
+    // Date is in the first div (before the h2): "Mar 16, 2026"
+    const firstDiv = li.querySelector(':scope > div');
+    if (!firstDiv) return null;
+    const dateText = firstDiv.text?.trim() || '';
+    const dateMatch = dateText.match(/([A-Za-z]+ \d{1,2}, \d{4})/);
+    if (dateMatch) {
+      try {
+        return new Date(dateMatch[1]).toISOString();
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
+  
   for (const page of pages) {
     const html = await fetchURL(page.url);
     if (!html) continue;
@@ -663,6 +680,7 @@ async function parseReleasebot() {
     let pageCount = 0;
     
     for (const li of postItems) {
+      const pubDate = extractReleasebotDate(li); // Extract date once per LI
       const h2 = li.querySelector('h2');
       const postTitle = h2?.text?.trim() || '';
       
@@ -728,7 +746,7 @@ async function parseReleasebot() {
               hubs: detectHubs(combined),
               source: page.sourceLabel,
               sourceUrl: page.url,
-              pubDate: null,
+              pubDate: pubDate,
             });
             pageCount++;
           }
@@ -777,7 +795,7 @@ async function parseReleasebot() {
                   hubs: detectHubs(combined),
                   source: page.sourceLabel,
                   sourceUrl: page.url,
-                  pubDate: null,
+                  pubDate: pubDate,
                 });
                 pageCount++;
               }
@@ -805,7 +823,7 @@ async function parseReleasebot() {
           hubs: detectHubs(combined),
           source: page.sourceLabel,
           sourceUrl: page.url,
-          pubDate: null,
+          pubDate: pubDate,
         });
         pageCount++;
       }
@@ -1013,18 +1031,20 @@ async function main() {
   
   console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
   
-  // Fetch lightweight sources in parallel, then Playwright-based community scrape sequentially
-  const [devItems, productItems, releasebotItems, portalItems] = await Promise.all([
-    parseDevChangelog(),
-    parseProductUpdates(),
+  // Fetch lightweight sources in parallel, prioritizing Releasebot (most fresh data)
+  // Then Playwright-based community scrape sequentially (requires browser binary)
+  const [releasebotItems, portalItems, productItems, devItems] = await Promise.all([
     parseReleasebot(),
     parsePortalUpdates(),
+    parseProductUpdates(),
+    parseDevChangelog(),
   ]);
   
   // Community uses Playwright (heavy) — run after other fetches complete
   const communityItems = await parseCommunityUpdates();
   
-  const allItems = [...devItems, ...communityItems, ...productItems, ...releasebotItems, ...portalItems];
+  // Priority order: Releasebot first (newest data), then others, portal/community last (slower sources)
+  const allItems = [...releasebotItems, ...portalItems, ...productItems, ...communityItems, ...devItems];
   
   // Deduplicate by ID (prefer items with more info)
   const deduped = new Map();
