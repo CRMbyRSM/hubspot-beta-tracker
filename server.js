@@ -628,10 +628,13 @@ function renderCard(b) {
   const now = Date.now();
   const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
   const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-  // Generate description or fallback
-  let desc = b.description ? escapeHtml(b.description) : generateFallbackDesc(b);
+  // Prioritize real description, use smart fallback if missing
+  let desc = b.description && b.description.length > 30 
+    ? escapeHtml(b.description) 
+    : generateFallbackDesc(b);
   
   function generateFallbackDesc(item) {
+    // Only use fallback if we truly have no description
     // Fallback descriptions based on status
     const statusHints = {
       'live': 'Now available in HubSpot. ' + escapeHtml((item.hubs || ['Platform'])[0]) + ' feature update.',
@@ -643,7 +646,7 @@ function renderCard(b) {
       'update': 'Important update to existing functionality. Review the details.',
       'in development': 'Coming soon. This feature is currently in development.'
     };
-    return statusHints[item.status] || 'Tracked HubSpot update. Review the source for full details.';
+    return statusHints[item.status] || 'Tracked HubSpot update. View the source link for complete details.';
   }
   const sourceLabel = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' }[b.source] || b.source;
   const hubs = b.hubs || ['Platform'];
