@@ -628,9 +628,9 @@ function renderCard(b) {
   const now = Date.now();
   const days = Math.max(0, Math.floor((now - new Date(b.firstSeen).getTime()) / 86400000));
   const firstSeen = new Date(b.firstSeen).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-  // Prioritize real description, use smart fallback if missing
-  let desc = b.description && b.description.length > 30 
-    ? escapeHtml(b.description) 
+  // Use real description if available, otherwise smart fallback
+  let desc = (b.description && b.description.trim().length > 30)
+    ? escapeHtml(b.description)
     : generateFallbackDesc(b);
   
   function generateFallbackDesc(item) {
