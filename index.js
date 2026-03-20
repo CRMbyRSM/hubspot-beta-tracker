@@ -1082,7 +1082,27 @@ async function main() {
   console.log(`✅ Scan complete. ${changes.new.length} new, ${changes.statusChanged.length} changed, ${Object.keys(state.betas).length} total tracked.`);
 }
 
-main().catch(err => {
-  console.error('Fatal error:', err);
-  process.exit(1);
-});
+async function runWithDescriptionScraper() {
+  try {
+    // Run main scan first
+    await main();
+    
+    // Then scrape descriptions for items that need them
+    console.log('\n📝 Starting description scraper...');
+    const { execSync } = await import('child_process');
+    try {
+      execSync('node scrape-detailed-descriptions.js', { 
+        stdio: 'inherit',
+        timeout: 300000 // 5 minute timeout for scraper
+      });
+    } catch (e) {
+      // Scraper errors don't block the main job
+      console.log('⚠️ Description scraper failed (non-blocking):', e.message);
+    }
+  } catch (err) {
+    console.error('Fatal error:', err);
+    process.exit(1);
+  }
+}
+
+runWithDescriptionScraper();

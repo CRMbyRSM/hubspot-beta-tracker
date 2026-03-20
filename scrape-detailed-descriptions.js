@@ -32,11 +32,21 @@ if (needsDesc.length === 0) {
 async function scrapeDetailedDescriptions() {
   let browser;
   let updated = 0;
+  let failed = 0;
 
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ 
+      headless: true,
+      args: ['--disable-dev-shm-usage'] // Prevent memory issues
+    });
 
     for (const [id, item] of needsDesc) {
+      // Check if browser is still responsive
+      if (!browser.isConnected?.()) {
+        console.log('\n⚠️ Browser disconnected, stopping scraper');
+        break;
+      }
+
       try {
         let desc = null;
 
@@ -59,11 +69,19 @@ async function scrapeDetailedDescriptions() {
           console.log(`  ⏭ No description found in detail`);
         }
       } catch (e) {
-        console.log(`  ✗ Error: ${e.message.substring(0, 50)}`);
+        failed++;
+        if (!e.message.includes('Target page')) {
+          console.log(`  ✗ Error: ${e.message.substring(0, 50)}`);
+        }
+        // If browser crashed, stop gracefully
+        if (e.message.includes('Target page') || e.message.includes('disconnect')) {
+          console.log(`\n⚠️ Browser resource limit reached after ${updated} items`);
+          break;
+        }
       }
 
       // Throttle requests
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(r => setTimeout(r, 800));
     }
 
     await browser.close();
@@ -74,7 +92,8 @@ async function scrapeDetailedDescriptions() {
 
   // Save
   fs.writeFileSync('state.json', JSON.stringify(state, null, 2));
-  console.log(`\n✅ Scraped ${updated}/${needsDesc.length} detailed descriptions\n`);
+  console.log(`\n✅ Scraped ${updated}/${needsDesc.length} detailed descriptions (${failed} errors)`);
+  console.log('📅 Next run: tomorrow at scan time');
 }
 
 async function scrapeFromCommunityDetail(browser, url) {
