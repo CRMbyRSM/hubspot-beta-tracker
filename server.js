@@ -509,13 +509,15 @@ async function init() {
   try {
     const res = await fetch('/api/betas');
     const data = await res.json();
+    // API returns direct object, not wrapped in {betas: ...}
+    const betas = Array.isArray(data) ? data : (data.betas ? Object.values(data.betas) : Object.values(data));
     // Sort by lastSeen (most recently updated) for freshness
-    allBetas = Object.values(data.betas || {}).sort((a, b) => {
+    allBetas = betas.sort((a, b) => {
       const aDate = new Date(a.lastSeen || a.firstSeen);
       const bDate = new Date(b.lastSeen || b.firstSeen);
       return bDate - aDate;
     });
-    renderMeta(data);
+    renderMeta({ betas: allBetas });
     renderHero();
     renderImportant();
     renderStatusFilters();
