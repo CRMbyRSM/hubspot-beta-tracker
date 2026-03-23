@@ -184,6 +184,20 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .important-source{margin-top:12px;font-size:.8rem;color:var(--text-muted)}
 .important-source a{color:var(--teal)}
 
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:32px}
+.hero-card{background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border:1px solid #2a2a2a;border-radius:12px;padding:24px;position:relative;overflow:hidden;transition:all .2s ease;min-height:280px;display:flex;flex-direction:column}
+.hero-card:hover{border-color:var(--teal);box-shadow:0 8px 24px rgba(23,161,146,.15)}
+.hero-card.private-beta{border-top:3px solid #a855f7}
+.hero-card.update{border-top:3px solid #3b82f6}
+.hero-card.live{border-top:3px solid #4ade80}
+.hero-card.sunset{border-top:3px solid var(--orange)}
+.hero-badge{display:inline-block;background:rgba(23,161,146,.15);color:var(--teal);padding:6px 12px;border-radius:20px;font-size:.75rem;font-weight:600;text-transform:uppercase;width:fit-content;margin-bottom:12px}
+.hero-title{font-family:'Poppins',system-ui,sans-serif;font-size:1.1rem;font-weight:700;line-height:1.3;color:var(--white);margin-bottom:12px;text-wrap:balance}
+.hero-desc{font-size:.9rem;color:var(--text-muted);margin-bottom:16px;flex-grow:1}
+.hero-footer{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--text-muted);margin-bottom:12px}
+.hero-link{display:inline-block;color:var(--teal);font-weight:600;font-size:.85rem;margin-top:auto;transition:all .2s}
+.hero-link:hover{color:var(--white);text-decoration:none}
+
 .filters-wrap{padding-top:8px}
 .filter-group{margin-bottom:16px}
 .filter-group:last-child{margin-bottom:0}
@@ -291,6 +305,10 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 </header>
 
 <main class="container">
+  <section class="section" id="heroSection" style="padding-top:40px">
+    <!-- Hero grid inserted here -->
+  </section>
+
   <section class="section" id="importantSection">
     <div class="section-head">
       <div>
@@ -461,17 +479,24 @@ function scoreRisk(item) {
   return score;
 }
 
+function selectHeroItems(items) {
+  // Select 4 most relevant hero items: 1 sunset + 3 important
+  const sunset = items.filter(i => scoreRisk(i) >= 35).sort((a, b) => scoreRisk(b) - scoreRisk(a)).slice(0, 1);
+  const important = items.filter(i => !isSunsetOrCritical(i)).sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen)).slice(0, 3);
+  return [...sunset, ...important].slice(0, 4);
+}
+
 function selectSunsetItems(items) {
   return [...items]
     .filter(i => scoreRisk(i) >= 35)
-    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.firstSeen) - new Date(a.firstSeen))
+    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
     .slice(0, 1);
 }
 
 function selectImportantItems(items) {
   return [...items]
     .filter(i => !isSunsetOrCritical(i))
-    .sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.firstSeen) - new Date(a.firstSeen))
+    .sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
     .slice(0, 3);
 }
 
@@ -484,8 +509,14 @@ async function init() {
   try {
     const res = await fetch('/api/betas');
     const data = await res.json();
-    allBetas = Object.values(data.betas || {}).sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
+    // Sort by lastSeen (most recently updated) for freshness
+    allBetas = Object.values(data.betas || {}).sort((a, b) => {
+      const aDate = new Date(a.lastSeen || a.firstSeen);
+      const bDate = new Date(b.lastSeen || b.firstSeen);
+      return bDate - aDate;
+    });
     renderMeta(data);
+    renderHero();
     renderImportant();
     renderStatusFilters();
     renderHubFilters();
@@ -526,6 +557,30 @@ function renderMeta(data) {
     : 'Never';
   document.getElementById('lastScan').textContent = 'Last scan: ' + lastScan;
   document.getElementById('totalBadge').innerHTML = '<strong>' + total + '</strong> tracked';
+}
+
+function renderHero() {
+  // Show top 4 most relevant items in hero section
+  const heroItems = selectHeroItems(allBetas);
+  if (!heroItems.length) return;
+
+  const sourceMap = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' };
+  const heroHtml = heroItems.map(item => {
+    const sourceLabel = sourceMap[item.source] || item.source;
+    const lastUpdated = new Date(item.lastSeen || item.firstSeen).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return '<div class="hero-card ' + item.status.replace(/\s+/g, '-') + '">' +
+      '<span class="hero-badge">' + escapeHtml(titleCase(item.status)) + '</span>' +
+      '<h2 class="hero-title">' + escapeHtml(item.title) + '</h2>' +
+      '<p class="hero-desc">' + escapeHtml((item.description || '').slice(0, 120)) + '</p>' +
+      '<div class="hero-footer">' +
+        '<span class="hero-source">' + escapeHtml(sourceLabel) + '</span>' +
+        '<span class="hero-date">' + escapeHtml(lastUpdated) + '</span>' +
+      '</div>' +
+      (item.sourceUrl ? '<a href="' + item.sourceUrl + '" class="hero-link" target="_blank" rel="noopener">Read More →</a>' : '') +
+    '</div>';
+  }).join('');
+
+  document.getElementById('heroSection').innerHTML = '<div class="hero-grid">' + heroHtml + '</div>';
 }
 
 function renderImportant() {
