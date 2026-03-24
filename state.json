@@ -55,7 +55,7 @@
   "portal-14078214": {
     "id": "portal-14078214",
     "title": "WhatsApp Home",
-    "description": "",
+    "description": "We’re introducing a new WhatsApp experience designed to align more closely with HubSpot’s core messaging tools. WhatsApp will now have its own dedicated Home, alongside our other primary HubSpot messaging channels. This update includes a new: WA Messaging Management page. Template Management experience. A comprehensive Reporting suite. Additional enhancements to support day-to-day needs.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -111,7 +111,7 @@
   "portal-14073369": {
     "id": "portal-14073369",
     "title": "Screen Capture Button in the Chat Widget",
-    "description": "",
+    "description": "Attaching a screenshot to a chat has never been easier. With the click of a new button in the chat widget, your visitors on modern desktop and tablet can quickly take and attach a screenshot to their conversation with your agents.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -137,7 +137,7 @@
   "portal-14078683": {
     "id": "portal-14078683",
     "title": "Create One-Time Invoices from Quotes or Deals with Workflows",
-    "description": "",
+    "description": "The \"Convert to Invoice\" workflow action automatically creates a draft, one-time invoice from a quote or deal. When the source record includes recurring line items, the action creates a one-time invoice version of those line items (instead of creating a recurring invoice).",
     "status": "live",
     "hubs": [
       "Sales Hub",
@@ -164,7 +164,7 @@
   "portal-14073796": {
     "id": "portal-14073796",
     "title": "WhatsApp Coexistence",
-    "description": "",
+    "description": "WhatsApp coexistence enables customers to use WhatsApp Business app and HubSpot inbox at the same time, on the same WhatsApp Business number, without causing conflicts.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -190,7 +190,7 @@
   "portal-14078443": {
     "id": "portal-14078443",
     "title": "Multi-Object Syncs to the CRM from Data Studio",
-    "description": "",
+    "description": "Data Studio users can now target multiple objects and create associations between them as they sync data from their datasets to the CRM within Data Studio.",
     "status": "private beta",
     "hubs": [
       "Operations Hub",
@@ -217,7 +217,7 @@
   "portal-14076269": {
     "id": "portal-14076269",
     "title": "Sales Workspace Update: What's Changing on April 27",
-    "description": "",
+    "description": "On April 27, 2026, The sales workspace is being updated to work directly with your Smart CRM. The workspace's custom-built interfaces like the Prospects tab, Deals tab, and task playlists, will be replaced with native CRM index pages. Note: This update only applies to accounts who have been using the sales workspace before August 27, 2025.",
     "status": "private beta",
     "hubs": [
       "Sales Hub"
@@ -243,7 +243,7 @@
   "portal-14066405": {
     "id": "portal-14066405",
     "title": "Google Drive Integration for Knowledge Vaults in for custom agents",
-    "description": "",
+    "description": "DescriptionUsers can connect Google Drive folders as Knowledge Vault sources in Breeze Studio for custom agents, making Drive content accessible and searchable for AI Agents while enforcing Drive permissions.",
     "status": "live",
     "hubs": [
       "Breeze AI"
@@ -291,7 +291,7 @@
   "portal-14078458": {
     "id": "portal-14078458",
     "title": "Passkeys as a 2FA Method",
-    "description": "",
+    "description": "For users with a passkey setup, if you login with another login method and are prompted for 2 Factor Authentication (2FA), we will now prompt you to verify with your passkey instead of your legacy 2FA methods. You are still able to use your legacy 2FA methods as a fallback.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -346,7 +346,7 @@
   "portal-14078451": {
     "id": "portal-14078451",
     "title": "Bulk actions in the video library",
-    "description": "",
+    "description": "Bulk actions in the HubSpot video library let you select multiple videos at once using checkboxes, then take action on them together. You can now export and download several videos in one step or move multiple videos to trash at the same time.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -372,7 +372,7 @@
   "portal-14069390": {
     "id": "portal-14069390",
     "title": "View Personalized Emails on Contact Records",
-    "description": "",
+    "description": "You can now view the exact personalized marketing email sent to each contact directly from their contact record. If you send an email using smart content, programmable email modules, or dynamic AI text tokens, you can access the fully-rendered version of what each contact received by clicking \"View sent email\" on their activity timeline. This view is available for 30 days after the email is sent.",
     "status": "private beta",
     "hubs": [
       "Marketing Hub",
@@ -399,7 +399,7 @@
   "portal-14078347": {
     "id": "portal-14078347",
     "title": "Customize Your columns in the Duplicate Management Table",
-    "description": "",
+    "description": "You can now customize the columns included in the duplicate management table.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -511,7 +511,7 @@
   "portal-14078283": {
     "id": "portal-14078283",
     "title": "Easily Set Custom Chatflow Priority",
-    "description": "",
+    "description": "You can now easily assign a custom priority to your chatflows without using drag-and-drop. Previously, reordering chatflows meant dragging-and-dropping them into place. While this works for smaller setups, it becomes increasingly difficult to manage as the number of chatflows grows, especially when they span across multiple pages. With custom priority, you can simply set the exact order you want.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -537,7 +537,7 @@
   "portal-14066461": {
     "id": "portal-14066461",
     "title": "Mobile Conversations Inbox Migration",
-    "description": "",
+    "description": "We’re migrating the Conversations Inbox in the HubSpot mobile app from React Native to a fully native implementation on Android and iOS. This update is primarily driven by the need to comply with Android’s (Google Play) 16 KB memory page size compatibility requirements taking effect May 31, while also unlocking a faster, richer Inbox experience through native performance and UI capabilities.",
     "status": "private beta",
     "hubs": [
       "Service Hub"
@@ -563,7 +563,7 @@
   "portal-14073570": {
     "id": "portal-14073570",
     "title": "Breeze Assistant can now create multi-object Reports",
-    "description": "",
+    "description": "Breeze Assistant can now generate reports that pull data from multiple objects, enabling you to analyze relationships across your business in a single report.",
     "status": "live",
     "hubs": [
       "Operations Hub",
@@ -590,7 +590,7 @@
   "portal-14076231": {
     "id": "portal-14076231",
     "title": "Admin-defined Column Defaults for Line Item Editors",
-    "description": "",
+    "description": "Admins can now set default line item columns for their whole team. Super Admins can define which columns appear in line item editors across Deals, Quotes, Invoices, Subscriptions, and more — for every user in their portal. Please note: this update does not affect any public-facing APIs.",
     "status": "live",
     "hubs": [
       "Sales Hub"
@@ -616,7 +616,7 @@
   "portal-14076312": {
     "id": "portal-14076312",
     "title": "Install confirmation modal for unlisted apps",
-    "description": "",
+    "description": "A new confirmation step now appears when installing third-party apps in your HubSpot account. Before an app is installed, you'll notice a confirmation dialog that asks you to verify your intent. Trusted and verified Marketplace apps aren't affected by this change.",
     "status": "live",
     "hubs": [
       "Developer Platform"
@@ -703,7 +703,7 @@
   "portal-14006970": {
     "id": "portal-14006970",
     "title": "Sunsetting CRM Smart Insights",
-    "description": "",
+    "description": "After April 21st, 2026, CRM smart insights beta features will no longer be available.",
     "status": "private beta",
     "hubs": [
       "Marketing Hub",
@@ -756,7 +756,7 @@
   "portal-14076315": {
     "id": "portal-14076315",
     "title": "File Manager: \"Updated by\" Filter",
-    "description": "",
+    "description": "You can now filter files in the file manager by who last updated them. The new Updated by filter helps you quickly find content modified by a specific user.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -782,7 +782,7 @@
   "portal-14076317": {
     "id": "portal-14076317",
     "title": "File Manager: Improved Drag & Drop and Bulk Selection",
-    "description": "",
+    "description": "We’ve improved the experience in the file manager to make organizing your content faster and more intuitive. These include: Marquee select: clicking and dragging your cursor to create a square shape to select files in the select area is now available for bulk selecting files via list view..",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -808,7 +808,7 @@
   "portal-14078223": {
     "id": "portal-14078223",
     "title": "Content Personalization API",
-    "description": "",
+    "description": "The Content Personalization API allows web developers to fetch data about a user, such as their name, user agent, IP, location, contact lists, lifecycle stage and any other CRM contact or company attributes. It could be used to put a user’s name on the page or build functionality equivalent to Smart Content.",
     "status": "live",
     "hubs": [
       "CMS Hub",
@@ -835,7 +835,7 @@
   "portal-14066343": {
     "id": "portal-14066343",
     "title": "Data Sources File Ingestion API for Data Studio",
-    "description": "",
+    "description": "The Data Sources Ingestion File API enables developers to ingest CSV, XLS, XLSX, and TSV files directly into HubSpot Data Studio as reusable external data sources. This API will offer a developer-friendly way to bring tabular data into HubSpot without adhering to CRM object schemas. Use this API to: Upload files to Data Studio without CRM schema constraints.",
     "status": "private beta",
     "hubs": [
       "Operations Hub",
@@ -862,7 +862,7 @@
   "portal-14073771": {
     "id": "portal-14073771",
     "title": "Clone Marketing Emails with Simple Workflows",
-    "description": "",
+    "description": "When cloning a regular Marketing Email that has a simple workflow configured, you'll now see a new Copy simple workflows checkbox in the clone panel. Enabling this duplicates the email's associated simple workflows automatically, so you don't have to rebuild them from scratch.",
     "status": "private beta",
     "hubs": [
       "Marketing Hub",
@@ -889,7 +889,7 @@
   "portal-14066968": {
     "id": "portal-14066968",
     "title": "Improved Marketing Event Cards in Marketing Studio",
-    "description": "",
+    "description": "Marketing Event cards in Marketing Studio now display key event details directly on the card, so you can manage and distinguish events without opening extra tabs.",
     "status": "live",
     "hubs": [
       "Marketing Hub"
@@ -915,7 +915,7 @@
   "portal-14076212": {
     "id": "portal-14076212",
     "title": "Create Workflows Based on Quote Activity",
-    "description": "",
+    "description": "Customers can trigger workflows based on quote activity, like when a quote is viewed, signed, or updated, so they can act at the right moment. Get notified when a prospect views a quote. Send an email when a quote is signed.",
     "status": "live",
     "hubs": [
       "Sales Hub",
@@ -942,7 +942,7 @@
   "portal-14073572": {
     "id": "portal-14073572",
     "title": "Data Studio: Navigation Improvements",
-    "description": "",
+    "description": "An update to the Data Studio dataset building experience that makes it easier to find the tools that you're looking for to shape your data accordingly.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -968,7 +968,7 @@
   "portal-14076307": {
     "id": "portal-14076307",
     "title": "Add Line Items to Deals via Workflow Actions",
-    "description": "",
+    "description": "You now have access to a new workflow action that lets you automatically add line items to a deal. Within a workflow, you can: Select a specific product from your product library. Set a quantity. Automatically attach that line item to the deal when the workflow runs. This brings product and pricing logic directly into your automations. No manual deal updates required.",
     "status": "live",
     "hubs": [
       "Sales Hub",
@@ -995,7 +995,7 @@
   "portal-14073537": {
     "id": "portal-14073537",
     "title": "Improved Notifications for Workflow Issues",
-    "description": "",
+    "description": "Workflow notifications now alert users every time a unique workflow issue reappears, with smart throttling to prevent notification overload from cascading errors.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -1021,7 +1021,7 @@
   "portal-14055878": {
     "id": "portal-14055878",
     "title": "Shopify App Update: Product Variants Sync",
-    "description": "",
+    "description": "Product variants from Shopify—like different sizes or colors of the same item—now sync into HubSpot as individual product records. Refer to this KB article to learn more (Password: Integrations_282003).",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -1047,7 +1047,7 @@
   "portal-14073370": {
     "id": "portal-14073370",
     "title": "Improved Users Table & Page",
-    "description": "",
+    "description": "The Users page has been redesigned with modern data table functionality to streamline admin workflows and reduce friction in user management. Admins can now leverage bulk operations to update user properties directly from the table without navigating away.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -1073,7 +1073,7 @@
   "portal-14073351": {
     "id": "portal-14073351",
     "title": "Create report with AI option in Reporting",
-    "description": "",
+    "description": "Users can now select 'Create report with AI' from the Reporting page to open Breeze Assistant and generate reports via chat. They will have the ability to open this report in the builder at any point as well.",
     "status": "private beta",
     "hubs": [
       "Operations Hub"
@@ -1099,7 +1099,7 @@
   "portal-14076265": {
     "id": "portal-14076265",
     "title": "A new Notion integration",
-    "description": "",
+    "description": "Introducing a new two-way data sync app with Notion. This new app mirrors the comprehensive integration capabilities found in our 100+ data sync apps which automate the synchronization of data fields and objects across platforms, reducing manual work and ensuring data consistency.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -1154,7 +1154,7 @@
   "portal-14069222": {
     "id": "portal-14069222",
     "title": "Customize Workflow Names for the Enroll in Workflow CRM Card",
-    "description": "",
+    "description": "You can now customize the workflow names that display on the Enroll in Workflow CRM card. This lets you display clearer, more user-friendly names without changing the workflow’s original name in your automation setup.",
     "status": "live",
     "hubs": [
       "Operations Hub",
@@ -1181,7 +1181,7 @@
   "portal-14066450": {
     "id": "portal-14066450",
     "title": "Agents in CRM Cards",
-    "description": "",
+    "description": "DescriptionBreeze Agent CRM cards display agent outputs directly within CRM records, auto-loading the latest execution for each record and enabling users to select and run agents from a dropdown.",
     "status": "live",
     "hubs": [
       "Developer Platform"
@@ -1207,7 +1207,7 @@
   "portal-14071206": {
     "id": "portal-14071206",
     "title": "CRM Tool Approval Feature",
-    "description": "",
+    "description": "DescriptionAdmins now see separate 'Read' and 'Write' controls for CRM tools in agent configuration, with a clear option to require or skip approvals for each write tool used in workflows.",
     "status": "live",
     "hubs": [
       "Developer Platform"
@@ -1233,7 +1233,7 @@
   "portal-14069223": {
     "id": "portal-14069223",
     "title": "Property History & Association History Improvements",
-    "description": "",
+    "description": "Two updates to the historical tracking features on the HubSpot record page: property history now opens in a side panel instead of a standalone page, and association history tracks changes to association labels over time.",
     "status": "private beta",
     "hubs": [
       "Marketing Hub",
@@ -1261,7 +1261,7 @@
   "portal-14066413": {
     "id": "portal-14066413",
     "title": "Customize Your HubSpot Sales Toolbar in Gmail",
-    "description": "",
+    "description": "Customize the sales toolbar in Gmail to show only the tools you need, reducing clutter and fitting everything into a single row.",
     "status": "live",
     "hubs": [
       "Sales Hub"
@@ -1287,7 +1287,7 @@
   "portal-14049217": {
     "id": "portal-14049217",
     "title": "Caller ID for HubSpot Numbers (U.S.)",
-    "description": "",
+    "description": "Improve performance of HubSpot phone numbers by allowing customers to self register Caller ID on their phone numbers.",
     "status": "private beta",
     "hubs": [
       "Platform"
@@ -1313,7 +1313,7 @@
   "portal-14066526": {
     "id": "portal-14066526",
     "title": "Federal and Provincial Taxes for Canadian Buyers",
-    "description": "",
+    "description": "You can now display federal and provincial Canadian sales tax on quotes, invoices, payment links, and emails if you have enabled automated sales tax for your buyers in the following Canadian provinces: British Columbia, Quebec, and Manitoba.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -1390,7 +1390,7 @@
   "portal-14066617": {
     "id": "portal-14066617",
     "title": "Connected Apps Intelligence in Breeze Assistant",
-    "description": "",
+    "description": "Breeze Assistant now includes built-in tools to help you understand, monitor, and manage your integrations and data flows inside HubSpot. Breeze Assistant is available 24/7, ready to answer your most pressing questions about your connected apps.",
     "status": "live",
     "hubs": [
       "Developer Platform",
@@ -1762,7 +1762,7 @@
   "portal-14073282": {
     "id": "portal-14073282",
     "title": "A new, clearer navigation for customer agent",
-    "description": "",
+    "description": "Customer agent now has a redesigned navigation that organizes your setup experience around five lifecycle stages: Overview, Define, Train, Deploy, and Analyze.",
     "status": "live",
     "hubs": [
       "Breeze AI"
@@ -1788,7 +1788,7 @@
   "portal-14062129": {
     "id": "portal-14062129",
     "title": "Mark Mobile Notifications as Unread",
-    "description": "",
+    "description": "HubSpot mobile users can now mark notifications back as unread after they have been opened. Building on our previous notification updates, this feature makes it easy to save important updates and gives users more flexibility to manage their notification inbox on the go.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -2279,7 +2279,7 @@
   "portal-14066876": {
     "id": "portal-14066876",
     "title": "Clearer Error Messages for Communication Subscription Workflow Actions",
-    "description": "",
+    "description": "Error and success log messages for communication subscription actions in workflows are now more specific and actionable, making it easier to understand exactly what happened after an action runs. This applies to email, WhatsApp, and SMS messaging channels.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -2305,7 +2305,7 @@
   "portal-14066865": {
     "id": "portal-14066865",
     "title": "Resubscribe Contacts to Subscription Types via Workflows",
-    "description": "",
+    "description": "You can now use a workflow to resubscribe contacts who were unsubscribed through admin actions, such as bulk unsubscribes or workflow-triggered removals.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -2948,7 +2948,7 @@
   "portal-14062094": {
     "id": "portal-14062094",
     "title": "Sunset of Test Mode for Payment Links",
-    "description": "",
+    "description": "We're removing \"Test Mode\" for Payment Links due to changes in our payment processing integration. Effective March 3, 2026, the option to \"Open link in test mode\" will no longer be available.",
     "status": "sunset",
     "hubs": [
       "Platform"
@@ -2974,7 +2974,7 @@
   "portal-14066245": {
     "id": "portal-14066245",
     "title": "Rotate Record to Owner action in Conversation-based Workflows",
-    "description": "",
+    "description": "We’re extending the existing Rotate Owner action to work in conversation-based workflows. The Rotate record to owner action automatically moves a conversation to another inbox and assigns it to the right person or team based on who has access to that inbox.",
     "status": "live",
     "hubs": [
       "Service Hub",
@@ -3734,7 +3734,7 @@
   "portal-14064403": {
     "id": "portal-14064403",
     "title": "Credit Memos QuickBooks Online Data Sync",
-    "description": "",
+    "description": "Credit memo sync for QuickBooks Online is now in public beta. This feature enables bidirectional syncing of credit memos between HubSpot and QuickBooks Online, including line items, discounts, and automated sales tax. Credit memo applications to invoices also sync in both directions, so changes made in either system are reflected in the other.",
     "status": "private beta",
     "hubs": [
       "Operations Hub"
@@ -5002,7 +5002,7 @@
   "portal-14050155": {
     "id": "portal-14050155",
     "title": "Set Favorite Tab on Mobile Records",
-    "description": "",
+    "description": "Mobile app users can now set a preferred default tab (About, Activity, or Overview) for each CRM record type, so their chosen tab displays first when opening records.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -5783,7 +5783,7 @@
   "portal-14058412": {
     "id": "portal-14058412",
     "title": "Customizable Extended Sidebar for Customer Success Workspace",
-    "description": "",
+    "description": "Users see a persistent, customizable sidebar with comprehensive customer context and actions directly in the Customer Success Workspace.",
     "status": "live",
     "hubs": [
       "Platform"
@@ -6883,7 +6883,7 @@
   "portal-14055603": {
     "id": "portal-14055603",
     "title": "Updated Company Object Sync Between HubSpot and Salesforce",
-    "description": "",
+    "description": "Sync company objects between HubSpot and Salesforce with greater accuracy. This new update includes de-duplication features and new support for merging Company objects.",
     "status": "live",
     "hubs": [
       "Sales Hub",
@@ -14538,7 +14538,7 @@
   "portal-14027522": {
     "id": "portal-14027522",
     "title": "Agent Run Sharing",
-    "description": "",
+    "description": "You can now share agent run outputs with teammates in your portal using shareable links, making run outputs and activity logs viewable in a 'Shared with me' filter.",
     "status": "live",
     "hubs": [
       "Breeze AI"
@@ -14564,7 +14564,7 @@
   "portal-14023745": {
     "id": "portal-14023745",
     "title": "Admin Configurable Dashboards for Sales Performance",
-    "description": "",
+    "description": "Super admins can configure and assign up to five dashboards in Sales Performance to specific users, allowing managers to see relevant dashboards immediately upon accessing the tool.",
     "status": "live",
     "hubs": [
       "Sales Hub",
@@ -14592,7 +14592,7 @@
   "portal-14028306": {
     "id": "portal-14028306",
     "title": "Improved Report Refresh Rates",
-    "description": "",
+    "description": "The refresh function on reports works faster than it did before.",
     "status": "live",
     "hubs": [
       "Operations Hub"
@@ -21796,7 +21796,7 @@
   "portal-14007085": {
     "id": "portal-14007085",
     "title": "Legal Stuff Update - September 3, 2025",
-    "description": "",
+    "description": "Hello, HubSpot recently updated the Customer Terms of Service. We recommend you take a look at this Community Post for more information. Thanks, HubSpot",
     "status": "live",
     "hubs": [
       "Platform"
@@ -21822,7 +21822,7 @@
   "portal-14006377": {
     "id": "portal-14006377",
     "title": "Create Custom Rules to Manage Duplicate Records",
-    "description": "",
+    "description": "We’re introducing Custom Rules for Duplicate Identification in the manage duplicates tool. This feature lets users define their own duplicate matching criteria using exact matches on up to three properties—including custom properties—for contacts and companies.",
     "status": "private beta",
     "hubs": [
       "Operations Hub"
@@ -27724,7 +27724,7 @@
   "portal-13968218": {
     "id": "portal-13968218",
     "title": "Sunsetting Subscriptions Resub API",
-    "description": "",
+    "description": "The resub API beta is being sunset. Anyone using the resub API endpoints will need to fully move to our new Subscriptions API v4 before June 2, 2025 where they can subscribe previously unsubscribed contacts as well as enjoy -- Ability to subscribe/unsubscribe contact(s) from one or some subscription types. . Ability to set unsubscribe from all email communication..",
     "status": "sunset",
     "hubs": [
       "Developer Platform"
