@@ -423,7 +423,7 @@ function buildWhyItMatters(item) {
   if (text.includes('ai') || text.includes('breeze')) return 'AI tooling in HubSpot is moving fast. This update shifts what is possible for automation and prospect engagement.';
   if (hubs.includes('Developer Platform')) return 'This affects how custom apps and integrations behave — relevant if you manage custom code or marketplace apps.';
   if (status === 'now live') return 'This feature just shipped to all portals. Check whether it changes existing behavior or unlocks new capabilities.';
-  return 'Recent enough and impactful enough to deserve attention before it affects your portal or a client\'s.';
+  return 'Recent enough and impactful enough to deserve attention before it affects your portal or a client portal.';
 }
 
 function buildAction(item) {
