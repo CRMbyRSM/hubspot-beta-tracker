@@ -239,7 +239,11 @@ async function parsePortalUpdates() {
           status: mapPortalStatus(item),
           hubs: mapPortalHubs(item),
           source: 'portal-updates',
-          sourceUrl: `https://app-eu1.hubspot.com/product-updates/${item.rolloutId}`,
+          // Use public KB/community links when available; fall back to public hubspot.com product updates page
+          sourceUrl: item.rollout?.kbArticleLink 
+            || item.rollout?.communityForumLink
+            || item.ctaUrl
+            || `https://www.hubspot.com/product-updates`,
           pubDate: new Date(latestTs).toISOString(),
           sortDate: latestTs, // For sorting newest first
           author: null,
