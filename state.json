@@ -3386,7 +3386,7 @@
   "ai-powered-prospect-research": {
     "id": "ai-powered-prospect-research",
     "title": "AI-Powered Prospect Research",
-    "description": "",
+    "description": "AI-powered prospect research in HubSpot Breeze helps sales reps automatically research and qualify leads, surfacing key company and contact insights before outreach.",
     "status": "update",
     "hubs": [
       "Breeze AI"
@@ -3410,7 +3410,7 @@
   "agent-customization-flexibility": {
     "id": "agent-customization-flexibility",
     "title": "Agent Customization & Flexibility",
-    "description": "",
+    "description": "Customize Breeze AI agents with tailored personas, tones, and behaviors to better match your brand and sales process when interacting with prospects and customers.",
     "status": "update",
     "hubs": [
       "Breeze AI"
@@ -3434,7 +3434,7 @@
   "selling-profiles": {
     "id": "selling-profiles",
     "title": "Selling Profiles",
-    "description": "",
+    "description": "Selling profiles let reps capture and store key prospect preferences, communication styles, and relationship context to personalize future outreach and deal management.",
     "status": "update",
     "hubs": [
       "Platform"
@@ -3458,7 +3458,7 @@
   "email-capabilities": {
     "id": "email-capabilities",
     "title": "Email Capabilities",
-    "description": "",
+    "description": "New AI-powered email capabilities in Marketing Hub help create, personalize, and optimize email campaigns using Breeze AI — including subject line suggestions and content generation.",
     "status": "update",
     "hubs": [
       "Marketing Hub",
@@ -3483,7 +3483,7 @@
   "personalized-email-drafting-follow-up": {
     "id": "personalized-email-drafting-follow-up",
     "title": "Personalized Email Drafting & Follow-Up",
-    "description": "",
+    "description": "Breeze AI drafts personalized follow-up emails based on CRM data and previous interactions, reducing manual effort and improving response rates in sales sequences.",
     "status": "update",
     "hubs": [
       "Marketing Hub",
@@ -3508,7 +3508,7 @@
   "seamless-integration": {
     "id": "seamless-integration",
     "title": "Seamless Integration",
-    "description": "",
+    "description": "Seamless platform integration improvements connect HubSpot tools across hubs with fewer friction points — enabling smoother data flows between marketing, sales, and service.",
     "status": "update",
     "hubs": [
       "Platform"
@@ -3532,7 +3532,7 @@
   "workflow-crm-enrollment": {
     "id": "workflow-crm-enrollment",
     "title": "Workflow & CRM Enrollment",
-    "description": "",
+    "description": "Expanded workflow enrollment options allow CRM records to be enrolled in automations based on more trigger types, improving operational flexibility for RevOps teams.",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5557,7 +5557,6 @@
   "ui-extensions-p-wildcard-enables-cards-for-all-custom-objects": {
     "id": "ui-extensions-p-wildcard-enables-cards-for-all-custom-objects",
     "title": "UI Extensions: p_* wildcard enables cards for all custom objects",
-    "description": "",
     "status": "update",
     "hubs": [
       "Developer Platform"
@@ -5576,12 +5575,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "UI Extensions now support the p_* wildcard, allowing developers to create cards that work across all custom objects without needing object-specific configurations."
   },
   "breeze-studio-agents-upgraded-to-gpt-5": {
     "id": "breeze-studio-agents-upgraded-to-gpt-5",
     "title": "Breeze Studio agents upgraded to GPT-5",
-    "description": "",
     "status": "update",
     "hubs": [
       "Breeze AI"
@@ -5600,12 +5599,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Breeze Studio agents have been upgraded to GPT-5, improving the quality and accuracy of AI-generated content and responses in HubSpot workflows."
   },
   "sync-single-sign-on-sso-settings-to-sandbox-and-developer-accounts": {
     "id": "sync-single-sign-on-sso-settings-to-sandbox-and-developer-accounts",
     "title": "Sync Single Sign On (SSO) Settings to Sandbox and Developer Accounts",
-    "description": "",
     "status": "update",
     "hubs": [
       "Developer Platform"
@@ -5624,12 +5623,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "SSO settings configured in your production portal can now be synced to sandbox and developer accounts, simplifying authentication testing in non-production environments."
   },
   "enhanced-quote-design-with-html-editing": {
     "id": "enhanced-quote-design-with-html-editing",
     "title": "Enhanced Quote Design with HTML Editing",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5648,12 +5647,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Developers and admins can now use HTML editing to customize quote templates with greater design flexibility beyond the standard HubSpot editor."
   },
   "custom-events-can-now-be-deleted": {
     "id": "custom-events-can-now-be-deleted",
     "title": "Custom events can now be deleted",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5672,12 +5671,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Custom events created via the API can now be deleted through the HubSpot interface, allowing developers to clean up unused event schemas from their portals."
   },
   "new-sandbox-listing-page": {
     "id": "new-sandbox-listing-page",
     "title": "New Sandbox Listing Page",
-    "description": "",
     "status": "update",
     "hubs": [
       "Developer Platform"
@@ -5696,12 +5695,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "A redesigned sandbox listing page makes it easier to manage multiple sandbox environments, view their status, and switch between them in HubSpot."
   },
   "pre-rendering-warnings-now-appear-in-design-manager": {
     "id": "pre-rendering-warnings-now-appear-in-design-manager",
     "title": "Pre-rendering warnings now appear in Design Manager",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5720,12 +5719,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Design Manager now shows pre-rendering warnings for HubL templates, helping developers identify and fix rendering issues before publishing pages or modules."
   },
   "breeze-customer-agent-now-supports-omnichannel-deployment-via-custom-channels-ap": {
     "id": "breeze-customer-agent-now-supports-omnichannel-deployment-via-custom-channels-ap",
     "title": "Breeze Customer Agent Now Supports Omnichannel Deployment via Custom Channels API",
-    "description": "",
     "status": "update",
     "hubs": [
       "Developer Platform",
@@ -5745,12 +5744,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Breeze Customer Agent can now be deployed across custom channels via the Channels API, enabling integrations with third-party messaging platforms beyond native HubSpot chat."
   },
   "new-campaign-asset-type-associations-via-campaigns-public-api": {
     "id": "new-campaign-asset-type-associations-via-campaigns-public-api",
     "title": "New Campaign Asset Type Associations via Campaigns Public API",
-    "description": "",
     "status": "update",
     "hubs": [
       "Marketing Hub",
@@ -5771,12 +5770,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "The Campaigns Public API now supports associating additional asset types with campaigns, giving developers more flexibility when building campaign management integrations."
   },
   "company-lifecycle-stage-properties": {
     "id": "company-lifecycle-stage-properties",
     "title": "Company Lifecycle Stage Properties",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5795,12 +5794,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Company records now include lifecycle stage properties that mirror contact lifecycle tracking, enabling more consistent pipeline management across both object types."
   },
   "partner-search-analytics": {
     "id": "partner-search-analytics",
     "title": "Partner Search Analytics",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5819,12 +5818,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "New analytics for partner portal search help HubSpot partners understand how prospects discover their listings in the marketplace, improving visibility optimization."
   },
   "marketplace-updates": {
     "id": "marketplace-updates",
     "title": "Marketplace Updates",
-    "description": "",
     "status": "update",
     "hubs": [
       "Developer Platform"
@@ -5843,12 +5842,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Updates to the HubSpot Marketplace include improved listing management, review workflows, and developer submission guidelines for app and template providers."
   },
   "custom-event-updates": {
     "id": "custom-event-updates",
     "title": "Custom event updates",
-    "description": "",
     "status": "update",
     "hubs": [
       "Platform"
@@ -5867,12 +5866,12 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "Improvements to the Custom Events API include new filtering options, expanded property types, and better event schema management for developer integrations."
   },
   "public-beta-forecast-read-api": {
     "id": "public-beta-forecast-read-api",
     "title": "Public Beta: Forecast Read API",
-    "description": "",
     "status": "public beta",
     "hubs": [
       "Developer Platform"
@@ -5891,7 +5890,8 @@
     ],
     "sources": [
       "releasebot-dev"
-    ]
+    ],
+    "description": "The Forecast Read API is now in public beta, allowing developers to programmatically retrieve sales forecast data from HubSpot CRM for custom dashboards and reporting."
   },
   "public-beta-securely-generate-a-preference-page-url": {
     "id": "public-beta-securely-generate-a-preference-page-url",
