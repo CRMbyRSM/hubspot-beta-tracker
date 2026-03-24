@@ -1,3 +1,26 @@
 node_modules/
 .env
 *.log
+
+# Auth / credentials — never commit
+.auth-cookies
+.hubspot-cookies
+*.cookies
+
+# Railway config — contains infra IDs
+.railway/
+
+# Debug and one-off scripts
+debug-*.js
+debug-*.html
+test-*.js
+fix-*.js
+scrape-*.js
+fetch-descriptions.js
+enrich-*.js
+state-from-api.json
+
+# Keep these (intentional):
+# state.json — tracked item state
+# descriptions-manual.json — curated overrides
+# history/ — scan history
