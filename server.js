@@ -406,6 +406,7 @@ function isSunsetOrCritical(item) {
 
 function getTypeLabel(item) {
   const status = item.status || 'update';
+  if ((item.impact || 0) >= 10) return 'Major Update';
   if (status === 'breaking change' || status === 'sunset') return 'Important';
   if (status.includes('beta') || status === 'developer preview' || status === 'early access') return 'Beta';
   if (item.source === 'dev-changelog' || (item.hubs || []).includes('Developer Platform')) return 'Dev';
@@ -416,6 +417,7 @@ function buildWhyItMatters(item) {
   const status = item.status || 'update';
   const hubs = item.hubs || ['Platform'];
   const text = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
+  if ((item.impact || 0) >= 10) return 'HubSpot has flagged this as a major update — it may require preparation or affect how your team works in the platform.';
   if (status === 'sunset') return 'This feature is being retired. Portals still relying on it will lose functionality — act before the deadline.';
   if (status === 'breaking change') return 'This change will break existing integrations or workflows if left unaddressed. Review before the release date.';
   if (status === 'public beta') return 'Now available to test in production. Early adoption lets you get ahead of the rollout before it becomes default.';
@@ -486,6 +488,8 @@ function scoreRisk(item) {
   let score = scoreUrgency(item);
   if (isSunsetOrCritical(item)) score += 30;
   if (/migrate|migration|required|must|deprecated|remove|sunset|breaking/.test(text)) score += 18;
+  // HubSpot portal impactLevel >= 10 = "Major update" badge in portal UI
+  if ((item.impact || 0) >= 10) score += 25;
   return score;
 }
 
@@ -506,7 +510,7 @@ function selectSunsetItems(items) {
 function selectImportantItems(items) {
   return [...items]
     .filter(i => !isSunsetOrCritical(i))
-    .sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
+    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
     .slice(0, 3);
 }
 
