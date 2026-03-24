@@ -1121,23 +1121,90 @@ async function main() {
   console.log(`✅ Scan complete. ${changes.new.length} new, ${changes.statusChanged.length} changed, ${Object.keys(state.betas).length} total tracked.`);
 }
 
+const FALLBACK_DESCRIPTIONS = new Set([
+  'Limited private beta. Request access if you need this feature.',
+  'Public beta available for testing. Please share feedback with HubSpot.',
+  'Now available in HubSpot. Platform feature update.',
+  'Now available in HubSpot. Sales Hub feature update.',
+  'Now available in HubSpot. Operations Hub feature update.',
+  'Now available in HubSpot. Marketing Hub feature update.',
+  'Now available in HubSpot. Service Hub feature update.',
+  'Tracked HubSpot update. View the source link for complete details.',
+]);
+
+function cleanDescHtml(raw, maxLen = 400) {
+  const text = raw
+    .replace(/<br\s*\/?>/gi, ' ').replace(/<\/p>/gi, ' ').replace(/<\/li>/gi, '. ')
+    .replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+    .replace(/\s+/g, ' ').trim();
+  if (text.length <= maxLen) return text;
+  const trimmed = text.substring(0, maxLen);
+  const lastPeriod = Math.max(trimmed.lastIndexOf('. '), trimmed.lastIndexOf('! '), trimmed.lastIndexOf('? '));
+  return lastPeriod > maxLen * 0.5 ? trimmed.substring(0, lastPeriod + 1) : trimmed;
+}
+
+async function enrichNewItemDescriptions() {
+  const { cookie, csrf } = loadPortalAuth();
+  if (!cookie || !csrf) {
+    console.log('📝 Portal auth not configured — skipping description enrichment');
+    return;
+  }
+
+  const state = JSON.parse(fs.readFileSync(STATE_FILE));
+  const needsDesc = Object.entries(state.betas || {}).filter(([id, item]) =>
+    id.startsWith('portal-') &&
+    (!item.description || item.description.length < 30 || FALLBACK_DESCRIPTIONS.has(item.description))
+  );
+
+  if (needsDesc.length === 0) {
+    console.log('📝 All portal items have real descriptions — nothing to enrich');
+    return;
+  }
+
+  console.log(`\n📝 Enriching ${needsDesc.length} portal items missing descriptions...`);
+  let updated = 0;
+  const batchSize = 10;
+
+  for (let i = 0; i < needsDesc.length; i += batchSize) {
+    const batch = needsDesc.slice(i, i + batchSize);
+    const results = await Promise.all(batch.map(async ([id]) => {
+      const updateId = id.replace('portal-', '');
+      try {
+        const resp = await fetch(
+          `https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/${updateId}?portalId=139633041`,
+          { headers: { 'cookie': cookie, 'x-hubspot-csrf-hubspotapi': csrf }, signal: AbortSignal.timeout(10000) }
+        );
+        if (!resp.ok) return { id, desc: null };
+        const d = await resp.json();
+        const html = d?.translatedContent?.content;
+        if (!html) return { id, desc: null };
+        const whatIsIt = html.match(/What is it\?:?\s*(.*?)(?:Why does it matter|How does it work|<h[23]|$)/is);
+        const desc = whatIsIt && whatIsIt[1].length > 30
+          ? cleanDescHtml(whatIsIt[1], 400)
+          : cleanDescHtml(html, 400);
+        return { id, desc: desc.length > 30 ? desc : null };
+      } catch { return { id, desc: null }; }
+    }));
+
+    for (const { id, desc } of results) {
+      if (desc) { state.betas[id].description = desc; updated++; }
+    }
+    await new Promise(r => setTimeout(r, 300));
+  }
+
+  if (updated > 0) {
+    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+    console.log(`  ✓ Enriched ${updated}/${needsDesc.length} descriptions`);
+  } else {
+    console.log(`  ℹ No new descriptions available from HubSpot yet`);
+  }
+}
+
 async function runWithDescriptionScraper() {
   try {
-    // Run main scan first
     await main();
-    
-    // Then scrape descriptions for items that need them
-    console.log('\n📝 Starting description scraper...');
-    const { execSync } = await import('child_process');
-    try {
-      execSync('node scrape-detailed-descriptions.js', { 
-        stdio: 'inherit',
-        timeout: 300000 // 5 minute timeout for scraper
-      });
-    } catch (e) {
-      // Scraper errors don't block the main job
-      console.log('⚠️ Description scraper failed (non-blocking):', e.message);
-    }
+    await enrichNewItemDescriptions();
   } catch (err) {
     console.error('Fatal error:', err);
     process.exit(1);
