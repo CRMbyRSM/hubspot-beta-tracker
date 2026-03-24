@@ -235,7 +235,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .badge[data-status="update"]{background:rgba(255,255,255,.05);color:#999}
 .hub-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .hub-tag{font-size:.65rem;font-weight:600;padding:3px 10px;border-radius:4px;white-space:nowrap}
-.card-desc{color:var(--text);font-size:.86rem;line-height:1.55;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-desc{color:var(--text);font-size:.86rem;line-height:1.55;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.76rem;color:var(--text-muted)}
 .card-meta a{color:var(--teal)}
 

@@ -207,28 +207,34 @@ async function parsePortalUpdates() {
         let description = '';
         if (item.translatedContent?.content) {
           const html = item.translatedContent.content;
-          // Extract "What is it?" section first (most descriptive)
-          const whatIsIt = html.match(/What is it\?:?\s*(.*?)(?:Why does it matter|How does it work|$)/is);
-          if (whatIsIt && whatIsIt[1].length > 30) {
-            description = whatIsIt[1]
+          // Helper: clean HTML to plain text and trim to sentence boundary
+          const cleanHtml = (raw, maxLen = 400) => {
+            const text = raw
               .replace(/<br\s*\/?>/gi, ' ')
               .replace(/<\/p>/gi, ' ')
+              .replace(/<\/li>/gi, '. ')
               .replace(/<[^>]+>/g, '')
               .replace(/&nbsp;/g, ' ')
               .replace(/&amp;/g, '&')
+              .replace(/&lt;/g, '<')
+              .replace(/&gt;/g, '>')
+              .replace(/&quot;/g, '"')
               .replace(/\s+/g, ' ')
-              .trim()
-              .substring(0, 220);
+              .trim();
+            if (text.length <= maxLen) return text;
+            // Trim to last complete sentence within maxLen
+            const trimmed = text.substring(0, maxLen);
+            const lastPeriod = Math.max(trimmed.lastIndexOf('. '), trimmed.lastIndexOf('! '), trimmed.lastIndexOf('? '));
+            return lastPeriod > maxLen * 0.5 ? trimmed.substring(0, lastPeriod + 1) : trimmed;
+          };
+          // Extract "What is it?" section first (most descriptive)
+          const whatIsIt = html.match(/What is it\?:?\s*(.*?)(?:Why does it matter|How does it work|<h[23]|$)/is);
+          if (whatIsIt && whatIsIt[1].length > 30) {
+            description = cleanHtml(whatIsIt[1], 400);
           }
-          // Fallback: take first ~300 chars of clean text
+          // Fallback: clean full HTML
           if (!description) {
-            description = html
-              .replace(/<[^>]+>/g, '')
-              .replace(/&nbsp;/g, ' ')
-              .replace(/&amp;/g, '&')
-              .replace(/\s+/g, ' ')
-              .trim()
-              .substring(0, 220);
+            description = cleanHtml(html, 400);
           }
         }
 
