@@ -203,10 +203,39 @@ async function parsePortalUpdates() {
           item.stageDate || item.releaseDate || 0
         );
 
+        // Extract description from translatedContent HTML
+        let description = '';
+        if (item.translatedContent?.content) {
+          const html = item.translatedContent.content;
+          // Extract "What is it?" section first (most descriptive)
+          const whatIsIt = html.match(/What is it\?:?\s*(.*?)(?:Why does it matter|How does it work|$)/is);
+          if (whatIsIt && whatIsIt[1].length > 30) {
+            description = whatIsIt[1]
+              .replace(/<br\s*\/?>/gi, ' ')
+              .replace(/<\/p>/gi, ' ')
+              .replace(/<[^>]+>/g, '')
+              .replace(/&nbsp;/g, ' ')
+              .replace(/&amp;/g, '&')
+              .replace(/\s+/g, ' ')
+              .trim()
+              .substring(0, 220);
+          }
+          // Fallback: take first ~300 chars of clean text
+          if (!description) {
+            description = html
+              .replace(/<[^>]+>/g, '')
+              .replace(/&nbsp;/g, ' ')
+              .replace(/&amp;/g, '&')
+              .replace(/\s+/g, ' ')
+              .trim()
+              .substring(0, 220);
+          }
+        }
+
         return {
           id: `portal-${item.id || slugify(item.title || item.untranslatedTitle || 'update')}`,
           title: (item.title || item.untranslatedTitle || 'Untitled portal update').trim(),
-          description: (item.description || '').toString().substring(0, 500),
+          description: description,
           status: mapPortalStatus(item),
           hubs: mapPortalHubs(item),
           source: 'portal-updates',
@@ -1034,11 +1063,11 @@ async function main() {
   
   console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
   
-  // Fetch lightweight sources in parallel, prioritizing Releasebot (most fresh data)
+  // Fetch lightweight sources in parallel, prioritizing Portal API (most authoritative + descriptions)
   // Then Playwright-based community scrape sequentially (requires browser binary)
-  const [releasebotItems, portalItems, productItems, devItems] = await Promise.all([
-    parseReleasebot(),
+  const [portalItems, releasebotItems, productItems, devItems] = await Promise.all([
     parsePortalUpdates(),
+    parseReleasebot(),
     parseProductUpdates(),
     parseDevChangelog(),
   ]);
@@ -1046,8 +1075,8 @@ async function main() {
   // Community uses Playwright (heavy) — run after other fetches complete
   const communityItems = await parseCommunityUpdates();
   
-  // Priority order: Releasebot first (newest data), then others, portal/community last (slower sources)
-  const allItems = [...releasebotItems, ...portalItems, ...productItems, ...communityItems, ...devItems];
+  // Priority order: Portal first (official HubSpot + real descriptions), then Releasebot (freshest news), then others
+  const allItems = [...portalItems, ...releasebotItems, ...productItems, ...communityItems, ...devItems];
   
   // Deduplicate by ID (prefer items with more info)
   const deduped = new Map();

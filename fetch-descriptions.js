@@ -90,18 +90,52 @@ async function fetchCommunityDesc(browser, url) {
   try {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
     
-    // Try to extract first paragraph from thread body
+    // Extract first substantive paragraph from community thread
     const desc = await page.evaluate(() => {
-      const post = document.querySelector('div.lia-message-body-content') || 
-                   document.querySelector('article') ||
-                   document.querySelector('[role="article"]');
+      // Try multiple selectors for community thread body
+      const selectors = [
+        'div.lia-message-body-content',
+        'div[class*="message-body"]',
+        'article',
+        'div[role="article"]',
+        'div.post-body',
+        'div.entry-content'
+      ];
+      
+      let post = null;
+      for (const sel of selectors) {
+        post = document.querySelector(sel);
+        if (post && post.textContent.length > 100) break;
+      }
+      
       if (!post) return null;
       
-      const p = post.querySelector('p');
-      return p ? p.textContent.trim() : null;
+      // Get first paragraph with substance
+      const paragraphs = post.querySelectorAll('p');
+      for (const p of paragraphs) {
+        const text = p.textContent.trim();
+        if (text.length > 50 && !text.includes('Posted') && !text.includes('Tags:')) {
+          return text;
+        }
+      }
+      
+      // If no paragraphs, try getting text content
+      const text = post.textContent.trim().split('\n')[0];
+      return text && text.length > 50 ? text : null;
     });
     
-    return desc && desc.length > 30 ? desc : null;
+    // Clean up the text
+    if (desc) {
+      const cleaned = desc
+        .replace(/\s+/g, ' ')                    // collapse whitespace
+        .substring(0, 200)                        // cap length
+        .trim();
+      return cleaned.length > 50 ? cleaned : null;
+    }
+    
+    return null;
+  } catch (e) {
+    return null;
   } finally {
     await page.close();
   }
@@ -124,26 +158,55 @@ async function fetchGenericDesc(browser, url) {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
     
     const desc = await page.evaluate(() => {
-      // Try common article content patterns
-      const selectors = [
-        'article p',
-        'main p',
-        '.content p',
-        '.post-content p',
-        '.entry-content p'
+      // Look for main content container
+      const contentSelectors = [
+        'article',
+        'main',
+        '[role="main"]',
+        '.content',
+        '.post-content',
+        '.entry-content',
+        'div[class*="article"]',
+        'div[class*="content"]'
       ];
       
-      for (const sel of selectors) {
-        const p = document.querySelector(sel);
-        if (p) {
-          const text = p.textContent.trim();
-          if (text.length > 30) return text;
+      let container = null;
+      for (const sel of contentSelectors) {
+        container = document.querySelector(sel);
+        if (container && container.textContent.length > 200) break;
+      }
+      
+      if (!container) return null;
+      
+      // Extract first substantive paragraph
+      const paragraphs = container.querySelectorAll('p');
+      for (const p of paragraphs) {
+        const text = p.textContent.trim();
+        // Skip metadata lines, empty paragraphs, and navigation
+        if (text.length > 60 && 
+            !text.match(/^(by|posted|date|updated|author):/i) &&
+            !text.includes('©') &&
+            !text.includes('privacy')) {
+          return text;
         }
       }
-      return null;
+      
+      // Fallback: get first meaningful text block
+      const text = container.textContent.trim();
+      const lines = text.split('\n').filter(l => l.length > 60);
+      return lines[0] || null;
     });
     
-    return desc;
+    if (desc) {
+      return desc
+        .replace(/\s+/g, ' ')
+        .substring(0, 200)
+        .trim();
+    }
+    
+    return null;
+  } catch (e) {
+    return null;
   } finally {
     await page.close();
   }

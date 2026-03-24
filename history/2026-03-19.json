@@ -1,0 +1,42 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "release-notes-q1-26-product-community-release",
+          "title": "Release Notes - Q1 26 Product Community Release",
+          "description": "HubSpot releases Q1 Community Release Notes highlighting three product updates: a LinkedIn share button for Ideas posts that opens a prefilled composer, privacy improvement hiding biographies from anonymous visitors, and a footer redirect cleanup to improve load times and SEO, signaling a quarterly cadence.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-15T23:00:00.000Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 59,
+    "timestamp": "2026-03-19T10:57:30.592Z"
+  },
+  {
+    "changes": {
+      "new": [],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 59,
+    "timestamp": "2026-03-19T10:58:41.282Z"
+  },
+  {
+    "changes": {
+      "new": [],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 59,
+    "timestamp": "2026-03-19T11:19:31.835Z"
+  }
+]
