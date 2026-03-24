@@ -305,11 +305,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 </header>
 
 <main class="container">
-  <section class="section" id="heroSection" style="padding-top:40px">
-    <!-- Hero grid inserted here -->
-  </section>
-
-  <section class="section" id="importantSection">
+  <section class="section" id="importantSection" style="padding-top:40px">
     <div class="section-head">
       <div>
         <div class="section-kicker">Start here</div>
@@ -414,6 +410,20 @@ function getTypeLabel(item) {
   if (status.includes('beta') || status === 'developer preview' || status === 'early access') return 'Beta';
   if (item.source === 'dev-changelog' || (item.hubs || []).includes('Developer Platform')) return 'Dev';
   return 'Update';
+}
+
+function buildWhyItMatters(item) {
+  const status = item.status || 'update';
+  const hubs = item.hubs || ['Platform'];
+  const text = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
+  if (status === 'sunset') return 'This feature is being retired. Portals still relying on it will lose functionality — act before the deadline.';
+  if (status === 'breaking change') return 'This change will break existing integrations or workflows if left unaddressed. Review before the release date.';
+  if (status === 'public beta') return 'Now available to test in production. Early adoption lets you get ahead of the rollout before it becomes default.';
+  if (status === 'private beta') return 'Limited access available now. If this solves a problem for you or a client, request access before the public rollout.';
+  if (text.includes('ai') || text.includes('breeze')) return 'AI tooling in HubSpot is moving fast. This update shifts what\'s possible for automation and prospect engagement.';
+  if (hubs.includes('Developer Platform')) return 'This affects how custom apps and integrations behave — relevant if you manage custom code or marketplace apps.';
+  if (status === 'now live') return 'This feature just shipped to all portals. Check whether it changes existing behavior or unlocks new capabilities.';
+  return 'Recent enough and impactful enough to deserve attention before it affects your portal or a client\'s.';
 }
 
 function buildAction(item) {
@@ -562,27 +572,7 @@ function renderMeta(data) {
 }
 
 function renderHero() {
-  // Show top 4 most relevant items in hero section
-  const heroItems = selectHeroItems(allBetas);
-  if (!heroItems.length) return;
-
-  const sourceMap = { 'dev-changelog':'Dev Changelog', 'community':'Community', 'releasebot':'Releasebot', 'releasebot-product':'Releasebot', 'releasebot-dev':'Releasebot (Dev)', 'product-updates':'Product Updates' };
-  const heroHtml = heroItems.map(item => {
-    const sourceLabel = sourceMap[item.source] || item.source;
-    const lastUpdated = new Date(item.lastSeen || item.firstSeen).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    return '<div class="hero-card ' + item.status.replace(/\s+/g, '-') + '">' +
-      '<span class="hero-badge">' + escapeHtml(titleCase(item.status)) + '</span>' +
-      '<h2 class="hero-title">' + escapeHtml(item.title) + '</h2>' +
-      '<p class="hero-desc">' + escapeHtml((item.description || '').slice(0, 120)) + '</p>' +
-      '<div class="hero-footer">' +
-        '<span class="hero-source">' + escapeHtml(sourceLabel) + '</span>' +
-        '<span class="hero-date">' + escapeHtml(lastUpdated) + '</span>' +
-      '</div>' +
-      (item.sourceUrl ? '<a href="' + item.sourceUrl + '" class="hero-link" target="_blank" rel="noopener">Read More →</a>' : '') +
-    '</div>';
-  }).join('');
-
-  document.getElementById('heroSection').innerHTML = '<div class="hero-grid">' + heroHtml + '</div>';
+  // Hero section removed — important items displayed in renderImportant() below
 }
 
 function renderImportant() {
@@ -600,9 +590,9 @@ function renderImportant() {
     return '<article class="important-card ' + importance + '">' +
       '<div class="important-type">' + escapeHtml(typeLabel) + ' · ' + escapeHtml(titleCase(item.status || 'update')) + '</div>' +
       '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
-      '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked update with platform impact.') + '</p>' +
+      '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 240) || 'Tracked update with platform impact.') + '</p>' +
       '<div class="important-meta">' +
-        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml(scoreUrgency(item) >= 45 ? 'This is new enough and impactful enough to deserve attention right now.' : 'This is one of the most relevant recent updates across the tracker.') + '</div>' +
+        '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml(buildWhyItMatters(item)) + '</div>' +
         '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
         '<div class="important-row"><strong>Action:</strong> ' + escapeHtml(buildAction(item)) + '</div>' +
       '</div>' +
@@ -615,7 +605,7 @@ function renderImportant() {
     return '<article class="important-card sunset">' +
       '<div class="important-type" style="color:var(--orange)">' + escapeHtml(label) + '</div>' +
       '<h3 class="important-title">' + escapeHtml(item.title || 'Untitled update') + '</h3>' +
-      '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 180) || 'Tracked time-sensitive change.') + '</p>' +
+      '<p class="important-copy">' + escapeHtml((item.description || '').slice(0, 240) || 'Tracked time-sensitive change.') + '</p>' +
       '<div class="important-meta">' +
         '<div class="important-row"><strong>Why it matters:</strong> ' + escapeHtml('This is the highest-risk time-sensitive item in the current feed and may require action soon.') + '</div>' +
         '<div class="important-row"><strong>Who it affects:</strong> ' + escapeHtml(buildWho(item)) + '</div>' +
