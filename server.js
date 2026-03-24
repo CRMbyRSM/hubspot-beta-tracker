@@ -420,7 +420,7 @@ function buildWhyItMatters(item) {
   if (status === 'breaking change') return 'This change will break existing integrations or workflows if left unaddressed. Review before the release date.';
   if (status === 'public beta') return 'Now available to test in production. Early adoption lets you get ahead of the rollout before it becomes default.';
   if (status === 'private beta') return 'Limited access available now. If this solves a problem for you or a client, request access before the public rollout.';
-  if (text.includes('ai') || text.includes('breeze')) return 'AI tooling in HubSpot is moving fast. This update shifts what\'s possible for automation and prospect engagement.';
+  if (text.includes('ai') || text.includes('breeze')) return 'AI tooling in HubSpot is moving fast. This update shifts what is possible for automation and prospect engagement.';
   if (hubs.includes('Developer Platform')) return 'This affects how custom apps and integrations behave — relevant if you manage custom code or marketplace apps.';
   if (status === 'now live') return 'This feature just shipped to all portals. Check whether it changes existing behavior or unlocks new capabilities.';
   return 'Recent enough and impactful enough to deserve attention before it affects your portal or a client\'s.';
