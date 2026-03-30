@@ -6,6 +6,24 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
 const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
+// ─── Stats tracking ─────────────────────────────────────────────────────────
+const STATS_FILE = path.join(__dirname, 'stats.json');
+
+function loadStats() {
+  try { return JSON.parse(fs.readFileSync(STATS_FILE, 'utf8')); } catch { return { views: 0, startDate: new Date().toISOString() }; }
+}
+
+function saveStats(stats) {
+  fs.writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2));
+}
+
+function incrementView() {
+  const stats = loadStats();
+  stats.views = (stats.views || 0) + 1;
+  stats.lastView = new Date().toISOString();
+  saveStats(stats);
+}
+
 const PORT = process.env.PORT || 3000;
 import { spawn } from 'child_process';
 const SCAN_INTERVAL_MS = 24 * 60 * 60 * 1000; // once per day
@@ -110,10 +128,16 @@ app.post('/api/subscribe', async (req, res) => {
 // ─── Frontend ───────────────────────────────────────────────────────────────
 
 app.get('/', (_req, res) => {
+  incrementView();
   res.send(HTML);
 });
 
 // ─── Start ──────────────────────────────────────────────────────────────────
+
+
+app.get('/api/stats', (_req, res) => {
+  res.json(loadStats());
+});
 
 app.listen(PORT, () => {
   console.log(`🔬 HubSpot Beta Tracker running at http://localhost:${PORT}`);
