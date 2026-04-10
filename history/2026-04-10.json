@@ -1,0 +1,516 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "110-new-and-24-notable-app-updates-in-the-hubspot-marketplace",
+          "title": "110+ New and 24+ Notable App Updates in the HubSpot Marketplace",
+          "description": "Hubspot highlights new and updated Marketplace apps that add richer context, tighter connections, and more automation across CRM, Slack, documents, commerce, support, and workflows, including new integrations, AI-powered summaries, and deeper record syncing.",
+          "status": "update",
+          "hubs": [
+            "Service Hub",
+            "Operations Hub",
+            "Commerce Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-07T22:00:00.000Z"
+        },
+        {
+          "id": "products-taxes",
+          "title": "Products & Taxes",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "credit-memos-accounting",
+          "title": "Credit Memos & Accounting",
+          "description": "Check out demo videos, links to KB articles and more below.",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "default-manual-tax-rates-live",
+          "title": "Default manual tax rates (Live)",
+          "description": "For customers operating primarily in a single tax region (common in Europe, ANZ, Canada, LATAM), it’s now much easier to handle manual tax: This work is directly informed by long‑running feedback in the Community Ideas Forum, which calls out the pain of re‑applying the same tax rate on every single line item. Learn more about how to set up automated tax and tax rates > Create and use tax rates.",
+          "status": "live",
+          "hubs": [
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "demo-default-manual-tax-rates",
+          "title": "Demo – Default manual tax rates",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "invoice-editability-balance-changing-properties-private-beta",
+          "title": "Invoice editability: balance‑changing properties (Private beta)",
+          "description": "As promised in the last roundup, invoice editing took a big step forward. You can now edit balance‑changing properties on paid and partially paid invoices in private beta. That means: This is especially impactful for customers who previously had to work outside HubSpot (or recreate invoices) to correct mistakes.",
+          "status": "private beta",
+          "hubs": [
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "demo-edit-balance-changing-invoice-properties",
+          "title": "Demo – Edit balance‑changing invoice properties",
+          "description": "For more detail or to request access, see the associated product update in the in‑app Product Updates feed here.",
+          "status": "update",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "credit-memo-sync-with-quickbooks-online-live",
+          "title": "Credit Memo sync with QuickBooks Online (Live)",
+          "description": "For teams running their books in QuickBooks Online (QBO), credit memos are now part of the standard HubSpot ↔ QBO sync story: This closes a major loop for finance teams who previously had to double‑enter adjustments or reconcile partial data across systems.",
+          "status": "live",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "demo-credit-memo-sync-with-quickbooks-online",
+          "title": "Demo – Credit Memo sync with QuickBooks Online",
+          "description": "For setup details and limitations (one‑way vs two‑way sync, how applications and fields behave, etc.), see:",
+          "status": "update",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "credit-memos-object-settings-associations-live-as-of-4-16",
+          "title": "Credit Memos: Object Settings & Associations (Live as of 4/16)",
+          "description": "Credit memos are moving from “off to the side” into the center of the HubSpot CRM data model: This makes it much easier to answer questions like:",
+          "status": "live",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "demo-credit-memos-object-settings-associations",
+          "title": "Demo – Credit Memos: Object settings & associations",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-06T22:00:00.000Z"
+        },
+        {
+          "id": "content-rendering-will-migrate-to-cldr-locale-data-standard",
+          "title": "Content Rendering Will Migrate to CLDR Locale Data Standard",
+          "description": "HubSpot will migrate content rendering from the legacy Java Runtime Environment (JRE) locale dataset to the Common Locale Data Repository (CLDR), the current industry standard for localization. Most content will remain unchanged, while some may see improved formatting accuracy.",
+          "status": "update",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/content-rendering-will-migrate-to-cldr-locale-data-standard",
+          "pubDate": "Wed, 01 Apr 2026 19:53:15 GMT",
+          "author": "dedson@hubspot.com (Dennis Edson)"
+        },
+        {
+          "id": "introducing-date-based-api-versioning",
+          "title": "Introducing date-based API versioning",
+          "description": "Today we're introducing a new versioning system for our APIs, using a /YYYY-MM/ format (like /2026-03/ ) instead of v1, v2, v3, v4 to denote the month in which the API was shipped. This date-based versioning gives developers a predictable way to manage API updates and breaking changes.",
+          "status": "breaking change",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/introducing-date-based-api-versioning",
+          "pubDate": "Mon, 30 Mar 2026 19:47:42 GMT",
+          "author": "dadams@hubspot.com (David Adams)"
+        },
+        {
+          "id": "new-features-for-app-objects-view-in-data-model-builder-and-add-pipeline-rules",
+          "title": "New features for app objects: View in data model builder and add pipeline rules",
+          "description": "To help you make the most of app objects, you can now view them in your data model builder alongside standard CRM objects and custom objects. This helps you understand how app objects interact and are associated with other CRM objects. There are also three new pipeline rules for app objects. These rules can be configured individually in the app object’s settings: Adding pipeline rules ensures everyone in an account follows standard processes.",
+          "status": "update",
+          "hubs": [
+            "Sales Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "app-card-review-updates",
+          "title": "App card review updates",
+          "description": "The App Card Review Program is being updated with an improved process for reviewing and approving CRM UI extension app cards submitted by marketplace partners before they go live. This updated process replaces a longer, more complex review with a standardized, video-based submission and evaluation. The current process requires that a HubSpot review team be added as a super admin to a test account with the app card installed. The updated process still begins with submitting the review form, but r",
+          "status": "live",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "new-file-ingestion-api-beta-for-data-studio",
+          "title": "New file ingestion API beta for Data Studio",
+          "description": "You can now use a new File Ingestion API that enables developers to upload static tabular data (CSV, XLS(X), TSV) as reusable data sources in HubSpot’s Data Studio. This API provides a developer-friendly, schema-agnostic way to bring structured data into HubSpot without mapping it to CRM objects. Key capabilities introduced: What does this mean for developers? Developers can now define a reusable external data source and programmatically manage it through the API. All files uploaded to the same ",
+          "status": "update",
+          "hubs": [
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "conversations-api-beta-enhancements",
+          "title": "Conversations API beta enhancements",
+          "description": "The latest Conversations API (BETA) update includes several of your top-requested enhancements, important reliability fixes, and a Help Desk sunset reminder. Below is a complete breakdown of what’s changing, why it matters, and what developers can look forward to. Retrieve all threads for a specific ticket: You can now fetch threads associated with a given ticket: New actor type: L (LLM): GET actor endpoints now expose actor type L (short for “LLM”), representing HubSpot’s Customer Agent. Severa",
+          "status": "sunset",
+          "hubs": [
+            "Marketing Hub",
+            "Service Hub",
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "connections-insights",
+          "title": "Connections insights",
+          "description": "Connection Insights is a new tab in Connected Apps that provides a high-level, centralized view of how your apps are behaving across HubSpot, at a glance. It brings together global insights about app activity, automation involvement, disconnect history, and API usage. From this tab, you can see: This feature is currently in public beta. See the product notification for more details. Questions or comments? Please join us in our developer forums.",
+          "status": "public beta",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "use-workflows-to-create-a-quote-live",
+          "title": "Use Workflows to Create a Quote (Live)",
+          "description": "Customers can now automatically create a quote or renewal quote in draft status using a workflow action, which addresses a long standing customer request with 400+ upvotes in our community forum. Create Quote Action in Workflows Creating Renewal Quotes Action in Workflows",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "create-workflows-based-on-quote-activity-live",
+          "title": "Create workflows based on Quote activity (Live)",
+          "description": "Quote activity events are now exposed in workflows, so teams can automate real-time notifications when quotes are viewed, expired, and more — no more manual monitoring.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "select-a-primary-quote-on-a-deal-record-live",
+          "title": "Select a Primary Quote on a Deal Record (Live)",
+          "description": "You can now enable a primary quote association on deals!",
+          "status": "live",
+          "hubs": [
+            "Sales Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "choose-between-legacy-and-commerce-hub-quote-creation-from-one-place-live",
+          "title": "Choose between legacy and Commerce Hub quote creation — from one place (Live)",
+          "description": "Customers with a Commerce Hub seat can now create both Legacy and Commerce Hub Quotes based on their settings, supporting a smoother transition experience.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "credit-memos-live",
+          "title": "Credit memos (Live)",
+          "description": "Issue credits and apply to invoices inside HubSpot!",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "create-one-time-invoices-from-quotes-or-deals-with-workflows-public-beta",
+          "title": "Create one-time invoices from quotes or deals with workflows (Public beta)",
+          "description": "The Convert to Invoice workflow lets teams automate invoice creation directly from a quote or deal, making billing faster, more consistent, and ready for final review before sending.",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "edit-non-balance-changing-properties-on-one-time-invoices-after-payment-public-b",
+          "title": "Edit non-balance changing properties on one-time invoices after payment (Public beta)",
+          "description": "Finance and operations teams can now edit invoice details on partially paid or paid one-time invoices — as long as the change doesn't affect the amount due — keeping records accurate without recreating invoices. Check back for price impacting edits coming to private beta soon!",
+          "status": "public beta",
+          "hubs": [
+            "Operations Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "canadian-federal-and-provincial-tax-breakdown-on-quotes-invoices-checkout-and-em",
+          "title": "Canadian federal and provincial tax breakdown on quotes, invoices, checkout and emails (Live)",
+          "description": "Federal and provincial Canadian sales taxes now display as separate line items for buyers in British Columbia, Quebec, and Manitoba, helping businesses comply with provincial laws.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-26T23:00:00.000Z"
+        },
+        {
+          "id": "top-hubspot-product-updates-for-march-2026",
+          "title": "Top HubSpot Product Updates for March 2026",
+          "description": "Hubspot ships March product updates that expand workflow automation, boost Customer Agent with image understanding and language controls, add AI-powered Breeze reporting, and improve admin tooling with CSV team imports and new Connected Apps insights.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-03-24T23:00:00.000Z"
+        },
+        {
+          "id": "workflow-improvements",
+          "title": "Workflow Improvements",
+          "description": "Workflows got three updates this month that cover maintenance, deal setup, and meeting automation. Revert to a prior revision\nAutomatically add line items to deals\nTrigger workflows from meeting records (Public Beta) Revert to a prior workflow revision If you’ve ever made a change to a live workflow and immediately regretted it, this update is for you. Open View > Revision history in the workflow editor to see a full log of past changes, who made them, and when. Select “Revert to revision” to re",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-March-2026/ba-p/1263963",
+          "pubDate": "2026-04-10T18:10:25.573Z",
+          "availability": "All products, Professional+"
+        },
+        {
+          "id": "customer-agent-improvements",
+          "title": "Customer Agent Improvements",
+          "description": "Customer Agent got three important updates this month. The agent can now understand images, respond in the languages you choose, and the overall setup experience got a full navigation redesign. Customer Agent can now read images customers share in chat\nControl which languages the agent responds in\nA redesigned navigation makes setup and management more intuitive Customer Agent can now read images A lot of customers find it faster to send a screenshot than describe their problem in words. Before ",
+          "status": "update",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-March-2026/ba-p/1263963",
+          "pubDate": "2026-04-10T18:10:25.573Z",
+          "availability": "All products, Professional+. HubSpot Credits required."
+        },
+        {
+          "id": "breeze-ai-reporting",
+          "title": "Breeze AI Reporting",
+          "description": "Breeze got two reporting upgrades this month, one live and one in beta, that together move HubSpot closer to a world where you ask a question and get an answer without building a report from scratch. Breeze Assistant can now generate multi-object reports\nCreate reports with AI directly from the Reporting page (Public Beta) Breeze Assistant can now generate multi-object reports Breeze can now answer questions that span multiple objects in the CRM. That matters because most real reporting question",
+          "status": "public beta",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-March-2026/ba-p/1263963",
+          "pubDate": "2026-04-10T18:10:25.573Z",
+          "availability": "All products, Professional+."
+        },
+        {
+          "id": "crm-and-admin-improvements",
+          "title": "CRM and Admin Improvements",
+          "description": "Three updates this month for admins managing larger HubSpot accounts. Bulk-create teams via CSV import\nGranular approval controls for CRM write actions in agents\nConnection Insights: a centralized view of app behavior (Public Beta) Bulk-create teams via CSV import Admins can now bulk-create HubSpot teams, including nested hierarchies, by uploading a CSV. Previously, building out a team structure meant creating each team manually, one at a time. For larger orgs, that could take days. With Teams I",
+          "status": "public beta",
+          "hubs": [
+            "Marketing Hub",
+            "Operations Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Top-Product-Updates-for-March-2026/ba-p/1263963",
+          "pubDate": "2026-04-10T18:10:25.573Z",
+          "availability": "All products, all tiers"
+        },
+        {
+          "id": "connect-tiktok-now",
+          "title": "Connect TikTok now",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-TikTok-Smarter-Ads-and-Content-Publishing-Are-Here/ba-p/1263878",
+          "pubDate": "2026-04-10T18:10:25.573Z"
+        },
+        {
+          "id": "commerce-hub-release-roundup-2-latest-releases-for-tax-set-up-credit-memos-and-i",
+          "title": "Commerce Hub Release Roundup #2: Latest Releases for Tax set up, Credit Memos, and Invoices",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Commerce-Hub-Release-Roundup-2-Latest-Releases-for-Tax-set-up/ba-p/1265462",
+          "pubDate": "2026-04-10T18:10:25.573Z"
+        },
+        {
+          "id": "hubspot-tiktok-smarter-ads-and-content-publishing-are-here",
+          "title": "HubSpot + TikTok: Smarter Ads and Content Publishing Are Here",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-TikTok-Smarter-Ads-and-Content-Publishing-Are-Here/ba-p/1263878",
+          "pubDate": "2026-04-10T18:10:25.573Z"
+        },
+        {
+          "id": "the-2026-sales-prospecting-playbook-available-in-6-languages",
+          "title": "The 2026 Sales Prospecting Playbook (Available in 6 Languages)",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/The-2026-Sales-Prospecting-Playbook-Available-in-6-Languages/ba-p/1263585",
+          "pubDate": "2026-04-10T18:10:25.573Z"
+        },
+        {
+          "id": "commerce-hub-release-roundup-1-big-releases-bigger-things-coming",
+          "title": "Commerce Hub Release Roundup #1: Big Releases, Bigger Things Coming",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Commerce-Hub-Release-Roundup-1-Big-Releases-Bigger-Things-Coming/ba-p/1262734",
+          "pubDate": "2026-04-10T18:10:25.573Z"
+        },
+        {
+          "id": "upcoming-breaking-change-marketing-event-property-updates",
+          "title": "Upcoming breaking change: Marketing Event property updates",
+          "description": "On July 6th, 2026 , we'll be updating the property definitions for 11 of the standard properties for Marketing Events to be read only. Specifically, this will mean that the readOnlyDefinition field for the properties will be set to true , and any attempts to update the property definitions will result in an error being returned.",
+          "status": "breaking change",
+          "hubs": [
+            "Marketing Hub"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/upcoming-breaking-change-marketing-event-property-updates",
+          "pubDate": "Wed, 08 Apr 2026 20:04:53 GMT",
+          "author": "dadams@hubspot.com (David Adams)"
+        },
+        {
+          "id": "march-2026-rollup",
+          "title": "March 2026 Rollup",
+          "description": "This month's rollup introduces exciting updates designed to streamline developer workflows and enhance visibility. Key highlights include the ability to view app objects directly within the Data Model Builder and a faster, video-based review process for App Cards. There are also three new public betas: a File Ingestion API for bringing raw tabular data into Data Studio, substantial feature enhancements and reliability fixes for the Conversations API, and a new Connection Insights tab to help you",
+          "status": "public beta",
+          "hubs": [
+            "Service Hub",
+            "Operations Hub",
+            "Developer Platform"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/march-2026-rollup",
+          "pubDate": "Fri, 27 Mar 2026 19:50:33 GMT",
+          "author": "jmclaren@hubspot.com (Jon McLaren)"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 181,
+    "timestamp": "2026-04-10T18:10:42.183Z"
+  }
+]

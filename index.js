@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
  * HubSpot Beta Tracker
- * 
+ *
  * Scrapes multiple HubSpot sources for beta features, tracks their status
  * over time, and generates diff reports showing what's new/changed.
- * 
+ *
  * Sources:
  *   1. Developer Changelog RSS (developers.hubspot.com/changelog/rss.xml)
  *   2. HubSpot Community "Releases and Updates" board
  *   3. HubSpot Product Updates page (hubspot.com/product-updates)
- * 
+ *
  * Usage:
  *   node index.js              # Full scan + report
  *   node index.js --report-only # Just show current state + recent changes
@@ -101,7 +101,7 @@ async function fetchURL(url, maxRetries = 2) {
 
 function detectStatus(text) {
   const lower = text.toLowerCase();
-  // Check specific statuses first (order matters — more specific before general)
+  // Check specific statuses first (order matters - more specific before general)
   const priorityOrder = ['public beta', 'private beta', 'developer preview', 'early access', 'now live', 'sunset', 'breaking change', 'live', 'update'];
   for (const status of priorityOrder) {
     const keywords = STATUS_KEYWORDS[status];
@@ -146,7 +146,7 @@ function mapPortalHubs(item) {
 async function parsePortalUpdates() {
   const { cookie, csrf } = loadPortalAuth();
   if (!cookie || !csrf) {
-    console.log('📡 Portal updates auth not configured — skipping portal source');
+    console.log('📡 Portal updates auth not configured - skipping portal source');
     return [];
   }
   console.log('📡 Fetching authenticated HubSpot portal product updates (paginated)...');
@@ -172,12 +172,12 @@ async function parsePortalUpdates() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       const items = Array.isArray(data.rolloutProductUpdates) ? data.rolloutProductUpdates : [];
-      
+
       if (items.length === 0) break;
       allItems.push(...items);
       offset += limit;
       totalFetched += items.length;
-      
+
       // Safety limit to avoid infinite loops
       if (totalFetched > 2000) break;
     }
@@ -246,7 +246,7 @@ async function parsePortalUpdates() {
           hubs: mapPortalHubs(item),
           source: 'portal-updates',
           // Use public KB/community links when available; fall back to public hubspot.com product updates page
-          sourceUrl: item.rollout?.kbArticleLink 
+          sourceUrl: item.rollout?.kbArticleLink
             || item.rollout?.communityForumLink
             || item.ctaUrl
             || `https://www.hubspot.com/product-updates`,
@@ -287,7 +287,7 @@ function slugify(title) {
     .substring(0, 80);
 }
 
-// Filter out noise — titles that are clearly section headers, not features
+// Filter out noise - titles that are clearly section headers, not features
 const NOISE_PATTERNS = [
   /^questions or comments/i,
   /^what'?s changing/i,
@@ -313,7 +313,7 @@ const NOISE_PATTERNS = [
   /^the \w+ \d{4} industry edit/i, // "The January 2026 Industry Edit"
 ];
 
-// Rollup / summary post patterns — these aggregate multiple features into one post.
+// Rollup / summary post patterns - these aggregate multiple features into one post.
 // They should be expanded into individual items or filtered out entirely if the
 // individual items are already covered by other sources (community scraper, etc.).
 const ROLLUP_PATTERNS = [
@@ -325,7 +325,7 @@ const ROLLUP_PATTERNS = [
   /^\w+\s+\d{4}\s+product\s+updates?$/i,                       // "October 2025 Product Updates"
 ];
 
-// Informational / meta posts — not actual feature updates, just announcements,
+// Informational / meta posts - not actual feature updates, just announcements,
 // milestones, marketplace roundups, or editorial content.
 const INFORMATIONAL_PATTERNS = [
   /^top delivered ideas/i,                                       // "Top Delivered Ideas in Q3 '25"
@@ -364,7 +364,13 @@ function stripHTML(html) {
 
 function loadState() {
   if (fs.existsSync(STATE_FILE)) {
-    return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    const raw = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    // Normalize flat format (raw keys are beta IDs) vs wrapped format {betas: {...}}
+    if (raw && !raw.betas && !raw.lastScan && !raw.scanCount) {
+      // Flat format - wrap it
+      return { betas: raw, lastScan: null, scanCount: 0 };
+    }
+    return raw;
   }
   return { betas: {}, lastScan: null, scanCount: 0 };
 }
@@ -378,11 +384,11 @@ function saveState(state) {
       const dateB = new Date(b[1].pubDate || 0).getTime();
       return dateB - dateA; // Newest first
     });
-  
+
   for (const [id, beta] of entries) {
     sorted[id] = beta;
   }
-  
+
   const sortedState = { ...state, betas: sorted };
   fs.writeFileSync(STATE_FILE, JSON.stringify(sortedState, null, 2));
 }
@@ -391,7 +397,7 @@ function saveHistory(report) {
   fs.mkdirSync(HISTORY_DIR, { recursive: true });
   const date = new Date().toISOString().split('T')[0];
   const file = path.join(HISTORY_DIR, `${date}.json`);
-  
+
   let existing = [];
   if (fs.existsSync(file)) {
     existing = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -409,10 +415,10 @@ async function parseDevChangelog() {
 
   const parser = new XMLParser({ ignoreAttributes: false });
   const feed = parser.parse(xml);
-  
+
   const items = feed?.rss?.channel?.item || [];
   const arr = Array.isArray(items) ? items : [items];
-  
+
   const results = [];
   let skippedRollups = 0;
   let skippedInfo = 0;
@@ -420,21 +426,21 @@ async function parseDevChangelog() {
     const title = item.title || '';
     const desc = stripHTML(item.description || item['content:encoded'] || '');
     const combined = `${title} ${desc}`;
-    
+
     if (!isValidTitle(title)) continue;
-    
-    // Skip rollup/summary posts — their individual items come from community scraper
+
+    // Skip rollup/summary posts - their individual items come from community scraper
     if (isRollupPost(title)) {
       skippedRollups++;
       continue;
     }
-    
+
     // Skip informational/meta posts
     if (isInformationalPost(title)) {
       skippedInfo++;
       continue;
     }
-    
+
     results.push({
       id: slugify(title),
       title: title.trim(),
@@ -447,39 +453,45 @@ async function parseDevChangelog() {
       author: item.author || null,
     });
   }
-  
+
   console.log(`  ✓ Found ${results.length} items (skipped ${skippedRollups} rollups, ${skippedInfo} informational)`);
   return results;
 }
 
 /**
- * Community Updates — Uses Playwright to render the JS-heavy HubSpot Community.
- * 
- * Strategy:
- * 1. Load the Releases & Updates board listing to discover all posts
- * 2. Identify "Top Product Updates for <Month>" posts (richest source — 10-15 features each)
- * 3. Drill into each monthly post and extract individual H4 features with descriptions
- * 4. Also capture standalone posts (announcements, sunsets, etc.) as single items
+ * Community Updates — Uses Playwright when available, falls back to RSS feed.
+ * Playwright extracts individual features from monthly roundup posts.
+ * RSS fallback captures standalone announcements as single items.
  */
 async function parseCommunityUpdates() {
-  console.log('📡 Fetching Community Releases & Updates (Playwright)...');
-  
+  console.log('📡 Fetching Community Releases & Updates...');
+
+  // Try Playwright first (rich feature extraction)
+  const playwrightItems = await tryPlaywrightCommunity();
+  if (playwrightItems.length > 0) {
+    return playwrightItems;
+  }
+
+  // Fallback: use RSS feed for basic coverage
+  console.log('  → Falling back to RSS feed (Playwright unavailable or failed)');
+  return await parseCommunityRSS();
+}
+
+async function tryPlaywrightCommunity() {
   let chromium;
   try {
     ({ chromium } = await import('playwright'));
   } catch {
-    console.log('  ✗ Playwright not available — skipping community scrape');
     return [];
   }
-  
+
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
-    
-    // Step 1: Load the board listing
+
     await page.goto(SOURCES.communityUpdates.url, { waitUntil: 'networkidle', timeout: 30000 });
-    
+
     const threads = await page.evaluate(() => {
       const links = document.querySelectorAll('a[href*="/Releases-and-Updates/"]');
       const seen = new Set();
@@ -492,101 +504,71 @@ async function parseCommunityUpdates() {
           return true;
         });
     });
-    
+
     console.log(`  ✓ Found ${threads.length} threads on board`);
-    
-    // Separate monthly roundup posts (richest) from standalone posts
-    const monthlyPosts = threads.filter(t => 
+
+    const monthlyPosts = threads.filter(t =>
       /top product updates for|product update[s]? for|^\w+ \d{4} product update/i.test(t.text)
     );
-    const standalonePosts = threads.filter(t => 
+    const standalonePosts = threads.filter(t =>
       !monthlyPosts.includes(t) && !/(release notes|industry edit|collection|app update|marketplace)/i.test(t.text)
     );
-    
+
     const results = [];
-    
-    // Step 2: Drill into monthly posts to extract individual features
-    // Use a fresh page for each post to avoid SPA navigation / caching issues
+    const pubDate = new Date().toISOString(); // Fallback date for community items
+
     for (const post of monthlyPosts) {
       const postUrl = post.href.startsWith('http') ? post.href : `https://community.hubspot.com${post.href}`;
       console.log(`  📄 Drilling into: ${post.text.substring(0, 60)}...`);
-      
+
       const postPage = await browser.newPage();
       try {
         await postPage.goto(postUrl, { waitUntil: 'networkidle', timeout: 30000 });
-        // Wait for the actual message body to render
         await postPage.waitForSelector('.lia-message-body-content', { timeout: 10000 }).catch(() => {});
-        
+
         const features = await postPage.evaluate(() => {
           const body = document.querySelector('.lia-message-body-content');
           if (!body) return [];
-          
           const h4s = body.querySelectorAll('h4');
-          
-          // Strategy 1: Posts with H4 headings (Jan 2026+, Nov 2025)
           if (h4s.length > 0) {
             return [...h4s].map(h4 => {
               const title = h4.textContent.trim();
-              let desc = '';
-              let avail = '';
+              let desc = '', avail = '';
               let el = h4.nextElementSibling;
               while (el && el.tagName !== 'H4' && el.tagName !== 'H3') {
                 const text = el.textContent.trim();
-                if (/^availability/i.test(text)) {
-                  avail = text.replace(/^availability:\s*/i, '');
-                } else if (text.length > 20) {
-                  desc += (desc ? ' ' : '') + text;
-                }
+                if (/^availability/i.test(text)) avail = text.replace(/^availability:\s*/i, '');
+                else if (text.length > 20) desc += (desc ? ' ' : '') + text;
                 el = el.nextElementSibling;
               }
               return { title, description: desc, availability: avail, hubSection: '' };
             });
           }
-          
-          // Strategy 2: Older posts use H2/H3 for hub sections and <strong> for feature names
-          // Walk through all elements and track which hub section we're in
           const results = [];
           let currentHub = '';
-          const walker = body.querySelectorAll('h2, h3, p, ul, ol');
-          
-          for (const el of walker) {
-            if (el.tagName === 'H2' || el.tagName === 'H3') {
-              currentHub = el.textContent.trim();
-              continue;
+          for (const el of body.querySelectorAll('h2, h3, p')) {
+            if (el.tagName === 'H2' || el.tagName === 'H3') { currentHub = el.textContent.trim(); continue; }
+            const strong = el.querySelector('strong, b');
+            if (!strong) continue;
+            const title = strong.textContent.trim();
+            if (title.length < 15 || /^(now in|want to|learn more|note:|how to|send feedback)/i.test(title)) continue;
+            let desc = '';
+            let sibling = el.nextElementSibling;
+            while (sibling && sibling.tagName === 'P') {
+              const sibStrong = sibling.querySelector('strong, b');
+              if (sibStrong && sibStrong.textContent.trim().length > 15) break;
+              const text = sibling.textContent.trim();
+              if (text.length > 20) desc += (desc ? ' ' : '') + text;
+              sibling = sibling.nextElementSibling;
             }
-            
-            // Look for bold feature titles in <p> tags
-            if (el.tagName === 'P') {
-              const strong = el.querySelector('strong, b');
-              if (strong) {
-                const title = strong.textContent.trim();
-                // Skip section headers, short text, and known noise
-                if (title.length < 15 || /^(now in|want to|learn more|note:|how to|send feedback)/i.test(title)) continue;
-                
-                // Collect description from subsequent paragraphs
-                let desc = '';
-                let sibling = el.nextElementSibling;
-                while (sibling && sibling.tagName === 'P') {
-                  const sibStrong = sibling.querySelector('strong, b');
-                  if (sibStrong && sibStrong.textContent.trim().length > 15) break; // next feature
-                  const text = sibling.textContent.trim();
-                  if (text.length > 20) desc += (desc ? ' ' : '') + text;
-                  sibling = sibling.nextElementSibling;
-                }
-                
-                results.push({ title, description: desc, availability: '', hubSection: currentHub });
-              }
-            }
+            results.push({ title, description: desc, availability: '', hubSection: currentHub });
           }
-          
           return results;
         });
-        
+
         for (const f of features) {
           const cleanTitle = f.title.replace(/^\d+\.\s*/, '').trim();
           if (!cleanTitle || cleanTitle.length < 10 || !isValidTitle(cleanTitle)) continue;
-          
-          // Include the hub section header (from older posts) in detection text
           const combined = `${cleanTitle} ${f.description} ${f.availability} ${f.hubSection || ''}`;
           results.push({
             id: slugify(cleanTitle),
@@ -600,7 +582,6 @@ async function parseCommunityUpdates() {
             availability: f.availability || null,
           });
         }
-        
         console.log(`    → ${features.length} features extracted`);
       } catch (err) {
         console.log(`    ✗ Failed: ${err.message}`);
@@ -608,42 +589,86 @@ async function parseCommunityUpdates() {
         await postPage.close();
       }
     }
-    
-    // Step 3: Capture standalone posts as single items (skip rollups & informational)
+
     for (const post of standalonePosts) {
       const title = post.text.trim();
       if (!isValidTitle(title)) continue;
       if (isRollupPost(title) || isInformationalPost(title)) continue;
-      
       const fullUrl = post.href.startsWith('http') ? post.href : `https://community.hubspot.com${post.href}`;
-      const combined = title;
       results.push({
         id: slugify(title),
         title,
         description: '',
-        status: detectStatus(combined),
-        hubs: detectHubs(combined),
+        status: detectStatus(title),
+        hubs: detectHubs(title),
         source: 'community',
         sourceUrl: fullUrl,
         pubDate: pubDate,
       });
     }
-    
-    console.log(`  ✓ Community total: ${results.length} items`);
+
+    console.log(`  ✓ Community (Playwright): ${results.length} items`);
     return results;
   } catch (err) {
-    console.error(`  ✗ Community scrape failed: ${err.message}`);
+    console.error(`  ✗ Playwright community scrape failed: ${err.message}`);
     return [];
   } finally {
     if (browser) await browser.close();
   }
 }
 
-// parseProductUpdates — hubspot.com/product-updates is fully JS-rendered and
+async function parseCommunityRSS() {
+  // Fallback using HubSpot Community RSS feed
+  const rssUrl = 'https://community.hubspot.com/mjmao93648/rss/boardmessages?board.id=releases-updates';
+  console.log(`📡 Fetching Community RSS: ${rssUrl}`);
+  try {
+    const xml = await fetchURL(rssUrl);
+    if (!xml) return [];
+
+    const parser = new XMLParser();
+    const parsed = parser.parse(xml);
+    const items = parsed?.rss?.channel?.item || [];
+    const itemList = Array.isArray(items) ? items : [items];
+
+    const results = [];
+    for (const item of itemList) {
+      const title = (item.title || '').trim();
+      if (!isValidTitle(title)) continue;
+      if (isRollupPost(title) || isInformationalPost(title)) continue;
+
+      const link = item.link || '';
+      const description = (item.description || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .substring(0, 300);
+      const pubDate = item.pubDate || new Date().toISOString();
+
+      results.push({
+        id: slugify(title),
+        title,
+        description,
+        status: detectStatus(title + ' ' + description),
+        hubs: detectHubs(title + ' ' + description),
+        source: 'community',
+        sourceUrl: link,
+        pubDate: new Date(pubDate).toISOString(),
+      });
+    }
+
+    console.log(`  ✓ Community (RSS): ${results.length} items`);
+    return results;
+  } catch (err) {
+    console.error(`  ✗ Community RSS failed: ${err.message}`);
+    return [];
+  }
+}
+
+// parseProductUpdates - hubspot.com/product-updates is fully JS-rendered and
 // returns empty HTML. All its content is already captured via the community
 // monthly posts and releasebot. Kept as a no-op for source parity.
 async function parseProductUpdates() {
-  console.log('📡 Product Updates page — skipped (JS-rendered, covered by community + releasebot)');
+  console.log('📡 Product Updates page - skipped (JS-rendered, covered by community + releasebot)');
   return [];
 }
 
@@ -670,26 +695,26 @@ function isNoiseH4(title) {
   return H4_NOISE_PATTERNS.some(pat => pat.test(title.trim()));
 }
 
-// Releasebot.io aggregator — scrapes individual product updates from their pages.
+// Releasebot.io aggregator - scrapes individual product updates from their pages.
 // Structure: <ul.border-y> contains <li> posts, each with an H2 title and an
 // expandable <div.relative>.
 //
 // Post types:
-//   A) Numbered rollups (e.g. "Top Product Updates for January 2026") — H4s like "1. Feature Name"
-//   B) Unnumbered rollups (e.g. "December 2025 Developer Rollup") — H4s without numbers
-//   C) TOC-style rollups (e.g. "Developer updates for January 2026") — <ul><li> feature list
-//   D) Single-feature posts — H2 is the feature, expandable has details
-//   E) CTA/ads — no H2, skip entirely
+//   A) Numbered rollups (e.g. "Top Product Updates for January 2026") - H4s like "1. Feature Name"
+//   B) Unnumbered rollups (e.g. "December 2025 Developer Rollup") - H4s without numbers
+//   C) TOC-style rollups (e.g. "Developer updates for January 2026") - <ul><li> feature list
+//   D) Single-feature posts - H2 is the feature, expandable has details
+//   E) CTA/ads - no H2, skip entirely
 async function parseReleasebot() {
   console.log('📡 Fetching Releasebot product & developer updates...');
-  
+
   const pages = [
     { url: 'https://releasebot.io/updates/hubspot', sourceLabel: 'releasebot-product' },
     { url: 'https://releasebot.io/updates/hubspot/hubspot-developers', sourceLabel: 'releasebot-dev' },
   ];
-  
+
   const results = [];
-  
+
   // Helper to extract date from Releasebot LI structure
   function extractReleasebotDate(li) {
     // Date is in the first div (before the h2): "Mar 16, 2026"
@@ -706,33 +731,33 @@ async function parseReleasebot() {
     }
     return null;
   }
-  
+
   for (const page of pages) {
     const html = await fetchURL(page.url);
     if (!html) continue;
-    
+
     const root = parseHTML(html);
     const mainUl = root.querySelector('ul.border-y');
     if (!mainUl) { console.log(`  ✗ No main UL found on ${page.url}`); continue; }
-    
+
     const postItems = mainUl.querySelectorAll(':scope > li');
     let pageCount = 0;
-    
+
     for (const li of postItems) {
       const pubDate = extractReleasebotDate(li); // Extract date once per LI
       const h2 = li.querySelector('h2');
       const postTitle = h2?.text?.trim() || '';
-      
+
       // Skip posts with no H2 (CTA/ad blocks)
       if (!postTitle || postTitle.length < 10) continue;
-      
+
       // Skip noise and informational posts
       if (isNoise(postTitle)) continue;
       if (isInformationalPost(postTitle)) {
         console.log(`    ⏭ Skipping informational: "${postTitle.substring(0, 60)}"`);
         continue;
       }
-      
+
       // Get the summary paragraph (skip metadata lines)
       const ps = li.querySelectorAll('p');
       let postSummary = '';
@@ -743,10 +768,10 @@ async function parseReleasebot() {
           break;
         }
       }
-      
+
       const expandable = li.querySelector('div.relative');
       let extractedFeatures = false;
-      
+
       if (expandable) {
         // Strategy 1: Extract H4 features (numbered or unnumbered)
         const h4s = expandable.querySelectorAll('h4');
@@ -757,14 +782,14 @@ async function parseReleasebot() {
           if (isNoise(t)) return false;
           return true;
         });
-        
+
         if (featureH4s.length >= 2) {
           // Multiple valid H4s = rollup post with sub-features
           for (const h4 of featureH4s) {
             const rawTitle = h4.text?.trim() || '';
             const cleanTitle = rawTitle.replace(/^\d+\.\s*/, '').trim();
             if (!cleanTitle || cleanTitle.length < 10) continue;
-            
+
             // Collect description paragraphs until next H4/H3/H2 or end
             let desc = '';
             let sibling = h4.nextElementSibling;
@@ -775,7 +800,7 @@ async function parseReleasebot() {
               }
               sibling = sibling.nextElementSibling;
             }
-            
+
             const combined = `${cleanTitle} ${desc}`;
             results.push({
               id: slugify(cleanTitle),
@@ -792,8 +817,8 @@ async function parseReleasebot() {
           extractedFeatures = true;
           console.log(`    📦 Rollup (H4): "${postTitle.substring(0, 50)}" → ${featureH4s.length} features`);
         }
-        
-        // Strategy 2: TOC-style rollup — features listed as <li> items in a <ul>
+
+        // Strategy 2: TOC-style rollup - features listed as <li> items in a <ul>
         // These posts have a summary paragraph followed by a bullet list of feature names,
         // then detailed descriptions as paragraphs with the feature name as bold lead text.
         if (!extractedFeatures && isRollupPost(postTitle)) {
@@ -803,13 +828,13 @@ async function parseReleasebot() {
             const featureNames = [...featureLis]
               .map(li => li.text?.trim())
               .filter(t => t && t.length >= 10 && !isNoise(t) && !isNoiseH4(t));
-            
+
             if (featureNames.length >= 3) {
-              // Extract each feature — try to find its description in following paragraphs
+              // Extract each feature - try to find its description in following paragraphs
               // Releasebot renders these as: FeatureNameDescription paragraph(s)...
               // The feature name appears as bold text at the start of a paragraph block.
               const allText = expandable.text || '';
-              
+
               for (const name of featureNames) {
                 let desc = '';
                 // Find the feature name in the full text and grab the next ~500 chars
@@ -824,7 +849,7 @@ async function parseReleasebot() {
                   }, afterName.length);
                   desc = afterName.substring(0, nextFeatureIdx).trim();
                 }
-                
+
                 const combined = `${name} ${desc}`;
                 results.push({
                   id: slugify(name),
@@ -844,14 +869,14 @@ async function parseReleasebot() {
           }
         }
       }
-      
+
       // If still not extracted and it's a rollup, skip it (covered by other sources)
       if (!extractedFeatures && isRollupPost(postTitle)) {
         console.log(`    ⏭ Skipping unexpanded rollup: "${postTitle.substring(0, 60)}"`);
         continue;
       }
-      
-      // Single-feature post — H2 title IS the feature
+
+      // Single-feature post - H2 title IS the feature
       if (!extractedFeatures && isValidTitle(postTitle)) {
         const combined = `${postTitle} ${postSummary}`;
         results.push({
@@ -867,10 +892,10 @@ async function parseReleasebot() {
         pageCount++;
       }
     }
-    
+
     console.log(`  ✓ ${page.sourceLabel}: ${pageCount} items`);
   }
-  
+
   console.log(`  ✓ Found ${results.length} items total from Releasebot`);
   return results;
 }
@@ -878,17 +903,22 @@ async function parseReleasebot() {
 // ─── State Management & Diffing ─────────────────────────────────────────────
 
 function mergeResults(state, newItems) {
+  // Ensure state is in wrapped format (loadState normalizes, but be defensive)
+  if (!state.betas) {
+    state.betas = {};
+  }
+
   const changes = {
     new: [],
     statusChanged: [],
     updated: [],
   };
-  
+
   const now = new Date().toISOString();
-  
+
   for (const item of newItems) {
     const existing = state.betas[item.id];
-    
+
     if (!existing) {
       // Brand new item
       state.betas[item.id] = {
@@ -905,7 +935,7 @@ function mergeResults(state, newItems) {
       if (item.pubDate && (!existing.pubDate || new Date(item.pubDate) > new Date(existing.pubDate))) {
         existing.pubDate = item.pubDate;
       }
-      
+
       // Ensure hubs field exists on legacy items
       if (!existing.hubs) {
         existing.hubs = item.hubs || ['Platform'];
@@ -921,14 +951,14 @@ function mergeResults(state, newItems) {
           existing.hubs = existing.hubs.filter(h => h !== 'Platform');
         }
       }
-      
+
       // Check for status change
       if (existing.status !== item.status && item.status !== 'update') {
         const oldStatus = existing.status;
         existing.status = item.status;
-        existing.statusHistory.push({ 
-          status: item.status, 
-          date: now, 
+        existing.statusHistory.push({
+          status: item.status,
+          date: now,
           source: item.source,
           previousStatus: oldStatus,
         });
@@ -937,13 +967,13 @@ function mergeResults(state, newItems) {
           previousStatus: oldStatus,
         });
       }
-      
+
       // Update description if we got a better one
       if (item.description && item.description.length > (existing.description?.length || 0)) {
         existing.description = item.description;
         changes.updated.push(item);
       }
-      
+
       // Track additional sources
       if (!existing.sources) existing.sources = [existing.source];
       if (!existing.sources.includes(item.source)) {
@@ -951,7 +981,7 @@ function mergeResults(state, newItems) {
       }
     }
   }
-  
+
   return changes;
 }
 
@@ -960,25 +990,25 @@ function mergeResults(state, newItems) {
 function generateReport(state, changes) {
   const now = new Date();
   const lines = [];
-  
+
   lines.push(`# 🔬 HubSpot Beta Tracker Report`);
   lines.push(`**Generated:** ${now.toISOString().replace('T', ' ').substring(0, 19)} UTC`);
   lines.push(`**Total tracked:** ${Object.keys(state.betas).length} items`);
   lines.push(`**Scans completed:** ${state.scanCount}`);
   lines.push('');
-  
+
   // Changes since last scan
   if (changes) {
     if (changes.new.length > 0) {
       lines.push(`## 🆕 New Betas Found (${changes.new.length})`);
       for (const item of changes.new) {
-        lines.push(`- **${item.title}** — \`${item.status}\``);
+        lines.push(`- **${item.title}** - \`${item.status}\``);
         if (item.description) lines.push(`  ${item.description.substring(0, 200)}`);
         lines.push(`  🔗 ${item.sourceUrl}`);
       }
       lines.push('');
     }
-    
+
     if (changes.statusChanged.length > 0) {
       lines.push(`## 🔄 Status Changes (${changes.statusChanged.length})`);
       for (const item of changes.statusChanged) {
@@ -987,20 +1017,20 @@ function generateReport(state, changes) {
       }
       lines.push('');
     }
-    
+
     if (changes.new.length === 0 && changes.statusChanged.length === 0) {
       lines.push(`## ✅ No Changes Since Last Scan`);
       lines.push('');
     }
   }
-  
+
   // Current state by status
   const byStatus = {};
   for (const [id, beta] of Object.entries(state.betas)) {
     if (!byStatus[beta.status]) byStatus[beta.status] = [];
     byStatus[beta.status].push(beta);
   }
-  
+
   const statusOrder = ['public beta', 'private beta', 'developer preview', 'early access', 'now live', 'live', 'sunset', 'breaking change', 'update'];
   const statusEmoji = {
     'public beta': '🟢',
@@ -1013,16 +1043,16 @@ function generateReport(state, changes) {
     'breaking change': '⚠️',
     'update': '📝',
   };
-  
+
   lines.push(`## 📊 All Tracked Betas by Status`);
-  
+
   for (const status of statusOrder) {
     const items = byStatus[status];
     if (!items || items.length === 0) continue;
-    
+
     // Sort by most recently seen
     items.sort((a, b) => new Date(b.lastSeen) - new Date(a.lastSeen));
-    
+
     lines.push(`\n### ${statusEmoji[status] || '📋'} ${status.toUpperCase()} (${items.length})`);
     for (const item of items) {
       const age = Math.floor((now - new Date(item.firstSeen)) / 86400000);
@@ -1031,7 +1061,7 @@ function generateReport(state, changes) {
       lines.push(`  🔗 ${item.sourceUrl}`);
     }
   }
-  
+
   return lines.join('\n');
 }
 
@@ -1060,19 +1090,19 @@ async function main() {
   const args = process.argv.slice(2);
   const reportOnly = args.includes('--report-only');
   const jsonOutput = args.includes('--json');
-  
+
   const state = loadState();
-  
+
   if (reportOnly) {
-    const report = jsonOutput 
+    const report = jsonOutput
       ? JSON.stringify(generateJSON(state, null), null, 2)
       : generateReport(state, null);
     console.log(report);
     return;
   }
-  
-  console.log('🔬 HubSpot Beta Tracker — Starting scan...\n');
-  
+
+  console.log('🔬 HubSpot Beta Tracker - Starting scan...\n');
+
   // Fetch lightweight sources in parallel, prioritizing Portal API (most authoritative + descriptions)
   // Then Playwright-based community scrape sequentially (requires browser binary)
   const [portalItems, releasebotItems, productItems, devItems] = await Promise.all([
@@ -1081,13 +1111,13 @@ async function main() {
     parseProductUpdates(),
     parseDevChangelog(),
   ]);
-  
-  // Community uses Playwright (heavy) — run after other fetches complete
+
+  // Community uses Playwright (heavy) - run after other fetches complete
   const communityItems = await parseCommunityUpdates();
-  
+
   // Priority order: Portal first (official HubSpot + real descriptions), then Releasebot (freshest news), then others
   const allItems = [...portalItems, ...releasebotItems, ...productItems, ...communityItems, ...devItems];
-  
+
   // Deduplicate by ID (prefer items with more info)
   const deduped = new Map();
   for (const item of allItems) {
@@ -1096,18 +1126,18 @@ async function main() {
       deduped.set(item.id, item);
     }
   }
-  
+
   console.log(`\n📊 Total unique items found: ${deduped.size}`);
-  
+
   // Merge with existing state
   const changes = mergeResults(state, [...deduped.values()]);
-  
+
   state.lastScan = new Date().toISOString();
   state.scanCount = (state.scanCount || 0) + 1;
-  
+
   saveState(state);
   saveHistory({ changes, itemsFound: deduped.size });
-  
+
   // Output report
   if (jsonOutput) {
     console.log(JSON.stringify(generateJSON(state, changes), null, 2));
@@ -1115,7 +1145,7 @@ async function main() {
     console.log('\n' + '='.repeat(60) + '\n');
     console.log(generateReport(state, changes));
   }
-  
+
   // Summary for quick consumption
   console.log('\n' + '='.repeat(60));
   console.log(`✅ Scan complete. ${changes.new.length} new, ${changes.statusChanged.length} changed, ${Object.keys(state.betas).length} total tracked.`);
@@ -1147,7 +1177,7 @@ function cleanDescHtml(raw, maxLen = 400) {
 async function enrichNewItemDescriptions() {
   const { cookie, csrf } = loadPortalAuth();
   if (!cookie || !csrf) {
-    console.log('📝 Portal auth not configured — skipping description enrichment');
+    console.log('📝 Portal auth not configured - skipping description enrichment');
     return;
   }
 
@@ -1158,7 +1188,7 @@ async function enrichNewItemDescriptions() {
   );
 
   if (needsDesc.length === 0) {
-    console.log('📝 All portal items have real descriptions — nothing to enrich');
+    console.log('📝 All portal items have real descriptions - nothing to enrich');
     return;
   }
 
@@ -1197,7 +1227,7 @@ async function enrichNewItemDescriptions() {
     fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
     console.log(`  ✓ Enriched ${updated}/${needsDesc.length} descriptions`);
   } else {
-    console.log(`  ℹ No new descriptions available from HubSpot yet`);
+    console.log(`  i No new descriptions available from HubSpot yet`);
   }
 }
 
