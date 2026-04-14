@@ -1,0 +1,26 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "remote-hubspot-mcp-server-is-now-generally-available",
+          "title": "Remote HubSpot MCP server is now generally available",
+          "description": "The remote HubSpot MCP server is graduating from beta and is now generally available to all HubSpot accounts. This release adds write capabilities, engagement history, marketing content objects, and organizational context — so any MCP-compatible AI tool can now read from and write to your CRM through natural conversation, with your existing HubSpot permissions respected throughout.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/remote-hubspot-mcp-server-is-now-generally-available",
+          "pubDate": "Mon, 13 Apr 2026 17:17:06 GMT",
+          "author": "jmclaren@hubspot.com (Jon McLaren)"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 155,
+    "timestamp": "2026-04-14T06:01:14.032Z"
+  }
+]
