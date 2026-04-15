@@ -1,0 +1,139 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "availability-and-access",
+          "title": "Availability and Access:",
+          "description": "Functions can now run within Developer Test Accounts, enabling safer and more iterative development before production rollout.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "how-it-works",
+          "title": "How it Works:",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "key-differences",
+          "title": "Key Differences:",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "configuration-examples",
+          "title": "Configuration Examples:",
+          "description": "Functions are now configured and located in a single src/app/functions/ directory. This replaces the previous structure that used nested .functions folders. For complete migration steps, including updates from 2025.1 to 2025.2, please refer to the detailed guides in HubSpot’s Developer Documentation. The 2026.03 version is now available. Developers can start building apps on 2026.03 or migrate eligible 2025.2, 2025.1, and 2023.3 projects to 2026.03.",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "why-does-it-matter",
+          "title": "Why does it matter?",
+          "description": "For included APIs, date-based versioning brings clearer expectations around timing of change with consistent windows for updates and support.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "connect-the-hubspot-mcp-server-securely-with-mcp-auth-apps",
+          "title": "Connect the HubSpot MCP Server Securely with MCP Auth Apps",
+          "description": "You can now build and manage your own AI connectors to the HubSpot MCP Server using a new self-service MCP Auth Apps tool in the Developer Platform. This update removes the need for general-purpose app tooling; it enables full lifecycle management of MCP connectors, including creation, configuration, and secure OAuth 2.1 credential access, all within a dedicated interface. End-user permissions are now handled automatically, giving customers more control over the data shared through MCP connectio",
+          "status": "update",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "new-app-install-governance-tool-for-admins",
+          "title": "New App Install Governance Tool for Admins",
+          "description": "Super Admins now have centralized control over which apps can be installed in their HubSpot account and what data can be shared with them — including controls over AI connectors like the HubSpot connectors for ChatGPT, Claude and Gemini. With this public beta, admins can approve which apps are allowed, control which users can install each app, customize optional data permissions (such as read-only vs. write access) and revoke approval at any time. Users who want access to an unapproved app can s",
+          "status": "public beta",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        },
+        {
+          "id": "see-where-you-stand",
+          "title": "See where you stand",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Introducing-HubSpot-AEO/ba-p/1265886",
+          "pubDate": "2026-04-15T06:00:30.362Z"
+        },
+        {
+          "id": "introducing-hubspot-aeo",
+          "title": "Introducing HubSpot AEO",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Introducing-HubSpot-AEO/ba-p/1265886",
+          "pubDate": "2026-04-15T06:00:30.362Z"
+        },
+        {
+          "id": "spring-2026-spotlight",
+          "title": "Spring 2026 Spotlight",
+          "description": "Welcome to the Spring Spotlight special edition of the developer changelog. We've got a lot of exciting updates to go over, including the general availability of date-based versioned APIs and Developer Platform&nbsp;version 2026.03. With these date-based updates comes a more stable release cadence. Both the APIs and Developer Platform project versions will have two major releases a year, in March and September. Additionally, to help you better prepare for these updates, we are also introducing a",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/spring-2026-spotlight",
+          "pubDate": "Tue, 14 Apr 2026 12:45:01 GMT",
+          "author": "hs-devrel-advocates@hubspot.com (HubSpot Developer Relations Team)"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 174,
+    "timestamp": "2026-04-15T06:00:47.491Z"
+  }
+]
