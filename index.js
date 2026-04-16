@@ -359,7 +359,22 @@ function isValidTitle(title) {
 
 function stripHTML(html) {
   if (!html) return '';
-  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  return html
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+    .replace(/\s+/g, ' ').trim();
+}
+
+// Clean HTML entities from plain text descriptions
+function cleanDescription(text) {
+  if (!text) return '';
+  return text
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+    .replace(/\s+/g, ' ').trim();
 }
 
 function loadState() {
@@ -920,14 +935,16 @@ function mergeResults(state, newItems) {
     const existing = state.betas[item.id];
 
     if (!existing) {
-      // Brand new item
-      state.betas[item.id] = {
+      // Brand new item — clean description of HTML entities
+      const cleanedItem = {
         ...item,
+        description: cleanDescription(item.description),
         hubs: item.hubs || ['Platform'],
         firstSeen: now,
         lastSeen: now,
         statusHistory: [{ status: item.status, date: now, source: item.source }],
       };
+      state.betas[item.id] = cleanedItem;
       changes.new.push(item);
     } else {
       // Update last seen and pubDate if we got a better one
