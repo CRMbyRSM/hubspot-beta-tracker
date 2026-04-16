@@ -1,0 +1,88 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "contracts-public-beta",
+          "title": "Contracts (Public beta)",
+          "description": "Manage renewals and amendments through Quotes, and see their impact to ARR in real time. Stop losing time to “Can You Send This to My Boss?”",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-14T22:00:00.000Z"
+        },
+        {
+          "id": "e-signature-delegation-on-quotes-live",
+          "title": "E-signature delegation on Quotes (Live)",
+          "description": "Reps often send quotes to someone who isn’t the final signer. Before today, they had to update the signer and resend the quote, adding friction and slowing down the sales process. Now, you can let the initial quote signer delegate their signature to the correct person on their team — without relying on their sales rep. Deals keep moving, and buyers can route the quote internally however they need. Win-win. Do even more with HubSpot Billing and Payments…",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-14T22:00:00.000Z"
+        },
+        {
+          "id": "link-invoices-to-projects-live",
+          "title": "Link Invoices to Projects (Live)",
+          "description": "Connect billed revenue to project work by linking Invoices to associated Projects for clearer visibility and cleaner reporting.",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-14T22:00:00.000Z"
+        },
+        {
+          "id": "commerce-hub-release-roundup-3-contracts-go-public-at-spring-spotlight",
+          "title": "Commerce Hub Release Roundup #3: Contracts Go Public at Spring Spotlight",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Commerce-Hub-Release-Roundup-3-Contracts-Go-Public-at-Spring/ba-p/1267622",
+          "pubDate": "2026-04-16T06:00:27.592Z"
+        },
+        {
+          "id": "upcoming-breaking-change-customer-agent-lead-status-contact-property-becoming-re",
+          "title": "Upcoming breaking change: Customer Agent Lead Status contact property becoming read-only",
+          "description": "We’re making the Customer Agent Lead Status contact property hs_customer_agent_lead_status system‑managed and read‑only . This property stores Customer Agent &nbsp;system-generated lead qualification status on contact records (e.g., whether a contact was qualified, partially qualified or not qualified).",
+          "status": "breaking change",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/upcoming-breaking-change-customer-agent-lead-status-contact-property",
+          "pubDate": "Wed, 15 Apr 2026 15:10:36 GMT",
+          "author": "aswebster@hubspot.com (Ashley Webster)"
+        }
+      ],
+      "statusChanged": [],
+      "updated": [
+        {
+          "id": "introducing-hubspot-aeo",
+          "title": "Introducing HubSpot AEO",
+          "description": "Hubspot launches AEO, giving brands a clear view of AI visibility across ChatGPT, Gemini and other answer engines. It shows visibility scores, prompt coverage, competitor presence and content gaps, then turns insights into recommendations and actions in one workflow.",
+          "status": "update",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-13T22:00:00.000Z"
+        }
+      ]
+    },
+    "itemsFound": 178,
+    "timestamp": "2026-04-16T06:00:44.618Z"
+  }
+]
