@@ -84,5 +84,29 @@
     },
     "itemsFound": 178,
     "timestamp": "2026-04-16T06:00:44.618Z"
+  },
+  {
+    "changes": {
+      "new": [],
+      "statusChanged": [],
+      "updated": [
+        {
+          "id": "spring-2026-spotlight",
+          "title": "Spring 2026 Spotlight",
+          "description": "Welcome to the Spring Spotlight special edition of the developer changelog. We've got a lot of exciting updates to go over, including the general availability of date-based versioned APIs and Developer Platform version 2026.03. With these date-based updates comes a more stable release cadence. Both the APIs and Developer Platform project versions will have two major releases a year, in March and September. Additionally, to help you better prepare for these updates, we are also introducing an 18-",
+          "status": "now live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/spring-2026-spotlight",
+          "pubDate": "Tue, 14 Apr 2026 12:45:01 GMT",
+          "author": "hs-devrel-advocates@hubspot.com (HubSpot Developer Relations Team)"
+        }
+      ]
+    },
+    "itemsFound": 178,
+    "timestamp": "2026-04-16T06:47:58.865Z"
   }
 ]
