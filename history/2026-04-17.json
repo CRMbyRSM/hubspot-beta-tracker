@@ -1,0 +1,38 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "hubspot-for-google-sheets-is-here",
+          "title": "HubSpot for Google Sheets™ is here",
+          "description": "Hubspot launches a free Google Sheets extension that brings HubSpot into the sidebar, helping users clean up contact lists, view Gmail history, research prospects, and act on next steps without leaving their sheet.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-16T22:00:00.000Z"
+        },
+        {
+          "id": "new-growth-playbooks-practical-guides-to-master-hubspot-s-ai-powered-features",
+          "title": "🚀 New Growth Playbooks: Practical Guides to Master HubSpot’s AI-Powered Features",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/New-Growth-Playbooks-Practical-Guides-to-Master-HubSpot-s-AI/ba-p/1268277",
+          "pubDate": "2026-04-17T06:03:57.672Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 171,
+    "timestamp": "2026-04-17T06:04:14.337Z"
+  }
+]
