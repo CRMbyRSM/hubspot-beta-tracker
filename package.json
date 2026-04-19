@@ -7,7 +7,7 @@
     "start": "node server.js",
     "scan": "node index.js",
     "report": "node index.js --report-only",
-    "postinstall": "npx playwright install chromium firefox webkit"
+    "postinstall": "npx playwright install chromium"
   },
   "dependencies": {
     "express": "^4.21.0",
