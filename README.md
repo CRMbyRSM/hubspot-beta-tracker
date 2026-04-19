@@ -71,6 +71,39 @@ curl "http://localhost:3000/api/scan?key=YOUR_API_KEY"
 
 ---
 
+## Daily Scan Automation
+
+The `scripts/hubspot-beta-scan.sh` script handles automated daily scanning:
+- Loads credentials from `~/.env` (or Railway variables as fallback)
+- Pulls latest code from GitHub
+- Runs the scanner with HubSpot credentials
+- Commits and pushes updated `state.json` back to GitHub → Railway auto-deploys
+
+### Setup
+
+1. **Credentials** — add to `~/.env`:
+   ```
+   HUBSPOT_PORTAL_CSRF=<csrf-token>
+   HUBSPOT_PORTAL_COOKIE=<full-cookie>
+   GITHUB_TOKEN=<github-pat-with-repo-write-access>
+   ```
+
+2. **Get HubSpot cookies**: log into `app.hubspot.com` → DevTools → Application → Cookies → `app-eu1.hubspot.com` → copy `hubspotapi-csrf` and the full cookie.
+
+3. **Run manually**:
+   ```bash
+   ./scripts/hubspot-beta-scan.sh
+   ```
+
+4. **Schedule daily** (cron — runs at 8 AM Rome time):
+   ```
+   0 6 * * * /full/path/to/scripts/hubspot-beta-scan.sh >> /var/log/beta-scan.log 2>&1
+   ```
+
+> **Cookie expiry**: HubSpot session cookies expire — when descriptions stop updating, refresh the cookies from your browser.
+
+---
+
 ## Deploying to Railway
 
 1. Push to GitHub
