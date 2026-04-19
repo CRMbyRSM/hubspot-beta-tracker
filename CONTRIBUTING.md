@@ -36,13 +36,18 @@ node server.js             # Start dashboard at :3000
 `HUBSPOT_PORTAL_COOKIE` + `HUBSPOT_PORTAL_CSRF` come from a live browser session. They expire.
 
 **When descriptions stop updating:**
+1. Run: `./rotate-auth.sh`
+2. Paste the cookie and CSRF token when prompted
+3. Script updates Railway and redeploys automatically
+
+**Alternative: manual rotation**
 1. Open `app-eu1.hubspot.com` in browser
 2. DevTools → Application → Cookies
 3. Copy `HUBSPOT_PORTAL_COOKIE` and `HUBSPOT_PORTAL_CSRF`
 4. Update in Railway dashboard → Variables
 5. Next scan will pick them up automatically
 
-**No token rotation script exists.** Manual refresh is the process.
+**Health check:** `./check-health.sh` — catches silent failures (cookies expired, portal items dropped, scan overdue).
 
 ## Key Gotchas
 
@@ -114,6 +119,9 @@ package.json          — Dependencies + scripts
 Procfile              — Railway deployment
 .env.example          — Environment variable template
 .redeploy             — Forced redeploy trigger
+rotate-auth.sh        — Session cookie rotation script
+check-health.sh       — System health check
+CONTRIBUTING.md       — This file
 ```
 
 ## Brand Rules
