@@ -1,94 +1,113 @@
 #!/bin/bash
 # HubSpot Beta Tracker — Daily Scan Script
 # Run via cron or manually to keep the tracker data fresh
+#
+# Usage:
+#   ./scripts/hubspot-beta-scan.sh
+#
+# Credentials:
+#   Reads from .env in the project root (see .env.example)
+#   Falls back to environment variables if .env not found
+#
+# Cron example (daily at 6 AM UTC):
+#   0 6 * * * /path/to/hubspot-beta-tracker/scripts/hubspot-beta-scan.sh >> /var/log/beta-scan.log 2>&1
 
-set -e
+set -euo pipefail
 
-REPO_DIR="/tmp/hubspot-beta-tracker-scan"
-ENV_FILE="$HOME/.openclaw/workspace/.env"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(dirname "$SCRIPT_DIR")"
+ENV_FILE="$REPO_DIR/.env"
 
-# Use Python to safely load .env and export credentials
-export HUBSPOT_PORTAL_CSRF
-export HUBSPOT_PORTAL_COOKIE
-export GITHUB_TOKEN
+echo "[beta-scan] Starting at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
-python3 - << 'PYEOF'
-import os
+# ─── Load credentials ────────────────────────────────────────────────────────
 
-env_file = os.path.expanduser("~/.openclaw/workspace/.env")
-env_vars = {}
-
-if os.path.exists(env_file):
-    with open(env_file) as f:
-        for line in f:
-            line = line.strip()
-            if '=' in line and not line.startswith('#'):
-                key, _, value = line.partition('=')
-                env_vars[key.strip()] = value.strip()
-
-for key in ['HUBSPOT_PORTAL_CSRF', 'HUBSPOT_PORTAL_COOKIE', 'GITHUB_TOKEN']:
-    val = env_vars.get(key, os.environ.get(key, ''))
-    if val:
-        os.environ[key] = val
-        print(f"[beta-scan] Loaded {key}")
-    else:
-        print(f"[beta-scan] WARNING: {key} not found")
-PYEOF
-
-# Clone/pull the repo
-if [ -d "$REPO_DIR/.git" ]; then
-    echo "[beta-scan] Pulling latest code..."
-    cd "$REPO_DIR"
-    git pull origin master
+if [[ -f "$ENV_FILE" ]]; then
+    echo "[beta-scan] Loading credentials from $ENV_FILE"
+    set -a
+    # Source .env, skipping comments and blank lines
+    while IFS= read -r line; do
+        line="${line#"${line%%[![:space:]]*}"}"  # trim leading whitespace
+        [[ -z "$line" || "$line" == \#* ]] && continue
+        export "$line"
+    done < "$ENV_FILE"
+    set +a
 else
-    echo "[beta-scan] Cloning repo..."
-    rm -rf "$REPO_DIR"
-    git clone https://github.com/CRMbyRSM/hubspot-beta-tracker.git "$REPO_DIR"
-    cd "$REPO_DIR"
-    npm install --silent 2>/dev/null || true
+    echo "[beta-scan] No .env file found, using environment variables"
 fi
 
-# Install deps if needed
-if [ ! -d "node_modules" ]; then
-    echo "[beta-scan] Installing dependencies..."
-    npm install --silent 2>/dev/null || true
-fi
+# Validate required vars
+MISSING=()
+[[ -z "${HUBSPOT_PORTAL_COOKIE:-}" ]] && MISSING+=("HUBSPOT_PORTAL_COOKIE")
+[[ -z "${HUBSPOT_PORTAL_CSRF:-}" ]] && MISSING+=("HUBSPOT_PORTAL_CSRF")
 
-# Run the scan
-echo "[beta-scan] Running scan at $(date)..."
-SCAN_OUTPUT=$(HUBSPOT_PORTAL_CSRF="$HUBSPOT_PORTAL_CSRF" HUBSPOT_PORTAL_COOKIE="$HUBSPOT_PORTAL_COOKIE" node index.js --json 2>&1)
-SCAN_EXIT=$?
-
-echo "$SCAN_OUTPUT" | tail -5
-
-if [ $SCAN_EXIT -ne 0 ]; then
-    echo "[beta-scan] Scan failed with exit code $SCAN_EXIT"
+if [[ ${#MISSING[@]} -gt 0 ]]; then
+    echo "[beta-scan] ERROR: Missing required variables: ${MISSING[*]}"
+    echo "[beta-scan] Copy .env.example to .env and fill in values."
     exit 1
 fi
 
-# Commit and push if there are changes
+# GitHub token for push (optional — only needed if committing state changes)
+GITHUB_TOKEN="${GITHUB_TOKEN:-}"
+
+# ─── Ensure we have the latest code ──────────────────────────────────────────
+
 cd "$REPO_DIR"
+
+if [[ -d ".git" ]]; then
+    echo "[beta-scan] Pulling latest code..."
+    git pull origin master --quiet 2>/dev/null || echo "[beta-scan] Warning: git pull failed, using local code"
+else
+    echo "[beta-scan] ERROR: $REPO_DIR is not a git repository"
+    exit 1
+fi
+
+# Install deps if needed
+if [[ ! -d "node_modules" ]]; then
+    echo "[beta-scan] Installing dependencies..."
+    npm install --silent 2>/dev/null || npm install
+fi
+
+# ─── Run the scan ────────────────────────────────────────────────────────────
+
+echo "[beta-scan] Running scan..."
+SCAN_OUTPUT=$(node index.js --json 2>&1) || {
+    echo "[beta-scan] Scan failed"
+    echo "$SCAN_OUTPUT" | tail -10
+    exit 1
+}
+
+# Show summary from last line of JSON output
+SCAN_SUMMARY=$(echo "$SCAN_OUTPUT" | grep -o '"summary":{[^}]*}' | tail -1 || echo "")
+if [[ -n "$SCAN_SUMMARY" ]]; then
+    echo "[beta-scan] $SCAN_SUMMARY"
+else
+    echo "$SCAN_OUTPUT" | tail -5
+fi
+
+# ─── Commit and push state changes ──────────────────────────────────────────
+
 if git diff --quiet && git diff --cached --quiet; then
     echo "[beta-scan] No state changes to push."
 else
-    echo "[beta-scan] Committing and pushing..."
-    git config user.email "antonella@crmbyrsm.com" 2>/dev/null || true
-    git config user.name "Antonella" 2>/dev/null || true
+    echo "[beta-scan] State changed, committing..."
+
+    git config user.email "hermes@crmbyrsm.com" 2>/dev/null || true
+    git config user.name "Hermes" 2>/dev/null || true
     git add -A
     git commit -m "chore: daily scan $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    # Embed token directly in remote URL to avoid credential helper issues
-    python3 - << 'PYEOF'
-import os, subprocess
-token = None
-with open(os.path.expanduser("~/.openclaw/workspace/.env")) as f:
-    for line in f:
-        if line.startswith("GITHUB_TOKEN="):
-            token = line.strip().split("=", 1)[1]
-            break
-if token:
-    subprocess.run(["git", "remote", "set-url", "origin",
-                    f"https://CRMbyRSM:{token}@github.com/CRMbyRSM/hubspot-beta-tracker.git"], check=True)
-PYEOF
-    git push origin master
-    echo "[beta-scan] Pushed successfully."
+
+    if [[ -n "$GITHUB_TOKEN" ]]; then
+        echo "[beta-scan] Pushing with token..."
+        git remote set-url origin "https://CRMbyRSM:${GITHUB_TOKEN}@github.com/CRMbyRSM/hubspot-beta-tracker.git"
+        git push origin master --quiet
+        # Reset to clean URL (don't leave token in config)
+        git remote set-url origin "https://github.com/CRMbyRSM/hubspot-beta-tracker.git"
+        echo "[beta-scan] Pushed successfully."
+    else
+        echo "[beta-scan] No GITHUB_TOKEN set — skipping push."
+        echo "[beta-scan] Run: git push origin master"
+    fi
 fi
+
+echo "[beta-scan] Done at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
