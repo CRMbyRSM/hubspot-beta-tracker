@@ -164,7 +164,7 @@ async function parsePortalUpdates() {
           'accept': 'application/json, text/javascript, */*; q=0.01',
           'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
           'x-hubspot-csrf-hubspotapi': csrf,
-          'cookie': cookie,
+          'cookie': `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`,
           'user-agent': 'Mozilla/5.0'
         },
         signal: AbortSignal.timeout(15000),
