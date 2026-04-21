@@ -1220,7 +1220,7 @@ async function enrichNewItemDescriptions() {
       try {
         const resp = await fetch(
           `https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/${updateId}?portalId=139633041`,
-          { headers: { 'cookie': cookie, 'x-hubspot-csrf-hubspotapi': csrf }, signal: AbortSignal.timeout(10000) }
+          { headers: { 'cookie': `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`, 'x-hubspot-csrf-hubspotapi': csrf, 'accept': 'application/json', 'user-agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(10000) }
         );
         if (!resp.ok) return { id, desc: null };
         const d = await resp.json();
