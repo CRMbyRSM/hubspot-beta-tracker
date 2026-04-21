@@ -558,7 +558,7 @@ async function init() {
       const bDate = new Date(b.lastSeen || b.firstSeen);
       return bDate - aDate;
     });
-    renderMeta({ betas: allBetas });
+    renderMeta({ betas: allBetas, lastScan: data.lastScan, scanCount: data.scanCount });
     renderHero();
     renderImportant();
     renderStatusFilters();
