@@ -523,21 +523,21 @@ function scoreRisk(item) {
 function selectHeroItems(items) {
   // Select 4 most relevant hero items: 1 sunset + 3 important
   const sunset = items.filter(i => scoreRisk(i) >= 35).sort((a, b) => scoreRisk(b) - scoreRisk(a)).slice(0, 1);
-  const important = items.filter(i => !isSunsetOrCritical(i)).sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen)).slice(0, 3);
+  const important = items.filter(i => !isSunsetOrCritical(i)).sort((a, b) => scoreUrgency(b) - scoreUrgency(a) || new Date(b.pubDate || b.firstSeen) - new Date(a.pubDate || a.firstSeen)).slice(0, 3);
   return [...sunset, ...important].slice(0, 4);
 }
 
 function selectSunsetItems(items) {
   return [...items]
     .filter(i => scoreRisk(i) >= 35)
-    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
+    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.pubDate || b.firstSeen) - new Date(a.pubDate || a.firstSeen))
     .slice(0, 1);
 }
 
 function selectImportantItems(items) {
   return [...items]
     .filter(i => !isSunsetOrCritical(i))
-    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.lastSeen || b.firstSeen) - new Date(a.lastSeen || a.firstSeen))
+    .sort((a, b) => scoreRisk(b) - scoreRisk(a) || new Date(b.pubDate || b.firstSeen) - new Date(a.pubDate || a.firstSeen))
     .slice(0, 3);
 }
 
@@ -552,10 +552,10 @@ async function init() {
     const data = await res.json();
     // API returns direct object, not wrapped in {betas: ...}
     const betas = Array.isArray(data) ? data : (data.betas ? Object.values(data.betas) : Object.values(data));
-    // Sort by lastSeen (most recently updated) for freshness
+    // Sort by pubDate (actual publish date) for chronological order
     allBetas = betas.sort((a, b) => {
-      const aDate = new Date(a.lastSeen || a.firstSeen);
-      const bDate = new Date(b.lastSeen || b.firstSeen);
+      const aDate = new Date(a.pubDate || a.firstSeen);
+      const bDate = new Date(b.pubDate || b.firstSeen);
       return bDate - aDate;
     });
     renderMeta({ betas: allBetas, lastScan: data.lastScan, scanCount: data.scanCount });
