@@ -1,0 +1,43 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "password-protection-on-quotes-public-beta",
+          "title": "Password protection on Quotes (Public beta)",
+          "description": "Sellers can now require buyers to enter a password before viewing a quote, giving admins and reps control over who can access sensitive quote information. Enforceable across the portal or on a case by case basis. Quotes often contain highly sensitive details — pricing, contract terms, and company information that should only be visible to the right people. Until now, anyone with the shareable quote link could view the quote, which is a non‑starter for regulated industries or confidential deals. ",
+          "status": "public beta",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-20T22:00:00.000Z"
+        },
+        {
+          "id": "guidelines-for-ai-generated-context-by-section-live",
+          "title": "Guidelines for AI generated context by section (Live)",
+          "description": "Admins can now add section-level writing instructions to quote templates, so Breeze generates on-brand content every time. This scales consistency without killing flexibility. Watch the demo – Section‑level AI guidelines Teams can build guidance directly into quote templates, so every rep starts with consistent, on-brand content while retaining the flexibility to tailor each quote. Note: Guidelines apply automatically to new quotes and to existing quotes when sections are regenerated after savin",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "CMS Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-20T22:00:00.000Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 134,
+    "timestamp": "2026-04-22T06:04:05.391Z"
+  }
+]
