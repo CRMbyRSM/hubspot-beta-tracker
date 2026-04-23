@@ -1,0 +1,27 @@
+[
+  {
+    "changes": {
+      "new": [],
+      "statusChanged": [],
+      "updated": [
+        {
+          "id": "password-protection-on-quotes-public-beta",
+          "title": "Password protection on Quotes (Public beta)",
+          "description": "Sellers can now require buyers to enter a password before viewing a quote, giving admins and reps control over who can access sensitive quote information. Enforceable across the portal or on a case by case basis. Quotes often contain highly sensitive details — pricing, contract terms, and company information that should only be visible to the right people. Until now, anyone with the shareable quote link could view the quote, which is a non‑starter for regulated industries or confidential deals. ",
+          "status": "public beta",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-20T22:00:00.000Z"
+        }
+      ]
+    },
+    "itemsFound": 147,
+    "timestamp": "2026-04-23T06:00:42.881Z"
+  }
+]
