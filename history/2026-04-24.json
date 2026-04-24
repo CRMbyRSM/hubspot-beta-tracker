@@ -1,0 +1,25 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "legacy-public-app-creation-sunset",
+          "title": "Legacy Public App Creation Sunset",
+          "description": "Beginning May 26, 2026, the ability to create new legacy public apps via the Developer Platform UI will be permanently disabled . New public app development should use the Projects-based app platform .",
+          "status": "sunset",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/legacy-public-app-creation-sunset",
+          "pubDate": "Thu, 23 Apr 2026 13:12:02 GMT",
+          "author": "hseligson@hubspot.com (Hannah Seligson)"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 148,
+    "timestamp": "2026-04-24T06:00:37.975Z"
+  }
+]
