@@ -1,0 +1,66 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "marketing-events-consistently-connecting-your-data",
+          "title": "Marketing Events: Consistently connecting your data",
+          "description": "If you manage events in HubSpot — webinars, conferences, in-person activations — you now have full CRM support for those events. The Marketing Events object now works like every other object, which means more relevant data, better segmentation, and a more unified customer view. It has a redesigned record page built with a standard CRM layout you're used to — a full activity timeline, notes, tasks, calls, customizable properties, and a campaign association card for linking events directly to camp",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-26T22:00:00.000Z"
+        },
+        {
+          "id": "campaign-data-is-fully-integrated-with-the-rest-of-smart-crm",
+          "title": "Campaign data is fully integrated with the rest of Smart CRM",
+          "description": "Campaigns have always been a great organizing tool. Now they're a powerful attribution tool, too, driving clarity and strategic decisions. This quarter, we added the ability to associate custom object records with Campaigns (available for Enterprise portals with custom object access), so all of your business data can be reflected in your complete marketing activities. We also added Campaign visibility in the data model builder, custom association labels between Campaigns and custom objects, segm",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-26T22:00:00.000Z"
+        },
+        {
+          "id": "commerce-tools-more-automation-and-associations-that-connect-across-teams",
+          "title": "Commerce tools: More automation and associations that connect across teams",
+          "description": "For teams using HubSpot for commerce tools, it’s never been easier to close a deal, automate quotes, or save valuable time. Workflows can now create Quotes automatically from a deal-based workflow, generating a draft quote based on specific deal criteria — so reps stay focused on selling rather than admin work. Orders now support pipeline governance — including rules to limit record creation to specific stages, prevent stage skipping, and restrict backward movement — along with conditional prope",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-26T22:00:00.000Z"
+        },
+        {
+          "id": "hubspot-smart-crm-how-your-customer-data-works-across-more-tools",
+          "title": "HubSpot Smart CRM: How Your Customer Data Works Across More Tools",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-Smart-CRM-How-Your-Customer-Data-Works-Across-More-Tools/ba-p/1271038",
+          "pubDate": "2026-04-28T06:02:52.768Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 152,
+    "timestamp": "2026-04-28T06:03:08.184Z"
+  }
+]
