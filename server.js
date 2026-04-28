@@ -46,6 +46,67 @@ const app = express();
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
+// ─── Health Helpers ─────────────────────────────────────────────────────────
+
+function getLatestPortalItem(state) {
+  const portalItems = Object.values(state?.betas || {}).filter(item => item.source === 'portal-updates');
+  if (!portalItems.length) return null;
+  return portalItems.sort((a, b) => new Date(b.pubDate || 0) - new Date(a.pubDate || 0))[0];
+}
+
+function calculatePortalFreshness(state) {
+  const latest = getLatestPortalItem(state);
+  if (!latest?.pubDate) return { latestPortalItemDate: null, latestPortalItemTitle: null, portalStaleHours: null, portalStaleDays: null };
+  const ageMs = Date.now() - new Date(latest.pubDate).getTime();
+  const portalStaleHours = Math.max(0, Math.round(ageMs / 36_000) / 100);
+  return {
+    latestPortalItemDate: latest.pubDate,
+    latestPortalItemTitle: latest.title || null,
+    portalStaleHours,
+    portalStaleDays: Math.round((portalStaleHours / 24) * 100) / 100,
+  };
+}
+
+function portalCookieHeader(cookie, csrf) {
+  if (!cookie || !csrf) return '';
+  const hasHubspotApiName = cookie.includes('hubspotapi=');
+  const baseCookie = hasHubspotApiName ? cookie : `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`;
+  return baseCookie.includes('hubspotapi-csrf=') ? baseCookie : `${baseCookie}; hubspotapi-csrf=${csrf}`;
+}
+
+async function checkPortalAuth(state) {
+  const cookie = process.env.HUBSPOT_PORTAL_COOKIE || '';
+  const csrf = process.env.HUBSPOT_PORTAL_CSRF || '';
+  const freshness = calculatePortalFreshness(state);
+  const staleThresholdHours = Number(process.env.STALE_PORTAL_HOURS || 48);
+
+  if (!cookie || !csrf) {
+    return { ok: false, status: 'missing_auth', message: 'Portal auth env vars are missing', ...freshness, staleThresholdHours };
+  }
+
+  try {
+    const r = await fetch('https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/list?portalId=139633041&limit=1&offset=0', {
+      headers: {
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
+        'cookie': portalCookieHeader(cookie, csrf),
+        'x-hubspot-csrf-hubspotapi': csrf,
+        'user-agent': 'Mozilla/5.0',
+      },
+      signal: AbortSignal.timeout(12000),
+    });
+    let ok = r.ok;
+    let status = r.ok ? 'ok' : (r.status === 401 ? 'auth_failed' : 'fetch_failed');
+    let message = r.ok ? 'Portal API auth is valid' : `Portal API returned HTTP ${r.status}`;
+    if (ok && freshness.portalStaleHours !== null && freshness.portalStaleHours > staleThresholdHours) {
+      ok = false; status = 'stale'; message = `Latest portal update is ${freshness.portalStaleHours} hours old`;
+    }
+    return { ok, status, httpStatus: r.status, message, checkedAt: new Date().toISOString(), ...freshness, staleThresholdHours };
+  } catch (err) {
+    return { ok: false, status: 'fetch_failed', message: err.message, checkedAt: new Date().toISOString(), ...freshness, staleThresholdHours };
+  }
+}
+
 // ─── API Routes ─────────────────────────────────────────────────────────────
 
 app.get('/api/betas', (_req, res) => {
@@ -54,6 +115,26 @@ app.get('/api/betas', (_req, res) => {
     res.json(state);
   } catch (err) {
     res.status(500).json({ error: 'Could not read state file' });
+  }
+});
+
+app.get('/api/health', async (_req, res) => {
+  try {
+    const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    const portal = await checkPortalAuth(state);
+    res.status(portal.ok ? 200 : 503).json({ ok: portal.ok, lastScan: state.lastScan, scanCount: state.scanCount, portal });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: 'Could not read health state', message: err.message });
+  }
+});
+
+app.get('/api/health/portal', async (_req, res) => {
+  try {
+    const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    const portal = await checkPortalAuth(state);
+    res.status(portal.ok ? 200 : 503).json(portal);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: 'Could not read portal health', message: err.message });
   }
 });
 
@@ -66,10 +147,20 @@ app.get('/api/scan', async (req, res) => {
     const { execFile } = await import('child_process');
     const { promisify } = await import('util');
     const exec = promisify(execFile);
-    const { stdout } = await exec('node', [path.join(__dirname, 'index.js'), '--json'], { timeout: 60000 });
-    res.json({ ok: true, output: JSON.parse(stdout.split('\n').filter(l => l.startsWith('{')).pop() || '{}') });
+    const { stdout, stderr } = await exec('node', [path.join(__dirname, 'index.js')], { timeout: 180000, maxBuffer: 1024 * 1024 });
+    const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    const portal = await checkPortalAuth(state);
+    res.json({
+      ok: true,
+      lastScan: state.lastScan,
+      scanCount: state.scanCount,
+      totalTracked: Object.keys(state.betas || {}).length,
+      portal,
+      outputTail: stdout.split('\n').slice(-12).join('\n'),
+      stderrTail: stderr ? stderr.split('\n').slice(-8).join('\n') : undefined,
+    });
   } catch (err) {
-    res.status(500).json({ error: 'Scan failed', message: err.message });
+    res.status(500).json({ error: 'Scan failed', message: err.message, stdout: err.stdout?.slice(-2000), stderr: err.stderr?.slice(-2000) });
   }
 });
 
@@ -179,6 +270,8 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 .topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;width:100%}
 .meta-chip{background:var(--surface2);border:1px solid #2b2b2b;color:var(--text-muted);padding:8px 12px;border-radius:8px;font-size:.8rem}
 .meta-chip strong{color:var(--teal)}
+.health-banner{display:none;margin:18px 0 0;padding:14px 16px;border:1px solid rgba(255,184,77,.45);background:rgba(255,184,77,.12);color:#ffd99a;border-radius:10px;font-size:.92rem;line-height:1.45}
+.health-banner strong{color:#fff}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:6px;font-size:.88rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s ease;text-decoration:none}
 .btn-primary{background:var(--teal);color:#000;border:none}
 .btn-primary:hover{opacity:.92;text-decoration:none}
@@ -332,6 +425,7 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 </header>
 
 <main class="container">
+  <div class="health-banner" id="healthBanner"></div>
   <section class="section" id="importantSection" style="padding-top:40px">
     <div class="section-head">
       <div>
@@ -559,6 +653,7 @@ async function init() {
       return bDate - aDate;
     });
     renderMeta({ betas: allBetas, lastScan: data.lastScan, scanCount: data.scanCount });
+    renderHealthBanner(data.health && data.health.portal);
     renderHero();
     renderImportant();
     renderStatusFilters();
@@ -591,6 +686,14 @@ function initSubscribeForm() {
     } catch { btn.textContent = 'Error'; }
     setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 3000);
   });
+}
+
+function renderHealthBanner(portalHealth) {
+  const el = document.getElementById('healthBanner');
+  if (!el || !portalHealth || portalHealth.ok !== false) return;
+  const latest = portalHealth.latestPortalItemDate ? new Date(portalHealth.latestPortalItemDate).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : 'unknown';
+  el.style.display = 'block';
+  el.innerHTML = '<strong>⚠️ HubSpot portal feed needs attention.</strong> ' + escapeHtml(portalHealth.message || 'Portal data is stale.') + ' Latest portal item: ' + escapeHtml(latest) + '. Fallback sources may still be updating.';
 }
 
 function renderMeta(data) {

@@ -116,6 +116,105 @@ function loadPortalAuth() {
   return { cookie, csrf };
 }
 
+let currentPortalHealth = {
+  ok: null,
+  status: 'not_checked',
+  checkedAt: null,
+  message: 'Portal API has not been checked yet',
+  itemsFetched: 0,
+};
+
+function portalCookieHeader(cookie, csrf) {
+  if (!cookie || !csrf) return '';
+  const hasHubspotApiName = cookie.includes('hubspotapi=');
+  const baseCookie = hasHubspotApiName ? cookie : `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`;
+  return baseCookie.includes('hubspotapi-csrf=') ? baseCookie : `${baseCookie}; hubspotapi-csrf=${csrf}`;
+}
+
+function getLatestPortalItem(state) {
+  const portalItems = Object.values(state?.betas || {}).filter(item => item.source === 'portal-updates');
+  if (!portalItems.length) return null;
+  return portalItems.sort((a, b) => new Date(b.pubDate || 0) - new Date(a.pubDate || 0))[0];
+}
+
+function calculatePortalFreshness(state) {
+  const latest = getLatestPortalItem(state);
+  if (!latest?.pubDate) return { latestPortalItemDate: null, latestPortalItemTitle: null, portalStaleHours: null, portalStaleDays: null };
+  const ageMs = Date.now() - new Date(latest.pubDate).getTime();
+  const portalStaleHours = Math.max(0, Math.round(ageMs / 36_000) / 100);
+  return {
+    latestPortalItemDate: latest.pubDate,
+    latestPortalItemTitle: latest.title || null,
+    portalStaleHours,
+    portalStaleDays: Math.round((portalStaleHours / 24) * 100) / 100,
+  };
+}
+
+function buildPortalHealth(state, portalItems) {
+  const freshness = calculatePortalFreshness(state);
+  const health = {
+    ...currentPortalHealth,
+    ...freshness,
+    itemsFetched: Array.isArray(portalItems) ? portalItems.length : currentPortalHealth.itemsFetched || 0,
+    staleThresholdHours: Number(process.env.STALE_PORTAL_HOURS || 48),
+  };
+
+  if (health.ok && health.portalStaleHours !== null && health.portalStaleHours > health.staleThresholdHours) {
+    health.ok = false;
+    health.status = 'stale';
+    health.message = `Latest portal update is ${health.portalStaleHours} hours old`;
+  }
+
+  return health;
+}
+
+async function sendDiscordAlert(content) {
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return false;
+  try {
+    const res = await fetch(webhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content }),
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) console.error(`⚠️ Discord alert failed: HTTP ${res.status}`);
+    return res.ok;
+  } catch (err) {
+    console.error(`⚠️ Discord alert failed: ${err.message}`);
+    return false;
+  }
+}
+
+async function maybeAlertPortalHealth(state, health) {
+  if (health.ok !== false) return;
+  const prior = state.health?.portal || {};
+  const lastAlertAt = prior.lastAlertAt ? new Date(prior.lastAlertAt).getTime() : 0;
+  const alertCooldownHours = Number(process.env.PORTAL_ALERT_COOLDOWN_HOURS || 12);
+  if (lastAlertAt && Date.now() - lastAlertAt < alertCooldownHours * 3600_000) {
+    health.lastAlertAt = prior.lastAlertAt;
+    return;
+  }
+
+  const reason = health.status === 'auth_failed'
+    ? `Portal API returned ${health.httpStatus || 'an auth error'}. Cookies likely expired.`
+    : health.message || 'Portal data is unhealthy.';
+  const content = [
+    '🚨 **HubSpot Product Updates tracker needs attention**',
+    '',
+    reason,
+    `Last portal item: ${health.latestPortalItemDate || 'unknown'}${health.latestPortalItemTitle ? ` — ${health.latestPortalItemTitle}` : ''}`,
+    `Last scan: ${state.lastScan || 'unknown'}`,
+    '',
+    'Update Railway vars with fresh browser cookies:',
+    '- `HUBSPOT_PORTAL_COOKIE` = `hubspotapi` cookie value',
+    '- `HUBSPOT_PORTAL_CSRF` = `hubspotapi-csrf` cookie value',
+  ].join('\n');
+
+  const sent = await sendDiscordAlert(content);
+  if (sent) health.lastAlertAt = new Date().toISOString();
+}
+
 function mapPortalStatus(item) {
   const state = (item.rolloutState || '').toUpperCase();
   const approval = (item.approval || '').toUpperCase();
@@ -147,6 +246,7 @@ async function parsePortalUpdates() {
   const { cookie, csrf } = loadPortalAuth();
   if (!cookie || !csrf) {
     console.log('📡 Portal updates auth not configured - skipping portal source');
+    currentPortalHealth = { ok: false, status: 'missing_auth', checkedAt: new Date().toISOString(), message: 'Portal auth env vars are missing', itemsFetched: 0 };
     return [];
   }
   console.log('📡 Fetching authenticated HubSpot portal product updates (paginated)...');
@@ -164,12 +264,22 @@ async function parsePortalUpdates() {
           'accept': 'application/json, text/javascript, */*; q=0.01',
           'referer': 'https://app-eu1.hubspot.com/product-updates/139633041/all',
           'x-hubspot-csrf-hubspotapi': csrf,
-          'cookie': `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`,
+          'cookie': portalCookieHeader(cookie, csrf),
           'user-agent': 'Mozilla/5.0'
         },
         signal: AbortSignal.timeout(15000),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        currentPortalHealth = {
+          ok: false,
+          status: res.status === 401 ? 'auth_failed' : 'fetch_failed',
+          httpStatus: res.status,
+          checkedAt: new Date().toISOString(),
+          message: `Portal API returned HTTP ${res.status}`,
+          itemsFetched: 0,
+        };
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       const items = Array.isArray(data.rolloutProductUpdates) ? data.rolloutProductUpdates : [];
 
@@ -261,9 +371,19 @@ async function parsePortalUpdates() {
       // Sort by update date, newest first
       .sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0));
 
+    currentPortalHealth = {
+      ok: true,
+      status: 'ok',
+      checkedAt: new Date().toISOString(),
+      message: `Fetched ${results.length} portal product updates`,
+      itemsFetched: results.length,
+    };
     console.log(`  ✓ Found ${results.length} portal updates (from ${totalFetched} total)`);
     return results;
   } catch (err) {
+    if (currentPortalHealth.ok !== false) {
+      currentPortalHealth = { ok: false, status: 'fetch_failed', checkedAt: new Date().toISOString(), message: err.message, itemsFetched: 0 };
+    }
     console.log(`  ✗ Portal updates failed: ${err.message}`);
     return [];
   }
@@ -1087,6 +1207,7 @@ function generateJSON(state, changes) {
     generated: new Date().toISOString(),
     totalTracked: Object.keys(state.betas).length,
     scanCount: state.scanCount,
+    health: state.health || {},
     changes: changes || { new: [], statusChanged: [], updated: [] },
     summary: {
       newCount: changes?.new?.length || 0,
@@ -1151,9 +1272,12 @@ async function main() {
 
   state.lastScan = new Date().toISOString();
   state.scanCount = (state.scanCount || 0) + 1;
+  state.health = state.health || {};
+  state.health.portal = buildPortalHealth(state, portalItems);
+  await maybeAlertPortalHealth(state, state.health.portal);
 
   saveState(state);
-  saveHistory({ changes, itemsFound: deduped.size });
+  saveHistory({ changes, itemsFound: deduped.size, health: state.health });
 
   // Output report
   if (jsonOutput) {
@@ -1220,7 +1344,7 @@ async function enrichNewItemDescriptions() {
       try {
         const resp = await fetch(
           `https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/${updateId}?portalId=139633041`,
-          { headers: { 'cookie': `hubspotapi=${cookie}; hubspotapi-csrf=${csrf}`, 'x-hubspot-csrf-hubspotapi': csrf, 'accept': 'application/json', 'user-agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(10000) }
+          { headers: { 'cookie': portalCookieHeader(cookie, csrf), 'x-hubspot-csrf-hubspotapi': csrf, 'accept': 'application/json', 'user-agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(10000) }
         );
         if (!resp.ok) return { id, desc: null };
         const d = await resp.json();
