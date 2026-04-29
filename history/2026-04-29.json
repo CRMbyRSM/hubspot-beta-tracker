@@ -1,0 +1,65 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "quality-of-life-wins-for-sales-reps-hubspot-admins-commerce-round-up-4",
+          "title": "Quality‑of‑Life Wins for Sales reps & HubSpot Admins (Commerce Round up #4)",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Quality-of-Life-Wins-for-Sales-reps-amp-HubSpot-Admins-Commerce/ba-p/1269514",
+          "pubDate": "2026-04-29T06:02:35.360Z"
+        },
+        {
+          "id": "hubspot-contracts-go-public-at-spring-spotlight-commerce-round-up-3",
+          "title": "HubSpot Contracts Go Public at Spring Spotlight (Commerce round up #3)",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-Contracts-Go-Public-at-Spring-Spotlight-Commerce-round/ba-p/1267622",
+          "pubDate": "2026-04-29T06:02:35.360Z"
+        },
+        {
+          "id": "fewer-tax-and-invoice-headaches-in-commerce-hub-release-roundup-2",
+          "title": "Fewer tax and invoice headaches in Commerce Hub (Release Roundup #2)",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Commerce Hub"
+          ],
+          "source": "community",
+          "sourceUrl": "https://community.hubspot.com/t5/Releases-and-Updates/Fewer-tax-and-invoice-headaches-in-Commerce-Hub-Release-Roundup/ba-p/1265462",
+          "pubDate": "2026-04-29T06:02:35.360Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 152,
+    "health": {
+      "portal": {
+        "ok": false,
+        "status": "auth_failed",
+        "httpStatus": 401,
+        "checkedAt": "2026-04-29T06:02:26.079Z",
+        "message": "Portal API returned HTTP 401",
+        "itemsFetched": 0,
+        "latestPortalItemDate": "2026-04-21T14:47:51.587Z",
+        "latestPortalItemTitle": "Data Agent: CRM Data Source",
+        "portalStaleHours": 183.25,
+        "portalStaleDays": 7.64,
+        "staleThresholdHours": 48,
+        "lastAlertAt": "2026-04-29T06:02:49.779Z"
+      }
+    },
+    "timestamp": "2026-04-29T06:02:49.794Z"
+  }
+]
