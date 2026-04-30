@@ -1,0 +1,41 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "hubspot-contracts-public-beta",
+          "title": "HubSpot Contracts (Public beta)",
+          "description": "Manage renewals and amendments through Quotes, and see their impact to ARR in real time.",
+          "status": "public beta",
+          "hubs": [
+            "Sales Hub",
+            "Commerce Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-27T22:00:00.000Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 152,
+    "health": {
+      "portal": {
+        "ok": false,
+        "status": "auth_failed",
+        "httpStatus": 401,
+        "checkedAt": "2026-04-30T06:00:20.585Z",
+        "message": "Portal API returned HTTP 401",
+        "itemsFetched": 0,
+        "latestPortalItemDate": "2026-04-21T14:47:51.587Z",
+        "latestPortalItemTitle": "Data Agent: CRM Data Source",
+        "portalStaleHours": 207.21,
+        "portalStaleDays": 8.63,
+        "staleThresholdHours": 48,
+        "lastAlertAt": "2026-04-30T06:00:45.774Z"
+      }
+    },
+    "timestamp": "2026-04-30T06:00:45.788Z"
+  }
+]
