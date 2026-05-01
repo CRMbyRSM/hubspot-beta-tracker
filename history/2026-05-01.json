@@ -1,0 +1,42 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "april-2026-rollup",
+          "title": "April 2026 Rollup",
+          "description": "This month, on top of all the of the amazing updates and releases from Spring Spotlight 2026 , we also have updates regarding the availability of our legacy CRM card migration tool, new features for the Custom Channels API, and more. Make sure to read on below for more details.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "dev-changelog",
+          "sourceUrl": "https://developers.hubspot.com/changelog/april-2026-rollup",
+          "pubDate": "Thu, 30 Apr 2026 18:07:36 GMT",
+          "author": null
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 152,
+    "health": {
+      "portal": {
+        "ok": false,
+        "status": "auth_failed",
+        "httpStatus": 401,
+        "checkedAt": "2026-05-01T06:00:21.337Z",
+        "message": "Portal API returned HTTP 401",
+        "itemsFetched": 0,
+        "latestPortalItemDate": "2026-04-21T14:47:51.587Z",
+        "latestPortalItemTitle": "Data Agent: CRM Data Source",
+        "portalStaleHours": 231.22,
+        "portalStaleDays": 9.63,
+        "staleThresholdHours": 48,
+        "lastAlertAt": "2026-05-01T06:00:48.962Z"
+      }
+    },
+    "timestamp": "2026-05-01T06:00:48.976Z"
+  }
+]
