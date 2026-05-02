@@ -1,0 +1,560 @@
+[
+  {
+    "changes": {
+      "new": [
+        {
+          "id": "aeo-track-and-improve-your-brand-visibility-in-ai-powered-search",
+          "title": "AEO: Track and improve your brand visibility in AI-powered search",
+          "description": "AEO is now available in Marketing Hub Pro and Enterprise, so you can track how often your brand appears in answers from ChatGPT, Perplexity, and Gemini, compare against competitors, and act on content recommendations without leaving HubSpot. You get prompt-level visibility, daily tracking, and connected content tools to close gaps faster. Availability:\nLive for Marketing Hub Professional and Marketing Hub Enterprise.",
+          "status": "now live",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "breeze-assistant-new-ways-to-work-across-hubspot",
+          "title": "Breeze Assistant: new ways to work across HubSpot",
+          "description": "Breeze Assistant expanded into more surfaces and workflows so teams can keep AI support closer to where work happens. Availability:\nLive for all hubs and tiers where Breeze Assistant and Reporting are supported; see each rollout page for exact hub and tier details.",
+          "status": "live",
+          "hubs": [
+            "Operations Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "data-agent-required-and-optional-tokens-for-prompts",
+          "title": "Data Agent: required and optional tokens for prompts",
+          "description": "Data Agent prompts can now use multiple tokens with explicit required/optional flags, so prompts only run when critical context is present and skip cleanly (without charging credits) when required data is missing. Availability:\nLive for HubSpot Credits customers across Commerce Hub, Content Hub, Marketing Hub, Data Hub, Sales Hub, Service Hub Starter+, and Smart CRM Professional and Enterprise.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "data-studio-smarter-columns-and-source-alerts",
+          "title": "Data Studio: smarter columns and source alerts",
+          "description": "Two sets of Data Studio enhancements make it easier to trust and maintain datasets: Availability:\nLive for Data Hub Professional and Data Hub Enterprise.",
+          "status": "live",
+          "hubs": [
+            "Operations Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "hubspot-mcp-server-secure-crm-access-for-external-ai-tools",
+          "title": "HubSpot MCP Server: secure CRM access for external AI tools",
+          "description": "The HubSpot MCP server (remote) is now GA, giving any MCP-compatible AI client structured, permission-aware read and write access to HubSpot CRM via natural language. It includes support for core CRM objects, engagements, segments, campaigns, and content, and respects user permissions and sensitive data settings. Availability:\nLive for all HubSpot accounts; developers need an MCP client that supports OAuth with PKCE.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "connect-breeze-agents-with-g2-linear-gong-and-amplitude",
+          "title": "Connect Breeze Agents with G2, Linear, Gong, and Amplitude",
+          "description": "Breeze Agents can now use additional MCP servers to pull context and take actions in G2, Linear, Gong, and Amplitude, all via plain-language prompts. This lets your agents research software, manage issues, analyze calls, and query product analytics without leaving HubSpot. Availability:\nLive for Commerce Hub Professional/Enterprise, Content Hub Starter+, Marketing Hub Starter+, Data Hub Starter+, Sales Hub Starter+, Service Hub Starter+, and Smart CRM Professional/Enterprise.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "connect-live-g2-buyer-intent-to-breeze-agents",
+          "title": "Connect live G2 Buyer Intent to Breeze Agents",
+          "description": "The G2 MCP for HubSpot pipes live G2 buyer intent and review data into Breeze Agents so reps can see what prospects are researching, which competitors they’re evaluating, and what real buyers are saying before they reach out. Availability:\nLive for customers with Professional or Enterprise HubSpot subscriptions using Breeze Agents and G2 Buyer Intent (add-on).",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "conversational-context-limits-add-on",
+          "title": "Conversational context limits add-on",
+          "description": "HubSpot is now metering how many conversational records (calls, meetings, emails, chats) are analyzed per month for AI features like Smart CRM cards and brand identity. Most portals won’t hit the included limits; high-volume accounts can purchase an add-on to increase capacity without sacrificing AI capabilities. Availability:\nLive for all paid hubs and tiers; add-on purchase required to expand limits.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "knowledge-vault-connect-hubspot-knowledge-base-and-index-inline-images",
+          "title": "Knowledge Vault: connect HubSpot knowledge base and index inline images",
+          "description": "Knowledge sources are now richer and easier to connect: Availability:\nLive for all hubs and tiers.",
+          "status": "live",
+          "hubs": [
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "buyer-intent-more-signals-and-richer-context",
+          "title": "Buyer Intent: more signals and richer context",
+          "description": "Buyer Intent received multiple signal-level improvements to help GTM teams act earlier and with more context: Availability:\nLive for customers using HubSpot Credits with Buyer Intent.",
+          "status": "live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "prospecting-agent-broader-access-and-daily-digest",
+          "title": "Prospecting Agent: broader access and daily digest",
+          "description": "Prospecting Agent is now easier to try and easier to keep up with. Availability:\nLive for Sales Hub Starter, Professional, and Enterprise (Prospecting Agent).",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "customer-agent-safer-rollout-better-routing-and-richer-insights",
+          "title": "Customer Agent: safer rollout, better routing, and richer insights",
+          "description": "Customer Agent picked up several updates that make AI support safer to deploy and easier to tune. Availability:\nLive for HubSpot Credits customers on Content Hub, Marketing Hub, Data Hub, Sales Hub, Service Hub Professional/Enterprise, and Smart CRM Professional/Enterprise; see each rollout page for exact hubs.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "help-desk-notes-snooze-capacity-and-calling-improvements",
+          "title": "Help Desk: notes, snooze, capacity, and calling improvements",
+          "description": "Service teams get a more coherent, AI-assisted Help Desk experience. Availability:\nLive for Service Hub Professional and Service Hub Enterprise (see individual rollouts for per-feature details).",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "assign-tasks-to-customers",
+          "title": "Assign tasks to customers",
+          "description": "You can now assign tasks to your customers by setting “Assigned To” to Customer and specifying one or more responsible contacts, giving you a single place to track work required from both your team and the customer’s team. Availability:\nLive for Service Hub Professional and Service Hub Enterprise.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "crm-record-timeline-and-views-filters-visuals-and-defaults",
+          "title": "CRM record timeline and views: filters, visuals, and defaults",
+          "description": "Multiple updates make CRM records faster to scan and easier to personalize: Availability:\nLive for all hubs and tiers (timeline and quick filters) and for Professional/Enterprise subscriptions (record defaults).",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "segments-membership-history-and-upcoming-intro-sunset",
+          "title": "Segments: membership history and upcoming intro sunset",
+          "description": "Segmentation got clearer audit trails and a heads-up about an older experience going away. Availability:\nLive for all hubs and tiers; sunset applies globally.",
+          "status": "sunset",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "meetings-index-page-custom-properties-and-never-log-controls",
+          "title": "Meetings: index page, custom properties, and “never log” controls",
+          "description": "Meeting data is now easier to manage and govern. Availability:\nLive for all hubs and tiers.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "email-editor-actions-unsubscribe-behavior-sidebars-drafts-and-templates",
+          "title": "Email: editor actions, unsubscribe behavior, sidebars, drafts, and templates",
+          "description": "Key email and calendar improvements streamline sending and administration. Availability:\nLive across Marketing Hub, Sales Hub, and Service Hub where noted.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Sales Hub",
+            "Service Hub",
+            "CMS Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "campaigns-deeper-automation-assets-and-crm-behavior",
+          "title": "Campaigns: deeper automation, assets, and CRM behavior",
+          "description": "Campaigns continue to behave more like first-class CRM objects and drive richer attribution. Availability:\nLive for Marketing Hub Professional and Enterprise (with some features available to Pro+ across Studio and Campaigns).",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "marketing-events-richer-object-and-associations",
+          "title": "Marketing events: richer object and associations",
+          "description": "Marketing events behave more like a standard CRM object and are better connected to the rest of your data. Availability:\nLive for all hubs and tiers.",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "tiktok-and-reddit-deeper-social-ads-coverage",
+          "title": "TikTok and Reddit: deeper social + ads coverage",
+          "description": "Short-form and community channels are now first-class citizens in HubSpot. Availability:\nLive for Marketing Hub Professional and Enterprise (see each rollout for specifics).",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "reporting-dashboards-goals-unused-reports-tags-and-recurring-shares",
+          "title": "Reporting & dashboards: goals, unused reports, tags, and recurring shares",
+          "description": "Operations and analytics teams get more control over what’s reported where. Availability:\nLive for all HubSpot Starter, Professional, and Enterprise subscriptions.",
+          "status": "live",
+          "hubs": [
+            "Operations Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "commerce-hub-richer-invoicing-payments-and-credit-memo-data",
+          "title": "Commerce Hub: richer invoicing, payments, and credit memo data",
+          "description": "Commerce and RevOps teams got a raft of billing and payments enhancements. Availability:\nLive across all hubs and tiers where Commerce Hub features are available; see individual rollouts for hub and tier specifics.",
+          "status": "live",
+          "hubs": [
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "quotes-better-ai-content-signer-reassignment-and-more-secure-access",
+          "title": "Quotes: better AI content, signer reassignment, and more secure access",
+          "description": "Quote workflows are smoother and more controlled. Availability:\nLive for Commerce Hub Professional and Commerce Hub Enterprise.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Operations Hub",
+            "Commerce Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "sales-workspace-meetings-and-calling",
+          "title": "Sales Workspace, meetings, and calling",
+          "description": "Sales reps see a more unified workspace and richer call tooling. Availability:\nLive for Sales Hub and Service Hub Professional/Enterprise; see each rollout for details.",
+          "status": "live",
+          "hubs": [
+            "Sales Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "admin-data-governance-and-sandboxes",
+          "title": "Admin, data governance, and sandboxes",
+          "description": "New tools help admins manage changes, cleanups, and experimentation safely. Availability:\nLive for Enterprise hubs and Smart CRM Enterprise, with some restore features extended to Starter and Pro.",
+          "status": "live",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "permissions-privacy-and-ai-training-controls",
+          "title": "Permissions, privacy, and AI training controls",
+          "description": "Two updates give admins more predictable access control and AI governance. Availability:\nLive for all hubs and tiers.",
+          "status": "live",
+          "hubs": [
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-30T22:00:00.000Z"
+        },
+        {
+          "id": "new-capabilities",
+          "title": "New Capabilities",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "deprecation-reminder",
+          "title": "Deprecation Reminder",
+          "description": "Legacy CRM Cards will be fully deprecated on October 31st, 2026, and can no longer be created via the HubSpot UI.",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "who-needs-to-take-action",
+          "title": "Who Needs to Take Action",
+          "description": "Developers should migrate if: What does this mean for developers? To begin migrating a legacy CRM card to an app card, follow the steps below or refer to this video demo. Step 1: Prepare Your App Upgrade to the latest HubSpot CLI version and connect to your HubSpot account: Step 2: Migrate Your App Ensure your Public (legacy) app is on the Projects Framework (Developer Platform version 2026.03+). If your app is not on the Project Framework, run: This migrates your app and existing legacy CRM car",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "important-migration-notes",
+          "title": "Important migration notes",
+          "description": "",
+          "status": "update",
+          "hubs": [
+            "Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "ticket-support-considerations",
+          "title": "Ticket Support Considerations",
+          "description": "If your legacy CRM card supports tickets, it’s important to note the following:",
+          "status": "update",
+          "hubs": [
+            "Service Hub"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "release-the-app-card",
+          "title": "Release the App Card",
+          "description": "For migrated Marketplace apps: Note: To publish your app in the App Marketplace for the first time or to apply for certification if you already have a Marketplace-listed app, you must migrate and remove any legacy CRM cards and meet the Marketplace certification requirements and listing requirements.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "migrate-customer-views",
+          "title": "Migrate Customer Views",
+          "description": "Call the Migrate Views API once your replacement card is completed. Listed below are the required parameters: This migration runs asynchronously across all installs. HubSpot will process the view updates asynchronously. Migration Underway: X of X installs still processing After the migration, the legacy CRM cards will no longer be visible and will be replaced by the app card. You can then safely remove the legacy card from your source code. If you do not remove it, the legacy CRM card will be au",
+          "status": "update",
+          "hubs": [
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "why-it-matters",
+          "title": "Why it matters",
+          "description": "A leaked client secret can allow an attacker to create or generate OAuth tokens indefinitely. Previously, rotating a secret required opening a support ticket, a process that could take hours or days. This feature enables immediate, self-service response to security incidents.",
+          "status": "update",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "action-required",
+          "title": "Action required",
+          "description": "No action is required at this time. If your app's client secret is compromised, you can now rotate it directly in your app's settings.",
+          "status": "update",
+          "hubs": [
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "associatewithcontactid",
+          "title": "associateWithContactId",
+          "description": "Channels using the CHANNEL_SPECIFIC_OPAQUE_ID delivery identifier type can now pass a HubSpot contact record ID when sending the first outgoing message of a thread via POST /conversations/custom-channels/2026-03/{channelId}/messages. Example of associateWithContactId: Constraints: only applies to CHANNEL_SPECIFIC_OPAQUE_ID channels; only takes effect on the first OUTGOING message of a thread; the contact ID is validated and must exist; requests on any other message type will be rejected. Channel",
+          "status": "live",
+          "hubs": [
+            "Marketing Hub",
+            "Service Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "senderactorid",
+          "title": "senderActorId",
+          "description": "All outgoing messages now accept an optional senderActorId field to record which actor (for example, a support rep, integration, or external chatbot) sent the message. When provided, senderActorId is used to attribute the message to that actor in Conversations (for example, which rep is shown as the sender). Example of a valid outgoing message with senderActorId: If senderActorId is missing, invalid, or used in the wrong context, the API returns HTTP 400 with a VALIDATION_ERROR response using th",
+          "status": "update",
+          "hubs": [
+            "Service Hub",
+            "Developer Platform"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "workflow-action-to-change-contact-participant-state-for-a-marketing-event",
+          "title": "Workflow action to change contact participant state for a marketing event",
+          "description": "You can now automatically mark contacts’ participant state on manually created Marketing Events using a new workflow action. With this workflow action, automatically mark contacts as: Previously, businesses that relied on marketing events for lead generation and nurturing couldn't directly change contacts participation status for a marketing event. This update streamlines and automates that process. This workflow action is available for Pro+ customers. Learn more in the Product Update.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        },
+        {
+          "id": "hubspot-ip-ranges-notifications",
+          "title": "HubSpot IP Ranges Notifications",
+          "description": "Introducing email notifications for HubSpot IP range changes. Customers can now subscribe to receive notifications when HubSpot’s published IP ranges are added, modified, or removed, allowing them to proactively update their firewall rules and network configurations. Super admins can subscribe to email notifications via Settings → Notification Preferences → Security → IP Range Updates. Questions or comments? Please join us in our developer forums.",
+          "status": "update",
+          "hubs": [
+            "Marketing Hub",
+            "Developer Platform",
+            "Breeze AI"
+          ],
+          "source": "releasebot-product",
+          "sourceUrl": "https://releasebot.io/updates/hubspot",
+          "pubDate": "2026-04-29T22:00:00.000Z"
+        }
+      ],
+      "statusChanged": [],
+      "updated": []
+    },
+    "itemsFound": 183,
+    "health": {
+      "portal": {
+        "ok": false,
+        "status": "auth_failed",
+        "httpStatus": 401,
+        "checkedAt": "2026-05-02T06:02:15.257Z",
+        "message": "Portal API returned HTTP 401",
+        "itemsFetched": 0,
+        "latestPortalItemDate": "2026-04-21T14:47:51.587Z",
+        "latestPortalItemTitle": "Data Agent: CRM Data Source",
+        "portalStaleHours": 255.25,
+        "portalStaleDays": 10.64,
+        "staleThresholdHours": 48,
+        "lastAlertAt": "2026-05-02T06:02:41.281Z"
+      }
+    },
+    "timestamp": "2026-05-02T06:02:41.297Z"
+  }
+]
