@@ -42,6 +42,130 @@ setInterval(runScan, SCAN_INTERVAL_MS);
 
 const API_KEY = process.env.API_KEY || '';
 
+const ADMIN_KEY = process.env.ADMIN_KEY || API_KEY;
+const RAILWAY_GRAPHQL_URL = 'https://backboard.railway.com/graphql/v2';
+const RAILWAY_PROJECT_ID = process.env.RAILWAY_PROJECT_ID || '3cb77a7c-7e8a-40b2-81b0-82d4c9a66814';
+const RAILWAY_SERVICE_ID = process.env.RAILWAY_SERVICE_ID || 'c9ec4ad2-bf4f-4ba1-8b1b-7bb634271494';
+const RAILWAY_ENVIRONMENT_ID = process.env.RAILWAY_ENVIRONMENT_ID || '84898a63-62a2-4225-a57c-fcb700f5d315';
+const PORTAL_VALIDATE_URL = 'https://app-eu1.hubspot.com/api/product-updates/v3/rollout-product-updates/list?portalId=139633041&limit=1&offset=0';
+const PRODUCT_UPDATES_URL = 'https://app-eu1.hubspot.com/product-updates/139633041/all';
+
+function getAdminKey(req) {
+  return req.headers['x-admin-key'] || req.query.key || req.body?.adminKey || '';
+}
+
+function requireAdmin(req, res) {
+  const key = getAdminKey(req);
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    res.status(401).json({ ok: false, error: 'Invalid or missing admin key' });
+    return false;
+  }
+  return true;
+}
+
+function normalizeCookieValue(value) {
+  return String(value || '').trim().replace(/^hubspotapi(?:-csrf)?=/, '').replace(/;$/, '').trim();
+}
+
+function validateCookieShape(cookie, csrf) {
+  const errors = [];
+  if (!cookie || cookie.length < 100) errors.push('hubspotapi value is missing or too short');
+  if (!csrf || csrf.length < 40) errors.push('hubspotapi-csrf value is missing or too short');
+  if (cookie.includes(';') || csrf.includes(';')) errors.push('Paste raw cookie values only, not a full Cookie header');
+  return errors;
+}
+
+async function validatePortalCookies(cookie, csrf) {
+  const response = await fetch(PORTAL_VALIDATE_URL, {
+    headers: {
+      'accept': 'application/json, text/javascript, */*; q=0.01',
+      'referer': PRODUCT_UPDATES_URL,
+      'cookie': portalCookieHeader(cookie, csrf),
+      'x-hubspot-csrf-hubspotapi': csrf,
+      'user-agent': 'Mozilla/5.0',
+    },
+    signal: AbortSignal.timeout(15000),
+  });
+
+  let body = null;
+  try { body = await response.json(); } catch {}
+  const latest = Array.isArray(body?.results) ? body.results[0] : null;
+  return {
+    ok: response.ok,
+    httpStatus: response.status,
+    message: response.ok ? 'HubSpot portal cookies are valid' : `HubSpot portal API returned HTTP ${response.status}`,
+    latestPortalItem: latest ? {
+      title: latest.title || latest.name || null,
+      pubDate: latest.publishedAt || latest.publishDate || latest.updatedAt || null,
+    } : null,
+  };
+}
+
+async function railwayGraphql(query, variables) {
+  const token = process.env.RAILWAY_TOKEN || process.env.RAILWAY_API_TOKEN || process.env.RAILWAY_API_KEY;
+  if (!token) return { ok: false, skipped: true, message: 'Railway token env var is not configured' };
+  const response = await fetch(RAILWAY_GRAPHQL_URL, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+    signal: AbortSignal.timeout(20000),
+  });
+  const json = await response.json().catch(() => ({}));
+  if (!response.ok || json.errors) {
+    return { ok: false, status: response.status, errors: json.errors || null, message: 'Railway GraphQL request failed' };
+  }
+  return { ok: true, data: json.data };
+}
+
+async function upsertRailwayVariable(name, value) {
+  return railwayGraphql(
+    'mutation Upsert($input: VariableUpsertInput!) { variableUpsert(input: $input) }',
+    { input: { projectId: RAILWAY_PROJECT_ID, environmentId: RAILWAY_ENVIRONMENT_ID, serviceId: RAILWAY_SERVICE_ID, name, value } },
+  );
+}
+
+async function redeployRailwayService() {
+  return railwayGraphql(
+    'mutation Redeploy($serviceId: String!, $environmentId: String!) { serviceInstanceRedeploy(serviceId: $serviceId, environmentId: $environmentId) }',
+    { serviceId: RAILWAY_SERVICE_ID, environmentId: RAILWAY_ENVIRONMENT_ID },
+  );
+}
+
+async function sendDiscordNotice(content) {
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return false;
+  try {
+    const response = await fetch(webhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content }),
+      signal: AbortSignal.timeout(10000),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function runScanNow() {
+  const { execFile } = await import('child_process');
+  const { promisify } = await import('util');
+  const exec = promisify(execFile);
+  const { stdout, stderr } = await exec('node', [path.join(__dirname, 'index.js')], { timeout: 180000, maxBuffer: 1024 * 1024 });
+  const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+  const portal = await checkPortalAuth(state);
+  return {
+    ok: true,
+    lastScan: state.lastScan,
+    scanCount: state.scanCount,
+    totalTracked: Object.keys(state.betas || {}).length,
+    portal,
+    outputTail: stdout.split('\n').slice(-12).join('\n'),
+    stderrTail: stderr ? stderr.split('\n').slice(-8).join('\n') : undefined,
+  };
+}
+
+
 const app = express();
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -162,6 +286,61 @@ app.get('/api/scan', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Scan failed', message: err.message, stdout: err.stdout?.slice(-2000), stderr: err.stderr?.slice(-2000) });
   }
+});
+
+
+app.post('/api/admin/portal-cookies/refresh', async (req, res) => {
+  if (!requireAdmin(req, res)) return;
+
+  const cookie = normalizeCookieValue(req.body?.hubspotapi || req.body?.cookie || '');
+  const csrf = normalizeCookieValue(req.body?.csrf || req.body?.hubspotapiCsrf || req.body?.hubspotapi_csrf || '');
+  const shapeErrors = validateCookieShape(cookie, csrf);
+  if (shapeErrors.length) return res.status(400).json({ ok: false, error: shapeErrors.join('; ') });
+
+  try {
+    const validation = await validatePortalCookies(cookie, csrf);
+    if (!validation.ok) {
+      await sendDiscordNotice(`⚠️ **HubSpot cookie refresh failed**\nValidation returned HTTP ${validation.httpStatus}. No Railway variables were updated.`);
+      return res.status(400).json({ ok: false, phase: 'validate', validation });
+    }
+
+    process.env.HUBSPOT_PORTAL_COOKIE = cookie;
+    process.env.HUBSPOT_PORTAL_CSRF = csrf;
+
+    const cookieUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_COOKIE', cookie);
+    const csrfUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_CSRF', csrf);
+    if (!cookieUpsert.ok || !csrfUpsert.ok) {
+      await sendDiscordNotice('⚠️ **HubSpot cookie refresh validated, but Railway update failed**\nThe live process has the fresh cookies for this run, but Railway env vars were not persisted.');
+      return res.status(502).json({ ok: false, phase: 'railway_update', validation, railway: { cookieUpsert, csrfUpsert } });
+    }
+
+    const redeploy = await redeployRailwayService();
+    const scan = await runScanNow();
+    const latest = scan.portal?.latestPortalItemTitle || validation.latestPortalItem?.title || 'unknown';
+    await sendDiscordNotice([
+      '✅ **HubSpot Product Updates tracker refreshed**',
+      '',
+      'Cookies validated and Railway vars updated.',
+      `Scan status: ${scan.portal?.status || 'unknown'}`,
+      `Last portal item: ${scan.portal?.latestPortalItemDate || validation.latestPortalItem?.pubDate || 'unknown'} — ${latest}`,
+      `Total tracked: ${scan.totalTracked || 'unknown'}`,
+    ].join('\n'));
+
+    res.json({ ok: true, validation, railway: { cookieUpsert: cookieUpsert.ok, csrfUpsert: csrfUpsert.ok, redeploy }, scan });
+  } catch (err) {
+    await sendDiscordNotice(`⚠️ **HubSpot cookie refresh errored**\n${err.message}`);
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+app.post('/api/admin/portal-cookies/validate', async (req, res) => {
+  if (!requireAdmin(req, res)) return;
+  const cookie = normalizeCookieValue(req.body?.hubspotapi || req.body?.cookie || '');
+  const csrf = normalizeCookieValue(req.body?.csrf || req.body?.hubspotapiCsrf || req.body?.hubspotapi_csrf || '');
+  const shapeErrors = validateCookieShape(cookie, csrf);
+  if (shapeErrors.length) return res.status(400).json({ ok: false, error: shapeErrors.join('; ') });
+  const validation = await validatePortalCookies(cookie, csrf);
+  res.status(validation.ok ? 200 : 400).json({ ok: validation.ok, validation });
 });
 
 app.post('/api/subscribe', async (req, res) => {

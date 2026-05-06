@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RSM HubSpot Tracker</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;margin:0;background:#0a0a0a;color:#e5e5e5;width:340px}
+    .wrap{padding:16px}.title{font-weight:700;font-size:16px;color:#fff;margin-bottom:6px}.muted{color:#999;font-size:12px;line-height:1.4;margin-bottom:14px}
+    button{width:100%;border:0;border-radius:8px;padding:11px 12px;font-weight:700;cursor:pointer;background:#17a192;color:#04110f;font-size:13px}
+    button:disabled{opacity:.55;cursor:not-allowed}.secondary{background:#1f2937;color:#e5e5e5;margin-top:8px}
+    .status{margin-top:12px;padding:10px;border-radius:8px;background:#151515;border:1px solid #2a2a2a;font-size:12px;line-height:1.45;white-space:pre-wrap;max-height:220px;overflow:auto}
+    .ok{border-color:#17a192;color:#bff7ef}.err{border-color:#ef4444;color:#fecaca}.warn{border-color:#f7931a;color:#fed7aa}
+    a{color:#17a192}.small{font-size:11px;color:#777;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">RSM HubSpot Tracker</div>
+    <div class="muted">Open the HubSpot Product Updates page, then click refresh. The extension reads only the two HubSpot cookies needed by the tracker.</div>
+    <button id="refresh">Refresh tracker from this HubSpot session</button>
+    <button class="secondary" id="openHubSpot">Open Product Updates</button>
+    <button class="secondary" id="options">Settings</button>
+    <div id="status" class="status">Ready.</div>
+    <div class="small">No cookie values are displayed or stored by this popup.</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

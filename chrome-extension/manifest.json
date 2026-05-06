@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "RSM HubSpot Tracker Refresh",
+  "version": "1.0.0",
+  "description": "Refreshes HubSpot Product Updates tracker cookies from your logged-in HubSpot browser session.",
+  "permissions": ["cookies", "storage", "activeTab"],
+  "host_permissions": [
+    "https://app-eu1.hubspot.com/*",
+    "https://updates.crmbyrsm.com/*"
+  ],
+  "action": {
+    "default_title": "Refresh RSM HubSpot tracker",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

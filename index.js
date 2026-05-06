@@ -206,9 +206,10 @@ async function maybeAlertPortalHealth(state, health) {
     `Last portal item: ${health.latestPortalItemDate || 'unknown'}${health.latestPortalItemTitle ? ` — ${health.latestPortalItemTitle}` : ''}`,
     `Last scan: ${state.lastScan || 'unknown'}`,
     '',
-    'Update Railway vars with fresh browser cookies:',
-    '- `HUBSPOT_PORTAL_COOKIE` = `hubspotapi` cookie value',
-    '- `HUBSPOT_PORTAL_CSRF` = `hubspotapi-csrf` cookie value',
+    'Refresh from your main Chrome session:',
+    '1. Open https://app-eu1.hubspot.com/product-updates/139633041/all',
+    '2. Click the RSM tracker Chrome extension button',
+    '3. Wait for the Discord confirmation',
   ].join('\n');
 
   const sent = await sendDiscordAlert(content);
