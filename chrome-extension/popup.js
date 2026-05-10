@@ -50,13 +50,14 @@ async function refreshTracker() {
 
     const data = await response.json().catch(() => ({}));
     if (!response.ok || !data.ok) {
-      setStatus(`Refresh failed.\n\n${data.error || data.validation?.message || `HTTP ${response.status}`}`, 'err');
+      const detail = data.error || data.warning || data.validation?.message || data.railway?.cookieUpsert?.message || data.railway?.csrfUpsert?.message || `HTTP ${response.status}`;
+      setStatus(`Refresh failed.\n\n${detail}`, 'err');
       return;
     }
 
     const portal = data.scan?.portal || {};
     const lines = [
-      'Done. Tracker refreshed.',
+      data.warning ? 'Done. Tracker refreshed with warning.' : 'Done. Tracker refreshed.',
       `Portal status: ${portal.status || 'ok'}`,
       `Last portal item: ${portal.latestPortalItemDate || data.validation?.latestPortalItem?.pubDate || 'unknown'}`,
     ];
@@ -64,7 +65,8 @@ async function refreshTracker() {
       lines.push(portal.latestPortalItemTitle || data.validation.latestPortalItem.title);
     }
     lines.push('Discord confirmation should arrive shortly.');
-    setStatus(lines.join('\n'), 'ok');
+    if (data.warning) lines.push(`Warning: ${data.warning}`);
+    setStatus(lines.join('\n'), data.warning ? 'warn' : 'ok');
   } catch (err) {
     setStatus(`Refresh errored.\n\n${err.message}`, 'err');
   } finally {

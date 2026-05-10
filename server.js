@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
 const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
+const PORTAL_AUTH_FILE = path.join(__dirname, 'portal-auth.json');
 // ─── Stats tracking ─────────────────────────────────────────────────────────
 const STATS_FILE = path.join(__dirname, 'stats.json');
 
@@ -172,6 +173,29 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // ─── Health Helpers ─────────────────────────────────────────────────────────
 
+function savePortalAuth(cookie, csrf) {
+  fs.writeFileSync(PORTAL_AUTH_FILE, JSON.stringify({ cookie, csrf, updatedAt: new Date().toISOString() }, null, 2));
+}
+
+function loadStoredPortalAuth() {
+  try {
+    const stored = JSON.parse(fs.readFileSync(PORTAL_AUTH_FILE, 'utf8'));
+    return { cookie: stored.cookie || '', csrf: stored.csrf || '', updatedAt: stored.updatedAt || null };
+  } catch {
+    return { cookie: '', csrf: '', updatedAt: null };
+  }
+}
+
+function getPortalAuth() {
+  const stored = loadStoredPortalAuth();
+  return {
+    cookie: stored.cookie || process.env.HUBSPOT_PORTAL_COOKIE || '',
+    csrf: stored.csrf || process.env.HUBSPOT_PORTAL_CSRF || '',
+    source: stored.cookie && stored.csrf ? 'runtime_file' : 'environment',
+    updatedAt: stored.updatedAt,
+  };
+}
+
 function getLatestPortalItem(state) {
   const portalItems = Object.values(state?.betas || {}).filter(item => item.source === 'portal-updates');
   if (!portalItems.length) return null;
@@ -199,8 +223,7 @@ function portalCookieHeader(cookie, csrf) {
 }
 
 async function checkPortalAuth(state) {
-  const cookie = process.env.HUBSPOT_PORTAL_COOKIE || '';
-  const csrf = process.env.HUBSPOT_PORTAL_CSRF || '';
+  const { cookie, csrf } = getPortalAuth();
   const freshness = calculatePortalFreshness(state);
   const staleThresholdHours = Number(process.env.STALE_PORTAL_HOURS || 48);
 
@@ -306,27 +329,30 @@ app.post('/api/admin/portal-cookies/refresh', async (req, res) => {
 
     process.env.HUBSPOT_PORTAL_COOKIE = cookie;
     process.env.HUBSPOT_PORTAL_CSRF = csrf;
+    savePortalAuth(cookie, csrf);
 
     const cookieUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_COOKIE', cookie);
     const csrfUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_CSRF', csrf);
-    if (!cookieUpsert.ok || !csrfUpsert.ok) {
-      await sendDiscordNotice('⚠️ **HubSpot cookie refresh validated, but Railway update failed**\nThe live process has the fresh cookies for this run, but Railway env vars were not persisted.');
-      return res.status(502).json({ ok: false, phase: 'railway_update', validation, railway: { cookieUpsert, csrfUpsert } });
-    }
-
-    const redeploy = await redeployRailwayService();
+    const railwayPersisted = cookieUpsert.ok && csrfUpsert.ok;
+    const redeploy = railwayPersisted ? await redeployRailwayService() : { ok: false, skipped: true, message: 'Skipped because Railway variable update failed' };
     const scan = await runScanNow();
     const latest = scan.portal?.latestPortalItemTitle || validation.latestPortalItem?.title || 'unknown';
     await sendDiscordNotice([
       '✅ **HubSpot Product Updates tracker refreshed**',
       '',
-      'Cookies validated and Railway vars updated.',
+      railwayPersisted ? 'Cookies validated and Railway vars updated.' : 'Cookies validated and tracker refreshed. Railway persistence failed, so runtime fallback auth was used.',
       `Scan status: ${scan.portal?.status || 'unknown'}`,
       `Last portal item: ${scan.portal?.latestPortalItemDate || validation.latestPortalItem?.pubDate || 'unknown'} — ${latest}`,
       `Total tracked: ${scan.totalTracked || 'unknown'}`,
     ].join('\n'));
 
-    res.json({ ok: true, validation, railway: { cookieUpsert: cookieUpsert.ok, csrfUpsert: csrfUpsert.ok, redeploy }, scan });
+    res.json({
+      ok: true,
+      warning: railwayPersisted ? null : 'Railway variable update failed. The tracker was refreshed using runtime fallback auth, but cookies may need to be refreshed again after the next deployment.',
+      validation,
+      railway: { cookieUpsert: cookieUpsert.ok, csrfUpsert: csrfUpsert.ok, persisted: railwayPersisted, redeploy },
+      scan,
+    });
   } catch (err) {
     await sendDiscordNotice(`⚠️ **HubSpot cookie refresh errored**\n${err.message}`);
     res.status(500).json({ ok: false, error: err.message });

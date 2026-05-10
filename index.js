@@ -24,6 +24,7 @@ import { parse as parseHTML } from 'node-html-parser';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
+const PORTAL_AUTH_FILE = path.join(__dirname, 'portal-auth.json');
 const HISTORY_DIR = path.join(__dirname, 'history');
 
 // ─── Sources ────────────────────────────────────────────────────────────────
@@ -111,6 +112,10 @@ function detectStatus(text) {
 }
 
 function loadPortalAuth() {
+  try {
+    const stored = JSON.parse(fs.readFileSync(PORTAL_AUTH_FILE, 'utf8'));
+    if (stored.cookie && stored.csrf) return { cookie: stored.cookie, csrf: stored.csrf };
+  } catch {}
   const cookie = process.env.HUBSPOT_PORTAL_COOKIE || '';
   const csrf = process.env.HUBSPOT_PORTAL_CSRF || '';
   return { cookie, csrf };
