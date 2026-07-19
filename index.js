@@ -192,7 +192,9 @@ async function sendDiscordAlert(content) {
 }
 
 async function maybeAlertPortalHealth(state, health) {
-  if (health.ok !== false) return;
+  // A quiet release period is not evidence that the browser cookie expired.
+  // Only ask Ricardo to refresh when the portal API itself rejects or lacks auth.
+  if (!['auth_failed', 'missing_auth'].includes(health.status)) return;
   const prior = state.health?.portal || {};
   const lastAlertAt = prior.lastAlertAt ? new Date(prior.lastAlertAt).getTime() : 0;
   const alertCooldownHours = Number(process.env.PORTAL_ALERT_COOLDOWN_HOURS || 12);
