@@ -331,16 +331,29 @@ app.post('/api/admin/portal-cookies/refresh', async (req, res) => {
     process.env.HUBSPOT_PORTAL_CSRF = csrf;
     savePortalAuth(cookie, csrf);
 
-    const cookieUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_COOKIE', cookie);
-    const csrfUpsert = await upsertRailwayVariable('HUBSPOT_PORTAL_CSRF', csrf);
-    const railwayPersisted = cookieUpsert.ok && csrfUpsert.ok;
-    const redeploy = railwayPersisted ? await redeployRailwayService() : { ok: false, skipped: true, message: 'Skipped because Railway variable update failed' };
+    const usesPersistentAuthFile = Boolean(process.env.PORTAL_AUTH_FILE);
+    const cookieUpsert = usesPersistentAuthFile
+      ? { ok: true, skipped: true, message: 'Portal auth saved to persistent volume' }
+      : await upsertRailwayVariable('HUBSPOT_PORTAL_COOKIE', cookie);
+    const csrfUpsert = usesPersistentAuthFile
+      ? { ok: true, skipped: true, message: 'Portal auth saved to persistent volume' }
+      : await upsertRailwayVariable('HUBSPOT_PORTAL_CSRF', csrf);
+    const railwayPersisted = usesPersistentAuthFile || (cookieUpsert.ok && csrfUpsert.ok);
+    const redeploy = usesPersistentAuthFile
+      ? { ok: true, skipped: true, message: 'No redeploy required; portal auth is on the persistent volume' }
+      : railwayPersisted
+        ? await redeployRailwayService()
+        : { ok: false, skipped: true, message: 'Skipped because Railway variable update failed' };
     const scan = await runScanNow();
     const latest = scan.portal?.latestPortalItemTitle || validation.latestPortalItem?.title || 'unknown';
     await sendDiscordNotice([
       '✅ **HubSpot Product Updates tracker refreshed**',
       '',
-      railwayPersisted ? 'Cookies validated and Railway vars updated.' : 'Cookies validated and tracker refreshed. Railway persistence failed, so runtime fallback auth was used.',
+      usesPersistentAuthFile
+        ? 'Cookies validated and saved to persistent tracker storage.'
+        : railwayPersisted
+          ? 'Cookies validated and Railway vars updated.'
+          : 'Cookies validated and tracker refreshed. Railway persistence failed, so runtime fallback auth was used.',
       `Scan status: ${scan.portal?.status || 'unknown'}`,
       `Last portal item: ${scan.portal?.latestPortalItemDate || validation.latestPortalItem?.pubDate || 'unknown'} — ${latest}`,
       `Total tracked: ${scan.totalTracked || 'unknown'}`,
