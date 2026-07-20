@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
 const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
-const PORTAL_AUTH_FILE = path.join(__dirname, 'portal-auth.json');
+const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(__dirname, 'portal-auth.json');
 // ─── Stats tracking ─────────────────────────────────────────────────────────
 const STATS_FILE = path.join(__dirname, 'stats.json');
 

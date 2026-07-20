@@ -24,7 +24,7 @@ import { parse as parseHTML } from 'node-html-parser';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, 'state.json');
-const PORTAL_AUTH_FILE = path.join(__dirname, 'portal-auth.json');
+const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(__dirname, 'portal-auth.json');
 const HISTORY_DIR = path.join(__dirname, 'history');
 
 // ─── Sources ────────────────────────────────────────────────────────────────
