@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>hubspot-beta-tracker</Name>
+  <Repository>ghcr.io/crmbyrsm/hubspot-beta-tracker:unraid</Repository>
+  <Registry>https://ghcr.io</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/CRMbyRSM/hubspot-beta-tracker</Support>
+  <Project>https://updates.crmbyrsm.com</Project>
+  <Overview>Tracks HubSpot product updates, betas, rollouts, and sunsets. Persistent tracker state and portal authentication live under Unraid appdata.</Overview>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <Icon>https://cdn.simpleicons.org/hubspot/ff7a59</Icon>
+  <ExtraParams>--restart unless-stopped</ExtraParams>
+  <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp" Description="Local tracker HTTP port; Cloudflare Tunnel routes the public hostname." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Persistent data" Target="/data" Default="/mnt/user/data/appdata/hubspot-beta-tracker" Mode="rw" Description="Tracker state, scan history, browser-auth file, subscriber list, and local stats." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data/appdata/hubspot-beta-tracker</Config>
+  <Config Name="Data directory" Target="DATA_DIR" Default="/data" Mode="" Description="Persistent data directory inside the container." Type="Variable" Display="advanced" Required="true" Mask="false">/data</Config>
+  <Config Name="Portal auth file" Target="PORTAL_AUTH_FILE" Default="/data/portal-auth.json" Mode="" Description="Persistent Chrome-extension refresh target; do not put cookie values in this template." Type="Variable" Display="advanced" Required="true" Mask="false">/data/portal-auth.json</Config>
+  <Config Name="Admin API key" Target="ADMIN_KEY" Default="" Mode="" Description="Existing key accepted from the Chrome refresh extension. Keep this value masked." Type="Variable" Display="advanced" Required="true" Mask="true"></Config>
+  <Config Name="Scan API key" Target="API_KEY" Default="" Mode="" Description="Existing key protecting the manual scan endpoint. Keep this value masked." Type="Variable" Display="advanced" Required="true" Mask="true"></Config>
+  <Config Name="Discord alert webhook" Target="DISCORD_WEBHOOK_URL" Default="" Mode="" Description="Optional existing alert destination. Keep this value masked." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="HubSpot access token" Target="HUBSPOT_ACCESS_TOKEN" Default="" Mode="" Description="Optional existing subscriber-sync credential. Keep this value masked." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="Portal stale threshold hours" Target="STALE_PORTAL_HOURS" Default="72" Mode="" Description="Health endpoint returns unhealthy when the newest authenticated portal item is older than this threshold." Type="Variable" Display="advanced" Required="true" Mask="false">72</Config>
+  <Config Name="Portal alert cooldown hours" Target="PORTAL_ALERT_COOLDOWN_HOURS" Default="12" Mode="" Description="Minimum time between portal-auth failure alerts." Type="Variable" Display="advanced" Required="true" Mask="false">12</Config>
+</Container>

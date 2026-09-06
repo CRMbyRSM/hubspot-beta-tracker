@@ -23,9 +23,11 @@ import { XMLParser } from 'fast-xml-parser';
 import { parse as parseHTML } from 'node-html-parser';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const STATE_FILE = path.join(__dirname, 'state.json');
-const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(__dirname, 'portal-auth.json');
-const HISTORY_DIR = path.join(__dirname, 'history');
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+fs.mkdirSync(DATA_DIR, { recursive: true });
+const STATE_FILE = path.join(DATA_DIR, 'state.json');
+const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(DATA_DIR, 'portal-auth.json');
+const HISTORY_DIR = path.join(DATA_DIR, 'history');
 
 // ─── Sources ────────────────────────────────────────────────────────────────
 

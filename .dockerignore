@@ -1,0 +1,14 @@
+.git
+.github
+node_modules
+.env
+*.log
+.auth-cookies
+.hubspot-cookies
+*.cookies
+.railway
+state.json
+stats.json
+subscribers.json
+portal-auth.json
+history

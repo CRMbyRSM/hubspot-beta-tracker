@@ -4,11 +4,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const STATE_FILE = path.join(__dirname, 'state.json');
-const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
-const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(__dirname, 'portal-auth.json');
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+fs.mkdirSync(DATA_DIR, { recursive: true });
+const STATE_FILE = path.join(DATA_DIR, 'state.json');
+const SUBSCRIBERS_FILE = path.join(DATA_DIR, 'subscribers.json');
+const PORTAL_AUTH_FILE = process.env.PORTAL_AUTH_FILE || path.join(DATA_DIR, 'portal-auth.json');
 // ─── Stats tracking ─────────────────────────────────────────────────────────
-const STATS_FILE = path.join(__dirname, 'stats.json');
+const STATS_FILE = path.join(DATA_DIR, 'stats.json');
 
 function loadStats() {
   try { return JSON.parse(fs.readFileSync(STATS_FILE, 'utf8')); } catch { return { views: 0, startDate: new Date().toISOString() }; }
@@ -38,7 +40,7 @@ function runScan() {
 
 // Run once on startup (after 30s delay to let server stabilise)
 setTimeout(runScan, 30000);
-// Then every 8 hours
+// Then once every 24 hours
 setInterval(runScan, SCAN_INTERVAL_MS);
 
 const API_KEY = process.env.API_KEY || '';
