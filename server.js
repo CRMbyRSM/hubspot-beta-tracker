@@ -1,4 +1,5 @@
 import express from 'express';
+import { sourceLink } from './source-links.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -261,6 +262,7 @@ async function checkPortalAuth(state) {
 app.get('/api/betas', (_req, res) => {
   try {
     const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    for (const item of Object.values(state.betas || {})) item.sourceUrl = sourceLink(item);
     res.json(state);
   } catch (err) {
     res.status(500).json({ error: 'Could not read state file' });
